@@ -15,4 +15,4 @@ This is a Rails application. After cloning the repository, you can:
 * Install dependencies with `bundle install`.
 * Run the server in _development_ with `rails server`.
 
-&copy; 2018 Nathan Struhs, Dylan Drudge, Yong Bakos. All rights reserved.
+&copy; 2018 Nathan Struhs, Dylan Drudge. All rights reserved.

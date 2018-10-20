@@ -38,9 +38,56 @@
       </div>
     </nav>
 
-    <h1>Detectors</h1>
-    <a href="detector-new.html">New</a>
-    <a href="detector-edit.html">Edit</a>
+    <div class="container">
+      <h1>Detectors</h1>
+
+      <div style="margin-bottom: 50px"></div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Logger Code</th>
+            <th scope="col">Model</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Firmware</th>
+            <th scope="col">Serial #</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>ODFW-12345</td>
+            <td>D500X</td>
+            <td>Petterson</td>
+            <td>2.2.8</td>
+            <td>12345</td>
+            <td><a href="detector-edit.html">Edit</a></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>miniMIC-Pat</td>
+            <td>miniMIC</td>
+            <td>Binary Acoustic Technology</td>
+            <td>~</td>
+            <td>0</td>
+            <td><a href="detector-edit.html">Edit</a></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>ODFW-67891</td>
+            <td>D500X</td>
+            <td>Petterson</td>
+            <td>2.2.6</td>
+            <td>67891</td>
+            <td><a href="detector-edit.html">Edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a class="btn btn-primary" href="detector-new.html" role="button">New +</a>
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

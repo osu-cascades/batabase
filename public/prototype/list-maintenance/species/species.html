@@ -38,9 +38,57 @@
       </div>
     </nav>
 
-    <h1>Species</h1>
-    <a href="species-new.html">New</a>
-    <a href="species-edit.html">Edit</a>
+    <div class="container">
+      <h1>Species</h1>
+
+      <div style="margin-bottom: 50px"></div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Code</th>
+            <th scope="col">Common Name</th>
+            <th scope="col">Scientific Name</th>
+            <th scope="col">TSN</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>IDPH</td>
+            <td>Allen's Big Eared Bat</td>
+            <td>Idonycteris phyllotis</td>
+            <td>~</td>
+            <td><a href="species-edit.html">Edit</a></td>
+            <td><a href="#">Remove</a></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>BRCA</td>
+            <td>Antillean Fruit Eating Bat</td>
+            <td>Brachpylla cavenarum</td>
+            <td>~</td>
+            <td><a href="species-edit.html">Edit</a></td>
+            <td><a href="#">Remove</a></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>MYOC</td>
+            <td>Arizona Myotis</td>
+            <td>Myotis occultus</td>
+            <td>~</td>
+            <td><a href="species-edit.html">Edit</a></td>
+            <td><a href="#">Remove</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a class="btn btn-primary" href="species-new.html" role="button">New +</a>
+
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

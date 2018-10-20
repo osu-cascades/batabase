@@ -38,9 +38,41 @@
       </div>
     </nav>
 
-    <h1>Datum</h1>
-    <a href="datum-new.html">New</a>
-    <a href="datum-edit.html">Edit</a>
+    <div class="container">
+      <h1>Datum</h1>
+
+      <div style="margin-bottom: 50px"></div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Datum</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>NAD27</td>
+            <td><a href="#">Remove</a></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>NAD83</td>
+            <td><a href="#">Remove</a></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>WGS84</td>
+            <td><a href="#">Remove</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a class="btn btn-primary" href="datum-new.html" role="button">New +</a>
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

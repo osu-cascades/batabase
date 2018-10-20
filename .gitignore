@@ -7,7 +7,7 @@
 
 /node_modules
 /yarn-error.log
-
+.DS_Store
 .byebug_history
 /public/packs
 /public/packs-test

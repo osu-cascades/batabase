@@ -38,9 +38,34 @@
       </div>
     </nav>
 
-    <h1>Study Areas</h1>
-    <a href="study-areas-new.html">New</a>
-    <a href="study-areas-edit.html">Edit</a>
+    <div class="container">
+      <h1>Study Areas</h1>
+
+      <div style="margin-bottom: 50px"></div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>OR</td>
+            <td>Oregon Bat Grid 2.0</td>
+            <td><a href="study-areas-edit.html">Edit</a></td>
+            <td><a href="#">Remove</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a class="btn btn-primary" href="study-areas-new.html" role="button">New +</a>
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

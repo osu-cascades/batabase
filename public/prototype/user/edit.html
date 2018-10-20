@@ -29,7 +29,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="../admin/dashboard.html">Admin</a>
-              <a class="dropdown-item active" href="#">Profile</a>
+              <a class="dropdown-item active" href="profile.html">Profile</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="sign-in.html">Logout</a>
             </div>
@@ -38,16 +38,28 @@
       </div>
     </nav>
 
-    <h1>Edit Profile</h1>
+    <div class="container">
+      <h1>Edit Profile</h1>
 
-    <div class="card" style="width: 40rem;">
-      <img class="card-img-top" src="../../IMG_2283.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Account 1</h5>
-        <input class="card-name" placeholder="Name"></input><br>
-        <input class="card-email" placeholder="Email"></input><br>
-        <a href="user-profile-screen.html" class="btn btn-primary">Save</a>
-      </div>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email placeholder">
+        </div>
+        <div class="form-group">
+          <label for="first-name1">First Name</label>
+          <input type="input" class="form-control" id="first-name" placeholder="First name placeholder">
+        </div>
+        <div class="form-group">
+          <label for="first-name1">Last Name</label>
+          <input type="input" class="form-control" id="first-name" placeholder="Last name placeholder">
+        </div>
+        <div class="form-group">
+          <label for="first-name1">Organization</label>
+          <input type="input" class="form-control" id="first-name" placeholder="Organization placeholder">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
 
 

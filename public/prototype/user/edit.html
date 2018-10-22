@@ -14,31 +14,54 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="../list-maintenance.html">List Maintenance</a>
+          <li class="nav-item">
+            <a class="nav-link" href="../list-maintenance/list-maintenance.html">List Maintenance</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../sample-unit/sample-unit.html">Sample Units</a>
+            <a class="nav-link" href="../sample-unit/sample-unit.html">Sample Units</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../deployments/deployments.html">Deployments</a>
+            <a class="nav-link" href="../deployments/deployments.html">Deployments</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Example Username
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="../../admin/dashboard.html">Admin</a>
-              <a class="dropdown-item" href="../../user/profile.html">Profile</a>
+              <a class="dropdown-item" href="../admin/dashboard.html">Admin</a>
+              <a class="dropdown-item active" href="profile.html">Profile</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="../../user/sign-in.html">Logout</a>
+              <a class="dropdown-item" href="sign-in.html">Logout</a>
             </div>
           </li>
         </ul>
       </div>
     </nav>
 
-    <h1>Edit Waterbody Type</h1>
+    <div class="container">
+      <h1>Edit Profile</h1>
+
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email placeholder">
+        </div>
+        <div class="form-group">
+          <label for="first-name1">First Name</label>
+          <input type="input" class="form-control" id="first-name" placeholder="First name placeholder">
+        </div>
+        <div class="form-group">
+          <label for="first-name1">Last Name</label>
+          <input type="input" class="form-control" id="first-name" placeholder="Last name placeholder">
+        </div>
+        <div class="form-group">
+          <label for="first-name1">Organization</label>
+          <input type="input" class="form-control" id="first-name" placeholder="Organization placeholder">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

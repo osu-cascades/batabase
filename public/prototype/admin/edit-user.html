@@ -24,31 +24,96 @@
             <a class="nav-link" href="../deployments/deployments.html">Deployments</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Example Username
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item active" href="#">Admin</a>
-              <a class="dropdown-item" href="../user/profile.html">Profile</a>
+              <a class="dropdown-item" href="../admin/dashboard.html">Admin</a>
+              <a class="dropdown-item active" href="edit.html">Edit Profile</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="../user/sign-in.html">Logout</a>
+              <a class="dropdown-item" href="sign-in.html">Logout</a>
             </div>
           </li>
         </ul>
       </div>
     </nav>
 
-    <h1>Edit Example User</h1>
+    <div class="container">
+      <h1>Edit Profile</h1>
 
-    <div class="card" style="width: 40rem;">
-      <img class="card-img-top" src="../../IMG_2283.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Account 1</h5>
-        <input class="card-name" placeholder="Name"></input><br>
-        <input class="card-email" placeholder="Email"></input><br>
-        <a href="user-profile-screen.html" class="btn btn-primary">Save</a>
-      </div>
+      <form>
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Years of Experience</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Position Title</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Organization</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Address Type</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Address 2</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Zip</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Country</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Work Phone</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Extension</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <div class="form-group">
+          <label>Notes</label>
+          <input type="input" class="form-control" placeholder="~">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </form>
     </div>
+
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -15,21 +15,21 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "broad_habitats", id: :integer, default: -> { "nextval('\"tluBroadHabitat_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "broad_habitats", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
     t.index ["label"], name: "tluBroadHabitat_Label_key", unique: true
   end
 
-  create_table "clutter_types", id: :integer, default: -> { "nextval('\"tluClutterType_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "clutter_types", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
     t.index ["label"], name: "tluClutterType_Label_key", unique: true
   end
 
-  create_table "contacts", id: :integer, default: -> { "nextval('\"tluContact_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "last_name", limit: 50, null: false
     t.string "first_name", limit: 50, null: false
     t.string "middle_init", limit: 4
@@ -54,14 +54,14 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
-  create_table "datums", id: :integer, default: -> { "nextval('\"tluDatum_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "datums", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
     t.index ["label"], name: "tluDatum_Label_key", unique: true
   end
 
-  create_table "deployment_contacts", id: :integer, default: -> { "nextval('\"tblDeploymentContact_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "deployment_contacts", id: :serial, force: :cascade do |t|
     t.integer "deployment_id", null: false
     t.integer "contact_id", null: false
     t.string "created_by", limit: 255, null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["deployment_id", "contact_id"], name: "tblDeploymentContact_DeploymentID_ContactID_key", unique: true
   end
 
-  create_table "deployment_softwares", id: :integer, default: -> { "nextval('\"tblDeploymentSoftware_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "deployment_softwares", id: :serial, force: :cascade do |t|
     t.integer "deployment_id", null: false
     t.integer "software_id", null: false
     t.integer "contact_id"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["deployment_id"], name: "tblDeploymentSoftware_DeploymentID"
   end
 
-  create_table "deployments", id: :integer, default: -> { "nextval('\"tblDeployment_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "deployments", id: :serial, force: :cascade do |t|
     t.integer "point_location_id", null: false
     t.integer "audio_logger_id", null: false
     t.datetime "deployment_date", null: false
@@ -184,7 +184,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["species_group_id"], name: "tblDeployment_SpeciesGroupID"
   end
 
-  create_table "detector_locations", id: :integer, default: -> { "nextval('\"tblPointLocation_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "detector_locations", id: :serial, force: :cascade do |t|
     t.integer "site_id", null: false
     t.string "location_name", limit: 20, null: false
     t.integer "site_state_county_id", null: false
@@ -214,7 +214,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["site_id"], name: "tblPointLocation_SiteID"
   end
 
-  create_table "detectors", id: :integer, default: -> { "nextval('\"tluAudioLogger_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "detectors", id: :serial, force: :cascade do |t|
     t.string "code", limit: 20, null: false
     t.string "serial_num", limit: 50, null: false
     t.string "model", limit: 50
@@ -227,7 +227,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["code"], name: "tluAudioLogger_Code_key", unique: true
   end
 
-  create_table "distance_ranges", id: :integer, default: -> { "nextval('\"tluDistanceRange_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "distance_ranges", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.integer "sort_order"
     t.datetime "updated_at"
@@ -235,7 +235,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["label"], name: "tluDistanceRange_Label_key", unique: true
   end
 
-  create_table "kaleidoscope_deployment_detections", id: :integer, default: -> { "nextval('\"tblDeploymentDetection1_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "kaleidoscope_deployment_detections", id: :serial, force: :cascade do |t|
     t.integer "deployment_id", null: false
     t.datetime "night", null: false
     t.string "folder", limit: 255
@@ -279,21 +279,21 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["auto_id"], name: "tblDeploymentDetection1_AutoID"
   end
 
-  create_table "locat_habitats", id: :integer, default: -> { "nextval('\"tluLocalHabitat_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "locat_habitats", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
     t.index ["label"], name: "tluLocalHabitat_Label_key", unique: true
   end
 
-  create_table "microphone_types", id: :integer, default: -> { "nextval('\"tluMicrophoneType_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "microphone_types", id: :serial, force: :cascade do |t|
     t.string "label", limit: 20, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
     t.index ["label"], name: "tluMicrophoneType_Label_key", unique: true
   end
 
-  create_table "orientations", id: :integer, default: -> { "nextval('\"tluOrientation_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "orientations", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.integer "sort_order"
     t.datetime "updated_at"
@@ -301,7 +301,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["label"], name: "tluOrientation_Label_key", unique: true
   end
 
-  create_table "recovery_contacts", id: :integer, default: -> { "nextval('\"tblRecoveryContact_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "recovery_contacts", id: :serial, force: :cascade do |t|
     t.integer "deployment_id", null: false
     t.integer "contact_id", null: false
     t.string "created_by", limit: 255, null: false
@@ -311,7 +311,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["deployment_id", "contact_id"], name: "tblRecoveryContact_DeploymentID_ContactID_key", unique: true
   end
 
-  create_table "reports", primary_key: "report_id", id: :integer, default: -> { "nextval('\"tblReport_ReportID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "reports", id: :serial, force: :cascade do |t|
     t.string "report_name", limit: 255, null: false
     t.string "report_label", limit: 255, null: false
     t.datetime "updated_at"
@@ -320,7 +320,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["report_name"], name: "tblReport_ReportName_key", unique: true
   end
 
-  create_table "sites", id: :integer, default: -> { "nextval('\"tblSite_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "sites", id: :serial, force: :cascade do |t|
     t.string "site_code", limit: 20, null: false
     t.string "park_code", limit: 4, null: false
     t.integer "sample_design_id", null: false
@@ -337,7 +337,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["site_code"], name: "tblSite_SiteCode_key", unique: true
   end
 
-  create_table "softwares", id: :integer, default: -> { "nextval('\"tluSoftware_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "softwares", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.string "summary", limit: 255
     t.datetime "updated_at"
@@ -345,7 +345,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["label"], name: "tluSoftware_Label_key", unique: true
   end
 
-  create_table "sonobat_deployment_detections", id: :integer, default: -> { "nextval('\"tblDeploymentDetection7_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "sonobat_deployment_detections", id: :serial, force: :cascade do |t|
     t.integer "deployment_id"
     t.datetime "night", null: false
     t.string "path", limit: 255
@@ -392,7 +392,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["deployment_id"], name: "tblDeploymentDetection7_DeploymentID"
   end
 
-  create_table "species", id: :integer, default: -> { "nextval('\"tluSpecies_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "species", id: :serial, force: :cascade do |t|
     t.string "code", limit: 10, null: false
     t.string "common_name", limit: 255
     t.string "scientific_name", limit: 255, null: false
@@ -405,7 +405,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["tsn"], name: "tluSpecies_TSN_key", unique: true
   end
 
-  create_table "species_groups", id: :integer, default: -> { "nextval('\"tluSpeciesGroup_ID_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "species_groups", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.string "summary", limit: 255
     t.string "created_by", limit: 255, null: false
@@ -415,7 +415,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["label"], name: "tluSpeciesGroup_Label_key", unique: true
   end
 
-  create_table "states", primary_key: "state_code", id: :string, limit: 2, force: :cascade do |t|
+  create_table "states", id: :serial, force: :cascade do |t|
+    t.string "state_code", limit: 2, null: false
     t.string "state_name", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"

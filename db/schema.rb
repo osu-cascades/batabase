@@ -54,13 +54,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
-  create_table "datums", id: :serial, force: :cascade do |t|
-    t.string "label", limit: 50, null: false
-    t.datetime "updated_at"
-    t.datetime "created_at"
-    t.index ["label"], name: "tluDatum_Label_key", unique: true
-  end
-
   create_table "deployment_contacts", id: :serial, force: :cascade do |t|
     t.integer "deployment_id", null: false
     t.integer "contact_id", null: false
@@ -233,6 +226,13 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at"
     t.datetime "created_at"
     t.index ["label"], name: "tluDistanceRange_Label_key", unique: true
+  end
+
+  create_table "geodetic_systems", id: :serial, force: :cascade do |t|
+    t.string "label", limit: 50, null: false
+    t.datetime "updated_at"
+    t.datetime "created_at"
+    t.index ["label"], name: "tluDatum_Label_key", unique: true
   end
 
   create_table "kaleidoscope_deployment_detections", id: :serial, force: :cascade do |t|

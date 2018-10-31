@@ -26,7 +26,7 @@ Start the application by:
 
 Create frontend components by running the component generator `rails g component <component-name>`. Include the component in the view ERB template with the application helper `#render_component`.
 
-## Pulling down MS Access data
+### Pulling down MS Access data
 
 * Create local database: `createdb batabase_development`
 * Navigate to the lib directory: `cd batabase/lib`

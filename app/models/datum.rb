@@ -1,4 +1,5 @@
 class Datum < ApplicationRecord
-  ActiveRecord::Base.pluralize_table_names = false
+  self.table_name = 'datums'
+
   validates :label, presence: true
 end

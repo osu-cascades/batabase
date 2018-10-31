@@ -28,7 +28,7 @@ Create frontend components by running the component generator `rails g component
 
 ## Pulling down MS Access data
 
-* create local database: `createdb batabase_development`
+* Create local database: `createdb batabase_development`
 * Navigate to the lib directory: `cd batabase/lib`
 * Dump db: `psql -d batabase_development -f dump.sql`
 * Modify db: `psql -d batabase_development -f update-db.sql`

@@ -8,7 +8,6 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootsnap', require: false
-gem 'bulma-rails', '~> 0.7.2'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'

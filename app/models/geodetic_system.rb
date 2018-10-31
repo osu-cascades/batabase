@@ -1,6 +1,4 @@
-class Datum < ApplicationRecord
-  self.table_name = 'datums'
-
+class GeodeticSystem < ApplicationRecord
   validates :label, presence: true
   validates_length_of :label, maximum: 50
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Datum, type: :model do
-  subject(:datum) { Datum.new(label: 'Example Label') }
+RSpec.describe GeodeticSystem, type: :model do
+  subject(:geodetic_system) { GeodeticSystem.new(label: 'Example Label') }
 
   describe 'validations' do
     it { should validate_presence_of(:label) }

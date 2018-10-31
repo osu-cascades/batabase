@@ -13,7 +13,11 @@ Below are the steps/requirements needed to run the app:
 This is a Rails application. After cloning the repository, you can:
 
 * Install dependencies with `bundle install`.
+
+Start the application by:
+
 * Run the server in _development_ with `rails server`.
+* Compile assets with `./bin/webpack-dev-server`
 * Use guard to run/monitor specs with `bundle exec guard`.
 
 &copy; 2018 Nathan Struhs, Dylan Drudge. All rights reserved.

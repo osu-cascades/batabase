@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get '/', to: redirect('/prototype/user/sign-in.html')
+  root to: 'static#home'
 end

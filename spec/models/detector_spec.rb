@@ -1,13 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Detector, type: :model do
-  subject(:detector) {
-    Detector.new(code: '1235234',
-                 serial_num: 'abcdefg1234567',
-                 model: 'Example Model',
-                 manufacturer: 'Example Manufacturer',
-                 firmware: 'Example Firmware')
-  }
+  subject(:detector) { build(:detector) }
 
   describe 'validations' do
     it { should validate_presence_of(:code) }

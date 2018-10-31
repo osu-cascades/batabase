@@ -2,7 +2,7 @@
 
 Database of bat population data for the Northwestern Bat Hub.
 
-## Development
+## Getting Started
 
 Below are the steps/requirements needed to run the app:
 * Postgresql `brew install postgresql`
@@ -19,5 +19,12 @@ Start the application by:
 * Run the server in _development_ with `rails server`.
 * Compile assets with `./bin/webpack-dev-server`
 * Use guard to run/monitor specs with `bundle exec guard`.
+
+## Development
+
+### Frontend Components
+
+Create frontend components by running the component generator `rails g component <component-name>`. Include the component in the view erb with the application helper `#render_component`.
+
 
 &copy; 2018 Nathan Struhs, Dylan Drudge. All rights reserved.

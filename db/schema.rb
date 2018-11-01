@@ -19,14 +19,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "label", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["label"], name: "tluBroadHabitat_Label_key", unique: true
   end
 
   create_table "clutter_types", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["label"], name: "tluClutterType_Label_key", unique: true
   end
 
   create_table "deployment_contacts", id: :serial, force: :cascade do |t|
@@ -36,7 +34,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["deployment_id", "contact_id"], name: "tblDeploymentContact_DeploymentID_ContactID_key", unique: true
   end
 
   create_table "deployment_softwares", id: :serial, force: :cascade do |t|
@@ -53,7 +50,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["contact_id"], name: "tblDeploymentSoftware_ContactID"
-    t.index ["deployment_id", "software_id"], name: "tblDeploymentSoftware_DeploymentID_SoftwareID_key", unique: true
     t.index ["deployment_id"], name: "tblDeploymentSoftware_DeploymentID"
   end
 
@@ -178,7 +174,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["location_name"], name: "tblPointLocation_LocationName_key", unique: true
     t.index ["site_id"], name: "tblPointLocation_SiteID"
   end
 
@@ -192,7 +187,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["code"], name: "tluAudioLogger_Code_key", unique: true
   end
 
   create_table "distance_ranges", id: :serial, force: :cascade do |t|
@@ -200,14 +194,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "sort_order"
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["label"], name: "tluDistanceRange_Label_key", unique: true
   end
 
   create_table "geodetic_systems", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["label"], name: "tluDatum_Label_key", unique: true
   end
 
   create_table "kaleidoscope_deployment_detections", id: :serial, force: :cascade do |t|
@@ -254,18 +246,16 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["auto_id"], name: "tblDeploymentDetection1_AutoID"
   end
 
-  create_table "locat_habitats", id: :serial, force: :cascade do |t|
+  create_table "local_habitats", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["label"], name: "tluLocalHabitat_Label_key", unique: true
   end
 
   create_table "microphone_types", id: :serial, force: :cascade do |t|
     t.string "label", limit: 20, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["label"], name: "tluMicrophoneType_Label_key", unique: true
   end
 
   create_table "orientations", id: :serial, force: :cascade do |t|
@@ -273,7 +263,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "sort_order"
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["label"], name: "tluOrientation_Label_key", unique: true
   end
 
   create_table "recovery_contacts", id: :serial, force: :cascade do |t|
@@ -283,7 +272,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["deployment_id", "contact_id"], name: "tblRecoveryContact_DeploymentID_ContactID_key", unique: true
   end
 
   create_table "reports", id: :serial, force: :cascade do |t|
@@ -291,8 +279,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "report_label", limit: 255, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["report_label"], name: "tblReport_ReportLabel_key", unique: true
-    t.index ["report_name"], name: "tblReport_ReportName_key", unique: true
   end
 
   create_table "sites", id: :serial, force: :cascade do |t|
@@ -309,7 +295,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["park_code"], name: "tblSite_ParkCode"
-    t.index ["site_code"], name: "tblSite_SiteCode_key", unique: true
   end
 
   create_table "softwares", id: :serial, force: :cascade do |t|
@@ -317,7 +302,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "summary", limit: 255
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["label"], name: "tluSoftware_Label_key", unique: true
   end
 
   create_table "sonobat_deployment_detections", id: :serial, force: :cascade do |t|
@@ -374,10 +358,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "tsn"
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["code"], name: "tluSpecies_Code_key", unique: true
-    t.index ["common_name"], name: "tluSpecies_CommonName_key", unique: true
-    t.index ["scientific_name"], name: "tluSpecies_ScientificName_key", unique: true
-    t.index ["tsn"], name: "tluSpecies_TSN_key", unique: true
   end
 
   create_table "species_groups", id: :serial, force: :cascade do |t|
@@ -387,7 +367,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["label"], name: "tluSpeciesGroup_Label_key", unique: true
   end
 
   create_table "states", id: :serial, force: :cascade do |t|
@@ -395,7 +374,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "state_name", limit: 50, null: false
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["state_name"], name: "tluState_StateName_key", unique: true
   end
 
   create_table "tsys_backend_versions", id: :integer, default: nil, force: :cascade do |t|

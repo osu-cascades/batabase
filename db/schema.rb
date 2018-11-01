@@ -395,7 +395,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "state_code", limit: 8
     t.string "zip_code", limit: 50
     t.string "country", limit: 50
-    t.string "email_address", limit: 50
+    t.string "email", limit: 50, default: "", null: false
     t.string "work_phone", limit: 15
     t.string "work_extension", limit: 50
     t.text "contact_notes"
@@ -403,6 +403,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

@@ -364,6 +364,13 @@ ALTER TABLE public.species_groups ALTER COLUMN id DROP DEFAULT;
 ALTER TABLE public.tsys_backend_versions RENAME COLUMN "ID" TO id;
 ALTER TABLE public.tsys_backend_versions ALTER COLUMN id DROP DEFAULT;
 
+-- Drop Columns
+
+ALTER TABLE deployments DROP COLUMN "RecordingStartDate";
+ALTER TABLE deployments DROP COLUMN "RecordingStartTime";
+ALTER TABLE deployments DROP COLUMN "RecordingStopDate";
+ALTER TABLE deployments DROP COLUMN "RecordingStopTime";
+
 -- Created at, updated at - Rails convention
 ALTER TABLE broad_habitats ADD COLUMN updated_at timestamp without time zone;
 ALTER TABLE broad_habitats ADD COLUMN created_at timestamp without time zone;

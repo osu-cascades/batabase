@@ -58,10 +58,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "audio_logger_id", null: false
     t.datetime "deployment_date", null: false
     t.datetime "recovery_date"
-    t.datetime "recording_start_date", null: false
-    t.datetime "recording_start_time", null: false
-    t.datetime "recording_stop_date"
-    t.datetime "recording_stop_time"
     t.integer "primary_contact_id", null: false
     t.integer "species_group_id"
     t.text "notes"
@@ -281,7 +277,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at"
   end
 
-  create_table "sites", id: :serial, force: :cascade do |t|
+  create_table "sample_units", id: :serial, force: :cascade do |t|
     t.string "site_code", limit: 20, null: false
     t.string "park_code", limit: 4, null: false
     t.integer "sample_design_id", null: false

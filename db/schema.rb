@@ -42,8 +42,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "contact_id"
     t.string "version", limit: 50
     t.string "classifier_package", limit: 50
-    t.string "species_included_in_analysis", limit: 50
-    t.integer "min_num_pulses"
     t.string "other_settings", limit: 255
     t.string "created_by", limit: 255, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
@@ -62,79 +60,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "species_group_id"
     t.text "notes"
     t.integer "distance_range_id"
-    t.boolean "photo_of_site", default: false
     t.integer "microphone_type_id"
-    t.string "microphone_serial_num", limit: 50
-    t.string "mounting_system_description", limit: 255
-    t.string "microphone_placement", limit: 255
     t.string "microphone_height_off_ground", limit: 255
     t.integer "microphone_orientation_id"
-    t.string "microphone_housing_type", limit: 50
-    t.string "microphone_calibration_method", limit: 50
     t.integer "clutter_type_id"
     t.integer "clutter_percent"
-    t.string "sdcard_num_a", limit: 50
-    t.string "sdcard_num_b", limit: 50
-    t.string "sdcard_num_c", limit: 50
-    t.string "sdcard_num_d", limit: 50
-    t.string "sdcard_size_a", limit: 50
-    t.string "sdcard_size_b", limit: 50
-    t.string "sdcard_size_c", limit: 50
-    t.string "sdcard_size_d", limit: 50
-    t.datetime "expected_end_date"
-    t.string "photo_equipment_info", limit: 255
-    t.boolean "rh_probe", default: false
-    t.string "temp_logger_num", limit: 50
-    t.string "temp_sensor_placement", limit: 50
-    t.string "distance_from_audio_to_temp_sensor", limit: 50
-    t.string "gain_settings", limit: 255
-    t.string "recording_mode", limit: 50
-    t.string "sample_rate", limit: 50
-    t.string "low_filter_level", limit: 50
-    t.string "high_filter_level", limit: 50
-    t.string "division_ratio", limit: 255
-    t.float "decibel_level"
-    t.string "frequency_filters", limit: 255
-    t.integer "trigger_window"
-    t.string "maximum_file_length", limit: 255
-    t.string "file_prefix", limit: 255
-    t.string "file_suffix", limit: 255
-    t.string "file_folder", limit: 255
-    t.string "activation_start_time", limit: 50
-    t.string "activation_end_time", limit: 50
-    t.text "comments"
-    t.string "deployment_temperature", limit: 255
-    t.string "deployment_relative_humidity", limit: 255
-    t.string "deployment_sunrise_time", limit: 255
-    t.string "deployment_sunset_time", limit: 255
-    t.string "deployment_moon_phase", limit: 255
-    t.string "deployment_moon_appearance", limit: 255
-    t.string "deployment_moonrise_time", limit: 255
-    t.string "deployment_moonset_time", limit: 255
-    t.string "deployment_wind_speed", limit: 255
-    t.string "deployment_sky_cover", limit: 255
-    t.string "deployment_significant_weather_notes", limit: 255
-    t.datetime "time_deployment_weather_observed"
-    t.string "recovery_temperature", limit: 255
-    t.string "recovery_relative_humidity", limit: 255
-    t.string "recovery_sunrise_time", limit: 255
-    t.string "recovery_sunset_time", limit: 255
-    t.string "recovery_moon_phase", limit: 255
-    t.string "recovery_moon_appearance", limit: 255
-    t.string "recovery_moonrise_time", limit: 255
-    t.string "recovery_moonset_time", limit: 255
-    t.string "recovery_wind_speed", limit: 255
-    t.string "recovery_sky_cover", limit: 255
-    t.string "recovery_significant_weather_notes", limit: 255
-    t.string "recovery_notes", limit: 255
-    t.datetime "time_recovery_weather_observed"
-    t.integer "num_files_downloaded"
-    t.float "first_battery_start_voltage_v"
-    t.float "first_battery_end_voltage_v"
-    t.integer "first_battery_location_id"
-    t.float "second_battery_start_voltage_v"
-    t.float "second_battery_end_voltage_v"
-    t.integer "second_battery_location_id"
     t.string "created_by", limit: 255, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
@@ -147,24 +77,11 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "detector_locations", id: :serial, force: :cascade do |t|
     t.integer "site_id", null: false
     t.string "location_name", limit: 20, null: false
-    t.integer "site_state_county_id", null: false
-    t.integer "utm_zone"
-    t.integer "datum_id"
-    t.float "easting"
-    t.float "northing"
     t.float "latitude"
     t.float "longitude"
     t.float "elevation"
-    t.string "usgs_quad", limit: 255
-    t.string "primary_access_road", limit: 255
-    t.string "parking_location", limit: 255
-    t.string "site_marker", limit: 255
-    t.integer "water_body_type_id"
     t.integer "local_habitat_id"
-    t.string "dominant_overstory", limit: 255
-    t.string "dominant_understory", limit: 255
     t.text "image"
-    t.string "location_description", limit: 255
     t.string "ownership", limit: 255
     t.string "created_by", limit: 255, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
@@ -174,7 +91,6 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "detectors", id: :serial, force: :cascade do |t|
-    t.string "code", limit: 20, null: false
     t.string "serial_num", limit: 50, null: false
     t.string "model", limit: 50
     t.string "manufacturer", limit: 50, null: false
@@ -279,18 +195,11 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "sample_units", id: :serial, force: :cascade do |t|
     t.string "site_code", limit: 20, null: false
-    t.string "park_code", limit: 4, null: false
-    t.integer "sample_design_id", null: false
-    t.string "sample_unit_id", limit: 20
     t.string "federal_agency", limit: 50
-    t.string "site_description", limit: 255
-    t.integer "broad_habitat_id"
-    t.text "image"
     t.string "created_by", limit: 255, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["park_code"], name: "tblSite_ParkCode"
   end
 
   create_table "softwares", id: :serial, force: :cascade do |t|
@@ -379,21 +288,9 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "last_name", limit: 50, null: false
     t.string "first_name", limit: 50, null: false
-    t.string "middle_init", limit: 4
-    t.string "initials", limit: 5
-    t.integer "years_of_experience"
     t.string "organization", limit: 50
-    t.string "position_title", limit: 50
-    t.string "address_type", limit: 50
-    t.string "address", limit: 50
-    t.string "address_2", limit: 50
-    t.string "city", limit: 50
     t.string "state_code", limit: 8
-    t.string "zip_code", limit: 50
-    t.string "country", limit: 50
     t.string "email", limit: 50, default: "", null: false
-    t.string "work_phone", limit: 15
-    t.string "work_extension", limit: 50
     t.text "contact_notes"
     t.string "created_by", limit: 255, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false

@@ -1,6 +1,13 @@
 -- Drop tables
 DROP TABLE IF EXISTS "tblAudioLoggerMaint","tblDefinitionDetection6","tblDeploymentDetection2","tblDeploymentDetection3","tblDeploymentDetection4","tblDeploymentDetection5","tblDeploymentDetection6","tblHighLowTemperature","tblMaintenance","tblMobileRoute","tblMobileSurvey","tblMobileSurveyContact","tblMobileSurveyDetection1","tblMobileSurveyDetection2","tblMobileSurveyDetection3","tblMobileSurveyDetection4","tblMobileSurveyDetection5","tblMobileSurveyDetection6","tblMobileSurveyDetection7","tblMobileSurveySoftware","tblSiteStateCounty","tluBatteryLocation","tluBatteryType","tluPark","tluSampleDesign","tluSampleDesignType","tluWaterBodyType","xrefSpeciesSpeciesGroup";
 
+CREATE TABLE organizations (
+  
+  created_at timestamp without time zone,
+  id SERIAL PRIMARY KEY NOT NULL,
+  updated_at timestamp without time zone,
+  label varchar(50) NOT NULL 
+);
 -- Rename tables
 ALTER TABLE "tblDeployment" RENAME TO deployments;
 ALTER TABLE "tblDeploymentContact" RENAME TO deployment_contacts;

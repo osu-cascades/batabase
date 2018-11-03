@@ -78,7 +78,7 @@ ALTER TABLE public.deployments RENAME COLUMN "CreatedBy" TO created_by;
 ALTER TABLE public.deployments RENAME COLUMN "LastModifiedBy" TO last_modified_by;
 ALTER TABLE public.deployments RENAME COLUMN "CreatedDate" TO created_date;
 ALTER TABLE public.deployments RENAME COLUMN "LastModifiedDate" TO last_modified_date;
-ALTER TABLE public.detector_locations RENAME COLUMN "SiteID" TO site_id;
+ALTER TABLE public.detector_locations RENAME COLUMN "SiteID" TO sample_unit_id;
 ALTER TABLE public.detector_locations RENAME COLUMN "LocationName" TO location_name;
 ALTER TABLE public.detector_locations RENAME COLUMN "LocalHabitatID" TO local_habitat_id;
 ALTER TABLE public.detector_locations RENAME COLUMN "CreatedBy" TO created_by;

@@ -65,7 +65,7 @@ ALTER TABLE public.deployments RENAME COLUMN "PointLocationID" TO point_location
 ALTER TABLE public.deployments RENAME COLUMN "AudioLoggerID" TO audio_logger_id;
 ALTER TABLE public.deployments RENAME COLUMN "DeploymentDate" TO deployment_date;
 ALTER TABLE public.deployments RENAME COLUMN "RecoveryDate" TO recovery_date;
-ALTER TABLE public.deployments RENAME COLUMN "PrimaryContactID" TO primary_contact_id;
+ALTER TABLE public.deployments RENAME COLUMN "PrimaryContactID" TO contact_id;
 ALTER TABLE public.deployments RENAME COLUMN "SpeciesGroupID" TO species_group_id;
 ALTER TABLE public.deployments RENAME COLUMN "DistanceRangeID" TO distance_range_id;
 ALTER TABLE public.deployments RENAME COLUMN "MicrophoneTypeID" TO microphone_type_id;

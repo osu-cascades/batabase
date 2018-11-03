@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  subject(:user) { build(:user) }
+RSpec.describe Contact, type: :model do
+  subject(:contact) { build(:contact) }
 
   describe 'validations' do
     %i(first_name last_name email).each do |attribute|

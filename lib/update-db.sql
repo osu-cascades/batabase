@@ -62,7 +62,7 @@ ALTER TABLE public.deployment_softwares RENAME COLUMN "LastModifiedBy" TO last_m
 ALTER TABLE public.deployment_softwares RENAME COLUMN "CreatedDate" TO created_date;
 ALTER TABLE public.deployment_softwares RENAME COLUMN "LastModifiedDate" TO last_modified_date;
 ALTER TABLE public.deployments RENAME COLUMN "PointLocationID" TO point_location_id;
-ALTER TABLE public.deployments RENAME COLUMN "AudioLoggerID" TO audio_logger_id;
+ALTER TABLE public.deployments RENAME COLUMN "AudioLoggerID" TO detector_id;
 ALTER TABLE public.deployments RENAME COLUMN "DeploymentDate" TO deployment_date;
 ALTER TABLE public.deployments RENAME COLUMN "RecoveryDate" TO recovery_date;
 ALTER TABLE public.deployments RENAME COLUMN "PrimaryContactID" TO contact_id;

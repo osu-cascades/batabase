@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at"
   end
 
+  create_table "contacts", id: :serial, force: :cascade do |t|
+    t.string "last_name", limit: 50, null: false
+    t.string "first_name", limit: 50, null: false
+    t.string "organization", limit: 50
+    t.string "state_code", limit: 8
+    t.string "email", limit: 50
+    t.string "created_by", limit: 255, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "last_modified_by", limit: 255, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+  end
+
   create_table "deployment_contacts", id: :serial, force: :cascade do |t|
     t.integer "deployment_id", null: false
     t.integer "contact_id", null: false
@@ -289,24 +301,6 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "tsys_backend_versions", id: :integer, default: nil, force: :cascade do |t|
     t.string "version_number", limit: 20, null: false
-  end
-
-  create_table "users", id: :serial, force: :cascade do |t|
-    t.string "last_name", limit: 50, null: false
-    t.string "first_name", limit: 50, null: false
-    t.string "organization", limit: 50
-    t.string "state_code", limit: 8
-    t.string "email", limit: 50, default: "", null: false
-    t.text "contact_notes"
-    t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

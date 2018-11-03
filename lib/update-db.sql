@@ -2,11 +2,11 @@
 DROP TABLE IF EXISTS "tblAudioLoggerMaint","tblDefinitionDetection6","tblDeploymentDetection2","tblDeploymentDetection3","tblDeploymentDetection4","tblDeploymentDetection5","tblDeploymentDetection6","tblHighLowTemperature","tblMaintenance","tblMobileRoute","tblMobileSurvey","tblMobileSurveyContact","tblMobileSurveyDetection1","tblMobileSurveyDetection2","tblMobileSurveyDetection3","tblMobileSurveyDetection4","tblMobileSurveyDetection5","tblMobileSurveyDetection6","tblMobileSurveyDetection7","tblMobileSurveySoftware","tblSiteStateCounty","tluBatteryLocation","tluBatteryType","tluPark","tluSampleDesign","tluSampleDesignType","tluWaterBodyType","xrefSpeciesSpeciesGroup";
 
 CREATE TABLE organizations (
-  
+
   created_at timestamp without time zone,
   id SERIAL PRIMARY KEY NOT NULL,
   updated_at timestamp without time zone,
-  label varchar(50) NOT NULL 
+  label varchar(50) NOT NULL
 );
 -- Rename tables
 ALTER TABLE "tblDeployment" RENAME TO deployments;
@@ -20,7 +20,7 @@ ALTER TABLE "tblReport" RENAME TO reports;
 ALTER TABLE "tluAudioLogger" RENAME TO detectors;
 ALTER TABLE "tluBroadHabitat" RENAME TO broad_habitats;
 ALTER TABLE "tluClutterType" RENAME TO clutter_types;
-ALTER TABLE "tluContact" RENAME TO users;
+ALTER TABLE "tluContact" RENAME TO contacts;
 ALTER TABLE "tluDatum" RENAME TO geodetic_systems;
 ALTER TABLE "tluDistanceRange" RENAME TO distance_ranges;
 ALTER TABLE "tluLocalHabitat" RENAME TO local_habitats;
@@ -35,16 +35,15 @@ ALTER TABLE "tblSite" RENAME TO sample_units;
 
 --Rename columns
 -----------------------------------------
-ALTER TABLE public.users RENAME COLUMN "FirstName" TO first_name;
-ALTER TABLE public.users RENAME COLUMN "LastName" TO last_name;
-ALTER TABLE public.users RENAME COLUMN "StateCode" TO state_code;
-ALTER TABLE public.users RENAME COLUMN "EmailAddress" TO email;
-ALTER TABLE public.users RENAME COLUMN "ContactNotes" TO contact_notes;
-ALTER TABLE public.users RENAME COLUMN "CreatedBy" TO created_by;
-ALTER TABLE public.users RENAME COLUMN "LastModifiedBy" TO last_modified_by;
-ALTER TABLE public.users RENAME COLUMN "CreatedDate" TO created_date;
-ALTER TABLE public.users RENAME COLUMN "LastModifiedDate" TO last_modified_date;
-ALTER TABLE public.users RENAME COLUMN "Organization" TO organization;
+ALTER TABLE public.contacts RENAME COLUMN "FirstName" TO first_name;
+ALTER TABLE public.contacts RENAME COLUMN "LastName" TO last_name;
+ALTER TABLE public.contacts RENAME COLUMN "StateCode" TO state_code;
+ALTER TABLE public.contacts RENAME COLUMN "EmailAddress" TO email;
+ALTER TABLE public.contacts RENAME COLUMN "CreatedBy" TO created_by;
+ALTER TABLE public.contacts RENAME COLUMN "LastModifiedBy" TO last_modified_by;
+ALTER TABLE public.contacts RENAME COLUMN "CreatedDate" TO created_date;
+ALTER TABLE public.contacts RENAME COLUMN "LastModifiedDate" TO last_modified_date;
+ALTER TABLE public.contacts RENAME COLUMN "Organization" TO organization;
 ALTER TABLE public.deployment_contacts RENAME COLUMN "DeploymentID" TO deployment_id;
 ALTER TABLE public.deployment_contacts RENAME COLUMN "ContactID" TO contact_id;
 ALTER TABLE public.deployment_contacts RENAME COLUMN "CreatedBy" TO created_by;
@@ -219,8 +218,8 @@ ALTER TABLE public.broad_habitats ALTER COLUMN id DROP DEFAULT;
 ALTER TABLE public.clutter_types RENAME COLUMN "Label" TO label;
 ALTER TABLE public.clutter_types RENAME COLUMN "ID" TO id;
 ALTER TABLE public.clutter_types ALTER COLUMN id DROP DEFAULT;
-ALTER TABLE public.users RENAME COLUMN "ID" TO id;
-ALTER TABLE public.users ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.contacts RENAME COLUMN "ID" TO id;
+ALTER TABLE public.contacts ALTER COLUMN id DROP DEFAULT;
 ALTER TABLE public.geodetic_systems RENAME COLUMN "Label" TO label;
 ALTER TABLE public.geodetic_systems RENAME COLUMN "ID" TO id;
 ALTER TABLE public.geodetic_systems ALTER COLUMN id DROP DEFAULT;
@@ -370,27 +369,28 @@ ALTER TABLE sample_units DROP COLUMN "Images";
   -- Detectors (Audio Logger)
 ALTER TABLE detectors DROP COLUMN "Code";
 
-  -- Users (Contacts)
-ALTER TABLE users DROP COLUMN "MiddleInit";
-ALTER TABLE users DROP COLUMN "Initials";
-ALTER TABLE users DROP COLUMN "YearsOfExperience";
-ALTER TABLE users DROP COLUMN "PositionTitle";
-ALTER TABLE users DROP COLUMN "AddressType";
-ALTER TABLE users DROP COLUMN "Address";
-ALTER TABLE users DROP COLUMN "Address2";
-ALTER TABLE users DROP COLUMN "City";
-ALTER TABLE users DROP COLUMN "ZipCode";
-ALTER TABLE users DROP COLUMN "Country";
-ALTER TABLE users DROP COLUMN "WorkPhone";
-ALTER TABLE users DROP COLUMN "WorkExtension";
+  -- Contacts
+ALTER TABLE contacts DROP COLUMN "MiddleInit";
+ALTER TABLE contacts DROP COLUMN "Initials";
+ALTER TABLE contacts DROP COLUMN "YearsOfExperience";
+ALTER TABLE contacts DROP COLUMN "PositionTitle";
+ALTER TABLE contacts DROP COLUMN "AddressType";
+ALTER TABLE contacts DROP COLUMN "Address";
+ALTER TABLE contacts DROP COLUMN "Address2";
+ALTER TABLE contacts DROP COLUMN "City";
+ALTER TABLE contacts DROP COLUMN "ZipCode";
+ALTER TABLE contacts DROP COLUMN "Country";
+ALTER TABLE contacts DROP COLUMN "WorkPhone";
+ALTER TABLE contacts DROP COLUMN "WorkExtension";
+ALTER TABLE contacts DROP COLUMN "ContactNotes";
 
 -- Created at, updated at - Rails convention
 ALTER TABLE broad_habitats ADD COLUMN updated_at timestamp without time zone;
 ALTER TABLE broad_habitats ADD COLUMN created_at timestamp without time zone;
 ALTER TABLE clutter_types ADD COLUMN updated_at timestamp without time zone;
 ALTER TABLE clutter_types ADD COLUMN created_at timestamp without time zone;
-ALTER TABLE public.users RENAME COLUMN "created_date" TO created_at;
-ALTER TABLE public.users RENAME COLUMN "last_modified_date" TO updated_at;
+ALTER TABLE public.contacts RENAME COLUMN "created_date" TO created_at;
+ALTER TABLE public.contacts RENAME COLUMN "last_modified_date" TO updated_at;
 ALTER TABLE geodetic_systems ADD COLUMN updated_at timestamp without time zone;
 ALTER TABLE geodetic_systems ADD COLUMN created_at timestamp without time zone;
 ALTER TABLE public.deployment_contacts RENAME COLUMN "created_date" TO created_at;
@@ -434,7 +434,7 @@ ALTER TABLE states ADD COLUMN created_at timestamp without time zone;
 ALTER TABLE states ADD COLUMN id SERIAL;
 ALTER TABLE broad_habitats DROP CONSTRAINT "tluBroadHabitat_pkey";
 ALTER TABLE clutter_types DROP CONSTRAINT "tluClutterType_pkey";
-ALTER TABLE users DROP CONSTRAINT "tluContact_pkey";
+ALTER TABLE contacts DROP CONSTRAINT "tluContact_pkey";
 ALTER TABLE geodetic_systems DROP CONSTRAINT "tluDatum_pkey";
 ALTER TABLE deployment_contacts DROP CONSTRAINT "tblDeploymentContact_pkey";
 ALTER TABLE deployment_softwares DROP CONSTRAINT "tblDeploymentSoftware_pkey";
@@ -457,7 +457,7 @@ ALTER TABLE states DROP CONSTRAINT "tluState_pkey";
 
 ALTER TABLE broad_habitats ADD PRIMARY KEY (id);
 ALTER TABLE clutter_types ADD PRIMARY KEY (id);
-ALTER TABLE users ADD PRIMARY KEY (id);
+ALTER TABLE contacts ADD PRIMARY KEY (id);
 ALTER TABLE geodetic_systems ADD PRIMARY KEY (id);
 ALTER TABLE deployment_contacts ADD PRIMARY KEY (id);
 ALTER TABLE deployment_softwares ADD PRIMARY KEY (id);
@@ -480,7 +480,7 @@ ALTER TABLE states ADD PRIMARY KEY (id);
 
 CREATE SEQUENCE broad_habitats_id_seq OWNED BY broad_habitats.id;
 CREATE SEQUENCE clutter_types_id_seq OWNED BY clutter_types.id;
-CREATE SEQUENCE users_id_seq OWNED BY users.id;
+CREATE SEQUENCE contacts_id_seq OWNED BY contacts.id;
 CREATE SEQUENCE geodetic_systems_id_seq OWNED BY geodetic_systems.id;
 CREATE SEQUENCE deployment_contacts_id_seq OWNED BY deployment_contacts.id;
 CREATE SEQUENCE deployment_softwares_id_seq OWNED BY deployment_softwares.id;
@@ -502,7 +502,7 @@ CREATE SEQUENCE species_groups_id_seq OWNED BY species_groups.id;
 
 SELECT setval('broad_habitats_id_seq', coalesce(max(id), 1)) FROM broad_habitats;
 SELECT setval('clutter_types_id_seq', coalesce(max(id), 1)) FROM clutter_types;
-SELECT setval('users_id_seq', coalesce(max(id), 1)) FROM users;
+SELECT setval('contacts_id_seq', coalesce(max(id), 1)) FROM contacts;
 SELECT setval('geodetic_systems_id_seq', coalesce(max(id), 1)) FROM geodetic_systems;
 SELECT setval('deployment_contacts_id_seq', coalesce(max(id), 1)) FROM deployment_contacts;
 SELECT setval('deployment_softwares_id_seq', coalesce(max(id), 1)) FROM deployment_softwares;
@@ -526,7 +526,7 @@ SELECT setval('states_id_seq', coalesce(max(id), 1)) FROM states;
 ALTER TABLE reports ALTER COLUMN id SET DEFAULT nextval('reports_id_seq');
 ALTER TABLE broad_habitats ALTER COLUMN id SET DEFAULT nextval('broad_habitats_id_seq');
 ALTER TABLE clutter_types ALTER COLUMN id SET DEFAULT nextval('clutter_types_id_seq');
-ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_id_seq');
+ALTER TABLE contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq');
 ALTER TABLE geodetic_systems ALTER COLUMN id SET DEFAULT nextval('geodetic_systems_id_seq');
 ALTER TABLE deployment_contacts ALTER COLUMN id SET DEFAULT nextval('deployment_contacts_id_seq');
 ALTER TABLE deployment_softwares ALTER COLUMN id SET DEFAULT nextval('deployment_softwares_id_seq');
@@ -569,13 +569,3 @@ ALTER TABLE species DROP CONSTRAINT "tluSpecies_ScientificName_key";
 ALTER TABLE species DROP CONSTRAINT "tluSpecies_TSN_key";
 ALTER TABLE species_groups DROP CONSTRAINT "tluSpeciesGroup_Label_key";
 ALTER TABLE states DROP CONSTRAINT "tluState_StateName_key";
-
--- Prepare users for devise
-UPDATE users SET email = '' WHERE email IS NULL;
-ALTER TABLE users ALTER COLUMN email SET NOT NULL;
-ALTER TABLE users ALTER COLUMN email SET DEFAULT '';
-ALTER TABLE users ADD COLUMN encrypted_password VARCHAR NOT NULL DEFAULT '';
-ALTER TABLE users ADD COLUMN reset_password_token VARCHAR;
-ALTER TABLE users ADD COLUMN reset_password_sent_at TIMESTAMP;
-ALTER TABLE users ADD COLUMN remember_created_at TIMESTAMP;
-CREATE UNIQUE INDEX index_users_on_reset_password_token ON users (reset_password_token);

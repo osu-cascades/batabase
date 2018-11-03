@@ -170,6 +170,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at"
   end
 
+  create_table "organizations", id: :serial, force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "label", limit: 50, null: false
+  end
+
   create_table "orientations", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
     t.integer "sort_order"

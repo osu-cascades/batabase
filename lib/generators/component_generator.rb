@@ -17,7 +17,7 @@ class ComponentGenerator < Rails::Generators::Base
 
   def require_component
     File.open(init_path, 'a') do |file|
-      file.puts "import '../components/#{component_name}/#{component_name}'"
+      file.puts "\nimport '../components/#{component_name}/#{component_name}'"
     end
   end
 

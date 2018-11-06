@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "deployments", id: :serial, force: :cascade do |t|
     t.integer "point_location_id", null: false
-    t.integer "audio_logger_id", null: false
+    t.integer "detector_id", null: false
     t.datetime "deployment_date", null: false
     t.datetime "recovery_date"
-    t.integer "primary_contact_id", null: false
+    t.integer "contact_id", null: false
     t.integer "species_group_id"
     t.text "notes"
     t.integer "distance_range_id"
@@ -87,19 +87,20 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "detector_locations", id: :serial, force: :cascade do |t|
-    t.integer "site_id", null: false
+    t.integer "sample_unit_id", null: false
     t.string "location_name", limit: 20, null: false
     t.float "latitude"
     t.float "longitude"
     t.float "elevation"
     t.integer "local_habitat_id"
     t.text "image"
+    t.string "description", limit: 255
     t.string "ownership", limit: 255
     t.string "created_by", limit: 255, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["site_id"], name: "tblPointLocation_SiteID"
+    t.index ["sample_unit_id"], name: "tblPointLocation_SiteID"
   end
 
   create_table "detectors", id: :serial, force: :cascade do |t|

@@ -89,6 +89,7 @@ ALTER TABLE public.detector_locations RENAME COLUMN "Longitude" TO longitude;
 ALTER TABLE public.detector_locations RENAME COLUMN "Elevation" TO elevation;
 ALTER TABLE public.detector_locations RENAME COLUMN "Images" TO image;
 ALTER TABLE public.detector_locations RENAME COLUMN "Ownership" TO ownership;
+ALTER TABLE public.detector_locations RENAME COLUMN "LocationDescription" TO description;
 ALTER TABLE public.detectors RENAME COLUMN "SerialNum" TO serial_num;
 ALTER TABLE public.detectors RENAME COLUMN "CreatedBy" TO created_by;
 ALTER TABLE public.detectors RENAME COLUMN "LastModifiedBy" TO last_modified_by;
@@ -356,7 +357,6 @@ ALTER TABLE detector_locations DROP COLUMN "SiteMarker";
 ALTER TABLE detector_locations DROP COLUMN "WaterBodyTypeID";
 ALTER TABLE detector_locations DROP COLUMN "DominantOverstory";
 ALTER TABLE detector_locations DROP COLUMN "DominantUnderstory";
-ALTER TABLE detector_locations DROP COLUMN "LocationDescription";
 
   -- Sample Units
 ALTER TABLE sample_units DROP COLUMN "ParkCode";

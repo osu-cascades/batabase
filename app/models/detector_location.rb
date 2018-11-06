@@ -1,6 +1,6 @@
 class DetectorLocation < ApplicationRecord
-  validates :site_id,
+  validates :sample_unit_id,
             :location_name, presence: true
   validates_length_of :location_name, maximum: 20
-  validates_length_of :ownership, maximum: 255
+  validates_length_of :ownership, :description, maximum: 255
 end

@@ -4,7 +4,7 @@ RSpec.describe Deployment, type: :model do
   subject(:deployment) { build(:deployment) }
 
   describe 'validations' do
-    %i(deployment_date primary_contact_id created_by).each do |attribute|
+    %i(deployment_date contact_id created_by).each do |attribute|
       it { should validate_presence_of(attribute) }
     end
     it { should validate_length_of(:microphone_height_off_ground).is_at_most(255) }

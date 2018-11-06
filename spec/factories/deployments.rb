@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :deployment do
     point_location_id { 1 }
-    audio_logger_id { 1 }
+    detector_id { 1 }
     deployment_date { Faker::Date }
     recovery_date { Faker::Date }
-    primary_contact_id { 1 }
+    contact_id { 1 }
     species_group_id { 1 }
     notes { 'Example Notes' }
     distance_range_id { 1 }

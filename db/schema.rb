@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "owning_agency"
   end
 
   create_table "distance_ranges", id: :serial, force: :cascade do |t|

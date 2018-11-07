@@ -33,6 +33,9 @@ ALTER TABLE "tluState" RENAME TO states;
 ALTER TABLE "tsysBackendVersion" RENAME TO tsys_backend_versions;
 ALTER TABLE "tblSite" RENAME TO sample_units;
 
+-- Add columns
+ALTER TABLE public.detectors ADD COLUMN owning_agency varchar;
+
 --Rename columns
 -----------------------------------------
 ALTER TABLE public.contacts RENAME COLUMN "FirstName" TO first_name;

@@ -192,7 +192,6 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "orientations", id: :serial, force: :cascade do |t|
     t.string "label", limit: 50, null: false
-    t.integer "sort_order"
     t.datetime "updated_at"
     t.datetime "created_at"
   end

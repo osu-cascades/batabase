@@ -141,7 +141,6 @@ ALTER TABLE public.kaleidoscope_deployment_detections RENAME COLUMN "Tc" TO tc;
 ALTER TABLE public.kaleidoscope_deployment_detections RENAME COLUMN "Qual" TO qual;
 ALTER TABLE public.kaleidoscope_deployment_detections RENAME COLUMN "Files" TO files;
 ALTER TABLE public.kaleidoscope_deployment_detections RENAME COLUMN "Notes" TO notes;
-ALTER TABLE public.orientations RENAME COLUMN "SortOrder" TO sort_order;
 ALTER TABLE public.recovery_contacts RENAME COLUMN "DeploymentID" TO deployment_id;
 ALTER TABLE public.recovery_contacts RENAME COLUMN "ContactID" TO contact_id;
 ALTER TABLE public.recovery_contacts RENAME COLUMN "CreatedBy" TO created_by;
@@ -385,6 +384,9 @@ ALTER TABLE contacts DROP COLUMN "Country";
 ALTER TABLE contacts DROP COLUMN "WorkPhone";
 ALTER TABLE contacts DROP COLUMN "WorkExtension";
 ALTER TABLE contacts DROP COLUMN "ContactNotes";
+
+  -- Orientatations
+ALTER TABLE orientations DROP COLUMN "SortOrder";
 
 -- Created at, updated at - Rails convention
 ALTER TABLE broad_habitats ADD COLUMN updated_at timestamp without time zone;

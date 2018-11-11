@@ -14,7 +14,7 @@
       <div class='navbar-item'>
         <% if user_signed_in? %>
           <div class='navbar-start'>
-            <%= link_to 'List Maintentance', list_maintenance_path %>
+            <%= link_to 'List Maintentance', list_maintenances_path %>
           </div>
           <div class='buttons'>
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button is-primary is-outlined' %>

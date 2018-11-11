@@ -15,11 +15,16 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-        <%= link_to "Sign Up", new_user_registration_path, class: "button is-primary" %>
-        <%= link_to "Sign In", new_user_session_path, class: "button is-primary is-outlined" %>
-          
-        </div>
+        <% if user_signed_in? %>
+          <div class="buttons">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button is-primary is-outlined" %>
+          </div>
+        <% else %>
+          <div class="buttons">
+            <%= link_to "Sign Up", new_user_registration_path, class: "button is-primary" %>
+            <%= link_to "Sign In", new_user_session_path, class: "button is-primary is-outlined" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

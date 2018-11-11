@@ -11,6 +11,8 @@
 
   <body>
     <%= render_component('nav-bar') %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= javascript_pack_tag 'application' %>
   </body>

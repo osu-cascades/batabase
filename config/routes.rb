@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'static#home'
-  resources :list_maintenances
+
+  devise_for :users
+
+  get 'list_maintenance', to: 'list_maintenance#index'
 end

@@ -11,11 +11,12 @@
 
   <body>
     <%= render_component('nav-bar') %>
-
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+    <div class="section">
+      <div class="container is-fluid">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
     </div>
 
     <%= javascript_pack_tag 'application' %>

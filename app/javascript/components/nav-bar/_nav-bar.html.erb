@@ -1,56 +1,68 @@
 <nav class='navbar is-dark' role='navigation' aria-label='main navigation'>
   <div class='navbar-brand'>
     <%= link_to 'Batabase', root_path, class: 'navbar-item' %>
+
+    <a role='button' class='navbar-burger burger' aria-label='menu' aria-expanded='false' data-target='navMenu'>
+      <span aria-hidden='true'></span>
+      <span aria-hidden='true'></span>
+      <span aria-hidden='true'></span>
+    </a>
   </div>
 
-  <a role='button' class='navbar-burger burger' aria-label='menu' aria-expanded='false' data-target='navbarBasicExample'>
-    <span aria-hidden='true'></span>
-    <span aria-hidden='true'></span>
-    <span aria-hidden='true'></span>
-  </a>
-
-  <div class='navbar-menu'>
+  <div class='navbar-menu' id='navMenu'>
         <% if user_signed_in? %>
-          <div class='navbar-start'>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">List Maintenance</a>
-              <div class="navbar-dropdown">
-                <a class="navbar-item">Broad Habitats</a>
-                <a class="navbar-item">Clutter Types</a>
-                <a class="navbar-item">Contacts</a>
-                <a class="navbar-item">Deployment Contacts</a>
-                <a class="navbar-item">Recovery Contacts</a>
-                <a class="navbar-item">Deployment Softwares</a>
-                <a class="navbar-item">Datum</a>
-                <a class="navbar-item">Detectors</a>
-                <a class="navbar-item">Distance Ranges</a>
-                <a class="navbar-item">Kaleidoscope Deployment Detections</a>
-                <a class="navbar-item">Sonobat Deployment Detections</a>
-                <a class="navbar-item">Local Habitats</a>
-                <a class="navbar-item">Microphone Types</a>
-                <a class="navbar-item">Organizations</a>
-                <a class="navbar-item">Orientations</a>
-                <a class="navbar-item">Sample Designs</a>
-                <a class="navbar-item">Softwares</a>
-                <a class="navbar-item">Species</a>
-                <a class="navbar-item">Species Group</a>
-                <a class="navbar-item">Study Areas</a>
+
+          <div class='navbar-start'>=
+            <div class='navbar-item'>Deployments</div>
+            <div class='navbar-item'>Sample Units</div>
+            <div class='navbar-item has-dropdown is-hoverable'>
+              <a class='navbar-link'>List Maintenance</a>
+              <div class='navbar-dropdown'>
+                <a class='navbar-item'>Broad Habitats</a>
+                <a class='navbar-item'>Clutter Types</a>
+                <a class='navbar-item'>Contacts</a>
+                <a class='navbar-item'>Deployment Contacts</a>
+                <a class='navbar-item'>Recovery Contacts</a>
+                <a class='navbar-item'>Deployment Softwares</a>
+                <a class='navbar-item'>Datum</a>
+                <a class='navbar-item'>Detectors</a>
+                <a class='navbar-item'>Distance Ranges</a>
+                <a class='navbar-item'>Kaleidoscope Deployment Detections</a>
+                <a class='navbar-item'>Sonobat Deployment Detections</a>
+                <a class='navbar-item'>Local Habitats</a>
+                <a class='navbar-item'>Microphone Types</a>
+                <a class='navbar-item'>Organizations</a>
+                <a class='navbar-item'>Orientations</a>
+                <a class='navbar-item'>Sample Designs</a>
+                <a class='navbar-item'>Softwares</a>
+                <a class='navbar-item'>Species</a>
+                <a class='navbar-item'>Species Group</a>
+                <a class='navbar-item'>Study Areas</a>
               </div>
             </div>
           </div>
 
           <div class='navbar-end'>
-            <div class='buttons'>
-              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button is-primary is-outlined' %>
+            <div class='navbar-item has-dropdown is-hoverable'>
+              <a class='navbar-link'><%= current_user.email %></a>
+              <div class='navbar-dropdown'>
+                <a class='navbar-item'>Edit Profile</a>
+                <a class='navbar-item'>Admin Dashboard</a>
+                <hr class='navbar-divider'>
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-item' %>
+              </div>
             </div>
           </div>
+
         <% else %>
+
           <div class='navbar-end'>
             <div class='buttons'>
               <%= link_to 'Sign Up', new_user_registration_path, class: 'button is-primary' %>
               <%= link_to 'Sign In', new_user_session_path, class: 'button is-primary is-outlined' %>
             </div>
           </div>
+
         <% end %>
       </div>
     </div>

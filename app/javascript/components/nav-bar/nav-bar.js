@@ -2,27 +2,17 @@ import './nav-bar.scss';
 
 class HamburgerMenu {
   constructor() {
-    this.burgers = this.getBurgers();
-    if (this.burgers.length > 0) {
-      this.burgerListener();
-    }
+    this.burgerListener();
   }
 
-  getBurgers() {
-    return Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  }
-
-  burgerListener(burgers) {
-    this.burgers.forEach(patty => {
-      patty.addEventListener('click', () => {
-        const target = document.getElementById(patty.dataset.target);
-        patty.classList.toggle('is-active');
-        target.classList.toggle('is-active');
-      });
+  burgerListener() {
+    $('.navbar-burger').click(() => {
+      $('.navbar-burger').toggleClass('is-active');
+      $('.navbar-menu').toggleClass('is-active');
     });
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+$(document).ready(() => {
   const hamburgerMenu = new HamburgerMenu();
 });

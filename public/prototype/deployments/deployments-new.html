@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Batabase - Prototype</title>
   </head>
@@ -43,25 +47,16 @@
       <form>
         <div class="form-group">
           <label>Deployment Date</label>
-          <input type="email" class="form-control" id="deployment-date">
-        </div>
-         <div class="form-group">
-          <label>Recovery Date</label>
-          <input type="email" class="form-control" id="recovery-date">
+          <input class="form-control" type="date">
         </div>
         <div class="form-group">
-          <label>Sample Location</label>
-          <select class="form-control" id="sample-location">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+          <label>Recovery Date</label>
+          <input class="form-control"  type="date">
         </div>
-      </form>
-
-      <form>
+        <div class="form-group">
+          <label>Location ID</label>
+          <input class="form-control">
+        </div>
         <div class="form-group">
           <label>Primary Contact</label>
           <select class="form-control">
@@ -82,79 +77,189 @@
             <option>5</option>
           </select>
         </div>
-        <h3>First Battery</h3>
-        <div class="form-group">
-          <label>Battery Type</label>
-          <select class="form-control">
-            <option>alkaline</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <h3>Second Battery</h3>
-        <div class="form-group">
-          <label>Battery Type</label>
-          <select class="form-control">
-            <option>alkaline</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Other Contacts</label>
-          <select class="form-control" id="sample-location">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
+        <br>
+        <hr>
+        <br>
         <div class="form-group">
           <label>Detector</label>
-          <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select class="form-control" id="detector-select">
+            <option>Choose One</option>
+            <option>D500X</option>
+            <option>SM4Bat</option>
           </select>
         </div>
-      </form>
-      <form>
-        <h3>Detection Input</h3>
+        <div class="form-check">
+          <input class="form-check-input" name="standard-dectector-checkbox" type="checkbox" checked>
+          <label class="form-check-label">Standard Detector Settings</label>
+        </div>
+        <br>
+
+        <div id="detector-settings-d500x" style="display:none">
+          <div class="form-group">
+            <label>Sampling Frequency (KHz)</label>
+            <select class="form-control">
+              <option>500</option>
+              <option>300</option>
+              <option>44.1</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Pre-Trigger (seconds)</label>
+            <select class="form-control">
+              <option>Off</option>
+              <option>0.1</option>
+              <option>0.3</option>
+              <option>0.5</option>
+              <option>1</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Recording Length (seconds)</label>
+            <select class="form-control">
+              <option>5</option>
+              <option>0.3</option>
+              <option>0.4</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>Manual</option>
+            </select>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox">
+            <label class="form-check-label">HP-Filter</label>
+          </div>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked>
+            <label class="form-check-label">Autorecord</label>
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Trigger Sensitivity</label>
+            <select class="form-control">
+              <option>Medium</option>
+              <option>Very High</option>
+              <option>High</option>
+              <option>Low</option>
+              <option>Very Low</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Input Gain</label>
+            <input class="form-control" value="45">
+          </div>
+          <div class="form-group">
+            <label>Trigger level</label>
+            <input class="form-control" value="160">
+          </div>
+          <div class="form-group">
+            <label>Interval</label>
+            <input class="form-control" value="0">
+          </div>
+          <div class="form-group">
+            <label>Recording Start Time</label>
+            <input class="form-control" value="19:30">
+          </div>
+          <div class="form-group">
+            <label>Recording Stop Time</label>
+            <input class="form-control" value="6:30">
+          </div>
+        </div>
+
+        <div id="detector-settings-sm4bat" style="display:none">
+          <div class="form-group">
+            <label>Gain (dB)</label>
+            <select class="form-control">
+              <option>12</option>
+              <option>0</option>
+            </select>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox">
+            <label class="form-check-label">16Khz High Filter</label>
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Sample Rate (KHz)</label>
+            <select class="form-control">
+              <option>384</option>
+              <option>192</option>
+              <option>256</option>
+              <option>500</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Min Duration (ms)</label>
+            <input class="form-control" value="1.5">
+          </div>
+          <div class="form-group">
+            <label>Max Duration (ms)</label>
+            <input class="form-control" value="None">
+          </div>
+          <div class="form-group">
+            <label>Min Trig Freq (KHz)</label>
+            <input class="form-control" value="7">
+          </div>
+          <div class="form-group">
+            <label>Trigger Level (dB)</label>
+            <select class="form-control">
+              <option>12</option>
+              <option>Off</option>
+              <option>6</option>
+              <option>18</option>
+              <option>24</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Trigger Window (sec)</label>
+            <input class="form-control" value="3">
+          </div>
+          <div class="form-group">
+            <label>Max Length</label>
+            <input class="form-control" value="00:05">
+          </div>
+          <div class="form-group">
+            <label>Compression</label>
+            <select class="form-control">
+              <option>None</option>
+              <option>W4V-4</option>
+              <option>W4V-6</option>
+              <option>W4V-8</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Recording Start Time</label>
+            <input class="form-control" value="19:30">
+          </div>
+          <div class="form-group">
+            <label>Recording Stop Time</label>
+            <input class="form-control" value="6:30">
+          </div>
+        </div>
+        <br>
+        <hr>
+        <br>
         <div class="form-group">
-          <label>Type</label>
-          <select class="form-control" id="sample-location">
+          <label>Detection Input Type</label>
+          <select class="form-control">
             <option>Sonobat</option>
             <option>Kaleidoscope</option>
           </select>
           <button type="submit">Import</button>
         </div>
-      </form>
-      <form>
-        <h3>Microphone</h3>
+
         <div class="form-group">
-          <label>Microphone Type</label>
-          <select class="form-control" id="sample-location">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-         <div class="form-group">
           <label>Height off ground</label>
-          <input type="email" class="form-control" id="recovery-date">
+          <input class="form-control">
         </div>
         <div class="form-group">
           <label>Clutter Type</label>
-          <select class="form-control" id="sample-location">
+          <select class="form-control">
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -164,7 +269,7 @@
         </div>
         <div class="form-group">
           <label>Clutter Density</label>
-          <select class="form-control" id="sample-location">
+          <select class="form-control">
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -173,8 +278,8 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Orientation</label>
-          <select class="form-control" id="sample-location">
+          <label>Microphone Orientation</label>
+          <select class="form-control">
             <option>N</option>
             <option>NE</option>
             <option>E</option>
@@ -187,25 +292,77 @@
         </div>
         <div class="form-group">
           <label>Distance To Clutter</label>
-          <select class="form-control" id="sample-location">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select class="form-control">
+            <option>Distance Range #1</option>
+            <option>Distance Range #2</option>
+            <option>Distance Range #3</option>
+            <option>Distance Range #4</option>
+            <option>Distance Range #5</option>
           </select>
         </div>
+        <div class="form-check">
+          <input class="form-check-input" id="general-issues-checkbox" type="checkbox" name="general-checkbox">
+          <label class="form-check-label">General Issues</label>
+        </div>
+        <div class="form-group"  style="display:none" id="general-issues-notes">
+            <label>General Issues Notes</label>
+            <textarea class="form-control" rows="3"></textarea>
+          </div>
+        <div class="form-check">
+          <input class="form-check-input" id="detector-issues-checkbox" type="checkbox" name="detector-checkbox">
+          <label class="form-check-label">Detector Issues</label>
+        </div>
+        <div class="form-group" style="display:none" id="detector-issues-notes">
+            <label>Detector Issues Notes</label>
+            <textarea class="form-control" rows="3"></textarea>
+          </div>
         <div style="margin-top:50px;"></div>
         <a class="btn btn-primary" href="sample-unit.html">Save</a>
       </form>
     </div>
 
-
-
-
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script>
+      $(document).ready(function() {
+        $('input[name=standard-dectector-checkbox]').change(function() {
+          if (this.checked) {
+            $('#detector-settings-d500x').hide();
+            $('#detector-settings-sm4bat').hide();
+          } else {
+            if ($('#detector-select option:selected').text() === 'D500X') {
+              $('#detector-settings-d500x').show();
+            } else {
+              $('#detector-settings-sm4bat').show();
+            }
+
+          }
+        });
+
+        $('input[name=general-checkbox]').change(function() {
+          if (this.checked) {
+            $('#general-issues-notes').show();
+          } else {
+            $('#general-issues-notes').hide();
+          }
+        });
+
+        $('input[name=detector-checkbox]').change(function() {
+          if (this.checked) {
+            $('#detector-issues-notes').show();
+          } else {
+            $('#detector-issues-notes').hide();
+          }
+        });
+      });
+
+
+
+
+    </script>
   </body>
 </html>

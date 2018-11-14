@@ -40,27 +40,16 @@
 
     <div class="container">
 
-      <h1>New Sample Unit</h1>
+      <h1>Edit Sample Unit</h1>
 
       <form>
           <div class="form-group">
-            <label>Sample Unit Code</label>
+            <label>Sample Unit ID</label>
             <input class="form-control">
           </div>
           <div class="form-group">
             <label>GTRS</label>
             <input class="form-control">
-          </div>
-
-          <div class="form-group">
-            <label>Study Area</label>
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
           </div>
           <div class="form-group">
             <label>State</label>
@@ -78,6 +67,8 @@
           </div>
           <a class="btn btn-outline-primary" href="#">+ Add Another State/County</a>
           <br>
+          <br>
+          <hr>
           <br>
           <div class="form-group">
             <label>Broad Habitat</label>
@@ -100,10 +91,13 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Agency</label>
+            <label>Surveying Agency</label>
             <input class="form-control" id="rec-start-time">
           </div>
         </form>
+        <br>
+        <hr>
+        <br>
 
         <h2>Detector Locations</h2>
         <form>
@@ -125,6 +119,10 @@
             <input class="form-control">
           </div>
           <div class="form-group">
+            <label>Datum</label>
+            <input class="form-control" id="rec-start-time">
+          </div>
+          <div class="form-group">
             <label>Latitude</label>
             <input class="form-control" id="rec-start-time">
           </div>
@@ -141,7 +139,7 @@
             <input class="form-control" id="rec-start-time">
           </div>
           <div class="form-group">
-            <label>Habitat Type</label>
+            <label>Local Habitat</label>
             <select class="form-control">
               <option>1</option>
               <option>2</option>
@@ -174,12 +172,18 @@
               <option>5</option>
             </select>
           </div>
-          <p>TODO - Location Description fields, need confirmation on which fields to implement</p>
           <div class="form-group">
             <label for="exampleInputFile">Image Upload</label>
             <input type="file" class="form-control-file">
           </div>
+          <div class="form-group">
+            <label>Image Name</label>
+            <input class="form-control" id="rec-start-time">
+          </div>
         </form>
+        <a class="btn btn-outline-primary" href="#">+ Add Another Image</a>
+        <br>
+        <br>
         <a class="btn btn-outline-primary" href="#">+ Add Another Detector Location</a>
         <br>
         <div style="margin-top:50px;"></div>

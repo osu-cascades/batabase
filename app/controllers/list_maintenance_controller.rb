@@ -1,3 +1,3 @@
 class ListMaintenanceController < ApplicationController
-    def home; end
-  end
+  def home; end
+end

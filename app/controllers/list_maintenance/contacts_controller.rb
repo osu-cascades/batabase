@@ -1,5 +1,5 @@
 class ListMaintenance::ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:edit, :update, :destroy]
 
   def index
     @contacts = Contact.all
@@ -8,8 +8,6 @@ class ListMaintenance::ContactsController < ApplicationController
   def new
     @contact = Contact.new
   end
-
-  def show; end
 
   def edit; end
 

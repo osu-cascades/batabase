@@ -1,13 +1,4 @@
-<div class="columns">
-  <div class="column is-three-quarters">
-    <h1 class='title'>Broad Habitats</h1>
-  </div>
-  <div class="column">
-    <%= link_to 'Add Broad Habitat', new_broad_habitat_path, class: 'button is-primary is-large' %>
-  </div>
-</div>
-
-<hr>
+<%= render_component('index-header', { resource: 'Broad Habitat', path:  new_broad_habitat_path }) %>
 
 <table class='table'>
   <thead>

@@ -1,4 +1,12 @@
-<h1 class='title'>Broad Habitats</h1>
+<div class="columns">
+  <div class="column">
+    <h1 class='title'>Broad Habitats</h1>
+  </div>
+  <div class="column">
+    <%= link_to 'Add Broad Habitat', new_broad_habitat_path, class: 'button is-primary is-large' %>
+  </div>
+</div>
+
 <hr>
 
 <table class='table'>
@@ -7,14 +15,21 @@
       <th></th>
       <th>Label</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <%- @broad_habitats.each_with_index do |bh, i| %>
+    <%- @broad_habitats.each_with_index do |broad_habitat, index| %>
       <tr>
-        <th><%= i+1 %></th>
-        <td><%= bh.label %></td>
-        <td><a href='#'>Remove</a></td>
+        <th><%= index+1 %></th>
+        <td><%= broad_habitat.label %></td>
+        <td><%= link_to 'Edit', edit_broad_habitat_path(broad_habitat), class: 'button is-primary is-outlined is-small' %></td>
+        <td><%= link_to 'Remove',
+                        broad_habitat_path(broad_habitat),
+                        method: :delete, data: { confirm: "Delete #{broad_habitat.label}?" },
+                        class: 'button is-text is-small',
+                        style: 'border-bottom: 1px solid gray; text-decoration: none' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

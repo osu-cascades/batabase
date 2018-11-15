@@ -1,3 +1,5 @@
 class ListMaintenance::BroadHabitatsController < ApplicationController
-  def index; end
+  def index
+    @broad_habitats = BroadHabitat.all
+  end
 end

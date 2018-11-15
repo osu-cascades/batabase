@@ -1,1 +1,21 @@
-<h1>Broad Habitats</h1>
+<h1 class='title'>Broad Habitats</h1>
+<hr>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Label</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%- @broad_habitats.each_with_index do |bh, i| %>
+      <tr>
+        <th><%= i+1 %></th>
+        <td><%= bh.label %></td>
+        <td><a href='#'>Remove</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

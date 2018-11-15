@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  namespace :list_maintenance do
-    resources :broad_habitats, only: [:index]
+  namespace :list_maintenance, as: '' do
+    resources :broad_habitats, except: [:show]
   end
 end

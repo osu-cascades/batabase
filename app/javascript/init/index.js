@@ -3,3 +3,5 @@ import '../components/nav-bar/nav-bar'
 import '../components/header/header'
 
 import '../components/index-header/index-header'
+
+import '../components/index-table/index-table'

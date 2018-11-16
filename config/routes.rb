@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :list_maintenance, as: '' do
     resources :broad_habitats, except: [:show]
-    resources :contacts
+    resources :contacts, except: [:show]
+    resources :organizations, except: [:show]
   end
 end

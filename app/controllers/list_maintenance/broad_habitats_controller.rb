@@ -39,7 +39,7 @@ class ListMaintenance::BroadHabitatsController < ApplicationController
   private
 
   def broad_habitat_params
-    params.require(:broad_habitat).permit(:id, :label)
+    params.require(:broad_habitat).permit(:label)
   end
 
   def set_broad_habitat

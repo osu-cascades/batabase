@@ -1,0 +1,29 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th></th>
+      <% headers.each do |header| %>
+        <th><%= header.to_s.humanize %></th>
+      <% end %>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% resources.each_with_index do |resource, index| %>
+      <tr>
+        <th><%= index+1 %></th>
+        <% headers.each do |header| %>
+          <td><%= placeholder_if_blank(resource.send(header)) %></td>
+        <% end %>
+        <td><%= link_to 'Edit', [:edit, resource], class: 'button is-primary is-outlined is-small' %></td>
+        <td><%= link_to 'Remove',
+                        resource,
+                        method: :delete, data: { confirm: "Delete #{headers[0]}?" },
+                        class: 'button is-text is-small',
+                        style: 'border-bottom: 1px solid gray; text-decoration: none' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

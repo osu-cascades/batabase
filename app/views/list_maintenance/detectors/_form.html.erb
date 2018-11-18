@@ -1,0 +1,46 @@
+<div class='columns'>
+  <div class='column is-half'>
+    <%= form_for(@detector) do |f| %>
+      <div class='field'>
+        <%= f.label 'Serial Number', class: 'label' %>
+        <div class='control'>
+          <%= f.text_field :serial_num, class: 'input' %>
+        </div>
+      </div>
+
+      <div class='field'>
+        <%= f.label :model, class: 'label' %>
+        <div class='control'>
+          <%= f.text_field :model, class: 'input' %>
+        </div>
+      </div>
+
+      <div class='field'>
+        <%= f.label :manufacturer, class: 'label' %>
+        <div class='control'>
+          <%= f.text_field :manufacturer, class: 'input' %>
+        </div>
+      </div>
+
+      <div class='field'>
+        <%= f.label :firmware, class: 'label' %>
+        <div class='control'>
+          <%= f.text_field :firmware, class: 'input' %>
+        </div>
+      </div>
+
+      <div class='field'>
+        <%= f.label :owning_agency, class: 'label' %>
+        <div class='control'>
+          <%= f.text_field :owning_agency, class: 'input' %>
+        </div>
+      </div>
+
+      <div class='field'>
+        <div class='control actions'>
+          <%= f.submit class: 'button is-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

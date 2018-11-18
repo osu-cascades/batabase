@@ -1,20 +1,20 @@
-class ListMaintenance::SpeciessController < ApplicationController
+class ListMaintenance::SpeciesController < ApplicationController
   before_action :set_species, only: [:edit, :update, :destroy]
 
   def index
-    @speciess = Species.all
+    @species = Species.all
   end
 
   def new
-    @species = Species.new
+    @specie = Species.new
   end
 
   def edit; end
 
   def create
-    @species = Speciess.new(species_params)
-    if @species.save
-      redirect_to speciess_path
+    @specie = Species.new(species_params)
+    if @specie.save
+      redirect_to species_index_path
       flash[:success] = 'Species was successfully created.'
     else
       render :new
@@ -22,8 +22,8 @@ class ListMaintenance::SpeciessController < ApplicationController
   end
 
   def update
-    if @species.update(species_params)
-      redirect_to speciess_path
+    if @specie.update(species_params)
+      redirect_to species_index_path
       flash[:success] = 'Species was successfully updated.'
     else
       render :edit
@@ -31,19 +31,18 @@ class ListMaintenance::SpeciessController < ApplicationController
   end
 
   def destroy
-    @species.destroy
-    redirect_to speciess_path
+    @specie.destroy
+    redirect_to species_index_path
     flash[:success] = 'Species was successfully destroyed.'
   end
 
   private
 
   def species_params
-    params.require(:species).permit(:label)
+    params.require(:species).permit(:code, :common_name, :scientific_name, :tsn)
   end
 
   def set_species
-    @species = Species.find(params[:id])
+    @specie = Species.find(params[:id])
   end
-
 end

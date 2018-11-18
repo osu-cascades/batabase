@@ -13,23 +13,27 @@
         <% if user_signed_in? %>
 
           <div class='navbar-start'>
-            <div class='navbar-item'>Deployments</div>
-            <div class='navbar-item'>Sample Units</div>
+            <div class='navbar-item'>
+              <%= link_to 'Deployments', deployments_path, class: 'navbar-item' %>
+            </div>
+            <div class='navbar-item'>                
+              <%= link_to 'Sample Units', sample_units_path, class: 'navbar-item' %>
+            </div>
             <div class='navbar-item has-dropdown is-hoverable'>
               <a class='navbar-link'>List Maintenance</a>
               <div class='navbar-dropdown'>
                 <%= link_to 'Broad Habitats', broad_habitats_path, class: 'navbar-item' %>
-                <a class='navbar-item'>Clutter Types</a>
+                <%= link_to 'Clutter Types', clutter_types_path, class: 'navbar-item' %>
                 <%= link_to 'Contacts', contacts_path, class: 'navbar-item' %>
                 <a class='navbar-item'>Datum</a>
                 <a class='navbar-item'>Detection Targets</a>
                 <a class='navbar-item'>Detectors</a>
-                <a class='navbar-item'>Distance Ranges</a>
-                <a class='navbar-item'>Local Habitats</a>
+                <%= link_to 'Distance Ranges', distance_ranges_path, class: 'navbar-item' %>
+                <%= link_to 'Local Habitats', local_habitats_path, class: 'navbar-item' %>
                 <%= link_to 'Organizations', organizations_path, class: 'navbar-item' %>
                 <a class='navbar-item'>Sample Designs</a>
-                <a class='navbar-item'>Species</a>
-                <a class='navbar-item'>Species Group</a>
+                <%# <%= link_to 'Species', speciess_path, class: 'navbar-item' %> 
+                <%= link_to 'Species Groups', species_groups_path, class: 'navbar-item' %>
                 <a class='navbar-item'>Study Areas</a>
               </div>
             </div>

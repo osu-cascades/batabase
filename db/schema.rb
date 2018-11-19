@@ -212,16 +212,16 @@ ActiveRecord::Schema.define(version: 2018_11_11_184033) do
     t.datetime "created_at"
   end
 
-  create_table "sample_design", id: :serial, force: :cascade do |t|
-    t.string "label", limit: 50, null: false
-    t.integer "sample_design_type_id", null: false
-    t.string "description", limit: 255, null: false
+  create_table "sample_design_types", id: :serial, force: :cascade do |t|
+    t.string "label", limit: 25, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "sample_design_type", id: :serial, force: :cascade do |t|
-    t.string "label", limit: 25, null: false
+  create_table "sample_designs", id: :serial, force: :cascade do |t|
+    t.string "label", limit: 50, null: false
+    t.integer "sample_design_type_id", null: false
+    t.string "description", limit: 255, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

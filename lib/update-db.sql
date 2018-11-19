@@ -31,8 +31,8 @@ ALTER TABLE "tluSpeciesGroup" RENAME TO species_groups;
 ALTER TABLE "tluState" RENAME TO states;
 ALTER TABLE "tsysBackendVersion" RENAME TO tsys_backend_versions;
 ALTER TABLE "tblSite" RENAME TO sample_units;
-ALTER TABLE "tluSampleDesign" RENAME TO sample_design;
-ALTER TABLE "tluSampleDesignType" RENAME TO sample_design_type;
+ALTER TABLE "tluSampleDesign" RENAME TO sample_designs;
+ALTER TABLE "tluSampleDesignType" RENAME TO sample_design_types;
 
 
 -- Add columns
@@ -255,15 +255,15 @@ ALTER TABLE public.orientations ALTER COLUMN id DROP DEFAULT;
 ALTER TABLE public.recovery_contacts RENAME COLUMN "ID" TO id;
 ALTER TABLE public.recovery_contacts ALTER COLUMN id DROP DEFAULT;
 
-ALTER TABLE public.sample_design RENAME COLUMN "ID" TO id;
-ALTER TABLE public.sample_design ALTER COLUMN id DROP DEFAULT;
-ALTER TABLE public.sample_design RENAME COLUMN "Label" TO label;
-ALTER TABLE public.sample_design RENAME COLUMN "SampleDesignTypeID" TO sample_design_type_id;
-ALTER TABLE public.sample_design RENAME COLUMN "Description" TO description;
+ALTER TABLE public.sample_designs RENAME COLUMN "ID" TO id;
+ALTER TABLE public.sample_designs ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.sample_designs RENAME COLUMN "Label" TO label;
+ALTER TABLE public.sample_designs RENAME COLUMN "SampleDesignTypeID" TO sample_design_type_id;
+ALTER TABLE public.sample_designs RENAME COLUMN "Description" TO description;
 
-ALTER TABLE public.sample_design_type RENAME COLUMN "ID" TO id;
-ALTER TABLE public.sample_design_type ALTER COLUMN id DROP DEFAULT;
-ALTER TABLE public.sample_design_type RENAME COLUMN "Label" TO label;
+ALTER TABLE public.sample_design_types RENAME COLUMN "ID" TO id;
+ALTER TABLE public.sample_design_types ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.sample_design_types RENAME COLUMN "Label" TO label;
 
 ALTER TABLE public.sample_units RENAME COLUMN "ID" TO id;
 ALTER TABLE public.sample_units ALTER COLUMN id DROP DEFAULT;
@@ -374,7 +374,7 @@ ALTER TABLE detector_locations DROP COLUMN "DominantOverstory";
 ALTER TABLE detector_locations DROP COLUMN "DominantUnderstory";
 
   -- Sample Design Type
-ALTER TABLE sample_design_type DROP COLUMN "SortOrder";
+ALTER TABLE sample_design_types DROP COLUMN "SortOrder";
 
   -- Sample Units
 ALTER TABLE sample_units DROP COLUMN "ParkCode";
@@ -439,11 +439,11 @@ ALTER TABLE public.recovery_contacts RENAME COLUMN "last_modified_date" TO updat
 ALTER TABLE reports ADD COLUMN updated_at timestamp without time zone;
 ALTER TABLE reports ADD COLUMN created_at timestamp without time zone;
 
-ALTER TABLE sample_design ADD COLUMN created_at timestamp without time zone;
-ALTER TABLE sample_design ADD COLUMN updated_at timestamp without time zone;
+ALTER TABLE sample_designs ADD COLUMN created_at timestamp without time zone;
+ALTER TABLE sample_designs ADD COLUMN updated_at timestamp without time zone;
 
-ALTER TABLE sample_design_type ADD COLUMN created_at timestamp without time zone;
-ALTER TABLE sample_design_type ADD COLUMN updated_at timestamp without time zone;
+ALTER TABLE sample_design_types ADD COLUMN created_at timestamp without time zone;
+ALTER TABLE sample_design_types ADD COLUMN updated_at timestamp without time zone;
 
 ALTER TABLE public.sample_units RENAME COLUMN "created_date" TO created_at;
 ALTER TABLE public.sample_units RENAME COLUMN "last_modified_date" TO updated_at;
@@ -476,7 +476,7 @@ ALTER TABLE microphone_types DROP CONSTRAINT "tluMicrophoneType_pkey";
 ALTER TABLE orientations DROP CONSTRAINT "tluOrientation_pkey";
 ALTER TABLE recovery_contacts DROP CONSTRAINT "tblRecoveryContact_pkey";
 ALTER TABLE reports DROP CONSTRAINT "tblReport_pkey";
-ALTER TABLE sample_design_type DROP CONSTRAINT "tluSampleDesignType_Label_key";
+ALTER TABLE sample_design_types DROP CONSTRAINT "tluSampleDesignType_Label_key";
 ALTER TABLE sample_units DROP CONSTRAINT "tblSite_pkey";
 ALTER TABLE softwares DROP CONSTRAINT "tluSoftware_pkey";
 ALTER TABLE sonobat_deployment_detections DROP CONSTRAINT "tblDeploymentDetection7_pkey";
@@ -523,8 +523,8 @@ CREATE SEQUENCE microphone_types_id_seq OWNED BY microphone_types.id;
 CREATE SEQUENCE orientations_id_seq OWNED BY orientations.id;
 CREATE SEQUENCE recovery_contacts_id_seq OWNED BY recovery_contacts.id;
 CREATE SEQUENCE reports_id_seq OWNED BY reports.id;
-CREATE SEQUENCE sample_design_id_seq OWNED BY sample_design.id;
-CREATE SEQUENCE sample_design_type_id_seq OWNED BY sample_design_type.id;
+CREATE SEQUENCE sample_designs_id_seq OWNED BY sample_designs.id;
+CREATE SEQUENCE sample_design_types_id_seq OWNED BY sample_design_types.id;
 CREATE SEQUENCE sample_units_id_seq OWNED BY sample_units.id;
 CREATE SEQUENCE softwares_id_seq OWNED BY softwares.id;
 CREATE SEQUENCE sonobat_deployment_detections_id_seq OWNED BY sonobat_deployment_detections.id;
@@ -547,8 +547,8 @@ SELECT setval('microphone_types_id_seq', coalesce(max(id), 1)) FROM microphone_t
 SELECT setval('orientations_id_seq', coalesce(max(id), 1)) FROM orientations;
 SELECT setval('recovery_contacts_id_seq', coalesce(max(id), 1)) FROM recovery_contacts;
 SELECT setval('reports_id_seq', coalesce(max(id), 1)) FROM reports;
-SELECT setval('sample_design_id_seq', coalesce(max(id), 1)) FROM sample_design;
-SELECT setval('sample_design_type_id_seq', coalesce(max(id), 1)) FROM sample_design_type;
+SELECT setval('sample_designs_id_seq', coalesce(max(id), 1)) FROM sample_designs;
+SELECT setval('sample_design_types_id_seq', coalesce(max(id), 1)) FROM sample_design_types;
 SELECT setval('sample_units_id_seq', coalesce(max(id), 1)) FROM sample_units;
 SELECT setval('softwares_id_seq', coalesce(max(id), 1)) FROM softwares;
 SELECT setval('sonobat_deployment_detections_id_seq', coalesce(max(id), 1)) FROM sonobat_deployment_detections;
@@ -573,8 +573,8 @@ ALTER TABLE microphone_types ALTER COLUMN id SET DEFAULT nextval('microphone_typ
 ALTER TABLE orientations ALTER COLUMN id SET DEFAULT nextval('orientations_id_seq');
 ALTER TABLE recovery_contacts ALTER COLUMN id SET DEFAULT nextval('recovery_contacts_id_seq');
 ALTER TABLE reports ALTER COLUMN id SET DEFAULT nextval('reports_id_seq');
-ALTER TABLE sample_design ALTER COLUMN id SET DEFAULT nextval('sample_design_id_seq');
-ALTER TABLE sample_design_type ALTER COLUMN id SET DEFAULT nextval('sample_design_type_id_seq');
+ALTER TABLE sample_designs ALTER COLUMN id SET DEFAULT nextval('sample_designs_id_seq');
+ALTER TABLE sample_design_types ALTER COLUMN id SET DEFAULT nextval('sample_design_types_id_seq');
 ALTER TABLE sample_units ALTER COLUMN id SET DEFAULT nextval('sample_units_id_seq');
 ALTER TABLE softwares ALTER COLUMN id SET DEFAULT nextval('softwares_id_seq');
 ALTER TABLE sonobat_deployment_detections ALTER COLUMN id SET DEFAULT nextval('sonobat_deployment_detections_id_seq');
@@ -596,7 +596,7 @@ ALTER TABLE orientations DROP CONSTRAINT "tluOrientation_Label_key";
 ALTER TABLE recovery_contacts DROP CONSTRAINT "tblRecoveryContact_DeploymentID_ContactID_key";
 ALTER TABLE reports DROP CONSTRAINT "tblReport_ReportLabel_key";
 ALTER TABLE reports DROP CONSTRAINT "tblReport_ReportName_key";
-ALTER TABLE sample_design DROP CONSTRAINT "tluSampleDesign_Label_SampleDesignTypeID_Description_key";
+ALTER TABLE sample_designs DROP CONSTRAINT "tluSampleDesign_Label_SampleDesignTypeID_Description_key";
 ALTER TABLE sample_units DROP CONSTRAINT "tblSite_SiteCode_key";
 ALTER TABLE softwares DROP CONSTRAINT "tluSoftware_Label_key";
 ALTER TABLE species DROP CONSTRAINT "tluSpecies_Code_key";

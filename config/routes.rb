@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :geodetic_systems, except: [:show]
     resources :local_habitats, except: [:show]
     resources :organizations, except: [:show]
+    resources :sample_designs, except: [:show]
     resources :species, except: [:show]
     resources :species_groups, except: [:show]
   end

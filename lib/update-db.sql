@@ -1,5 +1,5 @@
 -- Drop tables
-DROP TABLE IF EXISTS "tblAudioLoggerMaint","tblDefinitionDetection6","tblDeploymentDetection2","tblDeploymentDetection3","tblDeploymentDetection4","tblDeploymentDetection5","tblDeploymentDetection6","tblHighLowTemperature","tblMaintenance","tblMobileRoute","tblMobileSurvey","tblMobileSurveyContact","tblMobileSurveyDetection1","tblMobileSurveyDetection2","tblMobileSurveyDetection3","tblMobileSurveyDetection4","tblMobileSurveyDetection5","tblMobileSurveyDetection6","tblMobileSurveyDetection7","tblMobileSurveySoftware","tblSiteStateCounty","tluBatteryLocation","tluBatteryType","tluPark","tluWaterBodyType","xrefSpeciesSpeciesGroup";
+DROP TABLE IF EXISTS "tblAudioLoggerMaint","tblDefinitionDetection6","tblDeploymentDetection2","tblDeploymentDetection3","tblDeploymentDetection4","tblDeploymentDetection5","tblDeploymentDetection6","tblHighLowTemperature","tblMaintenance","tblMobileRoute","tblMobileSurvey","tblMobileSurveyContact","tblMobileSurveyDetection1","tblMobileSurveyDetection2","tblMobileSurveyDetection3","tblMobileSurveyDetection4","tblMobileSurveyDetection5","tblMobileSurveyDetection6","tblMobileSurveyDetection7","tblMobileSurveySoftware","tblSiteStateCounty","tluBatteryLocation","tluBatteryType","tluPark","tluWaterBodyType","xrefSpeciesSpeciesGroup","tsysBackendVersion";
 
 CREATE TABLE organizations (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -29,7 +29,6 @@ ALTER TABLE "tluSoftware" RENAME TO softwares;
 ALTER TABLE "tluSpecies" RENAME TO species;
 ALTER TABLE "tluSpeciesGroup" RENAME TO species_groups;
 ALTER TABLE "tluState" RENAME TO states;
-ALTER TABLE "tsysBackendVersion" RENAME TO tsys_backend_versions;
 ALTER TABLE "tblSite" RENAME TO sample_units;
 ALTER TABLE "tluSampleDesign" RENAME TO sample_designs;
 ALTER TABLE "tluSampleDesignType" RENAME TO sample_design_types;
@@ -215,7 +214,6 @@ ALTER TABLE public.species_groups RENAME COLUMN "LastModifiedDate" TO last_modif
 ALTER TABLE public.species_groups RENAME COLUMN "Summary" TO summary;
 ALTER TABLE public.states RENAME COLUMN "StateCode" TO state_code;
 ALTER TABLE public.states RENAME COLUMN "StateName" TO state_name;
-ALTER TABLE public.tsys_backend_versions RENAME COLUMN "VersionNumber" TO version_number;
 ALTER TABLE public.softwares RENAME COLUMN "Summary" TO summary;
 ALTER TABLE public.broad_habitats RENAME COLUMN "Label" TO label;
 ALTER TABLE public.broad_habitats RENAME COLUMN "ID" TO id;
@@ -277,8 +275,6 @@ ALTER TABLE public.species ALTER COLUMN id DROP DEFAULT;
 ALTER TABLE public.species_groups RENAME COLUMN "Label" TO label;
 ALTER TABLE public.species_groups RENAME COLUMN "ID" TO id;
 ALTER TABLE public.species_groups ALTER COLUMN id DROP DEFAULT;
-ALTER TABLE public.tsys_backend_versions RENAME COLUMN "ID" TO id;
-ALTER TABLE public.tsys_backend_versions ALTER COLUMN id DROP DEFAULT;
 
 -- Drop Columns
   -- Deployments

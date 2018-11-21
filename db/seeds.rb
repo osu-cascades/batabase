@@ -37,3 +37,13 @@ User.create!(
   confirmed_at: Time.now.utc,
   role: :admin
 )
+
+10.times do |i|
+  User.create!(
+    email: "guest-#{i}@guest.com",
+    password: 'password',
+    password_confirmation: 'password',
+    confirmed_at: Time.now.utc,
+    role: :guest
+  )
+end

@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   root to: 'static#home'
 
   devise_for :users
+
   resources :deployments
+
   resources :sample_units
+
+  get 'admin/dashboard', to: 'admin#dashboard'
 
   namespace :list_maintenance, as: '' do
     resources :broad_habitats, except: [:show]

@@ -21,7 +21,7 @@
         <td><%= placeholder_if_blank(user.role.humanize) %></td>
         <td><%= link_to 'Edit', edit_registration_path(user), class: 'button is-primary is-outlined is-small' %></td>
         <td><%= link_to('Remove',
-                  registration_path(user),
+                  admin_destroy_user_path(user),
                   data: { confirm: "Delete #{user.email}?" },
                   method: :delete,
                   class: 'button is-text is-small',

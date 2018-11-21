@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :sample_units
 
   get 'admin/dashboard', to: 'admin#dashboard'
+  match 'admin/:id' => 'admin#destroy', :via => :delete, :as => :admin_destroy_user
 
   namespace :list_maintenance, as: '' do
     resources :broad_habitats, except: [:show]

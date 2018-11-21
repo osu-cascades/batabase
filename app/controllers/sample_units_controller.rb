@@ -1,4 +1,3 @@
 class SampleUnitsController < ApplicationController
-    def home; end
-  end
-  
+  def home; end
+end

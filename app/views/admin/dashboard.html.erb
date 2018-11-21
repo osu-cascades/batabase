@@ -1,0 +1,31 @@
+<%= render_component('header', { title: 'Admin Dashboard' }) %>
+
+<h2 class='title is-4'>Users</h2>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each_with_index do |resource, index| %>
+      <tr>
+        <th><%= index+1 %></th>
+
+        <td><%= placeholder_if_blank(resource.email) %></td>
+        <td><%= link_to 'Edit', edit_registration_path(resource), class: 'button is-primary is-outlined is-small' %></td>
+        <td><%= link_to('Remove',
+                  registration_path(resource),
+                  data: { confirm: "Delete #{resource.email}?" },
+                  method: :delete,
+                  class: 'button is-text is-small',
+                  style: 'border-bottom: 1px solid gray; text-decoration: none')%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

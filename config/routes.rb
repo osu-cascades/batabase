@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root to: 'static#home'
 
   devise_for :users
-  resources :deployments, except: [:show]
-  resources :sample_units, except: [:show]
+  resources :deployments
+  resources :sample_units
 
   namespace :list_maintenance, as: '' do
     resources :broad_habitats, except: [:show]

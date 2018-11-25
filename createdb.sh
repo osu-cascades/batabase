@@ -7,4 +7,3 @@ cd ..;
 bundle exec rails db:migrate
 bundle exec rake seeds:destroy_users;
 bundle exec rake seeds:create_users;
-

@@ -12,7 +12,7 @@ namespace :seeds do
       )
     end
 
-    5.times.do do |i|
+    5.times do |i|
       User.create!(
         email: "field-agent-#{i}@field-agent.com",
         password: 'password',

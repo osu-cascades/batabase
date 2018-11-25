@@ -35,7 +35,7 @@ namespace :seeds do
     puts 'Created testing bois'
   end
 
-  desc 'create users'
+  desc 'Destroy all users'
   task 'destroy_users' => :environment do
     User.delete_all
     puts 'Deleted those bois'

@@ -1,7 +1,31 @@
 <%= render_component('index-header', { resource: 'Sample Design', path:  new_sample_design_path }) %>
 
-<%= render_component(
-  'index-table',
-  { resources: @sample_designs,
-  headers: [:label, :sample_design_type_id, :description] })
-%>
+<table class='table'>
+  <thead>
+    <tr>
+      <th></th>
+      <% [:label, :type, :description].each do |header| %>
+        <th><%= header.to_s.humanize %></th>
+      <% end %>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sample_designs.each_with_index do |sample_design, index| %>
+      <tr>
+        <th><%= index+1 %></th>
+        <td><%= placeholder_if_blank(sample_design.label) %></td>
+        <td><%= placeholder_if_blank(sample_design.sample_design_type.try(:label)) %></td>
+        <td><%= placeholder_if_blank(sample_design.description) %></td>
+        <td><%= link_to 'Edit', [:edit, sample_design], class: 'button is-primary is-outlined is-small' %></td>
+        <td><%= link_to 'Remove',
+                        sample_design,
+                        method: :delete, data: { confirm: "Delete #{sample_design.label}?" },
+                        class: 'button is-text is-small',
+                        style: 'border-bottom: 1px solid gray; text-decoration: none' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

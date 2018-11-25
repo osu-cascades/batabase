@@ -9,9 +9,15 @@
       </div>
 
       <div class='field'>
-        <%= f.label :type, class: 'label' %>
-        <div class='control'>
-          <%= f.text_field :type, class: 'input' %>
+        <%= f.label 'Type', class: 'label' %>
+        <div class='control select'>
+          <%= collection_select(:sample_design,
+            :sample_design_type_id,
+            SampleDesignType.all,
+            :id,
+            :label,
+            prompt: true)
+          %>
         </div>
       </div>
 

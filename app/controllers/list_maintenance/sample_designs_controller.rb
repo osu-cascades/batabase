@@ -15,7 +15,7 @@ class ListMaintenance::SampleDesignsController < ApplicationController
     @sample_design = SampleDesign.new(sample_design_params)
     if @sample_design.save
       redirect_to sample_designs_path
-      flash[:success] = 'Sample design was successfully created.'
+      flash[:notice] = 'Sample design was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListMaintenance::SampleDesignsController < ApplicationController
   def update
     if @sample_design.update(sample_design_params)
       redirect_to sample_designs_path
-      flash[:success] = 'Sample design was successfully updated.'
+      flash[:notice] = 'Sample design was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ListMaintenance::SampleDesignsController < ApplicationController
   def destroy
     @sample_design.destroy
     redirect_to sample_designs_path
-    flash[:success] = 'Sample design was successfully destroyed.'
+    flash[:notice] = 'Sample design was successfully destroyed.'
   end
 
   private

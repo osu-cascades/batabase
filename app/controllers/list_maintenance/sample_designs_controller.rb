@@ -39,7 +39,7 @@ class ListMaintenance::SampleDesignsController < ApplicationController
   private
 
   def sample_design_params
-    params.require(:sample_design).permit(:label)
+    params.require(:sample_design).permit(:label, :sample_design_type_id, :description)
   end
 
   def set_sample_design

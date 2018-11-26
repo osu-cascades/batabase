@@ -8,6 +8,8 @@
       <th></th>
       <th>Email</th>
       <th>Role</th>
+      <th>State</th>
+      <th>Organization</th>
       <th></th>
       <th></th>
     </tr>
@@ -19,6 +21,8 @@
 
         <td><%= placeholder_if_blank(user.email) %></td>
         <td><%= placeholder_if_blank(user.role.humanize) %></td>
+        <td><%= placeholder_if_blank(user.state.try(:state_name)) %></td>
+        <td><%= placeholder_if_blank(user.organization.try(:label)) %></td>
         <td><%= link_to 'Edit', edit_registration_path(user), class: 'button is-primary is-outlined is-small' %></td>
         <td><%= link_to('Remove',
                   admin_destroy_user_path(user),

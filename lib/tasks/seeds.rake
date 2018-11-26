@@ -8,7 +8,9 @@ namespace :seeds do
         password: 'password',
         password_confirmation: 'password',
         confirmed_at: Time.now.utc,
-        role: :admin
+        role: :admin,
+        state: State.where(state_code: 'OR').first,
+        organization: Organization.first
       )
     end
 
@@ -18,7 +20,9 @@ namespace :seeds do
         password: 'password',
         password_confirmation: 'password',
         confirmed_at: Time.now.utc,
-        role: :field_agent
+        role: :field_agent,
+        state: State.where(state_code: 'OR').first,
+        organization: Organization.first
       )
     end
 
@@ -28,7 +32,9 @@ namespace :seeds do
         password: 'password',
         password_confirmation: 'password',
         confirmed_at: Time.now.utc,
-        role: :guest
+        role: :guest,
+        state: State.where(state_code: 'OR').first,
+        organization: Organization.first
       )
     end
 

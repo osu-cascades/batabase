@@ -14,12 +14,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Rememberable
       t.datetime :remember_created_at
 
-
       ## Confirmable
       t.string   :confirmation_token
       t.datetime :confirmed_at
       t.datetime :confirmation_sent_at
 
+      ## Additional Fields
+      t.string :first_name
+      t.string :last_name
+      t.belongs_to :state, index: true
+      t.belongs_to :organization, index: true
 
       t.timestamps null: false
     end

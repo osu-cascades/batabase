@@ -9,6 +9,8 @@ class User < ApplicationRecord
   belongs_to :state
   belongs_to :organization
 
+  validates :first_name, :last_name, presence: true
+
   private
 
   def set_default_role

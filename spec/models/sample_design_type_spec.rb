@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SampleDesignType, type: :model do
-  subject(:report) { SampleDesignType.new(label: 'Example Label') }
+  subject(:sample_design_type) { build(:sample_design_type) }
 
   describe 'validations' do
     it { should validate_presence_of(:label) }

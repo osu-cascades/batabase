@@ -216,8 +216,6 @@ ActiveRecord::Schema.define(version: 2018_11_25_210840) do
     t.string "label", limit: 25, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.bigint "sample_design_id"
-    t.index ["sample_design_id"], name: "index_sample_design_types_on_sample_design_id"
   end
 
   create_table "sample_designs", id: :serial, force: :cascade do |t|

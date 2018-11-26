@@ -26,12 +26,9 @@ Start the application by:
 
 Create frontend components by running the component generator `rails g component <component-name>`. Include the component in the view ERB template with the application helper `#render_component`.
 
-### Pulling down MS Access data
+### Populating the Database
 
-* Create local database: `createdb batabase_development`
-* Navigate to the lib directory: `cd batabase/lib`
-* Dump db: `psql -d batabase_development -f dump.sql`
-* Modify db: `psql -d batabase_development -f update-db.sql`
-
+* Navigate to the project root
+* Run script: `sh createdb.sh`
 
 &copy; 2018 Nathan Struhs, Dylan Drudge. All rights reserved.

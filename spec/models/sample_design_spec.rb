@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SampleDesign, type: :model do
-  subject(:report) { SampleDesign.new(label: 'Example Label', description: 'Example Description', sample_design_type_id: 1) }
+  subject(:sample_design) { build(:sample_design) }
 
   describe 'validations' do
     %i(label description).each do |attribute|
@@ -9,5 +9,9 @@ RSpec.describe SampleDesign, type: :model do
     end
 
     it { should validate_length_of(:label).is_at_most(50) }
+  end
+
+  describe 'associations' do
+    it { should belong_to(:sample_design_type) }
   end
 end

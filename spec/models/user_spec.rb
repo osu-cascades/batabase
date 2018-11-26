@@ -3,7 +3,13 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject(:user) { build(:user) }
 
-  describe 'callback' do
+  describe 'validations' do
+    %i(first_name last_name).each do |attribute|
+      it { should validate_presence_of(attribute) }
+    end
+  end
+
+  describe 'callbacks' do
     it '#after_initialize should recieve #set_default_user' do
       user = User.allocate
       expect(user).to receive(:set_default_role)

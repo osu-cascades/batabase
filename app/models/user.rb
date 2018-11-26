@@ -6,8 +6,8 @@ class User < ApplicationRecord
   enum role: [:guest, :field_agent, :admin]
   after_initialize :set_default_role, if: :new_record?
 
-  belongs_to :state, optional: true
-  belongs_to :organization, optional: true
+  belongs_to :state
+  belongs_to :organization
 
   private
 

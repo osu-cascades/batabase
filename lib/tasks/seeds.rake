@@ -1,9 +1,10 @@
-
 namespace :seeds do
   desc 'Create initial test users'
   task 'create_users' => :environment do
     %w(nathanstruhs@gmail.com drudged@oregonstate.edu admin@admin.com).each do |email|
       User.create!(
+        first_name: 'Admin',
+        last_name: 'McAdmin',
         email: email,
         password: 'password',
         password_confirmation: 'password',
@@ -16,6 +17,8 @@ namespace :seeds do
 
     5.times do |i|
       User.create!(
+        first_name: 'Agent',
+        last_name: 'McAgent',
         email: "field-agent-#{i}@field-agent.com",
         password: 'password',
         password_confirmation: 'password',
@@ -28,6 +31,8 @@ namespace :seeds do
 
     5.times do |i|
       User.create!(
+        first_name: 'Guest',
+        last_name: 'McGuest',
         email: "guest-#{i}@guest.com",
         password: 'password',
         password_confirmation: 'password',

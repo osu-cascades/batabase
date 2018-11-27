@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_191542) do
+ActiveRecord::Schema.define(version: 2018_11_27_162316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,10 @@ ActiveRecord::Schema.define(version: 2018_11_26_191542) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.bigint "state_id"
+    t.bigint "organization_id"
+    t.index ["organization_id"], name: "index_contacts_on_organization_id"
+    t.index ["state_id"], name: "index_contacts_on_state_id"
   end
 
   create_table "deployment_contacts", id: :serial, force: :cascade do |t|

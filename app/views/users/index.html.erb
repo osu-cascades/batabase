@@ -23,13 +23,11 @@
         <td><%= placeholder_if_blank(user.role.humanize) %></td>
         <td><%= placeholder_if_blank(user.state.try(:state_name)) %></td>
         <td><%= placeholder_if_blank(user.organization.try(:label)) %></td>
-        <td><%= link_to 'Edit', edit_registration_path(user), class: 'button is-primary is-outlined is-small' %></td>
-        <td><%= link_to('Remove',
-                  admin_destroy_user_path(user),
-                  data: { confirm: "Delete #{user.email}?" },
-                  method: :delete,
+        <td><%= link_to 'Edit', edit_user_path(user), class: 'button is-primary is-outlined is-small' %></td>
+        <td><%= link_to 'Remove',{ action: :destroy, id: user.id },method: :delete, data: { confirm: "Delete #{user.email}?" },
                   class: 'button is-text is-small',
-                  style: 'border-bottom: 1px solid gray; text-decoration: none')%>
+                  style: 'border-bottom: 1px solid gray; text-decoration: none'
+            %>
         </td>
       </tr>
     <% end %>

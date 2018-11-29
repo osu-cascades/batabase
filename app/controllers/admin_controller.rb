@@ -17,7 +17,9 @@ class AdminController < ApplicationController
   private
 
   def admin_user
-    redirect_to(root_url) unless current_user.admin?
-    flash[:alert] = 'Unauthorized access.'
+    unless current_user.admin?
+      redirect_to(root_url)
+      flash[:alert] = 'Unauthorized access.'
+    end
   end
 end

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :broad_habitats, except: [:show]
     resources :clutter_types, except: [:show]
     resources :contacts, except: [:show]
+    resources :detection_targets, except: [:show]
     resources :detectors, except: [:show]
     resources :distance_ranges, except: [:show]
     resources :geodetic_systems, except: [:show]

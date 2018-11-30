@@ -1,6 +1,7 @@
 exclude_patterns:
 - "tests/"
 - "spec/"
+- "vendor/"
 - "**/vendor/"
 - "config/"
 - "db/"

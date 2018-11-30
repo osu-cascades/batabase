@@ -24,5 +24,6 @@ Rails.application.routes.draw do
     resources :sample_designs, except: [:show]
     resources :species, except: [:show]
     resources :species_groups, except: [:show]
+    resources :target_descriptors, except: [:show]
   end
 end

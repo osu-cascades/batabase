@@ -1,4 +1,4 @@
-namespace :seed do
+namespace :seeds do
   desc 'Create initial test users'
   task 'create_users' => :environment do
     %w(nathanstruhs@gmail.com drudged@oregonstate.edu admin@admin.com).each do |email|
@@ -54,15 +54,14 @@ namespace :seed do
 
   desc 'Seed detection targets'
   task 'detection_targets' => :environment do
-    %w(Waterbody
-    Drywater
-    Rock
-    Meadow
-    Forestedge
-    Forestopening
-    Other).each do |label|
+    %w(waterbody
+    drywater
+    rock
+    meadow
+    forestedge
+    forestopening
+    other).each do |label|
       DetectionTarget.create!(label: label)
     end
-    puts 'Populated detection targets'
   end
 end

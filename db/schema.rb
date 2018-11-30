@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_162316) do
+ActiveRecord::Schema.define(version: 2018_11_30_002845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,12 @@ ActiveRecord::Schema.define(version: 2018_11_27_162316) do
     t.index ["id"], name: "tblDeployment_EventID"
     t.index ["point_location_id"], name: "tblDeployment_LocationID"
     t.index ["species_group_id"], name: "tblDeployment_SpeciesGroupID"
+  end
+
+  create_table "detection_targets", force: :cascade do |t|
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "detector_locations", id: :serial, force: :cascade do |t|

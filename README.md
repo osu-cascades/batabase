@@ -1,5 +1,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/78a4ff7c2f6653e1e237/maintainability)](https://codeclimate.com/github/osu-cascades/batabase/maintainability)
-
 [![Test Coverage](https://api.codeclimate.com/v1/badges/78a4ff7c2f6653e1e237/test_coverage)](https://codeclimate.com/github/osu-cascades/batabase/test_coverage)
 
 # Batabase

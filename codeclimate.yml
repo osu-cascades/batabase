@@ -40,20 +40,10 @@ checks:
     enabled: true
     config:
       threshold: #language-specific defaults. overrides affect all languages.
-plugins:
- rubocop:
-  enabled: true
- eslint:
-  enabled: true
 exclude_patterns:
-- "config/"
-- "db/"
-- "dist/"
-- "features/"
-- "**/node_modules/"
-- "script/"
-- "**/spec/"
-- "**/test/"
-- "**/tests/"
-- "**/vendor/"
-- "**/*.d.ts"
+- "config/**/*"
+- "db/**/*"
+- "node_modules/**/*"
+- "script/**/*"
+- "spec/**/*"
+- "vendor/**/*"

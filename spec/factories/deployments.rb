@@ -13,7 +13,5 @@ FactoryBot.define do
     microphone_orientation_id { 1 }
     clutter_type_id { 1 }
     clutter_percent { 50 }
-    created_by { 'TODO' }
-    last_modified_by { 'TODO' }
   end
 end

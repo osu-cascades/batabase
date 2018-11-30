@@ -22,13 +22,13 @@ Start the application by:
 
 ## Development
 
-### Frontend Components
-
-Create frontend components by running the component generator `rails g component <component-name>`. Include the component in the view ERB template with the application helper `#render_component`.
-
 ### Populating the Database
 
 * Navigate to the project root
 * Run script: `sh createdb.sh`
+
+### Frontend Components
+
+Create frontend components by running the component generator `rails g component <component-name>`. Include the component in the view ERB template with the application helper `#render_component`.
 
 &copy; 2018 Nathan Struhs, Dylan Drudge. All rights reserved.

@@ -32,6 +32,6 @@ Create frontend components by running the component generator `rails g component
 ### Populating the Database
 
 * Navigate to the project root
-* Run script: `sh createdb.sh`
+* Run script: `sh script/createdb.sh`
 
 &copy; 2018 Nathan Struhs, Dylan Drudge. All rights reserved.

@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :local_habitat do
-    label {'exmaple boii'}
+    label { 'Example Local Habitat' }
   end
 end

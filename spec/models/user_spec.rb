@@ -9,6 +9,11 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'assocations' do
+    it { should belong_to(:state) }
+    it { should belong_to(:organization) }
+  end
+
   describe 'callbacks' do
     it '#after_initialize should recieve #set_default_user' do
       user = User.allocate

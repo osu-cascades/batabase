@@ -36,7 +36,5 @@ FactoryBot.define do
     manual_idspp1 { 'Example Manual IDSPP1' }
     manual_idspp2 { 'Example Manual IDSPP2' }
     notes { 'Example Notes' }
-    created_by { 'TODO' }
-    last_modified_by { 'TODO' }
   end
 end

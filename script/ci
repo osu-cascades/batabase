@@ -2,19 +2,10 @@
 
 export CI_NAME="heroku"
 export GIT_COMMITTED_AT="$(date +%s)"
-export CC_TEST_REPORTER_ID=ab8d65a682dd01d6171abdd59b31bf1b1ec31e3a012685be01895319a227f41f
-
-ruby_filename="coverage/codeclimate.rb.json"
 
 # run the ruby test suite
 bundle exec rake spec
 RETURN_VALUE=$?
 
-# format ruby coverage
-./cc-test-reporter format-coverage --output $ruby_filename
-
-# sum code coverage and send to codeclimate
-./cc-test-reporter sum-coverage $ruby_filename
-./cc-test-reporter upload-coverage
-
+./cc-test-reporter after-build
 exit $RETURN_VALUE

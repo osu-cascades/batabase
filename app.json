@@ -1,9 +1,16 @@
 {
   "environments": {
     "test": {
-      "addons":[
-         "heroku-postgresql"
-      ]
+      "addons": [
+        "heroku-postgresql"
+      ],
+      "env": {
+        "RAILS_ENV": "test"
+      },
+      "scripts": {
+        "test-setup": "./script/ci_setup",
+        "test": "./script/ci"
+      }
     }
   }
 }

@@ -3,6 +3,7 @@
 
 export CI_NAME="heroku"
 export GIT_COMMITTED_AT="$(date +%s)"
+export CC_TEST_REPORTER_ID=ab8d65a682dd01d6171abdd59b31bf1b1ec31e3a012685be01895319a227f41f
 
 ruby_filename="coverage/codeclimate.rb.json"
 

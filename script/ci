@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 export CI_NAME="heroku"
 export GIT_COMMITTED_AT="$(date +%s)"
 

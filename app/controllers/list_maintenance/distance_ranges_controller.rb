@@ -2,7 +2,7 @@ class ListMaintenance::DistanceRangesController < ApplicationController
   before_action :set_distance_range, only: [:edit, :update, :destroy]
 
   def index
-    @distance_ranges = DistanceRange.all
+    @distance_ranges = sort(DistanceRange.all)
   end
 
   def new
@@ -46,4 +46,7 @@ class ListMaintenance::DistanceRangesController < ApplicationController
     @distance_range = DistanceRange.find(params[:id])
   end
 
+  def sort(arr)
+    arr.sort_by { |obj| obj.try(:label).scan(/\d{1,100}/)[0].to_i }
+  end
 end

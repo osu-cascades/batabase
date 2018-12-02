@@ -2,8 +2,8 @@
   <thead>
     <tr>
       <th></th>
-      <% headers.each do |header| %>
-        <th><%= header.to_s.humanize %></th>
+      <% attributes.each do |header| %>
+        <th><%= header.keys[0].to_s.humanize %></th>
       <% end %>
       <th></th>
       <th></th>
@@ -13,13 +13,13 @@
     <% resources.each_with_index do |resource, index| %>
       <tr>
         <th><%= index+1 %></th>
-        <% headers.each do |header| %>
-          <td><%= placeholder_if_blank(resource.send(header)) %></td>
+        <% attributes.each do |attribute| %>
+          <td><%= placeholder_if_blank(resource.send(attribute.values[0])) %></td>
         <% end %>
         <td><%= link_to 'Edit', [:edit, resource], class: 'button is-primary is-outlined is-small' %></td>
         <td><%= link_to 'Remove',
                         resource,
-                        method: :delete, data: { confirm: "Delete #{resource.send(headers[0])}?" },
+                        method: :delete, data: { confirm: "Delete #{resource.send(attributes.first.keys[0])}?" },
                         class: 'button is-text is-small',
                         style: 'border-bottom: 1px solid gray; text-decoration: none' %>
         </td>

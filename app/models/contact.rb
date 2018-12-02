@@ -10,4 +10,12 @@ class Contact < ApplicationRecord
   def name
     "#{first_name} #{last_name}"
   end
+
+  def organization_label
+    organization.try(:label)
+  end
+
+  def state_code
+    state.try(:state_code)
+  end
 end

@@ -1,32 +1,13 @@
 <%= render_component('index-header', { resource: 'Contact', path:  new_contact_path }) %>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th></th>
-      <% [:name, :email, :organization, :state].each do |header| %>
-        <th><%= header.to_s.humanize %></th>
-      <% end %>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @contacts.each_with_index do |contact, index| %>
-      <tr>
-        <th><%= index+1 %></th>
-        <td><%= placeholder_if_blank(contact.name) %></td>
-        <td><%= placeholder_if_blank(contact.email) %></td>
-        <td><%= placeholder_if_blank(contact.organization.try(:label)) %></td>
-        <td><%= placeholder_if_blank(contact.state.try(:state_code)) %></td>
-        <td><%= link_to 'Edit', [:edit, contact], class: 'button is-primary is-outlined is-small' %></td>
-        <td><%= link_to 'Remove',
-                        contact,
-                        method: :delete, data: { confirm: "Delete #{contact.name}?" },
-                        class: 'button is-text is-small',
-                        style: 'border-bottom: 1px solid gray; text-decoration: none' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render_component('index-table',
+                      {
+                        resources: @contacts,
+                        attributes: [
+                          {  name: :name },
+                          {  email: :email },
+                          {  organization: :organization_label },
+                          {  state:  :state_code }
+                        ]
+                      }
+)%>

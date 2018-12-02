@@ -1,3 +1,11 @@
 <%= render_component('index-header', { resource: 'Target descriptors', path:  new_target_descriptor_path }) %>
 
-<%= render_component('index-table', { resources: @target_descriptors, headers: [:label, :detection_target] }) %>
+<%= render_component(
+  'index-table',
+  { resources: @target_descriptors,
+    attributes: [
+      { label: :label },
+      { detection_target: :detection_target }
+    ]
+  }
+)%>

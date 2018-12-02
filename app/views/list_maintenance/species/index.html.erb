@@ -1,6 +1,12 @@
 <%= render_component('index-header', { resource: 'Species', path:  new_species_path }) %>
 
-<%= render_component('index-table',
+<%= render_component(
+  'index-table',
   { resources: @species,
-  headers: [:code, :common_name, :scientific_name] })
-%>
+    attributes: [
+      { code: :code },
+      { common_name: :common_name },
+      { scientific_name: :scientific_name },
+    ]
+  }
+)%>

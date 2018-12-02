@@ -3,5 +3,12 @@
 <%= render_component(
   'index-table',
   { resources: @detectors,
-    headers: [:serial_num, :model, :manufacturer, :firmware, :owning_agency] })
-%>
+    attributes: [
+      { serial_num: :serial_num },
+      { model: :model },
+      { manufacturer: :manufacturer },
+      { firmware: :firmware },
+      { owning_agency: :owning_agency }
+    ]
+  }
+)%>

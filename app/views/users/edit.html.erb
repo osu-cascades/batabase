@@ -1,23 +1,25 @@
-<%= render_component('header', { title: "Edit #{@user.email}" }) %>
+<%= render_component('page') do %>
+  <%= render_component('header', { title: "Edit #{@user.email}" }) %>
 
-<%= form_for(@user) do |f| %>
-  <div class='field'>
-    <%= f.label :email, class: 'label' %>
-    <div class='control'>
-      <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'input' %>
+  <%= form_for(@user) do |f| %>
+    <div class='field'>
+      <%= f.label :email, class: 'label' %>
+      <div class='control'>
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'input' %>
+      </div>
     </div>
-  </div>
 
-  <div class='field'>
-    <%= f.label :role, class: 'label' %>
-    <div class='control select'>
-      <%= f.select(:role, User.roles.keys.map { |role| [role.titleize, role] }) %>
+    <div class='field'>
+      <%= f.label :role, class: 'label' %>
+      <div class='control select'>
+        <%= f.select(:role, User.roles.keys.map { |role| [role.titleize, role] }) %>
+      </div>
     </div>
-  </div>
 
-  <div class='field is-grouped'>
-    <div class='actions control'>
-      <%= f.submit 'Edit profile', class: 'button is-primary' %>
+    <div class='field is-grouped'>
+      <div class='actions control'>
+        <%= f.submit 'Edit profile', class: 'button is-primary' %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

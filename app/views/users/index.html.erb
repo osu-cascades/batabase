@@ -1,15 +1,17 @@
-<%= render_component('header', { title: 'Admin Dashboard' }) %>
+<%= render_component('page') do %>
+  <%= render_component('header', { title: 'Admin Dashboard' }) %>
 
-<h2 class='title is-4'>Users</h2>
+  <h2 class='title is-4'>Users</h2>
 
-<%= render_component(
-  'index-table',
-  { resources: @users,
-    attributes: [
-      { email: :email },
-      { role: :role_humanized },
-      { state: :state_name },
-      { organization: :organization_label }
-    ]
-  }
-)%>
+  <%= render_component(
+    'index-table',
+    { resources: @users,
+      attributes: [
+        { email: :email },
+        { role: :role_humanized },
+        { state: :state_name },
+        { organization: :organization_label }
+      ]
+    }
+  )%>
+<% end %>

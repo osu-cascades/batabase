@@ -1,3 +1,4 @@
-<%= render_component('header', { title: 'New Geodetic System' }) %>
-
-<%= render partial: 'form' %>
+<%= render_component('page') do %>
+  <%= render_component('header', { title: 'New Geodetic System' }) %>
+  <%= render partial: 'form' %>
+<% end %>

@@ -15,13 +15,7 @@
 
   <body>
     <%= render_component('nav-bar') %>
-    <div class="section">
-      <div class="container is-fluid">
-        <%= render 'layouts/messages' %>
-        <%= yield %>
-      </div>
-    </div>
-
+    <%= yield %>
     <%= javascript_pack_tag 'application', async: true %>
   </body>
 </html>

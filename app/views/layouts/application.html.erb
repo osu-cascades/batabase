@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload', async: true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: true %>
+    <%= stylesheet_pack_tag 'application', async: true %>
   </head>
 
   <body>
@@ -21,6 +21,6 @@
       </div>
     </div>
 
-    <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application', async: true %>
   </body>
 </html>

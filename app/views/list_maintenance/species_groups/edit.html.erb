@@ -1,3 +1,4 @@
-<%= render_component('header', { title: 'Edit Species Group' }) %>
-
-<%= render partial: 'form' %>
+<%= render_component('page') do %>
+  <%= render_component('header', { title: 'Edit Species Group' }) %>
+  <%= render partial: 'form' %>
+<% end %>

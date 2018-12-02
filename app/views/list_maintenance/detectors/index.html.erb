@@ -1,14 +1,16 @@
-<%= render_component('index-header', { resource: 'Detector', path:  new_detector_path }) %>
+<%= render_component('page') do %>
+  <%= render_component('index-header', { resource: 'Detector', path:  new_detector_path }) %>
 
-<%= render_component(
-  'index-table',
-  { resources: @detectors,
-    attributes: [
-      { serial_num: :serial_num },
-      { model: :model },
-      { manufacturer: :manufacturer },
-      { firmware: :firmware },
-      { owning_agency: :owning_agency }
-    ]
-  }
-)%>
+  <%= render_component(
+    'index-table',
+    { resources: @detectors,
+      attributes: [
+        { serial_num: :serial_num },
+        { model: :model },
+        { manufacturer: :manufacturer },
+        { firmware: :firmware },
+        { owning_agency: :owning_agency }
+      ]
+    }
+  )%>
+<% end %>

@@ -17,7 +17,7 @@
         <% attributes.each do |attribute| %>
           <td><%= placeholder_if_blank(resource.send(attribute.values[0])) %></td>
         <% end %>
-        <td>|</td>
+        <td class='divider'>|</td>
         <td><%= link_to '<i class="far fa-edit"></i>'.html_safe, [:edit, resource], class: 'has-text-primary' %></td>
         <td><%= link_to '<i class="far fa-trash-alt has-text-grey"></i>'.html_safe,
                         resource,

@@ -93,4 +93,10 @@ namespace :seed do
     end
     puts 'Created target descriptors'
   end
+
+  desc 'Seed study areas'
+  task 'study_areas' => :environment do
+    StudyArea.create!(name: 'Oregon Bat Grid 2.0', state: State.where(state_code: 'OR').first)
+    puts 'Created study areas'
+  end
 end

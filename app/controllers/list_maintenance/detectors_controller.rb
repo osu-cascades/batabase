@@ -17,8 +17,8 @@ class ListMaintenance::DetectorsController < ApplicationController
       redirect_to detectors_path
       flash[:notice] = 'detector was successfully created.'
     else
-      render :new
       flash[:error] = 'Detector was not successfully created.'
+      render :new
     end
   end
 

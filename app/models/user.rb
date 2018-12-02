@@ -11,6 +11,18 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
+  def organization_label
+    organization.try(:label)
+  end
+
+  def state_name
+    state.try(:state_name)
+  end
+
+  def role_humanized
+    role.humanize
+  end
+
   private
 
   def set_default_role

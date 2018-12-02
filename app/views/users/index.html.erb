@@ -2,37 +2,14 @@
 
 <h2 class='title is-4'>Users</h2>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>State</th>
-      <th>Organization</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each_with_index do |user, index| %>
-      <tr>
-        <th><%= index+1 %></th>
-
-        <td><%= placeholder_if_blank(user.email) %></td>
-        <td><%= placeholder_if_blank(user.role.humanize) %></td>
-        <td><%= placeholder_if_blank(user.state.try(:state_name)) %></td>
-        <td><%= placeholder_if_blank(user.organization.try(:label)) %></td>
-        <td><%= link_to 'Edit', edit_user_path(user), class: 'button is-primary is-outlined is-small' %></td>
-        <td><%= link_to 'Remove',
-                  { action: :destroy, id: user.id },
-                  method: :delete,
-                  data: { confirm: "Delete #{user.email}?" },
-                  class: 'button is-text is-small',
-                  style: 'border-bottom: 1px solid gray; text-decoration: none'
-            %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render_component(
+  'index-table',
+  { resources: @users,
+    attributes: [
+      { email: :email },
+      { role: :role_humanized },
+      { state: :state_name },
+      { organization: :organization_label }
+    ]
+  }
+)%>

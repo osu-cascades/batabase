@@ -1,3 +1,3 @@
 <%= render_component('index-header', { resource: 'Clutter Types', path:  new_clutter_type_path }) %>
 
-<%= render_component('index-table', { resources: @clutter_types, headers: [:label] }) %>
+<%= render_component('index-table', { resources: @clutter_types, attributes: [{label: :label}] }) %>

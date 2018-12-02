@@ -5,3 +5,16 @@ $primary: $orange;
 $danger: $red;
 
 @import '~bulma/bulma';
+
+
+// Flash Messages
+
+.alert {
+  .close {
+    float: right;
+    color: white;
+    margin-top: -15px;
+    margin-right: -30px;
+    text-decoration: none !important;
+  }
+}

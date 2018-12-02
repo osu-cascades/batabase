@@ -15,7 +15,7 @@ class ListMaintenance::GeodeticSystemsController < ApplicationController
     @geodetic_system = GeodeticSystem.new(geodetic_system_params)
     if @geodetic_system.save
       redirect_to geodetic_systems_path
-      flash[:success] = 'Geodetic system was successfully created.'
+      flash[:notice] = 'Geodetic system was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListMaintenance::GeodeticSystemsController < ApplicationController
   def update
     if @geodetic_system.update(geodetic_system_params)
       redirect_to geodetic_systems_path
-      flash[:success] = 'Geodetic system was successfully updated.'
+      flash[:notice] = 'Geodetic system was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ListMaintenance::GeodeticSystemsController < ApplicationController
   def destroy
     @geodetic_system.destroy
     redirect_to geodetic_systems_path
-    flash[:success] = 'Geodetic system was successfully destroyed.'
+    flash[:notice] = 'Geodetic system was successfully destroyed.'
   end
 
   private

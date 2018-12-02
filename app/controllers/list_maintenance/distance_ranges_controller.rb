@@ -15,7 +15,7 @@ class ListMaintenance::DistanceRangesController < ApplicationController
     @distance_range = DistanceRange.new(distance_range_params)
     if @distance_range.save
       redirect_to distance_ranges_path
-      flash[:success] = 'Distance Range was successfully created.'
+      flash[:notice] = 'Distance Range was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListMaintenance::DistanceRangesController < ApplicationController
   def update
     if @distance_range.update(distance_range_params)
       redirect_to distance_ranges_path
-      flash[:success] = 'Distance Range was successfully updated.'
+      flash[:notice] = 'Distance Range was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ListMaintenance::DistanceRangesController < ApplicationController
   def destroy
     @distance_range.destroy
     redirect_to distance_ranges_path
-    flash[:success] = 'Distance Range was successfully destroyed.'
+    flash[:notice] = 'Distance Range was successfully destroyed.'
   end
 
   private

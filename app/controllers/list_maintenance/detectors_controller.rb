@@ -15,7 +15,7 @@ class ListMaintenance::DetectorsController < ApplicationController
     @detector = Detector.new(detector_params.merge(created_by: current_user, last_modified_by: current_user))
     if @detector.save
       redirect_to detectors_path
-      flash[:success] = 'detector was successfully created.'
+      flash[:notice] = 'detector was successfully created.'
     else
       render :new
       flash[:error] = 'Detector was not successfully created.'
@@ -25,7 +25,7 @@ class ListMaintenance::DetectorsController < ApplicationController
   def update
     if @detector.update(detector_params)
       redirect_to detectors_path
-      flash[:success] = 'Detector was successfully updated.'
+      flash[:notice] = 'Detector was successfully updated.'
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class ListMaintenance::DetectorsController < ApplicationController
   def destroy
     @detector.destroy
     redirect_to detectors_path
-    flash[:success] = 'Detector was successfully destroyed.'
+    flash[:notice] = 'Detector was successfully destroyed.'
   end
 
   private

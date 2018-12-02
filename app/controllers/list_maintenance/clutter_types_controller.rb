@@ -15,7 +15,7 @@ class ListMaintenance::ClutterTypesController < ApplicationController
     @clutter_type = ClutterType.new(clutter_type_params)
     if @clutter_type.save
       redirect_to clutter_types_path
-      flash[:success] = 'Clutter type was successfully created.'
+      flash[:notice] = 'Clutter type was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListMaintenance::ClutterTypesController < ApplicationController
   def update
     if @clutter_type.update(clutter_type_params)
       redirect_to clutter_types_path
-      flash[:success] = 'Clutter type was successfully updated.'
+      flash[:notice] = 'Clutter type was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ListMaintenance::ClutterTypesController < ApplicationController
   def destroy
     @clutter_type.destroy
     redirect_to clutter_types_path
-    flash[:success] = 'Clutter type was successfully destroyed.'
+    flash[:notice] = 'Clutter type was successfully destroyed.'
   end
 
   private

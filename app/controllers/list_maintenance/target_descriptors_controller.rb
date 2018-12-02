@@ -15,7 +15,7 @@ class ListMaintenance::TargetDescriptorsController < ApplicationController
     @target_descriptor = TargetDescriptor.new(target_descriptor_params)
     if @target_descriptor.save
       redirect_to target_descriptors_path
-      flash[:success] = 'Target descriptor was successfully created.'
+      flash[:notice] = 'Target descriptor was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListMaintenance::TargetDescriptorsController < ApplicationController
   def update
     if @target_descriptor.update(target_descriptor_params)
       redirect_to target_descriptors_path
-      flash[:success] = 'Target descriptor was successfully updated.'
+      flash[:notice] = 'Target descriptor was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ListMaintenance::TargetDescriptorsController < ApplicationController
   def destroy
     @target_descriptor.destroy
     redirect_to target_descriptors_path
-    flash[:success] = 'Target descriptor was successfully destroyed.'
+    flash[:notice] = 'Target descriptor was successfully destroyed.'
   end
 
   private

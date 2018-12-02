@@ -15,7 +15,7 @@ class ListMaintenance::SpeciesController < ApplicationController
     @specie = Species.new(species_params)
     if @specie.save
       redirect_to species_index_path
-      flash[:success] = 'Species was successfully created.'
+      flash[:notice] = 'Species was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListMaintenance::SpeciesController < ApplicationController
   def update
     if @specie.update(species_params)
       redirect_to species_index_path
-      flash[:success] = 'Species was successfully updated.'
+      flash[:notice] = 'Species was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ListMaintenance::SpeciesController < ApplicationController
   def destroy
     @specie.destroy
     redirect_to species_index_path
-    flash[:success] = 'Species was successfully destroyed.'
+    flash[:notice] = 'Species was successfully destroyed.'
   end
 
   private

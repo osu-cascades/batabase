@@ -15,7 +15,7 @@ class ListMaintenance::OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     if @organization.save
       redirect_to organizations_path
-      flash[:success] = 'Organization was successfully created.'
+      flash[:notice] = 'Organization was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListMaintenance::OrganizationsController < ApplicationController
   def update
     if @organization.update(organization_params)
       redirect_to organizations_path
-      flash[:success] = 'Organization was successfully updated.'
+      flash[:notice] = 'Organization was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ListMaintenance::OrganizationsController < ApplicationController
   def destroy
     @organization.destroy
     redirect_to organizations_path
-    flash[:success] = 'Organization was successfully destroyed.'
+    flash[:notice] = 'Organization was successfully destroyed.'
   end
 
   private

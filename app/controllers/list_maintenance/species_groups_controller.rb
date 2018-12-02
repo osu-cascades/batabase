@@ -15,7 +15,7 @@ class ListMaintenance::SpeciesGroupsController < ApplicationController
     @species_group = SpeciesGroup.new(species_group_params)
     if @species_group.save
       redirect_to species_groups_path
-      flash[:success] = 'Species Group was successfully created.'
+      flash[:notice] = 'Species Group was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListMaintenance::SpeciesGroupsController < ApplicationController
   def update
     if @species_group.update(species_group_params)
       redirect_to species_groups_path
-      flash[:success] = 'Species Group was successfully updated.'
+      flash[:notice] = 'Species Group was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ListMaintenance::SpeciesGroupsController < ApplicationController
   def destroy
     @species_group.destroy
     redirect_to species_groups_path
-    flash[:success] = 'Species Group was successfully destroyed.'
+    flash[:notice] = 'Species Group was successfully destroyed.'
   end
 
   private

@@ -15,7 +15,7 @@ class ListMaintenance::LocalHabitatsController < ApplicationController
     @local_habitat = LocalHabitat.new(local_habitat_params)
     if @local_habitat.save
       redirect_to local_habitats_path
-      flash[:success] = 'Local Habitat was successfully created.'
+      flash[:notice] = 'Local Habitat was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class ListMaintenance::LocalHabitatsController < ApplicationController
   def update
     if @local_habitat.update(local_habitat_params)
       redirect_to local_habitats_path
-      flash[:success] = 'Local Habitat was successfully updated.'
+      flash[:notice] = 'Local Habitat was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ListMaintenance::LocalHabitatsController < ApplicationController
   def destroy
     @local_habitat.destroy
     redirect_to local_habitats_path
-    flash[:success] = 'Local Habitat was successfully destroyed.'
+    flash[:notice] = 'Local Habitat was successfully destroyed.'
   end
 
   private

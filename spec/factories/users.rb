@@ -10,11 +10,15 @@ FactoryBot.define do
     role { :guest }
   end
 
-  factory :admin do
+  trait :admin do
     role { :admin }
   end
 
-  factory :field_agent do
-    rold { :field_agent }
+  trait :field_agent do
+    role { :field_agent }
+  end
+
+  trait :confirmed do
+    confirmed_at { Time.now.utc }
   end
 end

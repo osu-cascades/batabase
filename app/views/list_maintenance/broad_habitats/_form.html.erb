@@ -1,6 +1,7 @@
 <div class='columns'>
   <div class='column is-half'>
     <%= form_for(@broad_habitat) do |f| %>
+      <%= form_errors_for(@broad_habitat) %>
       <div class='field'>
         <%= f.label :label, class: 'label' %>
         <div class='control'>

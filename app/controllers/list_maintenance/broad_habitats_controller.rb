@@ -15,8 +15,7 @@ class ListMaintenance::BroadHabitatsController < ApplicationController
   def create
     @broad_habitat = BroadHabitat.new(broad_habitat_params)
     if @broad_habitat.save
-      redirect_to broad_habitats_path
-      flash[:notice] = 'Broad habitat was successfully created.'
+      redirect_to broad_habitats_path, notice: 'Broad habitat was successfully created.'
     else
       render :new
     end
@@ -24,8 +23,7 @@ class ListMaintenance::BroadHabitatsController < ApplicationController
 
   def update
     if @broad_habitat.update(broad_habitat_params)
-      redirect_to broad_habitats_path
-      flash[:notice] = 'Broad habitat was successfully updated.'
+      redirect_to broad_habitats_path, notice: 'Broad habitat was successfully updated.'
     else
       render :edit
     end
@@ -33,8 +31,7 @@ class ListMaintenance::BroadHabitatsController < ApplicationController
 
   def destroy
     @broad_habitat.destroy
-    redirect_to broad_habitats_path
-    flash[:notice] = 'Broad habitat was successfully destroyed.'
+    redirect_to broad_habitats_path, notice: 'Broad habitat was successfully destroyed.'
   end
 
   private

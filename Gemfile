@@ -21,12 +21,15 @@ gem 'webpacker'
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara'
+  gem 'chromedriver-helper'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker'
   gem 'letter_opener'
   gem 'rspec-rails', '~> 3.8'
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'simplecov'
+  gem 'webdrivers'
 end
 
 group :development do

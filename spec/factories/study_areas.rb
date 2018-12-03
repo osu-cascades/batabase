@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :study_area do
-    name { "MyString" }
-    references { "" }
+    state
+    name { 'Example Name' }
   end
 end

@@ -20,15 +20,27 @@
         </div>
       </div>
       <div class='field'>
-        <%= f.label :organization, class: 'label' %>
-        <div class='control'>
-          <%= f.text_field :organization, class: 'input' %>
+        <%= f.label 'Organization', class: 'label' %>
+        <div class='control select'>
+          <%= collection_select(:contact,
+            :organization_id,
+            Organization.all,
+            :id,
+            :label,
+            prompt: true)
+          %>
         </div>
       </div>
       <div class='field'>
-        <%= f.label :state_code, class: 'label' %>
-        <div class='control'>
-          <%= f.text_field :state_code, class: 'input' %>
+        <%= f.label 'State', class: 'label' %>
+        <div class='control select'>
+          <%= collection_select(:contact,
+            :state_id,
+            State.all,
+            :id,
+            :state_name,
+            prompt: true)
+          %>
         </div>
       </div>
       <div class='field'>

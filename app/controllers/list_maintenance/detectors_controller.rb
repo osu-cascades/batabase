@@ -15,7 +15,7 @@ class ListMaintenance::DetectorsController < ApplicationController
     @detector = Detector.new(detector_params.merge(created_by: current_user, last_modified_by: current_user))
     if @detector.save
       redirect_to detectors_path
-      flash[:notice] = 'detector was successfully created.'
+      flash[:notice] = 'Detector was successfully created.'
     else
       flash[:error] = 'Detector was not successfully created.'
       render :new
@@ -40,11 +40,10 @@ class ListMaintenance::DetectorsController < ApplicationController
   private
 
   def detector_params
-    params.require(:detector).permit(:serial_num, :model, :manufacturer, :firmware, :owning_agency)
+    params.require(:detector).permit(:serial_num, :model, :manufacturer, :firmware, :organization_id)
   end
 
   def set_detector
     @detector = Detector.find(params[:id])
   end
-
 end

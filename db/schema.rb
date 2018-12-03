@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_212047) do
+ActiveRecord::Schema.define(version: 2018_12_03_003547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,6 @@ ActiveRecord::Schema.define(version: 2018_12_02_212047) do
   create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "last_name", limit: 50, null: false
     t.string "first_name", limit: 50, null: false
-    t.string "organization", limit: 50
-    t.string "state_code", limit: 8
     t.string "email", limit: 50
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
@@ -121,6 +119,8 @@ ActiveRecord::Schema.define(version: 2018_12_02_212047) do
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "owning_agency"
+    t.bigint "organization_id"
+    t.index ["organization_id"], name: "index_detectors_on_organization_id"
   end
 
   create_table "distance_ranges", id: :serial, force: :cascade do |t|

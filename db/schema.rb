@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_003547) do
+ActiveRecord::Schema.define(version: 2018_12_03_005905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -242,6 +242,13 @@ ActiveRecord::Schema.define(version: 2018_12_03_003547) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "grts"
+    t.integer "state_1_id"
+    t.integer "state_2_id"
+    t.string "county_1"
+    t.string "county_2"
+    t.bigint "species_group_id"
+    t.index ["species_group_id"], name: "index_sample_units_on_species_group_id"
   end
 
   create_table "softwares", id: :serial, force: :cascade do |t|

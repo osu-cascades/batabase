@@ -40,7 +40,7 @@ class ListMaintenance::ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :email, :organization, :state_code)
+    params.require(:contact).permit(:first_name, :last_name, :email, :organization_id, :state_id)
   end
 
   def set_contact

@@ -2,10 +2,10 @@ namespace :initialize do
   desc "Populate contact's state_id with correct state.id"
   task 'contact_state_id' => :environment do
     Contact.all.each do |contact|
-      contact_state_code = contact.state_code
+      contact_state_code = contact.attributes['state_code']
       next if contact_state_code.nil?
 
-      state = State.where(state_code: contact.state_code).first
+      state = State.where(state_code: contact_state_code).first
       next if state.nil?
 
       next if contact.state_id != nil

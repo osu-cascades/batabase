@@ -1,4 +1,5 @@
 class ListMaintenance::LocalHabitatsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_local_habitat, only: [:edit, :update, :destroy]
 
   def index

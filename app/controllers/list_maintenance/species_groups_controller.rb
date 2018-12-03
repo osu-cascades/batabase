@@ -1,4 +1,5 @@
 class ListMaintenance::SpeciesGroupsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_species_group, only: [:edit, :update, :destroy]
 
   def index

@@ -1,4 +1,5 @@
 class ListMaintenance::DistanceRangesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_distance_range, only: [:edit, :update, :destroy]
 
   def index

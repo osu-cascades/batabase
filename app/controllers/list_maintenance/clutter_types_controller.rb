@@ -1,4 +1,5 @@
 class ListMaintenance::ClutterTypesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_clutter_type, only: [:edit, :update, :destroy]
 
   def index

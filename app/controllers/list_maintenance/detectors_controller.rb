@@ -1,4 +1,5 @@
 class ListMaintenance::DetectorsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_detector, only: [:edit, :update, :destroy]
 
   def index

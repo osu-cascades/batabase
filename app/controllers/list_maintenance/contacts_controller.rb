@@ -12,7 +12,7 @@ class ListMaintenance::ContactsController < ApplicationController
   def edit; end
 
   def create
-    @contact = Contact.new(contact_params.merge(created_by: current_user, last_modified_by: current_user))
+    @contact = Contact.new(contact_params)
     if @contact.save
       redirect_to contacts_path
       flash[:notice] = 'Contact was successfully created.'

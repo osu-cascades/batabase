@@ -43,8 +43,6 @@ ALTER TABLE public.contacts RENAME COLUMN "FirstName" TO first_name;
 ALTER TABLE public.contacts RENAME COLUMN "LastName" TO last_name;
 ALTER TABLE public.contacts RENAME COLUMN "StateCode" TO state_code;
 ALTER TABLE public.contacts RENAME COLUMN "EmailAddress" TO email;
-ALTER TABLE public.contacts RENAME COLUMN "CreatedBy" TO created_by;
-ALTER TABLE public.contacts RENAME COLUMN "LastModifiedBy" TO last_modified_by;
 ALTER TABLE public.contacts RENAME COLUMN "CreatedDate" TO created_date;
 ALTER TABLE public.contacts RENAME COLUMN "LastModifiedDate" TO last_modified_date;
 ALTER TABLE public.contacts RENAME COLUMN "Organization" TO organization;
@@ -397,6 +395,8 @@ ALTER TABLE contacts DROP COLUMN "Country";
 ALTER TABLE contacts DROP COLUMN "WorkPhone";
 ALTER TABLE contacts DROP COLUMN "WorkExtension";
 ALTER TABLE contacts DROP COLUMN "ContactNotes";
+ALTER TABLE contacts DROP COLUMN "CreatedBy";
+ALTER TABLE contacts DROP COLUMN "LastModifiedBy";
 
   -- Orientatations
 ALTER TABLE orientations DROP COLUMN "SortOrder";

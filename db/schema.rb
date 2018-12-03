@@ -33,9 +33,7 @@ ActiveRecord::Schema.define(version: 2018_12_02_212047) do
     t.string "organization", limit: 50
     t.string "state_code", limit: 8
     t.string "email", limit: 50
-    t.string "created_by", limit: 255, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.bigint "state_id"
     t.bigint "organization_id"

@@ -30,9 +30,15 @@
       </div>
 
       <div class='field'>
-        <%= f.label :owning_agency, class: 'label' %>
-        <div class='control'>
-          <%= f.text_field :owning_agency, class: 'input' %>
+        <%= f.label 'Owning Agency', class: 'label' %>
+        <div class='control select'>
+          <%= collection_select(:detector,
+            :organization_id,
+            Organization.all,
+            :id,
+            :label,
+            prompt: true)
+          %>
         </div>
       </div>
 

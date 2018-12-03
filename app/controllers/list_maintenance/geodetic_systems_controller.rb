@@ -1,4 +1,5 @@
 class ListMaintenance::GeodeticSystemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_geodetic_system, only: [:edit, :update, :destroy]
 
   def index

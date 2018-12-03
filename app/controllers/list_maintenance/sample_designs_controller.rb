@@ -1,4 +1,5 @@
 class ListMaintenance::SampleDesignsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_sample_design, only: [:edit, :update, :destroy]
 
   def index

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :admin_user, only: :destroy
   before_action :set_user, only: [:edit, :update, :destroy]
 
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
   def admin_user
     unless current_user.admin?
       redirect_to(root_url)
-      flash[:alert] = 'Unauthorized access.'
+      flash[:error] = 'Unauthorized access.'
     end
   end
 

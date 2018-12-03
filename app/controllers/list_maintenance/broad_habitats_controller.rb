@@ -1,4 +1,5 @@
 class ListMaintenance::BroadHabitatsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_broad_habitat, only: [:edit, :update, :destroy]
 
   def index

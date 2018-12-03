@@ -1,4 +1,5 @@
 class ListMaintenance::StudyAreasController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_study_areas, only: [:edit, :update, :destroy]
 
   def index

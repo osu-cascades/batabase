@@ -1,4 +1,7 @@
-guard :rspec, cmd: "bundle exec rspec" do
+guard :rspec,
+  cmd: "bundle exec rspec",
+  run_all: { cmd: 'bundle exec rspec --exclude-pattern "**/system/**/*_spec.rb"' } do
+
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
 

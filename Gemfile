@@ -13,14 +13,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.2.1'
-gem 'sass-rails', '~> 5.0'
-gem 'sprockets-rails', :require => 'sprockets/railtie'
-gem 'turbolinks', '~> 5'
-gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 
 group :development, :test do
-  gem 'byebug'
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails', '~> 4.0'
@@ -32,6 +27,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'byebug'
   gem 'guard-rspec', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

@@ -23,5 +23,12 @@ module Batabase
     config.load_defaults 5.1
 
     config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
+
+    config.generators do |g|
+      g.stylesheets     false
+      g.javascripts     false
+      g.helper          false
+      g.channel         assets: false
+    end
   end
 end

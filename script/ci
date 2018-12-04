@@ -4,6 +4,7 @@ export CI_NAME="heroku"
 export GIT_COMMITTED_AT="$(date +%s)"
 
 # run the ruby test suite
+NODE_ENV=test bundle exec rails webpacker:compile
 bundle exec rake spec
 RETURN_VALUE=$?
 

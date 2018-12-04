@@ -28,7 +28,6 @@ group :development, :test do
   gem 'letter_opener'
   gem 'rspec-rails', '~> 3.8'
   gem 'shoulda-matchers', '4.0.0.rc1'
-  gem 'simplecov'
   gem 'webdrivers'
 end
 

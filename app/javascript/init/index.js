@@ -1,3 +1,9 @@
+import Rails from "rails-ujs";
+Rails.start();
+
+import Turbolinks from "turbolinks";
+Turbolinks.start();
+
 import './index.scss'
 import '../components/nav-bar/nav-bar'
 import '../components/header/header'

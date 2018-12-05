@@ -12,6 +12,46 @@
     </div>
 
     <div class='field'>
+      <%= f.label :first_name, class: 'label' %>
+      <div class='control'>
+        <%= f.text_field :first_name, class: 'input' %>
+      </div>
+    </div>
+
+    <div class='field'>
+      <%= f.label :last_name, class: 'label' %>
+      <div class='control'>
+        <%= f.text_field :last_name, class: 'input' %>
+      </div>
+    </div>
+
+    <div class='field'>
+      <%= f.label 'Organization', class: 'label' %>
+      <div class='control select'>
+        <%= collection_select(:user,
+          :organization_id,
+          Organization.all,
+          :id,
+          :label,
+          prompt: true)
+        %>
+      </div>
+    </div>
+
+    <div class='field'>
+      <%= f.label 'State', class: 'label' %>
+      <div class='control select'>
+        <%= collection_select(:user,
+          :state_id,
+          State.all,
+          :id,
+          :state_name,
+          prompt: true)
+        %>
+      </div>
+    </div>
+
+    <div class='field'>
       <%= f.label :password, class: 'label' %>
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>

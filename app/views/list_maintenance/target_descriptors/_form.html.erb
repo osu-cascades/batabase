@@ -10,7 +10,7 @@
       <div class='field'>
         <%= f.label 'Detection Target', class: 'label' %>
         <div class='control select'>
-          <%= collection_select(:detection_target,
+          <%= collection_select(:target_descriptor,
             :detection_target_id,
             DetectionTarget.all,
             :id,

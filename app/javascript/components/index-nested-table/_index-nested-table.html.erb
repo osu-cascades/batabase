@@ -28,7 +28,7 @@
         </td>
       </tr>
 
-      <% resource.target_descriptors.each do |descriptor| %>
+      <% resource.send(sub_resources).each do |descriptor| %>
         <tr class="nested-row sub-row-<%= index %>">
           <td></td>
           <td></td>

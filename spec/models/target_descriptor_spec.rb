@@ -6,8 +6,4 @@ RSpec.describe TargetDescriptor, type: :model do
   describe 'validations' do
     it { should validate_presence_of(:label) }
   end
-
-  describe 'assocations' do
-    it { should belong_to(:detection_target) }
-  end
 end

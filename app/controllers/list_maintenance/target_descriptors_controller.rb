@@ -40,7 +40,7 @@ class ListMaintenance::TargetDescriptorsController < ApplicationController
   private
 
   def target_descriptor_params
-    params.require(:target_descriptor).permit(:label)
+    params.require(:target_descriptor).permit(:label, :detection_target_id)
   end
 
   def set_target_descriptor

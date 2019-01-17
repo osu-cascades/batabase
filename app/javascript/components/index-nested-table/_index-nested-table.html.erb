@@ -28,11 +28,17 @@
         </td>
       </tr>
 
-      <% resource.send(sub_resources).each do |descriptor| %>
+      <% resource.send(sub_resources).each do |sub_resource| %>
         <tr class='nested-row sub-row-<%= index %> has-background-white-ter'>
           <td></td>
           <td></td>
-          <td><div class='nested-row sub-row-<%= index %>'><%= placeholder_if_blank(descriptor.label) %><div></td>
+          <% sub_resource_attributes.each do |attribute| %>
+            <td>
+              <div class='nested-row sub-row-<%= index %>'>
+                <%= placeholder_if_blank(sub_resource.send(attribute.values[0])) %>
+              <div>
+            </td>
+          <% end %>
           <td></td>
           <td></td>
           <td></td>

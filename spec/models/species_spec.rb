@@ -14,4 +14,8 @@ RSpec.describe Species, type: :model do
       it { should validate_length_of(attribute).is_at_most(255) }
     end
   end
+
+  describe 'associations' do
+    it { should have_and_belong_to_many(:species_groups) }
+  end
 end

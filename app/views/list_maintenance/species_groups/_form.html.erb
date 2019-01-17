@@ -8,6 +8,19 @@
         </div>
       </div>
       <div class='field'>
+        <%= f.label 'Species', class: 'label' %>
+        <div class='control select is-multiple'>
+          <%= collection_select(:species_group,
+            :species_ids,
+            Species.all,
+            :id,
+            :scientific_name,
+            { prompt: true },
+            { multiple: true, size: 10 })
+          %>
+        </div>
+      </div>
+      <div class='field'>
         <div class='control actions'>
           <%= f.submit class: 'button is-primary' %>
         </div>

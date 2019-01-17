@@ -40,7 +40,7 @@ class ListMaintenance::SpeciesGroupsController < ApplicationController
   private
 
   def species_group_params
-    params.require(:species_group).permit(:label)
+    params.require(:species_group).permit(:label, species_ids: [])
   end
 
   def set_species_group

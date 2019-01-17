@@ -8,4 +8,8 @@ RSpec.describe SpeciesGroup, type: :model do
     it { should validate_length_of(:label).is_at_most(50) }
     it { should validate_length_of(:summary).is_at_most(255) }
   end
+
+  describe 'associations' do
+    it { should have_and_belong_to_many(:species) }
+  end
 end

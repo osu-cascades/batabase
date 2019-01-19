@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_210932) do
+ActiveRecord::Schema.define(version: 2019_01_19_190944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 2019_01_12_210932) do
     t.bigint "organization_id"
     t.index ["organization_id"], name: "index_contacts_on_organization_id"
     t.index ["state_id"], name: "index_contacts_on_state_id"
+  end
+
+  create_table "counties", force: :cascade do |t|
+    t.bigint "state_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_counties_on_state_id"
   end
 
   create_table "deployment_contacts", id: :serial, force: :cascade do |t|
@@ -376,4 +384,5 @@ ActiveRecord::Schema.define(version: 2019_01_12_210932) do
     t.index ["state_id"], name: "index_users_on_state_id"
   end
 
+  add_foreign_key "counties", "states"
 end

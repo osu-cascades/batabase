@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_01_19_190944) do
   create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "last_name", limit: 50, null: false
     t.string "first_name", limit: 50, null: false
+    t.string "organization", limit: 50
+    t.string "state_code", limit: 8
     t.string "email", limit: 50
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false

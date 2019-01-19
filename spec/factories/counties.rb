@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :county do
     state { nil }
-    name { "MyString" }
+    name { "Example County" }
   end
 end

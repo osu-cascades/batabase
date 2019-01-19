@@ -8,7 +8,7 @@
       <th></th>
       <th></th>
       <th></th>
-      <% view_link? %>
+      <% if view_link %>
         <th></th>
       <% end  %>
     </tr>
@@ -21,8 +21,8 @@
           <td><%= placeholder_if_blank(resource.send(attribute.values[0])) %></td>
         <% end %>
         <td class='divider'>|</td>
-        <% view_link? %>
-          <td><%= link_to 'View'.html_safe, [:show, resource], class: 'has-text-primary' %>
+        <% if view_link %>
+          <td><%= link_to 'View'.html_safe, resource, class: 'has-text-primary' %>
         <% end %>
         <td><%= link_to '<i class="far fa-edit"></i>'.html_safe, [:edit, resource], class: 'has-text-primary' %></td>
         <td><%= link_to '<i class="far fa-trash-alt has-text-grey"></i>'.html_safe,

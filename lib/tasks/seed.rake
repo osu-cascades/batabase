@@ -1,3 +1,5 @@
+require 'csv'
+
 namespace :seed do
   desc 'Create initial test users'
   task 'create_users' => :environment do
@@ -99,4 +101,14 @@ namespace :seed do
     StudyArea.create!(name: 'Oregon Bat Grid 2.0', state: State.where(state_code: 'OR').first)
     puts 'Created study areas'
   end
-end
+
+
+  desc 'Make some counties boi'
+  task 'county' => :environment do
+    csv_text = CSV.foreach(File.expand_path('./lib/states_counties.csv')) do |l|
+      stateId = State.find_by( state_code: l[0] ).id
+      County.create!(name: l[1], state_id: stateId) 
+    end
+    puts 'pop them counties off boi'
+  end
+end 

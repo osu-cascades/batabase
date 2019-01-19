@@ -11,4 +11,8 @@ RSpec.describe State, type: :model do
     it { should validate_length_of(:state_code).is_at_most(2) }
     it { should validate_length_of(:state_name).is_at_most(50) }
   end
+
+  describe 'assocations' do
+    it { should have_many(:counties) }
+  end
 end

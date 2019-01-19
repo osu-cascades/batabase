@@ -1,3 +1,11 @@
 <%= render_component('page') do %>
-  <h1>Sample Units</h1>
+  <%= render_component('index-header', { resource: 'SaMple Unit', path:  new_sample_unit_path }) %>
+  <%= render_component('index-table', { resources: @sample_units, attributes: 
+    [{
+      site_code: site_code,
+      grts:grts,
+      federal_agency: federal_agency
+
+    
+    }], viewLink: true }) %>
 <% end %>

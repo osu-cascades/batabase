@@ -1,0 +1,22 @@
+<%= render_component('page') do %>
+  <h1 class='title is-1'>Sample Unit #<%= @sample_unit.site_code %></h1>
+  <p class='sub-title'>County, State Placeholders</p>
+  <hr />
+
+  <p><span>GRTS: </span>placeholder</p>
+  <p><span>Broad Habitat: </span>placeholder</p>
+  <p><span>Species Group: </span>placeholder</p>
+  <p><span>Surveying Agency: </span>placeholder</p>
+
+  <br />
+  <br />
+
+  <h2 class='title is-3'>Detector Locations</h2>
+  <hr />
+  <div class='columns is-desktop'>
+    <%= render_component('sample-unit-column', { quad_id: 'NE' }) %>
+    <%= render_component('sample-unit-column', { quad_id: 'NW'} ) %>
+    <%= render_component('sample-unit-column', { quad_id: 'SE'} ) %>
+    <%= render_component('sample-unit-column', { quad_id: 'SW'} ) %>
+  </div>
+<% end %>

@@ -247,10 +247,9 @@ ActiveRecord::Schema.define(version: 2019_01_19_190944) do
 
   create_table "sample_units", id: :serial, force: :cascade do |t|
     t.string "site_code", limit: 20, null: false
-    t.string "federal_agency", limit: 50
-    t.string "created_by", limit: 255, null: false
+    t.string "agency", limit: 50
+    t.integer "broad_habitat_id"
     t.datetime "created_at", default: -> { "now()" }, null: false
-    t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "now()" }, null: false
     t.string "grts"
     t.integer "state_1_id"

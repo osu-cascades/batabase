@@ -1,10 +1,12 @@
 class SampleUnitsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_sample_unit, only: [:edit, :update, :destroy]
+  before_action :set_sample_unit, only: [:show, :edit, :update, :destroy]
 
   def index
     @sample_units = SampleUnit.all
   end
+
+  def show; end
 
   def new
     @sample_unit = SampleUnit.new

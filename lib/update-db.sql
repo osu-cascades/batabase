@@ -151,7 +151,7 @@ ALTER TABLE public.reports RENAME COLUMN "ReportName" TO report_name;
 ALTER TABLE public.reports RENAME COLUMN "ReportLabel" TO report_label;
 ALTER TABLE public.reports RENAME COLUMN "ReportID" TO id;
 ALTER TABLE public.sample_units RENAME COLUMN "SiteCode" TO site_code;
-ALTER TABLE public.sample_units RENAME COLUMN "FederalAgency" TO federal_agency;
+ALTER TABLE public.sample_units RENAME COLUMN "FederalAgency" TO agency;
 ALTER TABLE public.sample_units RENAME COLUMN "CreatedBy" TO created_by;
 ALTER TABLE public.sample_units RENAME COLUMN "LastModifiedBy" TO last_modified_by;
 ALTER TABLE public.sample_units RENAME COLUMN "CreatedDate" TO created_date;

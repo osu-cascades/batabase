@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :sample_unit do
+    broad_habitat
     site_code { 'Example Site Code' }
-    federal_agency { 'Example Federal Agency' }
+    agency { 'Example Federal Agency' }
   end
 end

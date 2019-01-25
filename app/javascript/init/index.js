@@ -11,3 +11,5 @@ import '../components/header/header'
 import '../components/index-header/index-header'
 import '../components/index-table/index-table'
 import '../components/index-nested-table/index-nested-table'
+
+import '../components/sample-unit-column/sample-unit-column'

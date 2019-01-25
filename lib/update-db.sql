@@ -152,8 +152,6 @@ ALTER TABLE public.reports RENAME COLUMN "ReportLabel" TO report_label;
 ALTER TABLE public.reports RENAME COLUMN "ReportID" TO id;
 ALTER TABLE public.sample_units RENAME COLUMN "SiteCode" TO site_code;
 ALTER TABLE public.sample_units RENAME COLUMN "FederalAgency" TO agency;
-ALTER TABLE public.sample_units RENAME COLUMN "CreatedBy" TO created_by;
-ALTER TABLE public.sample_units RENAME COLUMN "LastModifiedBy" TO last_modified_by;
 ALTER TABLE public.sample_units RENAME COLUMN "CreatedDate" TO created_date;
 ALTER TABLE public.sample_units RENAME COLUMN "LastModifiedDate" TO last_modified_date;
 ALTER TABLE public.sample_units RENAME COLUMN "BroadHabitatID" TO broad_habitat_id;
@@ -377,6 +375,8 @@ ALTER TABLE sample_units DROP COLUMN "SampleDesignID";
 ALTER TABLE sample_units DROP COLUMN "SampleUnitID";
 ALTER TABLE sample_units DROP COLUMN "SiteDescription";
 ALTER TABLE sample_units DROP COLUMN "Images";
+ALTER TABLE sample_units DROP COLUMN "CreatedBy";
+ALTER TABLE sample_units DROP COLUMN "LastModifiedBy";
 
   -- Detectors (Audio Logger)
 ALTER TABLE detectors DROP COLUMN "Code";

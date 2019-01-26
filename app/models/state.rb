@@ -1,4 +1,5 @@
 class State < ApplicationRecord
+  has_and_belongs_to_many :sample_units
   has_many :counties
 
   validates :state_code, :state_name, presence: true

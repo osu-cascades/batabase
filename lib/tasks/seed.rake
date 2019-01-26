@@ -115,8 +115,9 @@ namespace :seed do
   desc 'Make some sample_units boi'
   task 'sample_units' => :environment do
     csv_text = CSV.foreach(File.expand_path('./lib/SampleUnit.csv'), headers: true) do |l|
-      puts l["GRTS"]
+      current = SampleUnit.find_by(site_code: l["SampleUnit"])
+      current.sh
     end
-    puts 'pop them counties off boi'
+    puts 'pop them sample_units off boi'
   end
 end

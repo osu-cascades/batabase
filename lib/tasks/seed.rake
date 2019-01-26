@@ -55,13 +55,13 @@ namespace :seed do
 
   desc 'Seed detection targets'
   task 'detection_targets' => :environment do
-    %w(Waterbody
-    Drywater
-    Rock
-    Meadow
-    Forest Edge
-    Forest Opening
-    Other).each do |label|
+    ["Waterbody",
+    "Drywater",
+    "Rock",
+    "Meadow",
+    "Forest Edge",
+    "Forest Opening",
+    "Other"].each do |label|
       DetectionTarget.create!(label: label)
     end
     puts 'Created detection targets'
@@ -101,7 +101,6 @@ namespace :seed do
     StudyArea.create!(name: 'Oregon Bat Grid 2.0', state: State.where(state_code: 'OR').first)
     puts 'Created study areas'
   end
-
 
   desc 'Make some counties boi'
   task 'county' => :environment do

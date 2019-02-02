@@ -1,4 +1,5 @@
 require 'csv'
+require_relative '../sample_unit_creator'
 
 namespace :seed do
   desc 'Create initial test users'
@@ -113,10 +114,7 @@ namespace :seed do
 
   desc 'Make some sample_units boi'
   task 'sample_units' => :environment do
-    csv_text = CSV.foreach(File.expand_path('./lib/SampleUnit.csv'), headers: true) do |l|
-      current = SampleUnit.find_by(site_code: l["SampleUnit"])
-      current.sh
-    end
+    SampleUnitCreator.new
     puts 'pop them sample_units off boi'
   end
 end

@@ -8,6 +8,8 @@ class SampleUnit < ApplicationRecord
 
   has_many :sample_unit_states
   has_many :states, through: :sample_unit_states
+  has_many :sample_unit_counties
+  has_many :counties, through: :sample_unit_counties
 
   def primary_state
     state_1.try(:state_code)

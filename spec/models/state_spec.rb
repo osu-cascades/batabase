@@ -13,7 +13,8 @@ RSpec.describe State, type: :model do
   end
 
   describe 'assocations' do
+    it { should have_many(:sample_unit_states) }
+    it { should have_many(:sample_units).through(:sample_unit_states) }
     it { should have_many(:counties) }
-    it { should have_and_belong_to_many(:sample_units) }
   end
 end

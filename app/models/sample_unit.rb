@@ -4,11 +4,6 @@ class SampleUnit < ApplicationRecord
   validates_length_of :agency, maximum: 50
 
   has_many :detector_locations
-  has_and_belongs_to_many :states
-  has_and_belongs_to_many :counties
-
-  belongs_to :state_1, class_name: 'State', foreign_key: :state_1_id, optional: true
-  belongs_to :state_2, class_name: 'State', foreign_key: :state_2_id, optional: true
   belongs_to :broad_habitat
 
   def primary_state

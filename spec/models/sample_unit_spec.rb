@@ -10,11 +10,7 @@ RSpec.describe SampleUnit, type: :model do
   end
 
   describe 'associations' do
-    it { should belong_to(:state_1).optional }
-    it { should belong_to(:state_2).optional }
     it { should belong_to(:broad_habitat) }
     it { should have_many(:detector_locations) }
-    it { should have_and_belong_to_many(:states) }
-    it { should have_and_belong_to_many(:counties) }
   end
 end

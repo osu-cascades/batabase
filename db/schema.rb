@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_02_194248) do
+ActiveRecord::Schema.define(version: 2019_02_02_203818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -241,6 +241,14 @@ ActiveRecord::Schema.define(version: 2019_02_02_194248) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["sample_design_type_id"], name: "index_sample_designs_on_sample_design_type_id"
+  end
+
+  create_table "sample_unit_counties", force: :cascade do |t|
+    t.bigint "sample_unit_id"
+    t.bigint "county_id"
+    t.float "percentage"
+    t.index ["county_id"], name: "index_sample_unit_counties_on_county_id"
+    t.index ["sample_unit_id"], name: "index_sample_unit_counties_on_sample_unit_id"
   end
 
   create_table "sample_unit_states", force: :cascade do |t|

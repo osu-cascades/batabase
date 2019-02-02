@@ -6,6 +6,9 @@ class SampleUnit < ApplicationRecord
   has_many :detector_locations
   belongs_to :broad_habitat
 
+  has_many :sample_unit_states
+  has_many :states, through: :sample_unit_states
+
   def primary_state
     state_1.try(:state_code)
   end

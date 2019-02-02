@@ -12,10 +12,10 @@ class SampleUnit < ApplicationRecord
   has_many :counties, through: :sample_unit_counties
 
   def primary_state
-    state_1.try(:state_code)
+    sample_unit_states.try(:first).try(:state).try(:state_code)
   end
 
   def primary_county
-    county_1
+    sample_unit_counties.try(:first).try(:county).try(:name)
   end
 end

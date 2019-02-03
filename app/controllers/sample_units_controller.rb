@@ -3,7 +3,7 @@ class SampleUnitsController < ApplicationController
   before_action :set_sample_unit, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sample_units = SampleUnit.all
+    @sample_units = SampleUnit.order(:agency).page params[:page]
   end
 
   def show; end

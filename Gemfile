@@ -10,6 +10,7 @@ end
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.5'
+gem 'kaminari'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.2.1'

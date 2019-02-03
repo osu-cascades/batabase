@@ -10,7 +10,7 @@ RSpec.describe SampleUnit, type: :model do
   end
 
   describe 'associations' do
-    it { should belong_to(:broad_habitat) }
+    it { should belong_to(:broad_habitat).optional }
     it { should have_many(:detector_locations) }
   end
 end

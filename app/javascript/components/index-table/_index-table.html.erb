@@ -16,7 +16,12 @@
   <tbody>
     <% resources.each_with_index do |resource, index| %>
       <tr>
-        <th><%= index+1 %></th>
+        <% if @page.nil? %>
+          <th><%= index + 1 %></th>
+        <% else %>
+          <th><%= index + 1 + (@page * 25) %></th>
+        <% end %>
+
         <% attributes.each do |attribute| %>
           <td><%= placeholder_if_blank(resource.send(attribute.values[0])) %></td>
         <% end %>

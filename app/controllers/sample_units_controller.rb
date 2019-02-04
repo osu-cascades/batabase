@@ -4,6 +4,7 @@ class SampleUnitsController < ApplicationController
 
   def index
     @sample_units = SampleUnit.order(:agency).page params[:page]
+    @page = params[:page].to_i || 1
   end
 
   def show; end

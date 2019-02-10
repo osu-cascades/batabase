@@ -1,5 +1,3 @@
-import 'babel-polyfill'
-
 import './nav-bar.scss';
 
 export default class HamburgerMenu {

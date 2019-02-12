@@ -1,3 +1,6 @@
+require 'csv'
+require_relative '../sample_unit_creator'
+
 namespace :seed do
   desc 'Create initial test users'
   task 'create_users' => :environment do
@@ -53,13 +56,13 @@ namespace :seed do
 
   desc 'Seed detection targets'
   task 'detection_targets' => :environment do
-    %w(Waterbody
-    Drywater
-    Rock
-    Meadow
-    Forestedge
-    Forestopening
-    Other).each do |label|
+    ["Waterbody",
+    "Drywater",
+    "Rock",
+    "Meadow",
+    "Forest Edge",
+    "Forest Opening",
+    "Other"].each do |label|
       DetectionTarget.create!(label: label)
     end
     puts 'Created detection targets'
@@ -74,19 +77,19 @@ namespace :seed do
       { fk: 1,	label: 'Pond' },
       { fk: 1,	label: 'Wetland' },
       { fk: 1,	label: 'Stocktank / Trough' },
-      { fk: 2,	label: 'Large canyon bottom' },
-      { fk: 2,	label: 'Large canyon top' },
-      { fk: 2,	label: 'Small arroyo dry gulch bottom' },
-      { fk: 2,	label: 'Small arroyo dry gulch top' },
-      { fk: 3,	label: 'Ridge top' },
-      { fk: 3,	label: 'Cliff bottom' },
-      { fk: 3,	label: 'Cliff top' },
+      { fk: 2,	label: 'Large Canyon Bottom' },
+      { fk: 2,	label: 'Large Canyon Top' },
+      { fk: 2,	label: 'Small Arroyo Dry Gulch Bottom' },
+      { fk: 2,	label: 'Small Arroyo Dry Gulch Top' },
+      { fk: 3,	label: 'Ridge Top' },
+      { fk: 3,	label: 'Cliff Bottom' },
+      { fk: 3,	label: 'Cliff Top' },
       { fk: 4,	label: 'Large' },
       { fk: 4,	label: 'Medium' },
       { fk: 4,	label: 'Small' },
-      { fk: 5,	label: 'Old young forest' },
-      { fk: 5,	label: 'Forest open land' },
-      { fk: 6,	label: 'Small gap' },
+      { fk: 5,	label: 'Old Young Forest' },
+      { fk: 5,	label: 'Forest Open Land' },
+      { fk: 6,	label: 'Small Gap' },
       { fk: 6,	label: 'Trail' },
       { fk: 6,	label: 'Roadway' } ].each do |record|
         TargetDescriptor.create!(detection_target_id: record.fetch(:fk), label: record.fetch(:label))
@@ -98,5 +101,20 @@ namespace :seed do
   task 'study_areas' => :environment do
     StudyArea.create!(name: 'Oregon Bat Grid 2.0', state: State.where(state_code: 'OR').first)
     puts 'Created study areas'
+  end
+
+  desc 'Make some counties boi'
+  task 'county' => :environment do
+    csv_text = CSV.foreach(File.expand_path('./lib/states_counties.csv')) do |l|
+      stateId = State.find_by( state_code: l[0] ).id
+      County.create!(name: l[1], state_id: stateId)
+    end
+    puts 'pop them counties off boi'
+  end
+
+  desc 'Make some sample_units boi'
+  task 'sample_units' => :environment do
+    SampleUnitCreator.new
+    puts 'pop them sample_units off boi'
   end
 end

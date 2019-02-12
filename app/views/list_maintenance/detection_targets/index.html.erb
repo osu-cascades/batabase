@@ -8,8 +8,10 @@
   <%= render_component(
     'index-nested-table',
     { resources: @detection_targets,
+      attributes: [{ label: :label }],
       sub_resources: 'target_descriptors',
-      attributes: [{ label: :label }] }
+      sub_resource_attributes: [{ label: :label }]
+    }
   )%>
 
 <% end %>

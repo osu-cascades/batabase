@@ -2,14 +2,26 @@
   "name": "batabase",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
     "@rails/webpacker": "3.5",
+    "babel": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
     "bulma": "^0.7.2",
     "jquery": "^3.3.1",
+    "mocha": "^5.2.0",
+    "mocha-jsdom": "^2.0.0",
     "rails-ujs": "^5.2.2",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "3.0.0"
+    "ignore-styles": "^5.0.1",
+    "jsdom": "13.2.0",
+    "jsdom-global": "3.0.2"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:babel-register --require babel-polyfill --require ignore-styles ./spec/javascript/*.test.js"
   }
 }

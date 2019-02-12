@@ -1,6 +1,6 @@
 import './nav-bar.scss';
 
-class HamburgerMenu {
+export default class HamburgerMenu {
   constructor() {
     this.burgerListener();
     this.subDropDownListener();
@@ -32,3 +32,4 @@ class HamburgerMenu {
 $(document).ready(() => {
   const hamburgerMenu = new HamburgerMenu();
 });
+

@@ -1,8 +1,25 @@
 class SampleUnit < ApplicationRecord
   validates :site_code, presence: true
   validates_length_of :site_code, maximum: 20
-  validates_length_of :federal_agency, maximum: 50
+  validates_length_of :agency, maximum: 50
 
-  belongs_to :state_1, class_name: 'State', foreign_key: :state_1_id, optional: true
-  belongs_to :state_2, class_name: 'State', foreign_key: :state_2_id, optional: true
+  has_many :detector_locations
+  belongs_to :broad_habitat, optional: true
+
+  has_many :sample_unit_states
+  has_many :states, through: :sample_unit_states
+  has_many :sample_unit_counties
+  has_many :counties, through: :sample_unit_counties
+
+  def primary_state
+    sample_unit_states.try(:first).try(:state).try(:state_code)
+  end
+
+  def primary_county
+    sample_unit_counties.try(:first).try(:county).try(:name)
+  end
+
+  def sub_title
+    "#{primary_county}, #{primary_state}"
+  end
 end

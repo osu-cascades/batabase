@@ -1,5 +1,5 @@
 <%= render_component('page') do %>
-  <%= render_component('index-header', { resource: 'Target descriptors', path:  new_target_descriptor_path }) %>
+  <%= render_component('index-header', { resource: 'Target Descriptors', path:  new_target_descriptor_path }) %>
 
   <%= render_component(
     'index-table',
@@ -7,7 +7,8 @@
       attributes: [
         { label: :label },
         { detection_target: :detection_target_label }
-      ]
+      ],
+      view_link: false
     }
   )%>
 <% end %>

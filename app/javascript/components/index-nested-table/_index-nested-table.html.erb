@@ -13,26 +13,32 @@
   </thead>
   <tbody>
     <% resources.each_with_index do |resource, index| %>
-      <tr class="parent-row">
-        <th class="chevron"><i class="fas fa-chevron-right"></i></th>
+      <tr class='parent-row'>
+        <th class='chevron'><i class='fas fa-chevron-right'></i></th>
         <th><%= index+1 %></th>
         <% attributes.each do |attribute| %>
           <td><%= placeholder_if_blank(resource.send(attribute.values[0])) %></td>
         <% end %>
         <td class='divider'>|</td>
-        <td><%= link_to '<i class="far fa-edit"></i>'.html_safe, [:edit, resource], class: 'has-text-primary' %></td>
-        <td><%= link_to '<i class="far fa-trash-alt has-text-grey"></i>'.html_safe,
+        <td><%= link_to "<i class='far fa-edit'></i>".html_safe, [:edit, resource], class: 'has-text-primary' %></td>
+        <td><%= link_to "<i class='far fa-trash-alt has-text-grey'></i>".html_safe,
                         resource,
                         method: :delete, data: { confirm: "Delete #{resource.label}?",
                         class: 'has-text-danger' }%>
         </td>
       </tr>
 
-      <% resource.send(sub_resources).each do |descriptor| %>
-        <tr class="nested-row sub-row-<%= index %>">
+      <% resource.send(sub_resources).each do |sub_resource| %>
+        <tr class='nested-row sub-row-<%= index %> has-background-white-ter'>
           <td></td>
           <td></td>
-          <td><div class="nested-row sub-row-<%= index %>"><%= placeholder_if_blank(descriptor.label) %><div></td>
+          <% sub_resource_attributes.each do |attribute| %>
+            <td>
+              <div class='nested-row sub-row-<%= index %>'>
+                <%= placeholder_if_blank(sub_resource.send(attribute.values[0])) %>
+              <div>
+            </td>
+          <% end %>
           <td></td>
           <td></td>
           <td></td>

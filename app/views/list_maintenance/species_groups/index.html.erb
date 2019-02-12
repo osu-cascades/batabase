@@ -1,4 +1,15 @@
 <%= render_component('page') do %>
-  <%= render_component('index-header', { resource: 'Species Group', path:  new_species_group_path }) %>
-  <%= render_component('index-table', { resources: @species_groups, attributes: [{label: :label}] }) %>
+  <%= render_component(
+    'index-header',
+    { resource: 'Species Group',
+      path:  new_species_group_path }
+  ) %>
+
+  <%= render_component(
+    'index-nested-table',
+    { resources: @species_groups,
+      attributes: [{ label: :label }],
+      sub_resources: 'species',
+      sub_resource_attributes: [{ scientific_name: :scientific_name }] }
+  )%>
 <% end %>

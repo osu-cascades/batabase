@@ -32,7 +32,6 @@
                 <%= link_to 'Species Groups', species_groups_path, class: 'navbar-item' %>
                 <%= link_to 'Study Areas', study_areas_path, class: 'navbar-item' %>
                 <%= link_to 'Target Descriptors', target_descriptors_path, class: 'navbar-item' %>
-
               </div>
             </div>
           </div>
@@ -41,8 +40,8 @@
             <div class='navbar-item has-dropdown is-hoverable'>
               <a class='navbar-link'><%= current_user.email %></a>
               <div class='navbar-dropdown'>
-                <%= link_to 'Edit Profile', edit_user_registration_path, class: 'navbar-item'  %>
-                <%= link_to 'Admin Dashboard', users_path, class: 'navbar-item'  %>
+                <%= link_to 'Edit Profile', edit_user_registration_path, class: 'navbar-item' %>
+                <%= link_to 'Admin Dashboard', users_path, class: 'navbar-item' %>
                 <hr class='navbar-divider'>
                 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-item' %>
               </div>

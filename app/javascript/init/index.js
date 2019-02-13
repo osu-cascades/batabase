@@ -13,3 +13,5 @@ import '../components/index-table/index-table'
 import '../components/index-nested-table/index-nested-table'
 
 import '../components/sample-unit-column/sample-unit-column'
+
+import '../components/sample-unit-form/sample-unit-form'

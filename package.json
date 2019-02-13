@@ -19,7 +19,8 @@
   "devDependencies": {
     "ignore-styles": "^5.0.1",
     "jsdom": "13.2.0",
-    "jsdom-global": "3.0.2"
+    "jsdom-global": "3.0.2",
+    "webpack-dev-server": "2.11.2"
   },
   "scripts": {
     "test": "mocha --compilers js:babel-register --require babel-polyfill --require ignore-styles ./spec/javascript/*.test.js"

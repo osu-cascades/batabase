@@ -1,0 +1,74 @@
+<div class='columns'>
+  <div class='column is-half'>
+    <%= form_for(@sample_unit) do |f| %>
+      <div class='field'>
+        <%= f.label :site_code, class: 'label' %>
+        <div class='control'>
+          <%= f.text_field :site_code, class: 'input' %>
+        </div>
+      </div>
+      <div class='field'>
+        <%= f.label :agency, class: 'label' %>
+        <div class='control'>
+          <%= f.text_field :agency, class: 'input' %>
+        </div>
+      </div>
+      <div class='field'>
+        <%= f.label 'Broad Habitat', class: 'label' %>
+        <div class='control select'>
+          <%= collection_select(:sample_unit,
+            :broad_habitat_id,
+            BroadHabitat.all,
+            :id,
+            :label,
+            prompt: true)
+          %>
+        </div>
+      </div>
+      <div class='field'>
+        <%= f.label 'Species Group', class: 'label' %>
+        <div class='control select'>
+          <%= collection_select(:sample_unit,
+            :species_group_id,
+            SpeciesGroup.all,
+            :id,
+            :label,
+            prompt: true)
+          %>
+        </div>
+      </div>
+
+      <div class='control select is-multiple'>
+        <%= f.label 'States', class: 'label' %>
+        <%= collection_select(:sample_unit,
+          :state_ids,
+          State.all,
+          :id,
+          :state_name,
+          { prompt: true },
+          { multiple: true, size: 5, class: 'state-select' })
+        %>
+      </div>
+
+      <br>
+
+      <div class='control select is-multiple'>
+        <%= f.label 'Counties', class: 'label' %>
+        <%= collection_select(:sample_unit,
+          :county_ids,
+          County.all,
+          :id,
+          :name,
+          { prompt: true },
+          { multiple: true, size: 5, class: 'county-select' })
+        %>
+      </div>
+
+      <div class='field'>
+        <div class='control actions'>
+          <%= f.submit class: 'button is-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,9 +1,21 @@
 import "./sample-unit-form.scss";
+import Markup from '../state-county-select/state-county-select-markup';
+
 
 class StateSelect {
   constructor() {
     this.stateSelect = $(document).find('.state-select');
+    this.addStateCountyButton = $(document).find('.add-state-county');
     this.stateSelectListener();
+    this.addStateCountyListener();
+  }
+
+  addStateCountyListener() {
+    this.addStateCountyButton.click(event => {
+      event.preventDefault();
+      const target = event.currentTarget;
+      $(target).after(Markup.markup);
+    });
   }
 
   stateSelectListener() {

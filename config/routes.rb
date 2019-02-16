@@ -27,4 +27,8 @@ Rails.application.routes.draw do
     resources :study_areas, except: [:show]
     resources :target_descriptors, except: [:show]
   end
+
+  namespace :api do
+    get '/:state_id/counties', to: 'counties#index', defaults: { format: :json }
+  end
 end

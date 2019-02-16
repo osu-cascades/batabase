@@ -12,18 +12,4 @@
       %>
       </div>
   </div>
-
-  <div class='field'>
-    <%= f.label 'County', class: 'label' %>
-    <div class='control select'>
-      <%= collection_select(:sample_unit,
-        :county_ids,
-        County.all,
-        :id,
-        :name,
-        { prompt: true },
-        { class: 'county-select' })
-      %>
-    </div>
-  </div>
 </div>

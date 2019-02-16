@@ -38,30 +38,32 @@
         </div>
       </div>
 
-      <div class='control select is-multiple'>
-        <%= f.label 'States', class: 'label' %>
-        <%= collection_select(:sample_unit,
-          :state_ids,
-          State.all,
-          :id,
-          :state_name,
-          { prompt: true },
-          { multiple: true, size: 5, class: 'state-select' })
-        %>
+      <div class='field'>
+        <%= f.label 'State', class: 'label' %>
+        <div class='control select'>
+          <%= collection_select(:sample_unit,
+            :state_ids,
+            State.all,
+            :id,
+            :state_name,
+            { prompt: true },
+            { class: 'state-select' })
+          %>
+          </div>
       </div>
 
-      <br>
-
-      <div class='control select is-multiple'>
-        <%= f.label 'Counties', class: 'label' %>
-        <%= collection_select(:sample_unit,
-          :county_ids,
-          County.all,
-          :id,
-          :name,
-          { prompt: true },
-          { multiple: true, size: 5, class: 'county-select' })
-        %>
+      <div class='field'>
+        <%= f.label 'County', class: 'label' %>
+        <div class='control select'>
+          <%= collection_select(:sample_unit,
+            :county_ids,
+            County.all,
+            :id,
+            :name,
+            { prompt: true },
+            { class: 'county-select' })
+          %>
+          </div>
       </div>
 
       <div class='field'>

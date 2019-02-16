@@ -8,12 +8,7 @@ class StateSelect {
 
   stateSelectListener() {
     this.stateSelect.change((event) => {
-      console.log(this.stateSelect.val());
-
-      let url = `/api/${event.currentTarget.value}/counties?`;
-      this.stateSelect.val().forEach((id) => {
-        url += `state_ids[]=${id}&`
-      })
+      let url = `/api/${event.currentTarget.value}/counties`;
 
       $.get(url, (data) => {
         this.replaceCountySelectOptions(data);
@@ -22,6 +17,7 @@ class StateSelect {
   }
 
   replaceCountySelectOptions(data) {
+    console.log(data);
     let countySelect = $(document).find('.county-select');
     countySelect.empty();
 

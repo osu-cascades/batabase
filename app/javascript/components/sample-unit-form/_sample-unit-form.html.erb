@@ -38,33 +38,7 @@
         </div>
       </div>
 
-      <div class='field'>
-        <%= f.label 'State', class: 'label' %>
-        <div class='control select'>
-          <%= collection_select(:sample_unit,
-            :state_ids,
-            State.all,
-            :id,
-            :state_name,
-            { prompt: true },
-            { class: 'state-select' })
-          %>
-          </div>
-      </div>
-
-      <div class='field'>
-        <%= f.label 'County', class: 'label' %>
-        <div class='control select'>
-          <%= collection_select(:sample_unit,
-            :county_ids,
-            County.all,
-            :id,
-            :name,
-            { prompt: true },
-            { class: 'county-select' })
-          %>
-          </div>
-      </div>
+      <%= render_component('state-county-select', { f: f }) %>
 
       <div class='field'>
         <div class='control actions'>

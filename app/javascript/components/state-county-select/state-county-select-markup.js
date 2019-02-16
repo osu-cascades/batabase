@@ -1,5 +1,5 @@
 export default {
-  markup:
+  stateMarkup:
     `<div class="field">
     <label class="label" for="sample_unit_State">State</label>
     <div class="control select">
@@ -53,6 +53,15 @@ export default {
         <option value="48">Wisconsin</option>
         <option value="49">West Virginia</option>
         <option value="50">Wyoming</option>
+      </select>
+    </div>
+  </div>`
+  ,
+  countyMarkup : 
+  (id)=> `<div class="field${id}">
+    <label class="label" for="sample_unit_County">County</label>
+    <div class="control select">
+      <select class="county-select${id}" name="sample_unit[county_ids]" id="sample_unit_county_ids">
       </select>
     </div>
   </div>`

@@ -32,4 +32,9 @@ Create frontend components by running the component generator `rails g component
 * Navigate to the project root
 * Run script: `sh script/createdb.sh`
 
+### Populating Database in Staging Environment on Heroku
+
+* Run `heroku pg:reset --remote staging` ! This will drop the database
+* Push local database to heroku `heroku pg:push batabase_development DATABASE_URL --remote staging`
+
 &copy; 2018 Nathan Struhs, Dylan Drudge. All rights reserved.

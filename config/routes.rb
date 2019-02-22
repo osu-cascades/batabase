@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :list_maintenance, as: '' do
     resources :broad_habitats, except: [:show]
+    resources :broad_habitat_forms, except: [:show]
     resources :clutter_types, except: [:show]
     resources :contacts, except: [:show]
     resources :detection_targets, except: [:show]

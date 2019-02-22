@@ -1,5 +1,6 @@
 require 'csv'
 require_relative '../sample_unit_creator'
+require_relative '../broad_habitat_creator'
 
 namespace :seed do
   desc 'Create initial test users'
@@ -103,11 +104,17 @@ namespace :seed do
     puts 'Created study areas'
   end
 
+  desc 'Seed broad habitats and broad habitat forms'
+  task 'broad_habitats' => :environment do
+    BroadHabitatCreator.new
+    puts 'Created broad habitats and broad habitat forms'
+  end
+
   desc 'Make some counties boi'
   task 'county' => :environment do
     csv_text = CSV.foreach(File.expand_path('./lib/states_counties.csv')) do |l|
-      stateId = State.find_by( state_code: l[0] ).id
-      County.create!(name: l[1], state_id: stateId)
+      state_id = State.find_by(state_code: l[0]).id
+      County.create!(name: l[1], state_id: state_id)
     end
     puts 'pop them counties off boi'
   end

@@ -7,4 +7,8 @@ RSpec.describe BroadHabitat, type: :model do
     it { should validate_presence_of(:label) }
     it { should validate_length_of(:label).is_at_most(50) }
   end
+
+  describe 'associations' do
+    it { should have_many(:broad_habitat_forms) }
+  end
 end

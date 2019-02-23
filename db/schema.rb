@@ -38,9 +38,11 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
   create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "last_name", limit: 50, null: false
     t.string "first_name", limit: 50, null: false
+    t.string "organization", limit: 50
+    t.string "state_code", limit: 8
     t.string "email", limit: 50
-    t.datetime "created_at", default: -> { "now()" }, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.bigint "state_id"
     t.bigint "organization_id"
     t.index ["organization_id"], name: "index_contacts_on_organization_id"
@@ -59,9 +61,9 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
     t.integer "deployment_id", null: false
     t.integer "contact_id", null: false
     t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
   create_table "deployment_softwares", id: :serial, force: :cascade do |t|
@@ -72,9 +74,9 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
     t.string "classifier_package", limit: 50
     t.string "other_settings", limit: 255
     t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["contact_id"], name: "tblDeploymentSoftware_ContactID"
     t.index ["deployment_id"], name: "tblDeploymentSoftware_DeploymentID"
   end
@@ -94,9 +96,9 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
     t.integer "clutter_type_id"
     t.integer "clutter_percent"
     t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["id"], name: "tblDeployment_EventID"
     t.index ["point_location_id"], name: "tblDeployment_LocationID"
     t.index ["species_group_id"], name: "tblDeployment_SpeciesGroupID"
@@ -119,9 +121,9 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
     t.string "description", limit: 255
     t.string "ownership", limit: 255
     t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["sample_unit_id"], name: "tblPointLocation_SiteID"
   end
 
@@ -131,9 +133,9 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
     t.string "manufacturer", limit: 50, null: false
     t.string "firmware", limit: 50
     t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "owning_agency"
     t.bigint "organization_id"
     t.index ["organization_id"], name: "index_detectors_on_organization_id"
@@ -190,9 +192,9 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
     t.string "manual_idspp2", limit: 255
     t.string "notes", limit: 255
     t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["auto_id"], name: "tblDeploymentDetection1_AutoID"
   end
 
@@ -224,9 +226,9 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
     t.integer "deployment_id", null: false
     t.integer "contact_id", null: false
     t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
   create_table "reports", id: :serial, force: :cascade do |t|
@@ -270,11 +272,12 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
   create_table "sample_units", id: :serial, force: :cascade do |t|
     t.string "site_code", limit: 20, null: false
     t.string "agency", limit: 50
-    t.integer "broad_habitat_id"
-    t.datetime "created_at", default: -> { "now()" }, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "grts"
     t.bigint "species_group_id"
+    t.bigint "broad_habitat_forms_id"
+    t.index ["broad_habitat_forms_id"], name: "index_sample_units_on_broad_habitat_forms_id"
     t.index ["species_group_id"], name: "index_sample_units_on_species_group_id"
   end
 
@@ -326,9 +329,9 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
     t.string "manual_idspp2", limit: 255
     t.string "notes", limit: 255
     t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["deployment_id"], name: "tblDeploymentDetection7_DeploymentID"
   end
 
@@ -345,9 +348,9 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
     t.string "label", limit: 50, null: false
     t.string "summary", limit: 255
     t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
   create_table "species_species_groups", id: false, force: :cascade do |t|

@@ -154,7 +154,6 @@ ALTER TABLE public.sample_units RENAME COLUMN "SiteCode" TO site_code;
 ALTER TABLE public.sample_units RENAME COLUMN "FederalAgency" TO agency;
 ALTER TABLE public.sample_units RENAME COLUMN "CreatedDate" TO created_date;
 ALTER TABLE public.sample_units RENAME COLUMN "LastModifiedDate" TO last_modified_date;
-ALTER TABLE public.sample_units RENAME COLUMN "BroadHabitatID" TO broad_habitat_id;
 ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "DeploymentID" TO deployment_id;
 ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "HiF" TO hi_f;
 ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "LoF" TO lo_f;
@@ -377,6 +376,7 @@ ALTER TABLE sample_units DROP COLUMN "SiteDescription";
 ALTER TABLE sample_units DROP COLUMN "Images";
 ALTER TABLE sample_units DROP COLUMN "CreatedBy";
 ALTER TABLE sample_units DROP COLUMN "LastModifiedBy";
+ALTER TABLE sample_units DROP COLUMN "BroadHabitatID";
 
   -- Detectors (Audio Logger)
 ALTER TABLE detectors DROP COLUMN "Code";

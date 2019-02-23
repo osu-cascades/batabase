@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
   create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "last_name", limit: 50, null: false
     t.string "first_name", limit: 50, null: false
+    t.string "organization", limit: 50
+    t.string "state_code", limit: 8
     t.string "email", limit: 50
     t.datetime "created_at", default: -> { "now()" }, null: false
     t.datetime "updated_at", default: -> { "now()" }, null: false
@@ -270,11 +272,12 @@ ActiveRecord::Schema.define(version: 2019_02_22_032717) do
   create_table "sample_units", id: :serial, force: :cascade do |t|
     t.string "site_code", limit: 20, null: false
     t.string "agency", limit: 50
-    t.integer "broad_habitat_id"
     t.datetime "created_at", default: -> { "now()" }, null: false
     t.datetime "updated_at", default: -> { "now()" }, null: false
     t.string "grts"
     t.bigint "species_group_id"
+    t.bigint "broad_habitat_forms_id"
+    t.index ["broad_habitat_forms_id"], name: "index_sample_units_on_broad_habitat_forms_id"
     t.index ["species_group_id"], name: "index_sample_units_on_species_group_id"
   end
 

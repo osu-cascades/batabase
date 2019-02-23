@@ -15,8 +15,8 @@ class SampleUnitCreator
   private
 
   def create_sample_unit(row)
-    broadId = BroadHabitat_Form.find_by(label: row['BroadHabitat_Form']).id
-    new_sample_unit = SampleUnit.new(site_code: row['SampleUnit'], grts: row['GRTS'], broad_habitat_form: broadId)
+    broad_id = BroadHabitatForm.find_by(label: row['BroadHabitat_Form']).id
+    new_sample_unit = SampleUnit.new(site_code: row['SampleUnit'], grts: row['GRTS'], broad_habitat_form: broad_id)
     new_sample_unit.save!
 
     create_sample_unit_states(new_sample_unit, row)

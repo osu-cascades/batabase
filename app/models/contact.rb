@@ -7,10 +7,6 @@ class Contact < ApplicationRecord
   belongs_to :state, optional: true
   belongs_to :organization, optional: true
 
-  def name
-    "#{first_name} #{last_name}"
-  end
-
   def organization_label
     organization.try(:label)
   end

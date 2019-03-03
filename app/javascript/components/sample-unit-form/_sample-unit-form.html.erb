@@ -17,7 +17,7 @@
         <%= f.label 'Broad Habitat', class: 'label' %>
         <div class='control select'>
           <%= collection_select(:sample_unit,
-            :broad_habitat_id,
+            :broad_habitat_form,
             BroadHabitat.all,
             :id,
             :label,

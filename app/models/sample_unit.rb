@@ -18,8 +18,4 @@ class SampleUnit < ApplicationRecord
   def primary_county
     sample_unit_counties.try(:first).try(:county).try(:name)
   end
-
-  def sub_title
-    "#{primary_county}, #{primary_state}"
-  end
 end

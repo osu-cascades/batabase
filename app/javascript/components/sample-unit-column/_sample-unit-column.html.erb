@@ -19,7 +19,7 @@
         <p>Elevation: <%= "#{detector_location.elevation}" %></p>
         <p>Land Ownership: Private</p>
         <p>Local Habitat:  <%= "#{detector_location.local_habitat.label}" %></p>
-        <p>Detection Target: Waterbody - River</p>
+        <p>Detection Target: <%= placeholder_if_blank(detector_location.detection_target_label) %></p>
         <p>Driving Directions: Left, right, left</p>
       </div>
     </div>

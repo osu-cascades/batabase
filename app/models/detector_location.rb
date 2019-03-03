@@ -6,4 +6,9 @@ class DetectorLocation < ApplicationRecord
 
   belongs_to :sample_unit
   belongs_to :local_habitat
+  belongs_to :detection_target, optional: true
+
+  def detection_target_label
+    detection_target.try(:label)
+  end
 end

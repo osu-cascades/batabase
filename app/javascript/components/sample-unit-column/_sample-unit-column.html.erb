@@ -9,14 +9,13 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-4">Quad ID: <%= "#{quad_id}" %></p>
-          <p class="subtitle is-6">Quad Number: 1</p>
+          <p class="title is-4"><%= "#{detector_location.location_name}" %></p>
         </div>
       </div>
 
       <div class="content">
-        <p>Datum: NAD83</p>
-        <p>Coordinates: (-2685874.53, 5486121.84)</p>
+        <p>Datum: TODO</p>
+        <p>Coordinates: <%= "#{detector_location.coordinates}" %></p>
         <p>Elevation: 3000</p>
         <p>Land Ownership: Private</p>
         <p>Local Habitat: Dry Conifer</p>

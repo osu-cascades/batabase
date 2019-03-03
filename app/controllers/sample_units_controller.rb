@@ -9,7 +9,7 @@ class SampleUnitsController < ApplicationController
 
   def show
     @sample_unit = SampleUnitDecorator.find(params[:id])
-    @detector_locations = @sample_unit.detector_locations.decorate
+    @detector_locations = @sample_unit.detector_locations
   end
 
   def new

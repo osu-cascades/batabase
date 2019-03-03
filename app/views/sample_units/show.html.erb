@@ -15,7 +15,7 @@
   <hr />
   <div class='columns is-desktop'>
     <% @sample_unit.detector_locations.each do |dl| %>
-      <%= render_component('sample-unit-column', { detector_location: dl }) %>
+      <%= render_component('sample-unit-column', { detector_location: dl.decorate }) %>
     <% end %>
   </div>
 <% end %>

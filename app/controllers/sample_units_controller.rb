@@ -7,7 +7,10 @@ class SampleUnitsController < ApplicationController
     @page = params[:page].to_i || 1
   end
 
-  def show; end
+  def show
+    @sample_unit = SampleUnit.find(params[:id])
+    @detector_locations = @sample_unit.detector_locations.decorate
+  end
 
   def new
     @sample_unit = SampleUnit.new

@@ -5,4 +5,8 @@ class DetectorLocation < ApplicationRecord
   validates_length_of :ownership, :description, maximum: 255
 
   belongs_to :sample_unit
+
+  def coordinates
+    "(#{latitude}, #{longitude})"
+  end
 end

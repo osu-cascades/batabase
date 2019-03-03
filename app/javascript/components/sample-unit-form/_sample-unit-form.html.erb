@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class='field'>
-        <%= f.label 'Broad Habitat', class: 'label' %>
+        <%= f.label 'Broad Habitat Form', class: 'label' %>
         <div class='control select'>
           <%= collection_select(:sample_unit,
             :broad_habitat_form,
@@ -23,26 +23,6 @@
             :label,
             prompt: true)
           %>
-        </div>
-      </div>
-      <div class='field'>
-        <%= f.label 'Species Group', class: 'label' %>
-        <div class='control select'>
-          <%= collection_select(:sample_unit,
-            :species_group_id,
-            SpeciesGroup.all,
-            :id,
-            :label,
-            prompt: true)
-          %>
-        </div>
-      </div>
-
-      <%= render_component('state-county-select', { f: f }) %>
-
-      <div class='field'>
-        <div class='control actions'>
-          <button class='add-state-county button is-link'>Add State & County</button>
         </div>
       </div>
 

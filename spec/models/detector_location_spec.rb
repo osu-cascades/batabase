@@ -14,4 +14,8 @@ RSpec.describe DetectorLocation, type: :model do
       it { should validate_length_of(attribute).is_at_most(255) }
     end
   end
+
+  describe 'assocations' do
+    it { should belong_to(:detection_target).optional }
+  end
 end

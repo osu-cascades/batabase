@@ -20,7 +20,7 @@
         <p>Land Ownership: Private</p>
         <p>Local Habitat:  <%= "#{detector_location.local_habitat.label}" %></p>
         <p>Detection Target: <%= placeholder_if_blank(detector_location.detection_target_label) %></p>
-        <p>Driving Directions: Left, right, left</p>
+        <p>Driving Directions: <%= placeholder_if_blank(detector_location.driving_directions) %></p>
       </div>
     </div>
   </div>

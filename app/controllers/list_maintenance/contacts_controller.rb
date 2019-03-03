@@ -3,7 +3,7 @@ class ListMaintenance::ContactsController < ApplicationController
   before_action :set_contact, only: [:edit, :update, :destroy]
 
   def index
-    @contacts = Contact.all
+    @contacts = ContactDecorator.decorate_collection(Contact.all)
   end
 
   def new

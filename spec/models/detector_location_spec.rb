@@ -4,7 +4,7 @@ RSpec.describe DetectorLocation, type: :model do
   subject(:detector_location) { build(:detector_location) }
 
   describe 'validations' do
-    %i(sample_unit_id location_name).each do |attribute|
+    %i(sample_unit location_name).each do |attribute|
       it { should validate_presence_of(attribute) }
     end
 

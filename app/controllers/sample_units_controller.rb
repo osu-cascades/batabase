@@ -47,7 +47,8 @@ class SampleUnitsController < ApplicationController
   private
 
   def sample_unit_params
-    params.require(:detector).permit(:site_code, :grts, :agency, :broad_habitat_id, :species_group_id)
+    params.require(:sample_unit).permit(:site_code, :grts, :agency, :broad_habitat_id, :species_group_id,
+      detector_locations_attributes: [:location_name])
   end
 
   def set_sample_unit

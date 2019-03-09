@@ -36,7 +36,7 @@
         <div class='field'>
         <%= f.label 'Local Habitat', class: 'label' %>
         <div class='control select'>
-          <%= collection_select(:sample_unit,
+          <%= collection_select(:detector_location,
             :local_habitat,
             LocalHabitat.all,
             :id,

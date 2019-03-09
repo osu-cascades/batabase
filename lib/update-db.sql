@@ -416,7 +416,6 @@ ALTER TABLE public.deployment_softwares RENAME COLUMN "created_date" TO created_
 ALTER TABLE public.deployment_softwares RENAME COLUMN "last_modified_date" TO updated_at;
 ALTER TABLE public.deployments RENAME COLUMN "created_date" TO created_at;
 ALTER TABLE public.deployments RENAME COLUMN "last_modified_date" TO updated_at;
-ALTER TABLE public.detector_locations RENAME COLUMN "created_date" TO created_at;
 ALTER TABLE public.detector_locations RENAME COLUMN "last_modified_date" TO updated_at;
 ALTER TABLE public.detectors RENAME COLUMN "created_date" TO created_at;
 ALTER TABLE public.detectors RENAME COLUMN "last_modified_date" TO updated_at;
@@ -601,3 +600,7 @@ ALTER TABLE species DROP CONSTRAINT "tluSpecies_ScientificName_key";
 ALTER TABLE species DROP CONSTRAINT "tluSpecies_TSN_key";
 ALTER TABLE species_groups DROP CONSTRAINT "tluSpeciesGroup_Label_key";
 ALTER TABLE states DROP CONSTRAINT "tluState_StateName_key";
+
+-- Drop Not Null Constraint
+ALTER TABLE detector_locations ALTER "created_by" drop not null;
+ALTER TABLE detector_locations ALTER "last_modified_by" drop not null;

@@ -20,7 +20,7 @@ class SampleUnitsController < ApplicationController
   def edit; end
 
   def create
-    @sample_unit = SampleUnit.new
+    @sample_unit = SampleUnit.new(sample_unit_params)
     if @sample_unit.save
       redirect_to sample_units_path
       flash[:notice] = 'Sample unit was successfully created.'

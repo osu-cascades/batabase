@@ -4,6 +4,8 @@ class SampleUnit < ApplicationRecord
   validates_length_of :agency, maximum: 50
 
   has_many :detector_locations
+  accepts_nested_attributes_for :detector_locations
+
   belongs_to :broad_habitat_form, optional: true
 
   has_many :sample_unit_states

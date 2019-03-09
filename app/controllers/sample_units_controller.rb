@@ -20,6 +20,7 @@ class SampleUnitsController < ApplicationController
   def edit; end
 
   def create
+
     @sample_unit = SampleUnit.new(sample_unit_params)
     if @sample_unit.save
       redirect_to sample_units_path
@@ -48,7 +49,7 @@ class SampleUnitsController < ApplicationController
   private
 
   def sample_unit_params
-    params.require(:sample_unit).permit(:site_code, :grts, :agency, :broad_habitat_id, :species_group_id,
+    params.require(:sample_unit).permit(:site_code, :grts, :agency, :broad_habitat_form_id, :species_group_id,
       detector_locations_attributes: [
         :sample_unit_id,
         :local_habitat_id,

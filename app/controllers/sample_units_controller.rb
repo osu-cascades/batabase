@@ -14,7 +14,7 @@ class SampleUnitsController < ApplicationController
 
   def new
     @sample_unit = SampleUnit.new
-    4.times { @sample_unit.detector_locations.build }
+    4.times { @sample_unit.detector_locations.build(sample_unit_id: @sample_unit.id) }
   end
 
   def edit; end

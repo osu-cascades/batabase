@@ -18,7 +18,7 @@
         <%= f.label 'Broad Habitat Form', class: 'label' %>
         <div class='control select'>
           <%= collection_select(:sample_unit,
-            :broad_habitat_form,
+            :broad_habitat_form_id,
             BroadHabitat.all,
             :id,
             :label,
@@ -31,13 +31,13 @@
           <%= df_form.label :location_name, class: 'label' %>
           <div class='control'>
             <%= df_form.text_field :location_name, class: 'input' %>
-          </div> 
+          </div>
         </div>
         <div class='field'>
         <%= f.label 'Local Habitat', class: 'label' %>
         <div class='control select'>
-          <%= collection_select(:detector_location,
-            :local_habitat,
+          <%= df_form.collection_select(
+            :local_habitat_id,
             LocalHabitat.all,
             :id,
             :label,

@@ -14,7 +14,7 @@ class SampleUnitsController < ApplicationController
 
   def new
     @sample_unit = SampleUnit.new
-    4.times { @sample_unit.detector_locations.build(sample_unit_id: @sample_unit.id) }
+    4.times { @sample_unit.detector_locations.build }
   end
 
   def edit; end
@@ -49,7 +49,12 @@ class SampleUnitsController < ApplicationController
 
   def sample_unit_params
     params.require(:sample_unit).permit(:site_code, :grts, :agency, :broad_habitat_id, :species_group_id,
-      detector_locations_attributes: [:sample_unit_id, :local_habitat_id ,:location_name])
+      detector_locations_attributes: [
+        :sample_unit_id,
+        :local_habitat_id,
+        :location_name
+      ]
+    )
   end
 
   def set_sample_unit

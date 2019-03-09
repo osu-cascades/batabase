@@ -120,10 +120,10 @@ ActiveRecord::Schema.define(version: 2019_03_03_201238) do
     t.text "image"
     t.string "description", limit: 255
     t.string "ownership", limit: 255
-    t.string "created_by", limit: 255, null: false
-    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.string "last_modified_by", limit: 255, null: false
-    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "created_by", limit: 255
+    t.datetime "created_date", default: -> { "now()" }, null: false
+    t.string "last_modified_by", limit: 255
+    t.datetime "updated_at", default: -> { "now()" }, null: false
     t.bigint "detection_target_id"
     t.text "driving_directions"
     t.index ["detection_target_id"], name: "index_detector_locations_on_detection_target_id"

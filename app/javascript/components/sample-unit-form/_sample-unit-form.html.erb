@@ -28,11 +28,22 @@
       </div>
       <%= f.fields_for :detector_locations do |df_form| %>
         <div class='field'>
-        <%= df_form.label :location_name, class: 'label' %>
-        
-        <div class='control'>
-          <%= df_form.text_field :location_name, class: 'input' %>
-        </div> 
+          <%= df_form.label :location_name, class: 'label' %>
+          <div class='control'>
+            <%= df_form.text_field :location_name, class: 'input' %>
+          </div> 
+        </div>
+        <div class='field'>
+        <%= f.label 'Local Habitat', class: 'label' %>
+        <div class='control select'>
+          <%= collection_select(:sample_unit,
+            :local_habitat,
+            LocalHabitat.all,
+            :id,
+            :label,
+            prompt: true)
+          %>
+        </div>
       </div>
       <% end %>
 

@@ -20,7 +20,6 @@ class SampleUnitsController < ApplicationController
   def edit; end
 
   def create
-
     @sample_unit = SampleUnit.new(sample_unit_params)
     if @sample_unit.save
       redirect_to sample_units_path
@@ -32,7 +31,7 @@ class SampleUnitsController < ApplicationController
   end
 
   def update
-    if @sample_unit.update(detector_params)
+    if @sample_unit.update(sample_unit_params)
       redirect_to sample_units_path
       flash[:notice] = 'Sample unit was successfully updated.'
     else

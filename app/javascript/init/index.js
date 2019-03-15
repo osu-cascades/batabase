@@ -1,3 +1,5 @@
+// https://evilmartians.com/chronicles/evil-front-part-1
+
 import Rails from "rails-ujs";
 Rails.start();
 
@@ -11,9 +13,6 @@ import '../components/header/header'
 import '../components/index-header/index-header'
 import '../components/index-table/index-table'
 import '../components/index-nested-table/index-nested-table'
-
 import '../components/sample-unit-column/sample-unit-column'
-
 import '../components/sample-unit-form/sample-unit-form'
-
 import '../components/state-county-select/state-county-select'

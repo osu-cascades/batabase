@@ -14,6 +14,9 @@ This is a Rails application. After cloning the repository, you can:
 
 * Install rails dependencies with `bundle install`
 * Install javascript dependencies with `npm i`
+* Populate database from MS Access DB dump with `sh script/createdb.sh`
+* Run DB migrations with `bundle exec rake db:migrate`
+* Create test database with `bundle exec rake db:test:prepare`
 
 Start the application by:
 
@@ -27,10 +30,7 @@ Start the application by:
 
 Create frontend components by running the component generator `rails g component <component-name>`. Include the component in the view ERB template with the application helper `#render_component`.
 
-### Populating the Database
-
-* Navigate to the project root
-* Run script: `sh script/createdb.sh`
+Components will be generated in `app/javascript`
 
 ### Populating Database in Staging Environment on Heroku
 

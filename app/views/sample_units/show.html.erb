@@ -5,7 +5,7 @@
 
   <p><span>GRTS: </span><%= placeholder_if_blank(@sample_unit.try(:grts)) %></p>
   <p><span>Broad Habitat Class: </span><%= placeholder_if_blank(@sample_unit.broad_habitat_form.try(:broad_habitat).try(:label)) %></p>
-  <p><span>Broad Habitat From: </span><%= placeholder_if_blank(@sample_unit.broad_habitat_form.try(:label)) %></p>
+  <p><span>Broad Habitat Form: </span><%= placeholder_if_blank(@sample_unit.broad_habitat_form.try(:label)) %></p>
   <p><span>Agency:</span>  <%= placeholder_if_blank(@sample_unit.try(:agency)) %></p>
 
   <br />

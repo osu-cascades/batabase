@@ -50,6 +50,7 @@ class SampleUnitsController < ApplicationController
   def sample_unit_params
     params.require(:sample_unit).permit(:site_code, :grts, :agency, :broad_habitat_form_id, :species_group_id,
       detector_locations_attributes: [
+        :id,
         :sample_unit_id,
         :local_habitat_id,
         :location_name

@@ -1,4 +1,5 @@
 class DetectionTarget < ApplicationRecord
-  has_many :target_descriptors
+  belongs_to :target_descriptors
   validates :label, presence: true
+
 end

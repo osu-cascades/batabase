@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_04_07_183748) do
-=======
-ActiveRecord::Schema.define(version: 2019_04_07_182947) do
->>>>>>> d44ff95d84d62b1aef4d7448402482cfc03092b8
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,11 +125,8 @@ ActiveRecord::Schema.define(version: 2019_04_07_182947) do
     t.bigint "detection_target_id"
     t.text "driving_directions"
     t.bigint "geodetic_system_id"
-<<<<<<< HEAD
-    t.bigint "target_descriptor_id"
-=======
     t.text "land_ownership_detail"
->>>>>>> d44ff95d84d62b1aef4d7448402482cfc03092b8
+    t.bigint "target_descriptor_id"
     t.index ["detection_target_id"], name: "index_detector_locations_on_detection_target_id"
     t.index ["geodetic_system_id"], name: "index_detector_locations_on_geodetic_system_id"
     t.index ["sample_unit_id"], name: "tblPointLocation_SiteID"

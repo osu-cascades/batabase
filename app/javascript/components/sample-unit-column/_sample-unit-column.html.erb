@@ -18,7 +18,8 @@
         <p>Datum: <%= "#{detector_location.datum}" %></p>
         <p>Coordinates: <%= "#{detector_location.coordinates}" %></p>
         <p>Elevation: <%= "#{detector_location.elevation}" %></p>
-        <p>Land Ownership: Private</p>
+        <p>Land Ownership: <%= placeholder_if_blank(detector_location.land_ownership) %></p>
+        <p>Land Ownership Details: <%= placeholder_if_blank(detector_location.land_ownership_detail) %></p>
         <p>Local Habitat:  <%= "#{detector_location.local_habitat.label}" %></p>
         <p>Detection Target: <%= placeholder_if_blank(detector_location.try(:target_descriptor).try(:detection_target).try(:label)) %></p>
         <p>Target Descriptor: <%= placeholder_if_blank(detector_location.try(:target_descriptor).try(:label)) %></p>

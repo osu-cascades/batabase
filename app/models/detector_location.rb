@@ -24,4 +24,8 @@ class DetectorLocation < ApplicationRecord
   def sample_unit_id
     sample_unit.id
   end
+
+  def geodetic_system
+    geodetic_system.nil? ? 'NAD83' : geodetic_system
+  end
 end

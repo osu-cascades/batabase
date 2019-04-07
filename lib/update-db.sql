@@ -90,7 +90,7 @@ ALTER TABLE public.detector_locations RENAME COLUMN "Latitude" TO latitude;
 ALTER TABLE public.detector_locations RENAME COLUMN "Longitude" TO longitude;
 ALTER TABLE public.detector_locations RENAME COLUMN "Elevation" TO elevation;
 ALTER TABLE public.detector_locations RENAME COLUMN "Images" TO image;
-ALTER TABLE public.detector_locations RENAME COLUMN "Ownership" TO ownership;
+ALTER TABLE public.detector_locations RENAME COLUMN "Ownership" TO land_ownership;
 ALTER TABLE public.detector_locations RENAME COLUMN "LocationDescription" TO description;
 ALTER TABLE public.detectors RENAME COLUMN "SerialNum" TO serial_num;
 ALTER TABLE public.detectors RENAME COLUMN "CreatedBy" TO created_by;

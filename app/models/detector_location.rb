@@ -5,6 +5,7 @@ class DetectorLocation < ApplicationRecord
   validates_length_of :ownership, :description, maximum: 255
 
   belongs_to :sample_unit
+  belongs_to :geodetic_system, optional: true
   belongs_to :local_habitat
   belongs_to :detection_target, optional: true
 
@@ -25,7 +26,7 @@ class DetectorLocation < ApplicationRecord
     sample_unit.id
   end
 
-  def geodetic_system
+  def datum
     geodetic_system.nil? ? 'NAD83' : geodetic_system
   end
 end

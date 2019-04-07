@@ -20,7 +20,8 @@
         <p>Elevation: <%= "#{detector_location.elevation}" %></p>
         <p>Land Ownership: Private</p>
         <p>Local Habitat:  <%= "#{detector_location.local_habitat.label}" %></p>
-        <p>Detection Target: <%= placeholder_if_blank(detector_location.detection_target_label) %></p>
+        <p>Detection Target: <%= placeholder_if_blank(detector_location.try(:target_descriptor).try(:detection_target).try(:label)) %></p>
+        <p>Target Descriptor: <%= placeholder_if_blank(detector_location.try(:target_descriptor).try(:label)) %></p>
         <a class='modal-button button is-primary'>View Driving Directions</a>
       </div>
     </div>

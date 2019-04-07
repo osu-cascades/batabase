@@ -8,6 +8,7 @@ class DetectorLocation < ApplicationRecord
   belongs_to :geodetic_system, optional: true
   belongs_to :local_habitat
   belongs_to :detection_target, optional: true
+  belongs_to :target_descriptor, optional: true
 
   def detection_target_label
     detection_target.try(:label)

@@ -16,8 +16,8 @@ RSpec.describe DetectorLocation, type: :model do
   end
 
   describe 'assocations' do
-    it { should belong_to(:detection_target).optional }
-    it { should belong_to(:geodetic_system).optional }
+    %i(detection_target geodetic_system).each do |attribute|
+      it { should belong_to(attribute).optional }
+    end
   end
-
 end

@@ -18,7 +18,7 @@
         <p>Datum: <%= "#{detector_location.datum}" %></p>
         <p>Coordinates: <%= "#{detector_location.coordinates}" %></p>
         <p>Elevation: <%= "#{detector_location.elevation}" %></p>
-        <p>Land Ownership: Private</p>
+        <p>Land Ownership: <%= placeholder_if_blank(detector_location.land_ownership) %></p>
         <p>Local Habitat:  <%= "#{detector_location.local_habitat.label}" %></p>
         <p>Detection Target: <%= placeholder_if_blank(detector_location.detection_target_label) %></p>
         <a class='modal-button button is-primary'>View Driving Directions</a>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_07_180622) do
+ActiveRecord::Schema.define(version: 2019_04_07_183748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,9 +125,11 @@ ActiveRecord::Schema.define(version: 2019_04_07_180622) do
     t.bigint "detection_target_id"
     t.text "driving_directions"
     t.bigint "geodetic_system_id"
+    t.bigint "target_descriptor_id"
     t.index ["detection_target_id"], name: "index_detector_locations_on_detection_target_id"
     t.index ["geodetic_system_id"], name: "index_detector_locations_on_geodetic_system_id"
     t.index ["sample_unit_id"], name: "tblPointLocation_SiteID"
+    t.index ["target_descriptor_id"], name: "index_detector_locations_on_target_descriptor_id"
   end
 
   create_table "detectors", id: :serial, force: :cascade do |t|
@@ -412,4 +414,5 @@ ActiveRecord::Schema.define(version: 2019_04_07_180622) do
   add_foreign_key "counties", "states"
   add_foreign_key "detector_locations", "detection_targets"
   add_foreign_key "detector_locations", "geodetic_systems"
+  add_foreign_key "detector_locations", "target_descriptors"
 end

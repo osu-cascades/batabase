@@ -5,4 +5,5 @@ class BroadHabitatForm < ApplicationRecord
   def broad_habitat_label
     broad_habitat.try(:label)
   end
+
 end

@@ -27,4 +27,16 @@ RSpec.describe User, type: :model do
       expect(user.role).to eql('guest')
     end
   end
+
+  describe 'members' do
+    it 'returns organization label' do
+      expect(user.organization_label).to eq("Example organization")
+    end
+    it 'returns state name' do
+      expect(user.state_name).to eq("Oregone")
+    end
+    it 'returns role humanized' do
+      expect(user.role_humanized).to eq("Guest")
+    end
+  end
 end

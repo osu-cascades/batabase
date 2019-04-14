@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'assocations' do
+  describe 'associations' do
     it { should belong_to(:state) }
     it { should belong_to(:organization) }
   end

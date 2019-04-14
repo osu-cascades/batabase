@@ -4,8 +4,6 @@ class Detector < ApplicationRecord
 
   belongs_to :organization, optional: true
 
-  protected
-
   def owning_agency
     organization.try(:label)
   end

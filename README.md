@@ -37,4 +37,8 @@ Components will be generated in `app/javascript`
 * Run `heroku pg:reset --remote staging` ! This will drop the database
 * Push local database to heroku `heroku pg:push batabase_development DATABASE_URL --remote staging`
 
+### Test Coverage
+
+Batabase uses the [simplecov](https://github.com/colszowka/simplecov) gem to supply code coverage metrics. To view code coverage run the test suite `bundle exec rspec` and open `coverage/index.html` in a browser.
+
 &copy; 2018 Nathan Struhs, Dylan Drudge. All rights reserved.

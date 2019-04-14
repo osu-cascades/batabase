@@ -8,6 +8,6 @@ RSpec.describe DetectionTarget, type: :model do
   end
 
   describe 'assocations' do
-    it { should belong_to(:target_descriptor) }
+    it { should have_many(:target_descriptors) }
   end
 end

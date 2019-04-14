@@ -11,19 +11,15 @@ class DetectorLocationDecorator < ApplicationDecorator
   end
 
   def quad_id
-    location_name.split('_')[1].match(/[a-zA-Z]{2}/)
+    location_name.split('_')[1].match(/[a-zA-Z]{2}/).to_s
   end
 
   def quad_number
-    qn = location_name.split('_')[1].match(/\d{1}/)
-    qn.nil? ? '1' : qn
-  end
-
-  def sample_unit_id
-    sample_unit.id
+    qn = location_name.split('_')[1].match(/\d{1}/).to_s
+    qn.blank? ? '1' : qn
   end
 
   def datum
-    geodetic_system.nil? ? 'NAD83' : geodetic_system
+    geodetic_system.nil? ? 'NAD83' : geodetic_system.label
   end
 end

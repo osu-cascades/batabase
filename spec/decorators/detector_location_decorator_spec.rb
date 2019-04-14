@@ -15,15 +15,38 @@ RSpec.describe DetectorLocationDecorator do
       expect(detector_location.coordinates).to eql("[#{detector_location.latitude}, #{detector_location.longitude}]")
     end
   end
+
+  describe '#quad_id' do
+    it 'returns quad id from parsed location name' do
+      expect(detector_location.quad_id).to eq('NE')
+    end
+  end
+
+  describe '#quad_number' do
+    let(:detector_location_without_quad_number) do
+      build(:detector_location, location_name: '123456_NE').decorate
+    end
+
+    it 'returns quad_number if number is present' do
+      expect(detector_location.quad_number).to eq('2')
+    end
+
+    it 'returns "1" if number is not present' do
+      expect(detector_location_without_quad_number.quad_number).to eq('1')
+    end
+  end
+
+  describe '#datum' do
+    let(:detector_location_with_datum) do
+      build(:detector_location, geodetic_system: build(:geodetic_system)).decorate
+    end
+
+    it 'returns default if geodetic system is not present' do
+      expect(detector_location.datum).to eq('NAD83')
+    end
+
+    it 'returns datum if present' do
+      expect(detector_location_with_datum.datum).to eq('WGS 84')
+    end
+  end
 end
-
-# sample_unit
-# location_name { 'Example Location Name' }
-# latitude { 44.4444444}
-# longitude { -121.121121 }
-# elevation { 3000 }
-# land_ownership { 'Example Ownership' }
-
-# def coordinates
-#   "[#{latitude}, #{longitude}]"
-# end

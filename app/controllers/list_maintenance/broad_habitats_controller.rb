@@ -43,5 +43,4 @@ class ListMaintenance::BroadHabitatsController < ApplicationController
   def set_broad_habitat
     @broad_habitat = BroadHabitat.find(params[:id])
   end
-
 end

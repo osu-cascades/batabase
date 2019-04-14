@@ -11,8 +11,6 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
-  protected
-
   def organization_label
     organization.try(:label)
   end

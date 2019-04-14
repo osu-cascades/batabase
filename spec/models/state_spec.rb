@@ -12,7 +12,7 @@ RSpec.describe State, type: :model do
     it { should validate_length_of(:state_name).is_at_most(50) }
   end
 
-  describe 'assocations' do
+  describe 'associations' do
     it { should have_many(:sample_unit_states) }
     it { should have_many(:sample_units).through(:sample_unit_states) }
     it { should have_many(:counties) }

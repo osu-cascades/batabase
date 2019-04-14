@@ -11,4 +11,5 @@ RSpec.describe BroadHabitat, type: :model do
   describe 'associations' do
     it { should have_many(:broad_habitat_forms) }
   end
+
 end

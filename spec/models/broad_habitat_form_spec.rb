@@ -10,4 +10,10 @@ RSpec.describe BroadHabitatForm, type: :model do
   describe 'associations' do
     it { should belong_to(:broad_habitat) }
   end
+
+  describe 'broad_habitat_label' do
+    it 'returns broad habitat\'s label' do
+      expect(broad_habitat_form.broad_habitat_label).to eq('Example Label')
+    end
+  end
 end

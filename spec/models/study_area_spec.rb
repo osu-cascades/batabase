@@ -7,7 +7,7 @@ RSpec.describe StudyArea, type: :model do
     it { should validate_presence_of(:name) }
   end
 
-  describe 'assocations' do
+  describe 'associations' do
     it { should belong_to(:state) }
   end
 end

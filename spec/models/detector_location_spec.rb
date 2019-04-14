@@ -10,12 +10,12 @@ RSpec.describe DetectorLocation, type: :model do
 
     it { should validate_length_of(:location_name).is_at_most(20) }
 
-    %i(ownership description).each do |attribute|
+    %i(land_ownership description).each do |attribute|
       it { should validate_length_of(attribute).is_at_most(255) }
     end
   end
 
-  describe 'assocations' do
+  describe 'associations' do
     %i(detection_target geodetic_system).each do |attribute|
       it { should belong_to(attribute).optional }
     end

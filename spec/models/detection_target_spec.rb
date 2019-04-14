@@ -7,7 +7,7 @@ RSpec.describe DetectionTarget, type: :model do
     it { should validate_presence_of(:label) }
   end
 
-  describe 'assocations' do
+  describe 'associations' do
     it { should have_many(:target_descriptors) }
   end
 end

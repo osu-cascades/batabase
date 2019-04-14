@@ -13,7 +13,7 @@ RSpec.describe Detector, type: :model do
     end
   end
 
-  describe 'assocations' do
+  describe 'associations' do
     it { should belong_to(:organization).optional }
   end
 end

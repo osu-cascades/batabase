@@ -10,4 +10,10 @@ RSpec.describe StudyArea, type: :model do
   describe 'assocations' do
     it { should belong_to(:state) }
   end
+
+  describe 'state_code' do
+    it 'returns state code' do
+      expect(study_area.state_code).to eq("OR")
+    end
+  end
 end

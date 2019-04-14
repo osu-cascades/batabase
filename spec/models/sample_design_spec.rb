@@ -14,4 +14,10 @@ RSpec.describe SampleDesign, type: :model do
   describe 'associations' do
     it { should belong_to(:sample_design_type) }
   end
+
+  describe '#sample_design_type_label' do
+    it 'returns sample design type label' do
+      expect(sample_design.sample_design_type_label).to eq('Example Label')
+    end
+  end
 end

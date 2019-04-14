@@ -5,6 +5,6 @@ FactoryBot.define do
     latitude { 44.4444444}
     longitude { -121.121121 }
     elevation { 3000 }
-    ownership { 'Example Ownership' }
+    land_ownership { 'Example Ownership' }
   end
 end

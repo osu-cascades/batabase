@@ -32,7 +32,13 @@
           %>
         </div>
       </div>
+
+      <h2 class='title is-2'>Detector Locations</h2>
+      <hr />
+
       <%= f.fields_for :detector_locations do |df_form| %>
+        <h3 class='title is-4'>Location<h3>
+        <hr />
         <div class='field'>
           <%= df_form.label :location_name, class: 'label' %>
           <div class='control'>

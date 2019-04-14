@@ -2,7 +2,7 @@ class DetectorLocation < ApplicationRecord
   validates :sample_unit,
             :location_name, presence: true
   validates_length_of :location_name, maximum: 20
-  validates_length_of :ownership, :description, maximum: 255
+  validates_length_of :land_ownership, :description, maximum: 255
 
   belongs_to :sample_unit
   belongs_to :geodetic_system, optional: true

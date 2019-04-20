@@ -36,7 +36,7 @@ class StateSelect {
     let countyboi = $(target).parent().parent().after(countiesSelect)
     let countySelect = $(document).find(`.county-select${this.totalCalls}`)
     this.totalCalls += 1;
-    
+
     data.forEach((county) => {
       //console.log( county )
       const option = $("<option></option>").attr("value", county.id).text(county.name)
@@ -45,6 +45,42 @@ class StateSelect {
   }
 }
 
+class DynamicForm {
+  constructor() {
+    this.addFieldsListener();
+    this.removeFieldsListener();
+    this.labelHeaderIndexes();
+  }
+
+  addFieldsListener() {
+    $('form').on('click', '.add_fields', (event) => {
+      const target = $(event.currentTarget);
+      const time = new Date().getTime();
+      const regexp = new RegExp(target.data('id'), 'g');
+      target.before(target.data('fields').replace(regexp, time));
+      this.labelHeaderIndexes();
+      event.preventDefault();
+    });
+  }
+
+  removeFieldsListener() {
+    $('form').on('click', '.remove_fields', (event) => {
+      const target = $(event.currentTarget);
+      target.prev('input[type=hidden]').val('1');
+      target.closest('.fieldset').hide();
+      event.preventDefault();
+    });
+  }
+
+  labelHeaderIndexes() {
+    $('.detector-location-index').each((i, element) => {
+      $(element).text(`Location ${i+1}`);
+      console.log($(element).text());
+    });
+  }
+}
+
 $(document).ready(() => {
-  const stateSelect = new StateSelect();
+  // const stateSelect = new StateSelect();
+  const dynamicForm = new DynamicForm();
 });

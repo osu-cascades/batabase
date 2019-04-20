@@ -3,8 +3,8 @@ class SampleUnit < ApplicationRecord
   validates_length_of :site_code, maximum: 20
   validates_length_of :agency, maximum: 50
 
-  has_many :detector_locations, :inverse_of => :sample_unit
-  accepts_nested_attributes_for :detector_locations
+  has_many :detector_locations, dependent: :destroy
+  accepts_nested_attributes_for :detector_locations, allow_destroy: true
 
   belongs_to :broad_habitat_form, optional: true
 

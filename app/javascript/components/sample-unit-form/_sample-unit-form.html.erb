@@ -33,32 +33,18 @@
         </div>
       </div>
 
-      <h2 class='title is-2'>Detector Locations</h2>
+      <br />
+
+      <h2 class='title is-4'>Detector Locations</h2>
       <hr />
 
       <%= f.fields_for :detector_locations do |df_form| %>
-        <h3 class='title is-4'>Location<h3>
-        <hr />
-        <div class='field'>
-          <%= df_form.label :location_name, class: 'label' %>
-          <div class='control'>
-            <%= df_form.text_field :location_name, class: 'input' %>
-          </div>
-        </div>
-        <div class='field'>
-        <%= f.label 'Local Habitat', class: 'label' %>
-        <div class='control select'>
-          <%= df_form.collection_select(
-            :local_habitat_id,
-            LocalHabitat.all,
-            :id,
-            :label,
-            prompt: true)
-          %>
-        </div>
-      </div>
+        <%= render 'detector_location_fields', f: df_form%>
       <% end %>
 
+      <%= link_to_add_fields '<i class="fa fa-plus"></i>Detector Location'.html_safe, f, :detector_locations %>
+
+      <hr />
 
       <div class='field'>
         <div class='control actions'>

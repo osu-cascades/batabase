@@ -1,0 +1,42 @@
+<div class='fieldset'>
+  <h3 class='title is-5 detector-location-index'><h3>
+  <hr />
+
+  <div class='field'>
+    <%= f.label :location_name, class: 'label' %>
+    <div class='control'>
+      <%= f.text_field :location_name, class: 'input' %>
+    </div>
+  </div>
+
+  <div class='field'>
+  <%= f.label :datum, class: 'label' %>
+    <div class='control select'>
+      <%= f.collection_select(
+        :geodetic_system_id,
+        GeodeticSystem.all,
+        :id,
+        :label,
+        prompt: true)
+      %>
+    </div>
+  </div>
+
+  <div class='field'>
+    <%= f.label 'Local Habitat', class: 'label' %>
+    <div class='control select'>
+      <%= f.collection_select(
+        :local_habitat_id,
+        LocalHabitat.all,
+        :id,
+        :label,
+        prompt: true)
+      %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :_destroy %>
+  <%= link_to '<i class="fa fa-trash-alt"></i>Delete'.html_safe, '#', class: "remove_fields button is-danger" %>
+</div>
+
+<br />

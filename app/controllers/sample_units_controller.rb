@@ -14,10 +14,11 @@ class SampleUnitsController < ApplicationController
 
   def new
     @sample_unit = SampleUnit.new
-    4.times { @sample_unit.detector_locations.build }
   end
 
-  def edit; end
+  def edit
+    @sample_unit = SampleUnit.find(params[:id])
+  end
 
   def create
     @sample_unit = SampleUnit.new(sample_unit_params)
@@ -52,8 +53,10 @@ class SampleUnitsController < ApplicationController
       detector_locations_attributes: [
         :id,
         :sample_unit_id,
+        :location_name,
+        :geodetic_system_id,
         :local_habitat_id,
-        :location_name
+        :_destroy
       ]
     )
   end

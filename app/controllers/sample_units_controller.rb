@@ -55,6 +55,9 @@ class SampleUnitsController < ApplicationController
         :sample_unit_id,
         :location_name,
         :geodetic_system_id,
+        :latitude,
+        :longitude,
+        :elevation,
         :local_habitat_id,
         :_destroy
       ]

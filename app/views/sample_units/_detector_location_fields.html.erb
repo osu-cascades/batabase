@@ -35,6 +35,30 @@
     </div>
   </div>
 
+  <div class='field'>
+    <%= f.label 'Coordinates', class: 'label' %>
+    <div class='field-body'>
+      <div class='field'>
+        <div class='control is-expanded'>
+          <%= f.text_field :latitude, class: 'input', placeholder: 'Latitude' %>
+        </div>
+      </div>
+      <div class='field'>
+        <div class='control is-expanded'>
+          <%= f.text_field :longitude, class: 'input', placeholder: 'Longitude' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='field'>
+    <%= f.label :elevation, class: 'label' %>
+    <div class='control'>
+      <%= f.text_field :elevation, class: 'input' %>
+    </div>
+  </div>
+
+
   <%= f.hidden_field :_destroy %>
   <%= link_to '<i class="fa fa-trash-alt"></i>Delete'.html_safe, '#', class: "remove_fields button is-danger" %>
 </div>

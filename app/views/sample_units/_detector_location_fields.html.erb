@@ -23,19 +23,6 @@
   </div>
 
   <div class='field'>
-    <%= f.label 'Local Habitat', class: 'label' %>
-    <div class='control select'>
-      <%= f.collection_select(
-        :local_habitat_id,
-        LocalHabitat.all,
-        :id,
-        :label,
-        prompt: true)
-      %>
-    </div>
-  </div>
-
-  <div class='field'>
     <%= f.label 'Coordinates', class: 'label' %>
     <div class='field-body'>
       <div class='field'>
@@ -69,6 +56,32 @@
     <%= f.label :land_ownership_detail, class: 'label' %>
     <div class='control'>
       <%= f.text_area :land_ownership_detail, class: 'input textarea' %>
+    </div>
+  </div>
+
+  <div class='field'>
+    <%= f.label 'Local Habitat', class: 'label' %>
+    <div class='control select'>
+      <%= f.collection_select(
+        :local_habitat_id,
+        LocalHabitat.all,
+        :id,
+        :label,
+        prompt: true)
+      %>
+    </div>
+  </div>
+
+  <div class='field'>
+    <%= f.label 'Target Descriptor', class: 'label' %>
+    <div class='control select'>
+      <%= f.collection_select(
+        :target_descriptor_id,
+        TargetDescriptor.all,
+        :id,
+        :label,
+        prompt: true)
+      %>
     </div>
   </div>
 

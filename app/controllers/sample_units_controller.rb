@@ -61,6 +61,7 @@ class SampleUnitsController < ApplicationController
         :land_ownership,
         :land_ownership_detail,
         :local_habitat_id,
+        :target_descriptor_id,
         :_destroy
       ]
     )

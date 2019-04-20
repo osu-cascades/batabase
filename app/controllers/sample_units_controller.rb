@@ -58,6 +58,8 @@ class SampleUnitsController < ApplicationController
         :latitude,
         :longitude,
         :elevation,
+        :land_ownership,
+        :land_ownership_detail,
         :local_habitat_id,
         :_destroy
       ]

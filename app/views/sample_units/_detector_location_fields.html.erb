@@ -85,6 +85,12 @@
     </div>
   </div>
 
+  <div class='file'>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
+  <br />
+
   <%= f.hidden_field :_destroy %>
   <%= link_to '<i class="fa fa-trash-alt"></i>Delete'.html_safe, '#', class: "remove_fields button is-danger" %>
 </div>

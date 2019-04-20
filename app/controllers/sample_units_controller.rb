@@ -31,6 +31,7 @@ class SampleUnitsController < ApplicationController
     end
   end
 
+
   def update
     if @sample_unit.update(sample_unit_params)
       redirect_to sample_units_path
@@ -62,7 +63,8 @@ class SampleUnitsController < ApplicationController
         :land_ownership_detail,
         :local_habitat_id,
         :target_descriptor_id,
-        :_destroy
+        :_destroy,
+        images: []
       ]
     )
   end

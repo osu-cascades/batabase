@@ -10,6 +10,8 @@ class DetectorLocation < ApplicationRecord
   belongs_to :detection_target, optional: true
   belongs_to :target_descriptor, optional: true
 
+  has_many_attached :images
+
   def sample_unit_id
     sample_unit.id
   end

@@ -58,7 +58,6 @@
       <%= f.text_area :land_ownership_detail, class: 'input textarea' %>
     </div>
   </div>
-
   <div class='field'>
     <%= f.label 'Local Habitat', class: 'label' %>
     <div class='control select'>
@@ -93,6 +92,8 @@
       %>
     </div>
   </div> 
+  <%= link_to '<i class="fa fa-trash-alt"></i>Delete'.html_safe, '#', class: "remove_image button is-danger" %>
+
 <%
 =end%>
   <div class='file'>

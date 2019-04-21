@@ -84,7 +84,17 @@
       %>
     </div>
   </div>
-
+  <%
+=begin%>    loop through images here and add a delete button for each one
+ <div class='field'>
+    <%= f.label 'Images', class: 'label' %>
+    <div class='control select'>
+      <%= puts :images
+      %>
+    </div>
+  </div> 
+<%
+=end%>
   <div class='file'>
     <%= f.file_field :images, multiple: true %>
   </div>

@@ -13,6 +13,7 @@ class DetectorLocation < ApplicationRecord
   has_many_attached :images
 
   def sample_unit_id
+    byebug 
     sample_unit.id
   end
 end

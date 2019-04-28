@@ -29,7 +29,7 @@ class GalleryModal {
     this.closeModal = $(document).find('.gallery-close');
     
     this.imageURLs = this.getImageURLs();
-    this.buildGallery();
+  
     this.openModalHandler();
     this.closeModalHandler();
   }
@@ -39,6 +39,7 @@ class GalleryModal {
       event.preventDefault();
       this.container.addClass('is-active');
     });
+    this.buildGallery();
   }
   getImageURLs() {
     return this.container.find('.gallery-modal-image').map((_, element) => {
@@ -46,7 +47,9 @@ class GalleryModal {
     }).get();
   }
   buildGallery() {
-    this.container.find('.gallery-figure').append(`<img src='${this.imageURLs[0]}' />`)
+    if (this.imageURLs.length > 0) {
+      this.container.find('img').attr('src', this.imageURLs[0]);;
+    }
   }
   closeModalHandler() {
     this.closeModal.click(event => {

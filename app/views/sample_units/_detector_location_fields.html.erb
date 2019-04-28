@@ -83,19 +83,6 @@
       %>
     </div>
   </div>
-  <%
-=begin%>
- <div class='field'>
-    <%= f.label 'Images', class: 'label' %>
-    <div class='control select'>
-      <%= puts :images
-      %>
-    </div>
-  </div> 
-  <%= link_to '<i class="fa fa-trash-alt"></i>Delete'.html_safe, '#', class: "remove_image button is-danger" %>
-
-<%
-=end%>
   <div class='file'>
     <%= f.file_field :images, multiple: true %>
   </div>

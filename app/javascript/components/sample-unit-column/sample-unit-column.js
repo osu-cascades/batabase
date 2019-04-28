@@ -51,14 +51,21 @@ class GalleryModal {
 
 class SlideShow {
   constructor(id) {
-    this.id = id;
+    this.container = $(`#${id}`);
     this.imageURLs = this.getImageURLs();
+    this.buildSlideShow();
   }
 
   getImageURLs() {
-    return $(`#${this.id}`).find('.gallery-image').map((_, element) => {
+    return this.container.find('.gallery-image').map((_, element) => {
       return $(element).data('image-url')
     }).get()
+  }
+
+  buildSlideShow() {
+    alert(this.container.length);
+    alert(this.container.find('figure').length);
+    this.container.find('figure').append(`<img src='${this.imageURLs[0]}' />`)
   }
 }
 

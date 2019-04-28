@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_20_185040) do
+ActiveRecord::Schema.define(version: 2019_04_22_011636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(version: 2019_04_20_185040) do
     t.bigint "geodetic_system_id"
     t.text "land_ownership_detail"
     t.bigint "target_descriptor_id"
+    t.json "image_locations"
     t.index ["detection_target_id"], name: "index_detector_locations_on_detection_target_id"
     t.index ["geodetic_system_id"], name: "index_detector_locations_on_geodetic_system_id"
     t.index ["sample_unit_id"], name: "tblPointLocation_SiteID"

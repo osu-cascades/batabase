@@ -1,5 +1,14 @@
 <div class='column'>
   <div class='card'>
+<<<<<<< HEAD
+    <div class='slideshow' id='<%= detector_location.id %>'>
+      <% detector_location.images.each do |image| %>
+        <div class='card-image'>
+          <div class='gallery-image' data-image-url='<%= url_for(image) %>'></div>
+        </div>
+      <% end %>
+    </div>
+=======
     <% detector_location.images.each do |image| %>
     <div class='card-image'>
       <figure class='image is-4by3'>
@@ -7,6 +16,7 @@
       </figure>
     </div> 
     <% end %>
+>>>>>>> 0a924fa047b03a30144e2ce835410ababe7be3eb
 
     <button class='gallery-button is-large' aria-label='Edit'>Edit Gallery</button>
     <div class='card-content'>

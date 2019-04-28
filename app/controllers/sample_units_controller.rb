@@ -33,7 +33,6 @@ class SampleUnitsController < ApplicationController
 
 
   def update
-    byebug
     if @sample_unit.update(sample_unit_params)
       redirect_to sample_units_path
       flash[:notice] = 'Sample unit was successfully updated.'

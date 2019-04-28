@@ -1,6 +1,6 @@
 import "./sample-unit-column.scss";
 
-class Modal {
+class DrivingDirectionsModal {
   constructor() {
     this.modal = $(document).find('.modal');
     this.button = $(document).find('.modal-button');
@@ -22,6 +22,23 @@ class Modal {
   }
 }
 
+class SlideShow {
+  constructor(id) {
+    this.id = id;
+    this.images = this.getImages();
+  }
+
+  getImageURLs() {
+    return $(`#${this.id}`).find('.gallery-image').map(function() {
+      return $(this).data('image-url')
+    }).get()
+  }
+}
+
 $(document).ready(() => {
-  new Modal();
+  new DrivingDirectionsModal();
+
+  $('.slideshow').each((_, element) => {
+    new SlideShow($(element).attr('id'));
+  })
 });

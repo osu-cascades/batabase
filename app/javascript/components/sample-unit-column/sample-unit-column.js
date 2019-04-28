@@ -21,6 +21,7 @@ class DrivingDirectionsModal {
     });
   }
 }
+
 class GalleryModal {
   constructor() {
     this.modal = $(document).find('.gallery-modal');
@@ -46,12 +47,12 @@ class GalleryModal {
 class SlideShow {
   constructor(id) {
     this.id = id;
-    this.images = this.getImages();
+    this.imageURLs = this.getImageURLs();
   }
 
   getImageURLs() {
-    return $(`#${this.id}`).find('.gallery-image').map(function() {
-      return $(this).data('image-url')
+    return $(`#${this.id}`).find('.gallery-image').map((_, element) => {
+      return $(element).data('image-url')
     }).get()
   }
 }
@@ -62,5 +63,5 @@ $(document).ready(() => {
 
   $('.slideshow').each((_, element) => {
     new SlideShow($(element).attr('id'));
-  })
+  });
 });

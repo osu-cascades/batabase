@@ -2,12 +2,13 @@
   <div class='card'>
     <div class='slideshow' id='<%= detector_location.id %>'>
       <% detector_location.images.each do |image| %>
-        <div class='card-image'>
-          <div class='gallery-image' data-image-url='<%= url_for(image) %>'></div>
-        </div>
+        <div class='gallery-image' data-image-url='<%= url_for(image) %>'></div>
       <% end %>
-    </div>
 
+      <div class='card-image'>
+        <figure class='image is-4by3'></figure>
+      </div>
+    </div>
 
     <button class='gallery-button is-large' aria-label='Edit'>Edit Gallery</button>
     <div class='card-content'>

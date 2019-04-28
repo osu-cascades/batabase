@@ -1,5 +1,6 @@
 <div class='column'>
   <div class='card'>
+<<<<<<< HEAD
     <div class='slideshow' id='<%= detector_location.id %>'>
       <% detector_location.images.each do |image| %>
         <div class='card-image'>
@@ -7,7 +8,17 @@
         </div>
       <% end %>
     </div>
+=======
+    <% detector_location.images.each do |image| %>
+    <div class='card-image'>
+      <figure class='image is-4by3'>
+        <%= image_tag image %> <br />
+      </figure>
+    </div> 
+    <% end %>
+>>>>>>> 0a924fa047b03a30144e2ce835410ababe7be3eb
 
+    <button class='gallery-button is-large' aria-label='Edit'>Edit Gallery</button>
     <div class='card-content'>
       <div class='media'>
         <div class='media-content'>
@@ -25,12 +36,12 @@
         <p>Local Habitat:  <%= "#{detector_location.local_habitat.label}" %></p>
         <p>Detection Target: <%= placeholder_if_blank(detector_location.try(:target_descriptor).try(:detection_target).try(:label)) %></p>
         <p>Target Descriptor: <%= placeholder_if_blank(detector_location.try(:target_descriptor).try(:label)) %></p>
-        <a class='modal-button button is-primary'>View Driving Directions</a>
+        <a class='driving-button button is-primary'>View Driving Directions</a>
       </div>
     </div>
   </div>
 
-  <div class='modal'>
+  <div class='modal driving-modal'>
     <div class='modal-background'></div>
       <div class='modal-card'>
         <header class='modal-card-head'>
@@ -43,6 +54,28 @@
         </section>
       </div>
 
-    <button class='modal-close is-large' aria-label='close'></button>
+    <button class='modal-close driving-close is-large' aria-label='close'></button>
   </div>
+
+  <div class='modal gallery-modal'>
+    <div class='modal-background'></div>
+      <div class='modal-card'>
+        <header class='modal-card-head'>
+          <p class='modal-card-title'>Image Gallery</p>
+        </header>
+        <section class='modal-card-body'>
+          <% detector_location.images.each do |image| %>
+            <div class='card-image'>
+              <figure class='image is-4by3'>
+                <%= image_tag image %> <br />
+              </figure>
+            </div> 
+          <% end %>
+        </section>
+      </div>
+
+    <button class='modal-close gallery-close is-large' aria-label='close'></button>
+  </div>
+
+
 </div>

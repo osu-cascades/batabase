@@ -39,7 +39,7 @@
       <hr />
 
       <%= f.fields_for :detector_locations do |df_form| %>
-        <%= render 'detector_location_fields', f: df_form%>
+        <%= render 'detector_location_fields', f: df_form %>
       <% end %>
 
       <%= link_to_add_fields '<i class="fa fa-plus"></i>Detector Location'.html_safe, f, :detector_locations %>

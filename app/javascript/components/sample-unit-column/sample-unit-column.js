@@ -24,9 +24,10 @@ class DrivingDirectionsModal {
 
 class GalleryModal {
   constructor(id) {
-    this.container = $(`#gallery${id}`);
+    this.container = $(`#${id}`);
     this.button = $(document).find('.gallery-button');
     this.closeModal = $(document).find('.gallery-close');
+    
     this.imageURLs = this.getImageURLs();
     this.buildGallery();
     this.openModalHandler();
@@ -40,9 +41,9 @@ class GalleryModal {
     });
   }
   getImageURLs() {
-    return $(`#gallery${this.id}`).find('.gallery-modal-image').map(function() {
-      return $(this).data('image-url')
-    }).get()
+    return this.container.find('.gallery-modal-image').map((_, element) => {
+      return $(element).data('image-url')
+    }).get();
   }
   buildGallery() {
     this.container.find('.gallery-figure').append(`<img src='${this.imageURLs[0]}' />`)

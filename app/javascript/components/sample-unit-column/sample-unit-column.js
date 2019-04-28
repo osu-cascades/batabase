@@ -37,7 +37,7 @@ class GalleryModal {
     });
   }
   getImageURLs() {
-    return $(`#${this.id}`).find('.gallery-image').map(function() {
+    return $(`#${this.id}`).find('.gallery-modal-image').map(function() {
       return $(this).data('image-url')
     }).get()
   }

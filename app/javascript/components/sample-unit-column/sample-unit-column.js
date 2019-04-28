@@ -63,8 +63,6 @@ class SlideShow {
   }
 
   buildSlideShow() {
-    alert(this.container.length);
-    alert(this.container.find('figure').length);
     this.container.find('figure').append(`<img src='${this.imageURLs[0]}' />`)
   }
 }

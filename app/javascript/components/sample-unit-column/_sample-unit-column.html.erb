@@ -4,14 +4,6 @@
       <% detector_location.images.each do |image| %>
         <div class='gallery-image' data-image-url='<%= url_for(image) %>'></div>
       <% end %>
-
-      <div class='card-image'>
-        <figure class='image is-4by3'>
-          <img src='' />
-        </figure>
-        <i class="slideshow-chevron prev fa fa-2x fa-chevron-left" aria-hidden="true"></i>
-        <i class="slideshow-chevron next fa fa-2x fa-chevron-right" aria-hidden="true"></i>
-      </div>
     </div>
 
     <button class='gallery-button is-large' aria-label='Edit'>Edit Gallery</button>

@@ -23,28 +23,33 @@ class DrivingDirectionsModal {
 }
 
 class GalleryModal {
-  constructor() {
-    this.modal = $(document).find('.gallery-modal');
+  constructor(id) {
+    this.container = $(`#gallery${id}`);
     this.button = $(document).find('.gallery-button');
     this.closeModal = $(document).find('.gallery-close');
+    this.imageURLs = this.getImageURLs();
+    this.buildGallery();
     this.openModalHandler();
     this.closeModalHandler();
   }
 
   openModalHandler() {
     this.button.click(event => {
-      this.modal.addClass('is-active');
+      event.preventDefault();
+      this.container.addClass('is-active');
     });
   }
   getImageURLs() {
-    return $(`#${this.id}`).find('.gallery-modal-image').map(function() {
+    return $(`#gallery${this.id}`).find('.gallery-modal-image').map(function() {
       return $(this).data('image-url')
     }).get()
   }
-
+  buildGallery() {
+    this.container.find('.gallery-figure').append(`<img src='${this.imageURLs[0]}' />`)
+  }
   closeModalHandler() {
     this.closeModal.click(event => {
-      this.modal.removeClass('is-active');
+      this.container.removeClass('is-active');
     });
   }
 }
@@ -73,5 +78,9 @@ $(document).ready(() => {
 
   $('.slideshow').each((_, element) => {
     new SlideShow($(element).attr('id'));
+  });
+
+  $('.gallery-modal').each((_, element) => {
+    new GalleryModal($(element).attr('id'));
   });
 });

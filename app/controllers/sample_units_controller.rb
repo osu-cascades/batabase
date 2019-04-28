@@ -33,6 +33,7 @@ class SampleUnitsController < ApplicationController
 
 
   def update
+    byebug
     if @sample_unit.update(sample_unit_params)
       redirect_to sample_units_path
       flash[:notice] = 'Sample unit was successfully updated.'
@@ -63,6 +64,7 @@ class SampleUnitsController < ApplicationController
         :land_ownership_detail,
         :local_habitat_id,
         :target_descriptor_id,
+        :driving_directions,
         :_destroy,
         images: []
       ]

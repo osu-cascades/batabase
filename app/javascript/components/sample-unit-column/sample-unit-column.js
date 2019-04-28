@@ -36,6 +36,11 @@ class GalleryModal {
       this.modal.addClass('is-active');
     });
   }
+  getImageURLs() {
+    return $(`#${this.id}`).find('.gallery-image').map(function() {
+      return $(this).data('image-url')
+    }).get()
+  }
 
   closeModalHandler() {
     this.closeModal.click(event => {

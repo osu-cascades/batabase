@@ -16,5 +16,7 @@
 yarn-debug.log*
 .yarn-integrity
 
+/storage
+
 .nvmrc
 .env

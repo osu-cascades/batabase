@@ -45,7 +45,7 @@
     <button class='modal-close driving-close is-large' aria-label='close'></button>
   </div>
 
-  <div class='modal gallery-modal' id='<%= detector_location.id %>'>
+  <div class='modal gallery-modal' id='gallery<%= detector_location.id %>'>
     <div class='modal-background'></div>
       <div class='modal-card'>
         <header class='modal-card-head'>
@@ -55,6 +55,7 @@
           <% detector_location.images.each do |image| %>
             <div class='card-image'>
               <div class='gallery-modal-image' data-image-url='<%= url_for(image) %>'></div>
+              <figure class='image gallery-figure is-4by3'></figure>
             </div>
           <% end %>
         </section>

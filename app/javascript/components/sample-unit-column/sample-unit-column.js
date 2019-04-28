@@ -52,18 +52,21 @@ class GalleryModal {
 class SlideShow {
   constructor(id) {
     this.container = $(`#${id}`);
+    this.currentIndex = 0;
     this.imageURLs = this.getImageURLs();
-    this.buildSlideShow();
+    this.initialize();
   }
 
   getImageURLs() {
     return this.container.find('.gallery-image').map((_, element) => {
       return $(element).data('image-url')
-    }).get()
+    }).get();
   }
 
-  buildSlideShow() {
-    this.container.find('figure').append(`<img src='${this.imageURLs[0]}' />`)
+  initialize() {
+    if (this.imageURLs.length > 0) {
+      this.container.find('img').attr('src', this.imageURLs[this.currentIndex]);
+    }
   }
 }
 

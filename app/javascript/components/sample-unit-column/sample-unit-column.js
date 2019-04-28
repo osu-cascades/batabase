@@ -27,9 +27,9 @@ class GalleryModal {
     this.container = $(`#${id}`);
     this.button = $(document).find('.gallery-button');
     this.closeModal = $(document).find('.gallery-close');
-    
+
     this.imageURLs = this.getImageURLs();
-  
+
     this.openModalHandler();
     this.closeModalHandler();
   }
@@ -119,7 +119,6 @@ class SlideShow {
 
 $(document).ready(() => {
   new DrivingDirectionsModal();
-  new GalleryModal();
 
   $('.slideshow').each((_, element) => {
     new SlideShow($(element).attr('id'));

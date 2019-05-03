@@ -7,7 +7,7 @@ class DetectorLocationDecorator < ApplicationDecorator
   end
 
   def coordinates
-    "[#{latitude}, #{longitude}]"
+    "#{latitude}, #{longitude}"
   end
 
   def quad_id

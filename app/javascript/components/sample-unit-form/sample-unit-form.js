@@ -84,7 +84,6 @@ class DynamicForm {
   labelHeaderIndexes() {
     $('.detector-location-index').each((i, element) => {
       $(element).text(`Location ${i+1}`);
-      console.log($(element).text());
     });
   }
 }

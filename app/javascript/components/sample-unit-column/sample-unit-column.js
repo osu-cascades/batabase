@@ -41,16 +41,19 @@ class GalleryModal {
     });
     this.buildGallery();
   }
+
   getImageURLs() {
     return this.container.find('.gallery-modal-image').map((_, element) => {
       return $(element).data('image-url')
     }).get();
   }
+
   buildGallery() {
     if (this.imageURLs.length > 0) {
       this.container.find('img').attr('src', this.imageURLs[0]);;
     }
   }
+
   closeModalHandler() {
     this.closeModal.click(event => {
       this.container.removeClass('is-active');

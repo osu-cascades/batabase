@@ -82,7 +82,15 @@ class SlideShow {
   }
 
   initialize() {
-    if (this.imageURLs.length > 0) {
+    if (this.imageURLs.length === 1) {
+      this.container.append(`
+        <div class='card-image'>
+          <figure class='image is-4by3'>
+            <img src='${this.imageURLs[this.currentIndex]}' />
+          </figure>
+        </div>
+      `)
+    } else if (this.imageURLs.length > 0) {
       this.container.append(`
         <div class='card-image'>
           <figure class='image is-4by3'>

@@ -44,7 +44,7 @@ class GalleryModal {
 
   buildGallery() {
     for (let i = 0; i < this.imageURLs.length; i++) {
-      let id = "photo-" + i;
+      const id = `#photo-${i}`;
       this.container.find(id).attr('src', this.imageURLs[i]);
     }
   }
@@ -71,7 +71,7 @@ class GalleryModal {
     });
   }
 
-  
+
 }
 
 class SlideShow {

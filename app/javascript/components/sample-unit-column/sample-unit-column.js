@@ -66,18 +66,6 @@ class GalleryModal {
       this.container.find('.gallery-modal').removeClass('is-active');
     });
   }
-<<<<<<< HEAD
-  
-=======
-
-  deletePhotoHandler(){
-    this.deletePhotoButton.click(event => {
-
-    });
-  }
-
-
->>>>>>> b6cdc10f90eed1646dbd9c8b7ca1766456ef44f5
 }
 
 class SlideShow {

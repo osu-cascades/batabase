@@ -25,21 +25,13 @@ class DrivingDirectionsModal {
 class GalleryModal {
   constructor(id) {
     this.container = $(`#${id}`);
-    this.button = $(document).find('.gallery-button');
-    this.closeModal = $(document).find('.gallery-close');
+    this.button = this.container.find('.gallery-button');
+    this.closeModal = this.container.find('.gallery-close');
 
     this.imageURLs = this.getImageURLs();
 
     this.openModalHandler();
     this.closeModalHandler();
-  }
-
-  openModalHandler() {
-    this.button.click(event => {
-      event.preventDefault();
-      this.container.addClass('is-active');
-    });
-    this.buildGallery();
   }
 
   getImageURLs() {
@@ -54,9 +46,18 @@ class GalleryModal {
     }
   }
 
+  openModalHandler() {
+    this.button.click(event => {
+      event.preventDefault();
+      this.container.find('.gallery-modal').addClass('is-active');
+    });
+
+    this.buildGallery();
+  }
+
   closeModalHandler() {
     this.closeModal.click(event => {
-      this.container.removeClass('is-active');
+      this.container.find('.gallery-modal').removeClass('is-active');
     });
   }
 }
@@ -76,7 +77,7 @@ class SlideShow {
   }
 
   getImageURLs() {
-    return this.container.find('.gallery-image').map((_, element) => {
+    return this.container.find('.slideshow-image').map((_, element) => {
       return $(element).data('image-url');
     }).get();
   }
@@ -135,7 +136,7 @@ $(document).ready(() => {
     new SlideShow($(element).attr('id'));
   });
 
-  $('.gallery-modal').each((_, element) => {
+  $('.detector-location').each((_, element) => {
     new GalleryModal($(element).attr('id'));
   });
 });

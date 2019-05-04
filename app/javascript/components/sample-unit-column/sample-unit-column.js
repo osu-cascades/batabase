@@ -27,11 +27,12 @@ class GalleryModal {
     this.container = $(`#${id}`);
     this.button = this.container.find('.gallery-button');
     this.closeModal = this.container.find('.gallery-close');
+    this.deletePhotoButton = this.container.find('.deletey-boi')
 
     this.imageURLs = this.getImageURLs();
-
     this.openModalHandler();
     this.closeModalHandler();
+    this.deletePhotoHandler();
   }
 
   getImageURLs() {
@@ -41,8 +42,9 @@ class GalleryModal {
   }
 
   buildGallery() {
-    if (this.imageURLs.length > 0) {
-      this.container.find('img').attr('src', this.imageURLs[0]);
+    for (let i = 0; i < this.imageURLs.length; i++) {
+      let id = "photo-" + i;
+      this.container.find(id).attr('src', this.imageURLs[i]);
     }
   }
 
@@ -57,9 +59,20 @@ class GalleryModal {
 
   closeModalHandler() {
     this.closeModal.click(event => {
+      console.log('ahh')
       this.container.find('.gallery-modal').removeClass('is-active');
     });
   }
+
+  deletePhotoHandler(){
+    this.deletePhotoButton.click(event => {
+      event.preventDefault();
+      const photoId = event.target.id;
+      //route to perge this photo id
+    });
+  }
+
+  
 }
 
 class SlideShow {

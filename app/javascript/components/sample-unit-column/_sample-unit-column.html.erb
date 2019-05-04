@@ -58,7 +58,17 @@
               <figure class='image gallery-figure is-4by3'>
               <img id='photo-<%="#{i}"%>' src='' />
               </figure>
-              <%= link_to '<i class="far fa-trash-alt has-text-danger"></i>'.html_safe, sample_unit_delete_image_path(@sample_unit, id: @sample_unit.id, dt_id: detector_location.id ,url: url_for(image)) ,:method => 'delete', data: { confirm: 'Delete image?' } %>
+              <%= link_to(
+                '<i class="far fa-trash-alt has-text-danger"></i>'.html_safe,
+                sample_unit_delete_image_path(
+                  @sample_unit,
+                  id: @sample_unit.id,
+                  dt_id: detector_location.id,
+                  url: url_for(image)
+                ),
+                :method => 'delete',
+                data: { confirm: 'Delete image?' }
+              ) %>
             </div>
           <% end %>
         </section>

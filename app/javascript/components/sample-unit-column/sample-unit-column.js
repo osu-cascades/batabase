@@ -66,9 +66,7 @@ class GalleryModal {
 
   deletePhotoHandler(){
     this.deletePhotoButton.click(event => {
-      event.preventDefault();
-      const photoId = event.target.id;
-      //route to perge this photo id
+
     });
   }
 

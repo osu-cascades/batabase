@@ -51,13 +51,14 @@
         <header class='modal-card-head'>
           <p class='modal-card-title'>Image Gallery</p>
         </header>
-        <section class='modal-card-body'>
-          <% detector_location.images.each do |image| %>
-            <div class='card-image'>
+        <section class='modal-card-body columns'>
+          <% detector_location.images.each_with_index do |image,i| %>
+            <div class='card-image gallery-card column'>
               <div class='gallery-modal-image' data-image-url='<%= url_for(image) %>'></div>
               <figure class='image gallery-figure is-4by3'>
-              <img src='' />
+              <img id='photo-<%="#{i}"%>' src='' />
               </figure>
+              <i class='far fa-trash-alt is-danger deletey-boi'id='<%="#{i}"%>' ></i>
             </div>
           <% end %>
         </section>

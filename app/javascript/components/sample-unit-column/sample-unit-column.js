@@ -1,22 +1,23 @@
 import "./sample-unit-column.scss";
 
 class DrivingDirectionsModal {
-  constructor() {
-    this.modal = $(document).find('.driving-modal');
-    this.button = $(document).find('.driving-button');
-    this.closeModal = $(document).find('.driving-close');
+  constructor(id) {
+    this.container = $(`#${id}`);
+    this.modal = this.container.find('.driving-modal');
+    this.button = this.container.find('.driving-button');
+    this.closeModal = this.container.find('.driving-close');
     this.openModalHandler();
     this.closeModalHandler();
   }
 
   openModalHandler() {
-    this.button.click(event => {
+    this.button.click((event) => {
       this.modal.addClass('is-active');
     });
   }
 
   closeModalHandler() {
-    this.closeModal.click(event => {
+    this.closeModal.click((event) => {
       this.modal.removeClass('is-active');
     });
   }
@@ -84,7 +85,7 @@ class SlideShow {
 
   initialize() {
     if (this.imageURLs.length === 1) {
-      this.container.append(`
+      this.container.find('.slideshow').append(`
         <div class='card-image'>
           <figure class='image is-4by3'>
             <img src='${this.imageURLs[this.currentIndex]}' />
@@ -92,7 +93,7 @@ class SlideShow {
         </div>
       `)
     } else if (this.imageURLs.length > 0) {
-      this.container.append(`
+      this.container.find('.slideshow').append(`
         <div class='card-image'>
           <figure class='image is-4by3'>
             <img src='${this.imageURLs[this.currentIndex]}' />
@@ -130,13 +131,11 @@ class SlideShow {
 }
 
 $(document).ready(() => {
-  new DrivingDirectionsModal();
-
-  $('.slideshow').each((_, element) => {
-    new SlideShow($(element).attr('id'));
-  });
-
   $('.detector-location').each((_, element) => {
-    new GalleryModal($(element).attr('id'));
+    const id = $(element).attr('id');
+
+    new SlideShow(id);
+    new GalleryModal(id);
+    new DrivingDirectionsModal(id);
   });
 });

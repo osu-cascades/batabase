@@ -7,9 +7,12 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  
   resources :deployments
 
-  resources :sample_units
+  resources :sample_units do
+    delete :delete_image
+  end
 
   namespace :list_maintenance, as: '' do
     resources :broad_habitats, except: [:show]

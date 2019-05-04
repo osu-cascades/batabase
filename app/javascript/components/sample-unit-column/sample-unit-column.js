@@ -1,23 +1,22 @@
 import "./sample-unit-column.scss";
 
 class DrivingDirectionsModal {
-  constructor(id) {
-    this.container = $(`#${id}`);
-    this.modal = this.container.find('.driving-modal');
-    this.button = this.container.find('.driving-button');
-    this.closeModal = this.container.find('.driving-close');
+  constructor() {
+    this.modal = $(document).find('.driving-modal');
+    this.button = $(document).find('.driving-button');
+    this.closeModal = $(document).find('.driving-close');
     this.openModalHandler();
     this.closeModalHandler();
   }
 
   openModalHandler() {
-    this.button.click((event) => {
+    this.button.click(event => {
       this.modal.addClass('is-active');
     });
   }
 
   closeModalHandler() {
-    this.closeModal.click((event) => {
+    this.closeModal.click(event => {
       this.modal.removeClass('is-active');
     });
   }
@@ -28,7 +27,6 @@ class GalleryModal {
     this.container = $(`#${id}`);
     this.button = this.container.find('.gallery-button');
     this.closeModal = this.container.find('.gallery-close');
-    this.deletePhotoButton = this.container.find('.deletey-boi')
 
     this.imageURLs = this.getImageURLs();
     this.openModalHandler();
@@ -44,7 +42,7 @@ class GalleryModal {
 
   buildGallery() {
     for (let i = 0; i < this.imageURLs.length; i++) {
-      let id = "photo-" + i;
+      let id = "#photo-" + i;
       this.container.find(id).attr('src', this.imageURLs[i]);
     }
   }
@@ -64,13 +62,6 @@ class GalleryModal {
       this.container.find('.gallery-modal').removeClass('is-active');
     });
   }
-
-  deletePhotoHandler(){
-    this.deletePhotoButton.click(event => {
-
-    });
-  }
-
   
 }
 
@@ -96,7 +87,7 @@ class SlideShow {
 
   initialize() {
     if (this.imageURLs.length === 1) {
-      this.container.find('.slideshow').append(`
+      this.container.append(`
         <div class='card-image'>
           <figure class='image is-4by3'>
             <img src='${this.imageURLs[this.currentIndex]}' />
@@ -104,7 +95,7 @@ class SlideShow {
         </div>
       `)
     } else if (this.imageURLs.length > 0) {
-      this.container.find('.slideshow').append(`
+      this.container.append(`
         <div class='card-image'>
           <figure class='image is-4by3'>
             <img src='${this.imageURLs[this.currentIndex]}' />
@@ -142,11 +133,13 @@ class SlideShow {
 }
 
 $(document).ready(() => {
-  $('.detector-location').each((_, element) => {
-    const id = $(element).attr('id');
+  new DrivingDirectionsModal();
 
-    new SlideShow(id);
-    new GalleryModal(id);
-    new DrivingDirectionsModal(id);
+  $('.slideshow').each((_, element) => {
+    new SlideShow($(element).attr('id'));
+  });
+
+  $('.detector-location').each((_, element) => {
+    new GalleryModal($(element).attr('id'));
   });
 });

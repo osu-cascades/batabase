@@ -1,6 +1,6 @@
 class SampleUnitsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_sample_unit, only: [:show, :edit, :update, :destroy]
+  before_action :set_sample_unit, only: [:show, :edit, :update, :destroy, :delete_image]
 
   def index
     @sample_units = SampleUnit.order(:agency).page params[:page]
@@ -46,14 +46,16 @@ class SampleUnitsController < ApplicationController
     redirect_to sample_units_path
     flash[:notice] = 'Sample unit was successfully destroyed.'
   end
-  
+
   def delete_image
     detectorLocation = DetectorLocation.find(params[:dt_id])
-    detectorLocation.images.each do |image| 
+    detectorLocation.images.each do |image|
       if url_for(image) == request.base_url + params[:url]
-        image.purge 
+        image.purge
       end
     end
+
+    redirect_to sample_unit_path(@sample_unit)
   end
   private
 
@@ -81,6 +83,4 @@ class SampleUnitsController < ApplicationController
   def set_sample_unit
     @sample_unit = SampleUnit.find(params[:id])
   end
-
-  
 end

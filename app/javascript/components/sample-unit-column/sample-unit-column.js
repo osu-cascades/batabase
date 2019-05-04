@@ -42,7 +42,11 @@ class GalleryModal {
 
   buildGallery() {
     for (let i = 0; i < this.imageURLs.length; i++) {
+<<<<<<< HEAD
       let id = "#photo-" + i;
+=======
+      const id = `#photo-${i}`;
+>>>>>>> b6cdc10f90eed1646dbd9c8b7ca1766456ef44f5
       this.container.find(id).attr('src', this.imageURLs[i]);
     }
   }
@@ -62,7 +66,18 @@ class GalleryModal {
       this.container.find('.gallery-modal').removeClass('is-active');
     });
   }
+<<<<<<< HEAD
   
+=======
+
+  deletePhotoHandler(){
+    this.deletePhotoButton.click(event => {
+
+    });
+  }
+
+
+>>>>>>> b6cdc10f90eed1646dbd9c8b7ca1766456ef44f5
 }
 
 class SlideShow {

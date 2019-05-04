@@ -17,6 +17,7 @@ This is a Rails application. After cloning the repository, you can:
 * Populate database from MS Access DB dump with `sh script/createdb.sh`
 * Run DB migrations with `bundle exec rake db:migrate`
 * Create test database with `bundle exec rake db:test:prepare`
+* Create env vars `cp .env.example .env`
 
 Start the application by:
 

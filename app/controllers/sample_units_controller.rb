@@ -46,7 +46,15 @@ class SampleUnitsController < ApplicationController
     redirect_to sample_units_path
     flash[:notice] = 'Sample unit was successfully destroyed.'
   end
-
+  
+  def delete_image
+    detectorLocation = DetectorLocation.find(params[:dt_id])
+    detectorLocation.images.each do |image| 
+      if url_for(image) == request.base_url + params[:url]
+        image.purge 
+      end
+    end
+  end
   private
 
   def sample_unit_params
@@ -73,4 +81,6 @@ class SampleUnitsController < ApplicationController
   def set_sample_unit
     @sample_unit = SampleUnit.find(params[:id])
   end
+
+  
 end

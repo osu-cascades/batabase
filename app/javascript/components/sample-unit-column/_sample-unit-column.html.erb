@@ -58,7 +58,9 @@
               <figure class='image gallery-figure is-4by3'>
               <img id='photo-<%="#{i}"%>' src='' />
               </figure>
-              <i class='far fa-trash-alt is-danger deletey-boi'id='<%="#{i}"%>' ></i>
+              
+              <%= link_to "linky boi", sample_unit_delete_image_path(@sample_unit, dt_id: detector_location.id ,url: url_for(image)) ,:method => 'delete' %> 
+
             </div>
           <% end %>
         </section>

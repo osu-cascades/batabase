@@ -45,6 +45,7 @@ class DeploymentsController < ApplicationController
 
   def deployment_params
     params.require(:deployment).permit(:point_location_id)
+  end
 
   def set_deployment
     @deployment = Deployment.find(params[:id])

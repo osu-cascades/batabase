@@ -1,0 +1,5 @@
+<%= render_component('page') do %>
+  <h1 class='title is-1'>Deployment #<%= @deployment.point_location_id %></h1>
+  <p class='sub-title'><%= "#{@deployment.deployment_period} | #{@deployment.contact_name}" %></p>
+  <hr />
+<% end %>

@@ -12,11 +12,15 @@ class Deployment < ApplicationRecord
   end
 
   def formatted_deployment_date
-    deployment_date.strftime('%F')
+    deployment_date.strftime('%m/%d/%y')
   end
 
   def formatted_recovery_date
-    recovery_date.strftime('%F')
+    recovery_date.strftime('%m/%d/%y')
+  end
+
+  def deployment_period
+    "#{formatted_deployment_date} - #{formatted_recovery_date}"
   end
 
   def state_code

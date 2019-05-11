@@ -3,7 +3,7 @@ class DeploymentsController < ApplicationController
   before_action :set_deployment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @deployments = Deployment.all.page params[:page]
+    @deployments = Deployment.order(:point_location_id).page params[:page]
     @page = params[:page].to_i || 1
   end
 

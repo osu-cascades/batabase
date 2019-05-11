@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_11_174211) do
+ActiveRecord::Schema.define(version: 2019_05_11_181557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,8 +59,6 @@ ActiveRecord::Schema.define(version: 2019_05_11_174211) do
   create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "last_name", limit: 50, null: false
     t.string "first_name", limit: 50, null: false
-    t.string "organization", limit: 50
-    t.string "state_code", limit: 8
     t.string "email", limit: 50
     t.datetime "created_at", default: -> { "now()" }, null: false
     t.datetime "updated_at", default: -> { "now()" }, null: false
@@ -122,8 +120,10 @@ ActiveRecord::Schema.define(version: 2019_05_11_174211) do
     t.datetime "updated_at", default: -> { "now()" }, null: false
     t.string "general_issues"
     t.string "detector_issues"
+    t.bigint "sample_unit_id"
     t.index ["id"], name: "tblDeployment_EventID"
     t.index ["point_location_id"], name: "tblDeployment_LocationID"
+    t.index ["sample_unit_id"], name: "index_deployments_on_sample_unit_id"
     t.index ["species_group_id"], name: "tblDeployment_SpeciesGroupID"
   end
 
@@ -438,6 +438,7 @@ ActiveRecord::Schema.define(version: 2019_05_11_174211) do
   end
 
   add_foreign_key "counties", "states"
+  add_foreign_key "deployments", "sample_units"
   add_foreign_key "detector_locations", "detection_targets"
   add_foreign_key "detector_locations", "geodetic_systems"
   add_foreign_key "detector_locations", "target_descriptors"

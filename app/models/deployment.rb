@@ -9,11 +9,11 @@ class Deployment < ApplicationRecord
     Contact.find(contact_id).full_name
   end
 
-  def formated_deployment_date
+  def formatted_deployment_date
     deployment_date.strftime('%F')
   end
-  
-  def formated_recovery_date
+
+  def formatted_recovery_date
     recovery_date.strftime('%F')
   end
 end

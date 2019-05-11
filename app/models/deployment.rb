@@ -5,6 +5,8 @@ class Deployment < ApplicationRecord
 
   validates_length_of :microphone_height_off_ground, maximum: 255
 
+  belongs_to :sample_unit
+
   def contact_name
     Contact.find(contact_id).full_name
   end
@@ -15,5 +17,13 @@ class Deployment < ApplicationRecord
 
   def formatted_recovery_date
     recovery_date.strftime('%F')
+  end
+
+  def state_code
+    self.try(:sample_unit).try(:primary_state)
+  end
+
+  def agency
+    self.try(:sample_unit).try(:agency)
   end
 end

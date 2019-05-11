@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_11_181557) do
+ActiveRecord::Schema.define(version: 2019_05_11_191008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 2019_05_11_181557) do
     t.string "general_issues"
     t.string "detector_issues"
     t.bigint "sample_unit_id"
+    t.integer "recovery_contact_id"
     t.index ["id"], name: "tblDeployment_EventID"
     t.index ["point_location_id"], name: "tblDeployment_LocationID"
     t.index ["sample_unit_id"], name: "index_deployments_on_sample_unit_id"
@@ -169,6 +170,17 @@ ActiveRecord::Schema.define(version: 2019_05_11_181557) do
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "owning_agency"
     t.bigint "organization_id"
+    t.integer "sampling_frequency"
+    t.string "pre_trigger"
+    t.float "recording_length"
+    t.string "hp_filter"
+    t.string "auto_rec"
+    t.string "trigger_sensitivity"
+    t.integer "input_gain"
+    t.integer "trigger_level"
+    t.integer "interval"
+    t.datetime "recording_start"
+    t.datetime "recording_stop"
     t.index ["organization_id"], name: "index_detectors_on_organization_id"
   end
 

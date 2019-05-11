@@ -41,7 +41,7 @@ class ListMaintenance::DetectorsController < ApplicationController
   private
 
   def detector_params
-    params.require(:detector).permit(:serial_num, :model, :manufacturer, :firmware, :organization_id)
+    params.require(:detector).permit(:serial_num, :model, :manufacturer, :firmware, :organization_id, :sampling_frequency, :pre_trigger, :recording_length, :hp_filter, :auto_rec, :trigger_sensitivity, :input_gain, :trigger_level, :interval, :recording_start, :recording_stop)
   end
 
   def set_detector

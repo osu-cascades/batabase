@@ -1,3 +1,20 @@
 <%= render_component('page') do %>
-  <h1>Deployments</h1>
+  <%= render_component('index-header', { resource: 'Deployments', path:  new_deployment_path }) %>
+
+  <%= render_component(
+    'index-table',
+    { resources: @deployments,
+      attributes: [
+        { site_code: :site_code },
+        { grts: :grts },
+        { state: :primary_state },
+        { county: :primary_county },
+        { agency: :agency }
+      ],
+      view_link: true
+    }
+  )%>
+
+  <%= paginate @sample_units %>
+
 <% end %>

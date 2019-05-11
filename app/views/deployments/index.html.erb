@@ -5,12 +5,12 @@
     'index-table',
     { resources: @deployments,
       attributes: [
-        {point_location_id: :point_location_id}
-        {contact_id: :contact_id}
+        { point_location_id: :point_location_id },
+        { contact: :contact_name },
         # state
         # agency
-        {deployment_date: :deployment_date}
-        {recovery_date: :recovery_date}
+        { deployment_date: :deployment_date },
+        { recovery_date: :recovery_date }
         # General Issues
         # Detector Issues
 

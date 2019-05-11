@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_20_185040) do
+ActiveRecord::Schema.define(version: 2019_05_11_174211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,8 @@ ActiveRecord::Schema.define(version: 2019_04_20_185040) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "last_modified_by", limit: 255, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "general_issues"
+    t.string "detector_issues"
     t.index ["id"], name: "tblDeployment_EventID"
     t.index ["point_location_id"], name: "tblDeployment_LocationID"
     t.index ["species_group_id"], name: "tblDeployment_SpeciesGroupID"

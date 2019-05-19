@@ -14,6 +14,7 @@ After cloning the repository, you can:
 
 `npm run init`
 
+^ This takes a while as it's a big script
 
 Start the application by:
 

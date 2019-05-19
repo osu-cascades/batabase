@@ -1,3 +1,23 @@
 <%= render_component('page') do %>
-  <h1>Deployments</h1>
+  <%= render_component('index-header', { resource: 'Deployments', path:  new_deployment_path }) %>
+
+  <%= render_component(
+    'index-table',
+    { resources: @deployments,
+      attributes: [
+        { point_location_id: :point_location_id },
+        { contact: :contact_name },
+        { state: :state_code },
+        { agency: :agency },
+        { deployment_date: :formatted_deployment_date },
+        { recovery_date: :formatted_recovery_date }
+        # General Issues
+        # Detector Issues
+      ],
+      view_link: true
+    }
+  )%>
+
+  <%= paginate @deployments %>
+
 <% end %>

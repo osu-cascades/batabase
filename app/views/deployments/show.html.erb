@@ -1,0 +1,21 @@
+<%= render_component('page') do %>
+  <h1 class='title is-1'>Deployment #<%= @deployment.point_location_id %></h1>
+  <p class='sub-title'><%= "#{@deployment.deployment_period} | #{@deployment.contact_name}" %></p>
+  <p class='sub-title'><%= placeholder_if_blank(@deployment.try(:recovery_contact_id)) %></p>
+  <hr />
+
+  <h3 class='title is-3'>Dectector</h2>
+  <h4 class='title is-4'><%= @deployment.detector.model %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>test</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @deployment.detector.sampling_frequency %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

@@ -18,7 +18,9 @@ After cloning the repository, you can:
 
 Start the application by:
 
-`npm run start`
+`rails server`
+`./bin/webpack-dev-server`
+`bundle exec guard`
 
 ## Development
 

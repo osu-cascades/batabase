@@ -10,20 +10,17 @@ Below are the steps/requirements needed to run the app:
 * Clone the repo `git clone git@github.com:osu-cascades/batabase.git`
 * Change directory `cd batabase`
 
-This is a Rails application. After cloning the repository, you can:
+After cloning the repository, you can:
 
-* Install rails dependencies with `bundle install`
-* Install javascript dependencies with `npm i`
-* Populate database from MS Access DB dump with `sh script/createdb.sh`
-* Run DB migrations with `bundle exec rake db:migrate`
-* Create test database with `bundle exec rake db:test:prepare`
-* Create env vars `cp .env.example .env`
+`npm run init`
+
+^ This takes a while as it's a big script
 
 Start the application by:
 
-* Run the server in _development_ with `rails server`
-* Compile assets with `./bin/webpack-dev-server`
-* Use guard to run/monitor specs with `bundle exec guard`
+`rails server`
+`./bin/webpack-dev-server`
+`bundle exec guard`
 
 ## Development
 

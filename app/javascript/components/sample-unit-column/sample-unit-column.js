@@ -31,7 +31,6 @@ class GalleryModal {
     this.imageURLs = this.getImageURLs();
     this.openModalHandler();
     this.closeModalHandler();
-    this.deletePhotoHandler();
   }
 
   getImageURLs() {
@@ -42,8 +41,7 @@ class GalleryModal {
 
   buildGallery() {
     for (let i = 0; i < this.imageURLs.length; i++) {
-
-      let id = "#photo-" + i;
+      let id = `#photo-${i}`;
       this.container.find(id).attr('src', this.imageURLs[i]);
     }
   }
@@ -59,7 +57,6 @@ class GalleryModal {
 
   closeModalHandler() {
     this.closeModal.click(event => {
-      console.log('ahh')
       this.container.find('.gallery-modal').removeClass('is-active');
     });
   }

@@ -14,9 +14,8 @@ const HamburgerMenu = require("../../app/javascript/components/nav-bar/nav-bar.j
 
 describe('lol',()=> {
     let Hamburger
-  
+
     beforeEach(()=>{
-        
         Hamburger = new HamburgerMenu
     })
 

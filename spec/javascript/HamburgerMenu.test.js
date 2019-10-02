@@ -9,14 +9,13 @@ global.$ = $
 const HamburgerMenu = require("../../app/javascript/components/nav-bar/nav-bar.js");
 
 describe('lol',()=> {
-    let Hamburger
+  let Hamburger
 
-    beforeEach(()=>{
-        Hamburger = new HamburgerMenu
-    })
+  beforeEach(()=>{
+    Hamburger = new HamburgerMenu();
+  });
 
-    it('should do stuff', ()=>{
-    
-        console.log('lol')
-    })
-})
+  it('should do stuff', ()=>{
+    console.log('lol');
+  });
+});

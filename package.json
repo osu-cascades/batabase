@@ -15,7 +15,8 @@
     "mocha": "^5.2.0",
     "mocha-jsdom": "^2.0.0",
     "rails-ujs": "^5.2.2",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "typescript": "^3.6.3"
   },
   "devDependencies": {
     "ignore-styles": "^5.0.1",

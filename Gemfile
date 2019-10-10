@@ -18,6 +18,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.2.1'
 gem 'webpacker'
+gem 'solargraph'
 
 
 group :development, :test do
@@ -28,16 +29,17 @@ group :development, :test do
   gem 'letter_opener'
   gem 'rspec-rails', '~> 3.8'
   gem 'shoulda-matchers', '4.0.0.rc1'
-  gem 'webdrivers'
   gem 'simplecov'
+  gem 'webdrivers'
 end
 
 group :development do
   gem 'byebug'
   gem 'guard-rspec', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
+  gem 'rails-erd'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring'
   gem 'web-console', '>= 3.3.0'
 end
 

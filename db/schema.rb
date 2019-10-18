@@ -361,7 +361,7 @@ ActiveRecord::Schema.define(version: 2019_05_11_191008) do
     t.string "second", limit: 255
     t.string "third", limit: 255
     t.string "fourth", limit: 255
-    t.string "<--all_spp_in_sqnc_classified_with_a_ann>040_in_order_of_preval", limit: 255
+    t.string "all_spp_in_sqnc_classified_with_a_ann_in_order_of_preval", limit: 255
     t.string "parent_dir", limit: 255
     t.string "next_dir_up", limit: 255
     t.float "file_length"

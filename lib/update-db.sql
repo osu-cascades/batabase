@@ -168,7 +168,7 @@ ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "mean UpprSlp" TO
 ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "mean LwrSlp" TO mean_lwr_slp;
 ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "mean TotalSlp" TO mean_total_slp;
 ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "mean PrecedingIntvl" TO mean_preceding_intvl;
-ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "<--All spp in sqnc classified with a ANN>040 in order of preval" TO "<--all_spp_in_sqnc_classified_with_a_ann>040_in_order_of_preval";
+ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "<--All spp in sqnc classified with a ANN>040 in order of preval" TO "all_spp_in_sqnc_classified_with_a_ann_in_order_of_preval";
 ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "ParentDir" TO parent_dir;
 ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "NextDirUp" TO next_dir_up;
 ALTER TABLE public.sonobat_deployment_detections RENAME COLUMN "FileLength(sec)" TO "file_length(sec)";

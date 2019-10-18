@@ -12,7 +12,7 @@ RSpec.describe DetectorLocationDecorator do
 
   describe '#coordinates' do
     it 'returns formatted coordinates' do
-      expect(detector_location.coordinates).to eql("[#{detector_location.latitude}, #{detector_location.longitude}]")
+      expect(detector_location.coordinates).to eql("#{detector_location.latitude}, #{detector_location.longitude}")
     end
   end
 

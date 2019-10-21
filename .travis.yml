@@ -18,7 +18,7 @@ install:
   - yarn
 
 before_script:
-  - bundle exec bin/setup script/createdb.sh RAILS_ENV=test
+  - ./script/createdb.sh
 
 script:
   - bundle exec rails webpacker:compile

@@ -1,8 +1,7 @@
-rvm:
-  - 2.5.1
+language: ruby
 
-addons:
-  postgresql: "11.5"
+services:
+  - postgresql
 
 before_script:
   - bundle exec bin/setup script/createdb.sh RAILS_ENV=test
@@ -19,6 +18,9 @@ install:
   - node -v
   - npm i -g yarn
   - yarn
+
+before_script:
+  - psql -c 'create database batabase_test;' -U postgres
 
 script:
   - bundle exec rails webpacker:compile

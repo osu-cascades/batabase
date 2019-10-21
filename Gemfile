@@ -23,7 +23,6 @@ gem 'solargraph'
 
 group :development, :test do
   gem 'capybara'
-  gem 'chromedriver-helper'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker'
   gem 'letter_opener'

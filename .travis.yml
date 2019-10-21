@@ -1,5 +1,10 @@
 language: ruby
 
+addons:
+  apt:
+    - google-chrome-stable
+    - chromium-chromedriver
+
 services:
   - postgresql
 

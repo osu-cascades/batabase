@@ -3,9 +3,6 @@ language: ruby
 services:
   - postgresql
 
-before_script:
-  - bundle exec bin/setup script/createdb.sh RAILS_ENV=test
-
 cache:
   bundler: true
   directories:
@@ -21,7 +18,7 @@ install:
   - yarn
 
 before_script:
-  - psql -c 'create database batabase_test;' -U postgres
+  - bundle exec bin/setup script/createdb.sh RAILS_ENV=test
 
 script:
   - bundle exec rails webpacker:compile

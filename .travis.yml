@@ -23,7 +23,7 @@ install:
   - yarn
 
 before_script:
-  - bundle exec db:reset
+  - bundle exec rake db:reset
 
 script:
   - bundle exec rake webpacker:compile

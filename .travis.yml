@@ -2,8 +2,8 @@ language: ruby
 
 addons:
   chrome: stable
+
 before_install:
-  - # start your web application and listen on `localhost`
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 services:
@@ -12,21 +12,12 @@ services:
 cache:
   bundler: true
   directories:
-    - node_modules
+  - node_modules # NPM packages
   yarn: true
 
-install:
-  - gem install bundler -v 1.17.3
-  - bundle install
-  - nvm install node
-  - node -v
-  - npm i -g yarn
-  - yarn
-
 before_script:
-  - bundle exec rails db:create
-  - bundle exec rails db:migrate
+  - rake db:reset
 
 script:
-  - bundle exec rails webpacker:compile
-  - bundle exec rails spec
+  - rake webpacker:compile
+  - rspec -f -d

@@ -12,7 +12,7 @@ services:
 cache:
   bundler: true
   directories:
-  - node_modules # NPM packages
+  - node_modules
   yarn: true
 
 before_script:

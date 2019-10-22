@@ -24,7 +24,8 @@ install:
   - yarn
 
 before_script:
-  - ./script/create-test-db.sh
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
 
 script:
   - bundle exec rails webpacker:compile

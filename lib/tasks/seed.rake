@@ -46,13 +46,15 @@ namespace :seed do
         organization: Organization.first
       )
     end
-    puts 'Created testing bois'
+
+    puts 'Users Seeded Successfully'
   end
 
   desc 'Destroy all users'
   task 'destroy_users' => :environment do
     User.delete_all
-    puts 'Deleted those bois'
+
+    puts 'Users Deleted Successfully'
   end
 
   desc 'Seed detection targets'
@@ -66,7 +68,7 @@ namespace :seed do
     "Other"].each do |label|
       DetectionTarget.create!(label: label)
     end
-    puts 'Created detection targets'
+    puts 'Detection Targets Seeded Successfully'
   end
 
   desc 'Seed target descriptors'
@@ -95,7 +97,7 @@ namespace :seed do
       { fk: 6,	label: 'Roadway' } ].each do |record|
         TargetDescriptor.create!(detection_target_id: record.fetch(:fk), label: record.fetch(:label))
     end
-    puts 'Created target descriptors'
+    puts 'Target Descriptors Seeded Successfully'
   end
 
   desc 'Seed study areas'
@@ -107,25 +109,26 @@ namespace :seed do
   desc 'Seed broad habitats and broad habitat forms'
   task 'broad_habitats' => :environment do
     BroadHabitatCreator.new
-    puts 'Created broad habitats and broad habitat forms'
+    puts 'Broad Habitats and Broad Habitat Forms Seeded Successfully'
   end
 
-  desc 'Make some counties boi'
-  task 'county' => :environment do
-    csv_text = CSV.foreach(File.expand_path('./lib/states_counties.csv')) do |l|
+  desc 'Seed Counties'
+  task 'counties' => :environment do
+    csv_text = CSV.foreach(File.expand_path('./lib/counties.csv')) do |l|
       state_id = State.find_by(state_code: l[0]).id
       County.create!(name: l[1], state_id: state_id)
     end
-    puts 'pop them counties off boi'
+    puts 'Populated Counties'
   end
 
-  desc 'Make some sample_units boi'
+  desc 'Seed sample units'
   task 'sample_units' => :environment do
     SampleUnitCreator.new
-    puts 'pop them sample_units off boi'
+
+    puts 'Sample Units Seeded Successfully'
   end
 
-  desc "Populate contact's state_id with correct state.id"
+  desc "Seed contact's state_id with correct state.id"
   task 'contact_state_id' => :environment do
     Contact.all.each do |contact|
       contact_state_code = contact.attributes['state_code']
@@ -138,10 +141,10 @@ namespace :seed do
       contact.state_id = state.try(:id)
       contact.save!
     end
-    puts "Populated contact state_id"
+    puts "Contact State Id Seeded Successfully"
   end
 
-  desc "Populate contact's organization_id with correct organization.id"
+  desc "Seed contact's organization_id with correct organization.id"
   task 'contact_organization_id' => :environment do
     Contact.all.each do |contact|
       contact_organization = contact.attributes['organization']
@@ -154,13 +157,21 @@ namespace :seed do
       contact.organization_id = organization.try(:id)
       contact.save!
     end
-    puts "Populated contact organization_id"
+    puts "Contact Organization Id Seeded Successfully"
   end
 
-  desc "Dropped contact's organization & state_code columns"
-  task 'contact_drop_columns' => :environment do
-    ActiveRecord::Migration.remove_column :contacts, :organization
-    ActiveRecord::Migration.remove_column :contacts, :state_code
-    puts "Dropped contact's organization & state_code columns"
+  desc "Seed one organization"
+  task 'populate_one_organization' => :environment do
+    Organization.create!(label: "Oregon Department of Fish and Wildlife")
+    puts "A Single Organization Was Seeded Successfully"
+  end
+
+  desc "Seed states"
+  task 'states' => :environment do
+    CSV.foreach(File.expand_path('./lib/states.csv')) do |options|
+      State.create!(state_code: options[1], state_name: options[0])
+    end
+
+    puts "All States Were Seeded Successfully"
   end
 end

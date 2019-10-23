@@ -1,3 +1,6 @@
+require 'activerecord-import/base'
+# load the appropriate database adapter (postgresql, mysql2, sqlite3, etc)
+require 'activerecord-import/active_record/adapters/postgresql_adapter'
 require 'csv'
 require_relative '../sample_unit_creator'
 require_relative '../broad_habitat_creator'
@@ -114,11 +117,10 @@ namespace :seed do
 
   desc 'Seed Counties'
   task 'counties' => :environment do
-    csv_text = CSV.foreach(File.expand_path('./lib/counties.csv')) do |l|
-      state_id = State.find_by(state_code: l[0]).id
-      County.create!(name: l[1], state_id: state_id)
-    end
-    puts 'Populated Counties'
+    columns = [:state_id, :name]
+    values = CSV.read(Rails.root.join('./lib/counties.csv'))
+
+    County.import columns, values, validate: false, on_duplicate_key_update: { conflict_target: [:id] }
   end
 
   desc 'Seed sample units'
@@ -151,9 +153,10 @@ namespace :seed do
       next if contact_organization.nil?
 
       organization = Organization.where(label: contact_organization).first
-      next if organization.nil?
 
+      next if organization.nil?
       next if contact.organization_id != nil
+
       contact.organization_id = organization.try(:id)
       contact.save!
     end
@@ -168,9 +171,10 @@ namespace :seed do
 
   desc "Seed states"
   task 'states' => :environment do
-    CSV.foreach(File.expand_path('./lib/states.csv')) do |options|
-      State.create!(state_code: options[1], state_name: options[0])
-    end
+    columns = [:state_name, :state_code]
+    values = CSV.read(Rails.root.join('./lib/states.csv'))
+
+    State.import columns, values, validate: false, on_duplicate_key_update: { conflict_target: [:id] }
 
     puts "All States Were Seeded Successfully"
   end

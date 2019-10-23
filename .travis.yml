@@ -16,7 +16,7 @@ cache:
   yarn: true
 
 install:
-  -bundle
+  - bundle
   - yarn
 
 before_script:

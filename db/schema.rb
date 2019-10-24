@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_11_191008) do
+ActiveRecord::Schema.define(version: 2019_10_22_211129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,8 +59,6 @@ ActiveRecord::Schema.define(version: 2019_05_11_191008) do
   create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "last_name", limit: 50, null: false
     t.string "first_name", limit: 50, null: false
-    t.string "organization", limit: 50
-    t.string "state_code", limit: 8
     t.string "email", limit: 50
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false

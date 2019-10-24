@@ -22,7 +22,7 @@
     "jsdom-global": "3.0.2",
     "postcss-cssnext": "^3.1.0",
     "postcss-preset-env": "^6.7.0",
-    "webpack-dev-server": "^3.8.2"
+    "webpack-dev-server": "^3.9.0"
   },
   "peerDependencies": {
     "@rails/webpacker": "^4.0.0"

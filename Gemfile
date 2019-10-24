@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rails_db', '2.0.4'
   gem 'byebug'
   gem 'guard-rspec', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -41,7 +42,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-  gem 'rails_db', '2.0.4'
   gem 'axlsx_rails'
 end
 

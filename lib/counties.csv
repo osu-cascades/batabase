@@ -1,70 +1,70 @@
-1,Autauga County
-1,Baldwin County
-1,Barbour County
-1,Bibb County
-1,Blount County
-1,Bullock County
-1,Butler County
-1,Calhoun County
-1,Chambers County
-1,Cherokee County
-1,Chilton County
-1,Choctaw County
-1,Clarke County
-1,Clay County
-1,Cleburne County
-1,Coffee County
-1,Colbert County
-1,Conecuh County
-1,Coosa County
-1,Covington County
-1,Crenshaw County
-1,Cullman County
-1,Dale County
-1,Dallas County
-1,DeKalb County
-1,Elmore County
-1,Escambia County
-1,Etowah County
-1,Fayette County
-1,Franklin County
-1,Geneva County
-1,Greene County
-1,Hale County
-1,Henry County
-1,Houston County
-1,Jackson County
-1,Jefferson County
-1,Lamar County
-1,Lauderdale County
-1,Lawrence County
-1,Lee County
-1,Limestone County
-1,Lowndes County
-1,Macon County
-1,Madison County
-1,Marengo County
-1,Marion County
-1,Marshall County
-1,Mobile County
-1,Monroe County
-1,Montgomery County
-1,Morgan County
-1,Perry County
-1,Pickens County
-1,Pike County
-1,Randolph County
-1,Russell County
-1,St. Clair County
-1,Shelby County
-1,Sumter County
-1,Talladega County
-1,Tallapoosa County
-1,Tuscaloosa County
-1,Walker County
-1,Washington County
-1,Wilcox County
-1,Winston County
+1,Autauga
+1,Baldwin
+1,Barbour
+1,Bibb
+1,Blount
+1,Bullock
+1,Butler
+1,Calhoun
+1,Chambers
+1,Cherokee
+1,Chilton
+1,Choctaw
+1,Clarke
+1,Clay
+1,Cleburne
+1,Coffee
+1,Colbert
+1,Conecuh
+1,Coosa
+1,Covington
+1,Crenshaw
+1,Cullman
+1,Dale
+1,Dallas
+1,DeKalb
+1,Elmore
+1,Escambia
+1,Etowah
+1,Fayette
+1,Franklin
+1,Geneva
+1,Greene
+1,Hale
+1,Henry
+1,Houston
+1,Jackson
+1,Jefferson
+1,Lamar
+1,Lauderdale
+1,Lawrence
+1,Lee
+1,Limestone
+1,Lowndes
+1,Macon
+1,Madison
+1,Marengo
+1,Marion
+1,Marshall
+1,Mobile
+1,Monroe
+1,Montgomery
+1,Morgan
+1,Perry
+1,Pickens
+1,Pike
+1,Randolph
+1,Russell
+1,St. Clair
+1,Shelby
+1,Sumter
+1,Talladega
+1,Tallapoosa
+1,Tuscaloosa
+1,Walker
+1,Washington
+1,Wilcox
+1,Winston
 2,Aleutians East Borough
 2,Aleutians West Census Area
 2,Anchorage Municipality
@@ -94,1022 +94,1022 @@
 2,Wrangell City and Borough
 2,Yakutat City and Borough
 2,Yukon-Koyukuk Census Area
-3,Apache County
-3,Cochise County
-3,Coconino County
-3,Gila County
-3,Graham County
-3,Greenlee County
-3,La Paz County
-3,Maricopa County
-3,Mohave County
-3,Navajo County
-3,Pima County
-3,Pinal County
-3,Santa Cruz County
-3,Yavapai County
-3,Yuma County
-4,Arkansas County
-4,Ashley County
-4,Baxter County
-4,Benton County
-4,Boone County
-4,Bradley County
-4,Calhoun County
-4,Carroll County
-4,Chicot County
-4,Clark County
-4,Clay County
-4,Cleburne County
-4,Cleveland County
-4,Columbia County
-4,Conway County
-4,Craighead County
-4,Crawford County
-4,Crittenden County
-4,Cross County
-4,Dallas County
-4,Desha County
-4,Drew County
-4,Faulkner County
-4,Franklin County
-4,Fulton County
-4,Garland County
-4,Grant County
-4,Greene County
-4,Hempstead County
-4,Hot Spring County
-4,Howard County
-4,Independence County
-4,Izard County
-4,Jackson County
-4,Jefferson County
-4,Johnson County
-4,Lafayette County
-4,Lawrence County
-4,Lee County
-4,Lincoln County
-4,Little River County
-4,Logan County
-4,Lonoke County
-4,Madison County
-4,Marion County
-4,Miller County
-4,Mississippi County
-4,Monroe County
-4,Montgomery County
-4,Nevada County
-4,Newton County
-4,Ouachita County
-4,Perry County
-4,Phillips County
-4,Pike County
-4,Poinsett County
-4,Polk County
-4,Pope County
-4,Prairie County
-4,Pulaski County
-4,Randolph County
-4,St. Francis County
-4,Saline County
-4,Scott County
-4,Searcy County
-4,Sebastian County
-4,Sevier County
-4,Sharp County
-4,Stone County
-4,Union County
-4,Van Buren County
-4,Washington County
-4,White County
-4,Woodruff County
-4,Yell County
-5,Alameda County
-5,Alpine County
-5,Amador County
-5,Butte County
-5,Calaveras County
-5,Colusa County
-5,Contra Costa County
-5,Del Norte County
-5,El Dorado County
-5,Fresno County
-5,Glenn County
-5,Humboldt County
-5,Imperial County
-5,Inyo County
-5,Kern County
-5,Kings County
-5,Lake County
-5,Lassen County
-5,Los Angeles County
-5,Madera County
-5,Marin County
-5,Mariposa County
-5,Mendocino County
-5,Merced County
-5,Modoc County
-5,Mono County
-5,Monterey County
-5,Napa County
-5,Nevada County
-5,Orange County
-5,Placer County
-5,Plumas County
-5,Riverside County
-5,Sacramento County
-5,San Benito County
-5,San Bernardino County
-5,San Diego County
-5,San Francisco County
-5,San Joaquin County
-5,San Luis Obispo County
-5,San Mateo County
-5,Santa Barbara County
-5,Santa Clara County
-5,Santa Cruz County
-5,Shasta County
-5,Sierra County
-5,Siskiyou County
-5,Solano County
-5,Sonoma County
-5,Stanislaus County
-5,Sutter County
-5,Tehama County
-5,Trinity County
-5,Tulare County
-5,Tuolumne County
-5,Ventura County
-5,Yolo County
-5,Yuba County
-6,Adams County
-6,Alamosa County
-6,Arapahoe County
-6,Archuleta County
-6,Baca County
-6,Bent County
-6,Boulder County
-6,Broomfield County
-6,Chaffee County
-6,Cheyenne County
-6,Clear Creek County
-6,Conejos County
-6,Costilla County
-6,Crowley County
-6,Custer County
-6,Delta County
-6,Denver County
-6,Dolores County
-6,Douglas County
-6,Eagle County
-6,Elbert County
-6,El Paso County
-6,Fremont County
-6,Garfield County
-6,Gilpin County
-6,Grand County
-6,Gunnison County
-6,Hinsdale County
-6,Huerfano County
-6,Jackson County
-6,Jefferson County
-6,Kiowa County
-6,Kit Carson County
-6,Lake County
-6,La Plata County
-6,Larimer County
-6,Las Animas County
-6,Lincoln County
-6,Logan County
-6,Mesa County
-6,Mineral County
-6,Moffat County
-6,Montezuma County
-6,Montrose County
-6,Morgan County
-6,Otero County
-6,Ouray County
-6,Park County
-6,Phillips County
-6,Pitkin County
-6,Prowers County
-6,Pueblo County
-6,Rio Blanco County
-6,Rio Grande County
-6,Routt County
-6,Saguache County
-6,San Juan County
-6,San Miguel County
-6,Sedgwick County
-6,Summit County
-6,Teller County
-6,Washington County
-6,Weld County
-6,Yuma County
-7,Fairfield County
-7,Hartford County
-7,Litchfield County
-7,Middlesex County
-7,New Haven County
-7,New London County
-7,Tolland County
-7,Windham County
-8,Kent County
-8,New Castle County
-8,Sussex County
-9,Alachua County
-9,Baker County
-9,Bay County
-9,Bradford County
-9,Brevard County
-9,Broward County
-9,Calhoun County
-9,Charlotte County
-9,Citrus County
-9,Clay County
-9,Collier County
-9,Columbia County
-9,DeSoto County
-9,Dixie County
-9,Duval County
-9,Escambia County
-9,Flagler County
-9,Franklin County
-9,Gadsden County
-9,Gilchrist County
-9,Glades County
-9,Gulf County
-9,Hamilton County
-9,Hardee County
-9,Hendry County
-9,Hernando County
-9,Highlands County
-9,Hillsborough County
-9,Holmes County
-9,Indian River County
-9,Jackson County
-9,Jefferson County
-9,Lafayette County
-9,Lake County
-9,Lee County
-9,Leon County
-9,Levy County
-9,Liberty County
-9,Madison County
-9,Manatee County
-9,Marion County
-9,Martin County
-9,Miami-Dade County
-9,Monroe County
-9,Nassau County
-9,Okaloosa County
-9,Okeechobee County
-9,Orange County
-9,Osceola County
-9,Palm Beach County
-9,Pasco County
-9,Pinellas County
-9,Polk County
-9,Putnam County
-9,St. Johns County
-9,St. Lucie County
-9,Santa Rosa County
-9,Sarasota County
-9,Seminole County
-9,Sumter County
-9,Suwannee County
-9,Taylor County
-9,Union County
-9,Volusia County
-9,Wakulla County
-9,Walton County
-9,Washington County
-10,Appling County
-10,Atkinson County
-10,Bacon County
-10,Baker County
-10,Baldwin County
-10,Banks County
-10,Barrow County
-10,Bartow County
-10,Ben Hill County
-10,Berrien County
-10,Bibb County
-10,Bleckley County
-10,Brantley County
-10,Brooks County
-10,Bryan County
-10,Bulloch County
-10,Burke County
-10,Butts County
-10,Calhoun County
-10,Camden County
-10,Candler County
-10,Carroll County
-10,Catoosa County
-10,Charlton County
-10,Chatham County
-10,Chattahoochee County
-10,Chattooga County
-10,Cherokee County
-10,Clarke County
-10,Clay County
-10,Clayton County
-10,Clinch County
-10,Cobb County
-10,Coffee County
-10,Colquitt County
-10,Columbia County
-10,Cook County
-10,Coweta County
-10,Crawford County
-10,Crisp County
-10,Dade County
-10,Dawson County
-10,Decatur County
-10,DeKalb County
-10,Dodge County
-10,Dooly County
-10,Dougherty County
-10,Douglas County
-10,Early County
-10,Echols County
-10,Effingham County
-10,Elbert County
-10,Emanuel County
-10,Evans County
-10,Fannin County
-10,Fayette County
-10,Floyd County
-10,Forsyth County
-10,Franklin County
-10,Fulton County
-10,Gilmer County
-10,Glascock County
-10,Glynn County
-10,Gordon County
-10,Grady County
-10,Greene County
-10,Gwinnett County
-10,Habersham County
-10,Hall County
-10,Hancock County
-10,Haralson County
-10,Harris County
-10,Hart County
-10,Heard County
-10,Henry County
-10,Houston County
-10,Irwin County
-10,Jackson County
-10,Jasper County
-10,Jeff Davis County
-10,Jefferson County
-10,Jenkins County
-10,Johnson County
-10,Jones County
-10,Lamar County
-10,Lanier County
-10,Laurens County
-10,Lee County
-10,Liberty County
-10,Lincoln County
-10,Long County
-10,Lowndes County
-10,Lumpkin County
-10,McDuffie County
-10,McIntosh County
-10,Macon County
-10,Madison County
-10,Marion County
-10,Meriwether County
-10,Miller County
-10,Mitchell County
-10,Monroe County
-10,Montgomery County
-10,Morgan County
-10,Murray County
-10,Muscogee County
-10,Newton County
-10,Oconee County
-10,Oglethorpe County
-10,Paulding County
-10,Peach County
-10,Pickens County
-10,Pierce County
-10,Pike County
-10,Polk County
-10,Pulaski County
-10,Putnam County
-10,Quitman County
-10,Rabun County
-10,Randolph County
-10,Richmond County
-10,Rockdale County
-10,Schley County
-10,Screven County
-10,Seminole County
-10,Spalding County
-10,Stephens County
-10,Stewart County
-10,Sumter County
-10,Talbot County
-10,Taliaferro County
-10,Tattnall County
-10,Taylor County
-10,Telfair County
-10,Terrell County
-10,Thomas County
-10,Tift County
-10,Toombs County
-10,Towns County
-10,Treutlen County
-10,Troup County
-10,Turner County
-10,Twiggs County
-10,Union County
-10,Upson County
-10,Walker County
-10,Walton County
-10,Ware County
-10,Warren County
-10,Washington County
-10,Wayne County
-10,Webster County
-10,Wheeler County
-10,White County
-10,Whitfield County
-10,Wilcox County
-10,Wilkes County
-10,Wilkinson County
-10,Worth County
-11,Hawaii County
-11,Honolulu County
-11,Kalawao County
-11,Kauai County
-11,Maui County
-12,Ada County
-12,Adams County
-12,Bannock County
-12,Bear Lake County
-12,Benewah County
-12,Bingham County
-12,Blaine County
-12,Boise County
-12,Bonner County
-12,Bonneville County
-12,Boundary County
-12,Butte County
-12,Camas County
-12,Canyon County
-12,Caribou County
-12,Cassia County
-12,Clark County
-12,Clearwater County
-12,Custer County
-12,Elmore County
-12,Franklin County
-12,Fremont County
-12,Gem County
-12,Gooding County
-12,Idaho County
-12,Jefferson County
-12,Jerome County
-12,Kootenai County
-12,Latah County
-12,Lemhi County
-12,Lewis County
-12,Lincoln County
-12,Madison County
-12,Minidoka County
-12,Nez Perce County
-12,Oneida County
-12,Owyhee County
-12,Payette County
-12,Power County
-12,Shoshone County
-12,Teton County
-12,Twin Falls County
-12,Valley County
-12,Washington County
-13,Adams County
-13,Alexander County
-13,Bond County
-13,Boone County
-13,Brown County
-13,Bureau County
-13,Calhoun County
-13,Carroll County
-13,Cass County
-13,Champaign County
-13,Christian County
-13,Clark County
-13,Clay County
-13,Clinton County
-13,Coles County
-13,Cook County
-13,Crawford County
-13,Cumberland County
-13,DeKalb County
-13,De Witt County
-13,Douglas County
-13,DuPage County
-13,Edgar County
-13,Edwards County
-13,Effingham County
-13,Fayette County
-13,Ford County
-13,Franklin County
-13,Fulton County
-13,Gallatin County
-13,Greene County
-13,Grundy County
-13,Hamilton County
-13,Hancock County
-13,Hardin County
-13,Henderson County
-13,Henry County
-13,Iroquois County
-13,Jackson County
-13,Jasper County
-13,Jefferson County
-13,Jersey County
-13,Jo Daviess County
-13,Johnson County
-13,Kane County
-13,Kankakee County
-13,Kendall County
-13,Knox County
-13,Lake County
-13,LaSalle County
-13,Lawrence County
-13,Lee County
-13,Livingston County
-13,Logan County
-13,McDonough County
-13,McHenry County
-13,McLean County
-13,Macon County
-13,Macoupin County
-13,Madison County
-13,Marion County
-13,Marshall County
-13,Mason County
-13,Massac County
-13,Menard County
-13,Mercer County
-13,Monroe County
-13,Montgomery County
-13,Morgan County
-13,Moultrie County
-13,Ogle County
-13,Peoria County
-13,Perry County
-13,Piatt County
-13,Pike County
-13,Pope County
-13,Pulaski County
-13,Putnam County
-13,Randolph County
-13,Richland County
-13,Rock Island County
-13,St. Clair County
-13,Saline County
-13,Sangamon County
-13,Schuyler County
-13,Scott County
-13,Shelby County
-13,Stark County
-13,Stephenson County
-13,Tazewell County
-13,Union County
-13,Vermilion County
-13,Wabash County
-13,Warren County
-13,Washington County
-13,Wayne County
-13,White County
-13,Whiteside County
-13,Will County
-13,Williamson County
-13,Winnebago County
-13,Woodford County
-14,Adams County
-14,Allen County
-14,Bartholomew County
-14,Benton County
-14,Blackford County
-14,Boone County
-14,Brown County
-14,Carroll County
-14,Cass County
-14,Clark County
-14,Clay County
-14,Clinton County
-14,Crawford County
-14,Daviess County
-14,Dearborn County
-14,Decatur County
-14,DeKalb County
-14,Delaware County
-14,Dubois County
-14,Elkhart County
-14,Fayette County
-14,Floyd County
-14,Fountain County
-14,Franklin County
-14,Fulton County
-14,Gibson County
-14,Grant County
-14,Greene County
-14,Hamilton County
-14,Hancock County
-14,Harrison County
-14,Hendricks County
-14,Henry County
-14,Howard County
-14,Huntington County
-14,Jackson County
-14,Jasper County
-14,Jay County
-14,Jefferson County
-14,Jennings County
-14,Johnson County
-14,Knox County
-14,Kosciusko County
-14,LaGrange County
-14,Lake County
-14,LaPorte County
-14,Lawrence County
-14,Madison County
-14,Marion County
-14,Marshall County
-14,Martin County
-14,Miami County
-14,Monroe County
-14,Montgomery County
-14,Morgan County
-14,Newton County
-14,Noble County
-14,Ohio County
-14,Orange County
-14,Owen County
-14,Parke County
-14,Perry County
-14,Pike County
-14,Porter County
-14,Posey County
-14,Pulaski County
-14,Putnam County
-14,Randolph County
-14,Ripley County
-14,Rush County
-14,St. Joseph County
-14,Scott County
-14,Shelby County
-14,Spencer County
-14,Starke County
-14,Steuben County
-14,Sullivan County
-14,Switzerland County
-14,Tippecanoe County
-14,Tipton County
-14,Union County
-14,Vanderburgh County
-14,Vermillion County
-14,Vigo County
-14,Wabash County
-14,Warren County
-14,Warrick County
-14,Washington County
-14,Wayne County
-14,Wells County
-14,White County
-14,Whitley County
-15,Adair County
-15,Adams County
-15,Allamakee County
-15,Appanoose County
-15,Audubon County
-15,Benton County
-15,Black Hawk County
-15,Boone County
-15,Bremer County
-15,Buchanan County
-15,Buena Vista County
-15,Butler County
-15,Calhoun County
-15,Carroll County
-15,Cass County
-15,Cedar County
-15,Cerro Gordo County
-15,Cherokee County
-15,Chickasaw County
-15,Clarke County
-15,Clay County
-15,Clayton County
-15,Clinton County
-15,Crawford County
-15,Dallas County
-15,Davis County
-15,Decatur County
-15,Delaware County
-15,Des Moines County
-15,Dickinson County
-15,Dubuque County
-15,Emmet County
-15,Fayette County
-15,Floyd County
-15,Franklin County
-15,Fremont County
-15,Greene County
-15,Grundy County
-15,Guthrie County
-15,Hamilton County
-15,Hancock County
-15,Hardin County
-15,Harrison County
-15,Henry County
-15,Howard County
-15,Humboldt County
-15,Ida County
-15,Iowa County
-15,Jackson County
-15,Jasper County
-15,Jefferson County
-15,Johnson County
-15,Jones County
-15,Keokuk County
-15,Kossuth County
-15,Lee County
-15,Linn County
-15,Louisa County
-15,Lucas County
-15,Lyon County
-15,Madison County
-15,Mahaska County
-15,Marion County
-15,Marshall County
-15,Mills County
-15,Mitchell County
-15,Monona County
-15,Monroe County
-15,Montgomery County
-15,Muscatine County
-15,O'Brien County
-15,Osceola County
-15,Page County
-15,Palo Alto County
-15,Plymouth County
-15,Pocahontas County
-15,Polk County
-15,Pottawattamie County
-15,Poweshiek County
-15,Ringgold County
-15,Sac County
-15,Scott County
-15,Shelby County
-15,Sioux County
-15,Story County
-15,Tama County
-15,Taylor County
-15,Union County
-15,Van Buren County
-15,Wapello County
-15,Warren County
-15,Washington County
-15,Wayne County
-15,Webster County
-15,Winnebago County
-15,Winneshiek County
-15,Woodbury County
-15,Worth County
-15,Wright County
-16,Allen County
-16,Anderson County
-16,Atchison County
-16,Barber County
-16,Barton County
-16,Bourbon County
-16,Brown County
-16,Butler County
-16,Chase County
-16,Chautauqua County
-16,Cherokee County
-16,Cheyenne County
-16,Clark County
-16,Clay County
-16,Cloud County
-16,Coffey County
-16,Comanche County
-16,Cowley County
-16,Crawford County
-16,Decatur County
-16,Dickinson County
-16,Doniphan County
-16,Douglas County
-16,Edwards County
-16,Elk County
-16,Ellis County
-16,Ellsworth County
-16,Finney County
-16,Ford County
-16,Franklin County
-16,Geary County
-16,Gove County
-16,Graham County
-16,Grant County
-16,Gray County
-16,Greeley County
-16,Greenwood County
-16,Hamilton County
-16,Harper County
-16,Harvey County
-16,Haskell County
-16,Hodgeman County
-16,Jackson County
-16,Jefferson County
-16,Jewell County
-16,Johnson County
-16,Kearny County
-16,Kingman County
-16,Kiowa County
-16,Labette County
-16,Lane County
-16,Leavenworth County
-16,Lincoln County
-16,Linn County
-16,Logan County
-16,Lyon County
-16,McPherson County
-16,Marion County
-16,Marshall County
-16,Meade County
-16,Miami County
-16,Mitchell County
-16,Montgomery County
-16,Morris County
-16,Morton County
-16,Nemaha County
-16,Neosho County
-16,Ness County
-16,Norton County
-16,Osage County
-16,Osborne County
-16,Ottawa County
-16,Pawnee County
-16,Phillips County
-16,Pottawatomie County
-16,Pratt County
-16,Rawlins County
-16,Reno County
-16,Republic County
-16,Rice County
-16,Riley County
-16,Rooks County
-16,Rush County
-16,Russell County
-16,Saline County
-16,Scott County
-16,Sedgwick County
-16,Seward County
-16,Shawnee County
-16,Sheridan County
-16,Sherman County
-16,Smith County
-16,Stafford County
-16,Stanton County
-16,Stevens County
-16,Sumner County
-16,Thomas County
-16,Trego County
-16,Wabaunsee County
-16,Wallace County
-16,Washington County
-16,Wichita County
-16,Wilson County
-16,Woodson County
-16,Wyandotte County
-17,Adair County
-17,Allen County
-17,Anderson County
-17,Ballard County
-17,Barren County
-17,Bath County
-17,Bell County
-17,Boone County
-17,Bourbon County
-17,Boyd County
-17,Boyle County
-17,Bracken County
-17,Breathitt County
-17,Breckinridge County
-17,Bullitt County
-17,Butler County
-17,Caldwell County
-17,Calloway County
-17,Campbell County
-17,Carlisle County
-17,Carroll County
-17,Carter County
-17,Casey County
-17,Christian County
-17,Clark County
-17,Clay County
-17,Clinton County
-17,Crittenden County
-17,Cumberland County
-17,Daviess County
-17,Edmonson County
-17,Elliott County
-17,Estill County
-17,Fayette County
-17,Fleming County
-17,Floyd County
-17,Franklin County
-17,Fulton County
-17,Gallatin County
-17,Garrard County
-17,Grant County
-17,Graves County
-17,Grayson County
-17,Green County
-17,Greenup County
-17,Hancock County
-17,Hardin County
-17,Harlan County
-17,Harrison County
-17,Hart County
-17,Henderson County
-17,Henry County
-17,Hickman County
-17,Hopkins County
-17,Jackson County
-17,Jefferson County
-17,Jessamine County
-17,Johnson County
-17,Kenton County
-17,Knott County
-17,Knox County
-17,Larue County
-17,Laurel County
-17,Lawrence County
-17,Lee County
-17,Leslie County
-17,Letcher County
-17,Lewis County
-17,Lincoln County
-17,Livingston County
-17,Logan County
-17,Lyon County
-17,McCracken County
-17,McCreary County
-17,McLean County
-17,Madison County
-17,Magoffin County
-17,Marion County
-17,Marshall County
-17,Martin County
-17,Mason County
-17,Meade County
-17,Menifee County
-17,Mercer County
-17,Metcalfe County
-17,Monroe County
-17,Montgomery County
-17,Morgan County
-17,Muhlenberg County
-17,Nelson County
-17,Nicholas County
-17,Ohio County
-17,Oldham County
-17,Owen County
-17,Owsley County
-17,Pendleton County
-17,Perry County
-17,Pike County
-17,Powell County
-17,Pulaski County
-17,Robertson County
-17,Rockcastle County
-17,Rowan County
-17,Russell County
-17,Scott County
-17,Shelby County
-17,Simpson County
-17,Spencer County
-17,Taylor County
-17,Todd County
-17,Trigg County
-17,Trimble County
-17,Union County
-17,Warren County
-17,Washington County
-17,Wayne County
-17,Webster County
-17,Whitley County
-17,Wolfe County
-17,Woodford County
+3,Apache
+3,Cochise
+3,Coconino
+3,Gila
+3,Graham
+3,Greenlee
+3,La Paz
+3,Maricopa
+3,Mohave
+3,Navajo
+3,Pima
+3,Pinal
+3,Santa Cruz
+3,Yavapai
+3,Yuma
+4,Arkansas
+4,Ashley
+4,Baxter
+4,Benton
+4,Boone
+4,Bradley
+4,Calhoun
+4,Carroll
+4,Chicot
+4,Clark
+4,Clay
+4,Cleburne
+4,Cleveland
+4,Columbia
+4,Conway
+4,Craighead
+4,Crawford
+4,Crittenden
+4,Cross
+4,Dallas
+4,Desha
+4,Drew
+4,Faulkner
+4,Franklin
+4,Fulton
+4,Garland
+4,Grant
+4,Greene
+4,Hempstead
+4,Hot Spring
+4,Howard
+4,Independence
+4,Izard
+4,Jackson
+4,Jefferson
+4,Johnson
+4,Lafayette
+4,Lawrence
+4,Lee
+4,Lincoln
+4,Little River
+4,Logan
+4,Lonoke
+4,Madison
+4,Marion
+4,Miller
+4,Mississippi
+4,Monroe
+4,Montgomery
+4,Nevada
+4,Newton
+4,Ouachita
+4,Perry
+4,Phillips
+4,Pike
+4,Poinsett
+4,Polk
+4,Pope
+4,Prairie
+4,Pulaski
+4,Randolph
+4,St. Francis
+4,Saline
+4,Scott
+4,Searcy
+4,Sebastian
+4,Sevier
+4,Sharp
+4,Stone
+4,Union
+4,Van Buren
+4,Washington
+4,White
+4,Woodruff
+4,Yell
+5,Alameda
+5,Alpine
+5,Amador
+5,Butte
+5,Calaveras
+5,Colusa
+5,Contra Costa
+5,Del Norte
+5,El Dorado
+5,Fresno
+5,Glenn
+5,Humboldt
+5,Imperial
+5,Inyo
+5,Kern
+5,Kings
+5,Lake
+5,Lassen
+5,Los Angeles
+5,Madera
+5,Marin
+5,Mariposa
+5,Mendocino
+5,Merced
+5,Modoc
+5,Mono
+5,Monterey
+5,Napa
+5,Nevada
+5,Orange
+5,Placer
+5,Plumas
+5,Riverside
+5,Sacramento
+5,San Benito
+5,San Bernardino
+5,San Diego
+5,San Francisco
+5,San Joaquin
+5,San Luis Obispo
+5,San Mateo
+5,Santa Barbara
+5,Santa Clara
+5,Santa Cruz
+5,Shasta
+5,Sierra
+5,Siskiyou
+5,Solano
+5,Sonoma
+5,Stanislaus
+5,Sutter
+5,Tehama
+5,Trinity
+5,Tulare
+5,Tuolumne
+5,Ventura
+5,Yolo
+5,Yuba
+6,Adams
+6,Alamosa
+6,Arapahoe
+6,Archuleta
+6,Baca
+6,Bent
+6,Boulder
+6,Broomfield
+6,Chaffee
+6,Cheyenne
+6,Clear Creek
+6,Conejos
+6,Costilla
+6,Crowley
+6,Custer
+6,Delta
+6,Denver
+6,Dolores
+6,Douglas
+6,Eagle
+6,Elbert
+6,El Paso
+6,Fremont
+6,Garfield
+6,Gilpin
+6,Grand
+6,Gunnison
+6,Hinsdale
+6,Huerfano
+6,Jackson
+6,Jefferson
+6,Kiowa
+6,Kit Carson
+6,Lake
+6,La Plata
+6,Larimer
+6,Las Animas
+6,Lincoln
+6,Logan
+6,Mesa
+6,Mineral
+6,Moffat
+6,Montezuma
+6,Montrose
+6,Morgan
+6,Otero
+6,Ouray
+6,Park
+6,Phillips
+6,Pitkin
+6,Prowers
+6,Pueblo
+6,Rio Blanco
+6,Rio Grande
+6,Routt
+6,Saguache
+6,San Juan
+6,San Miguel
+6,Sedgwick
+6,Summit
+6,Teller
+6,Washington
+6,Weld
+6,Yuma
+7,Fairfield
+7,Hartford
+7,Litchfield
+7,Middlesex
+7,New Haven
+7,New London
+7,Tolland
+7,Windham
+8,Kent
+8,New Castle
+8,Sussex
+9,Alachua
+9,Baker
+9,Bay
+9,Bradford
+9,Brevard
+9,Broward
+9,Calhoun
+9,Charlotte
+9,Citrus
+9,Clay
+9,Collier
+9,Columbia
+9,DeSoto
+9,Dixie
+9,Duval
+9,Escambia
+9,Flagler
+9,Franklin
+9,Gadsden
+9,Gilchrist
+9,Glades
+9,Gulf
+9,Hamilton
+9,Hardee
+9,Hendry
+9,Hernando
+9,Highlands
+9,Hillsborough
+9,Holmes
+9,Indian River
+9,Jackson
+9,Jefferson
+9,Lafayette
+9,Lake
+9,Lee
+9,Leon
+9,Levy
+9,Liberty
+9,Madison
+9,Manatee
+9,Marion
+9,Martin
+9,Miami-Dade
+9,Monroe
+9,Nassau
+9,Okaloosa
+9,Okeechobee
+9,Orange
+9,Osceola
+9,Palm Beach
+9,Pasco
+9,Pinellas
+9,Polk
+9,Putnam
+9,St. Johns
+9,St. Lucie
+9,Santa Rosa
+9,Sarasota
+9,Seminole
+9,Sumter
+9,Suwannee
+9,Taylor
+9,Union
+9,Volusia
+9,Wakulla
+9,Walton
+9,Washington
+10,Appling
+10,Atkinson
+10,Bacon
+10,Baker
+10,Baldwin
+10,Banks
+10,Barrow
+10,Bartow
+10,Ben Hill
+10,Berrien
+10,Bibb
+10,Bleckley
+10,Brantley
+10,Brooks
+10,Bryan
+10,Bulloch
+10,Burke
+10,Butts
+10,Calhoun
+10,Camden
+10,Candler
+10,Carroll
+10,Catoosa
+10,Charlton
+10,Chatham
+10,Chattahoochee
+10,Chattooga
+10,Cherokee
+10,Clarke
+10,Clay
+10,Clayton
+10,Clinch
+10,Cobb
+10,Coffee
+10,Colquitt
+10,Columbia
+10,Cook
+10,Coweta
+10,Crawford
+10,Crisp
+10,Dade
+10,Dawson
+10,Decatur
+10,DeKalb
+10,Dodge
+10,Dooly
+10,Dougherty
+10,Douglas
+10,Early
+10,Echols
+10,Effingham
+10,Elbert
+10,Emanuel
+10,Evans
+10,Fannin
+10,Fayette
+10,Floyd
+10,Forsyth
+10,Franklin
+10,Fulton
+10,Gilmer
+10,Glascock
+10,Glynn
+10,Gordon
+10,Grady
+10,Greene
+10,Gwinnett
+10,Habersham
+10,Hall
+10,Hancock
+10,Haralson
+10,Harris
+10,Hart
+10,Heard
+10,Henry
+10,Houston
+10,Irwin
+10,Jackson
+10,Jasper
+10,Jeff Davis
+10,Jefferson
+10,Jenkins
+10,Johnson
+10,Jones
+10,Lamar
+10,Lanier
+10,Laurens
+10,Lee
+10,Liberty
+10,Lincoln
+10,Long
+10,Lowndes
+10,Lumpkin
+10,McDuffie
+10,McIntosh
+10,Macon
+10,Madison
+10,Marion
+10,Meriwether
+10,Miller
+10,Mitchell
+10,Monroe
+10,Montgomery
+10,Morgan
+10,Murray
+10,Muscogee
+10,Newton
+10,Oconee
+10,Oglethorpe
+10,Paulding
+10,Peach
+10,Pickens
+10,Pierce
+10,Pike
+10,Polk
+10,Pulaski
+10,Putnam
+10,Quitman
+10,Rabun
+10,Randolph
+10,Richmond
+10,Rockdale
+10,Schley
+10,Screven
+10,Seminole
+10,Spalding
+10,Stephens
+10,Stewart
+10,Sumter
+10,Talbot
+10,Taliaferro
+10,Tattnall
+10,Taylor
+10,Telfair
+10,Terrell
+10,Thomas
+10,Tift
+10,Toombs
+10,Towns
+10,Treutlen
+10,Troup
+10,Turner
+10,Twiggs
+10,Union
+10,Upson
+10,Walker
+10,Walton
+10,Ware
+10,Warren
+10,Washington
+10,Wayne
+10,Webster
+10,Wheeler
+10,White
+10,Whitfield
+10,Wilcox
+10,Wilkes
+10,Wilkinson
+10,Worth
+11,Hawaii
+11,Honolulu
+11,Kalawao
+11,Kauai
+11,Maui
+12,Ada
+12,Adams
+12,Bannock
+12,Bear Lake
+12,Benewah
+12,Bingham
+12,Blaine
+12,Boise
+12,Bonner
+12,Bonneville
+12,Boundary
+12,Butte
+12,Camas
+12,Canyon
+12,Caribou
+12,Cassia
+12,Clark
+12,Clearwater
+12,Custer
+12,Elmore
+12,Franklin
+12,Fremont
+12,Gem
+12,Gooding
+12,Idaho
+12,Jefferson
+12,Jerome
+12,Kootenai
+12,Latah
+12,Lemhi
+12,Lewis
+12,Lincoln
+12,Madison
+12,Minidoka
+12,Nez Perce
+12,Oneida
+12,Owyhee
+12,Payette
+12,Power
+12,Shoshone
+12,Teton
+12,Twin Falls
+12,Valley
+12,Washington
+13,Adams
+13,Alexander
+13,Bond
+13,Boone
+13,Brown
+13,Bureau
+13,Calhoun
+13,Carroll
+13,Cass
+13,Champaign
+13,Christian
+13,Clark
+13,Clay
+13,Clinton
+13,Coles
+13,Cook
+13,Crawford
+13,Cumberland
+13,DeKalb
+13,De Witt
+13,Douglas
+13,DuPage
+13,Edgar
+13,Edwards
+13,Effingham
+13,Fayette
+13,Ford
+13,Franklin
+13,Fulton
+13,Gallatin
+13,Greene
+13,Grundy
+13,Hamilton
+13,Hancock
+13,Hardin
+13,Henderson
+13,Henry
+13,Iroquois
+13,Jackson
+13,Jasper
+13,Jefferson
+13,Jersey
+13,Jo Daviess
+13,Johnson
+13,Kane
+13,Kankakee
+13,Kendall
+13,Knox
+13,Lake
+13,LaSalle
+13,Lawrence
+13,Lee
+13,Livingston
+13,Logan
+13,McDonough
+13,McHenry
+13,McLean
+13,Macon
+13,Macoupin
+13,Madison
+13,Marion
+13,Marshall
+13,Mason
+13,Massac
+13,Menard
+13,Mercer
+13,Monroe
+13,Montgomery
+13,Morgan
+13,Moultrie
+13,Ogle
+13,Peoria
+13,Perry
+13,Piatt
+13,Pike
+13,Pope
+13,Pulaski
+13,Putnam
+13,Randolph
+13,Richland
+13,Rock Island
+13,St. Clair
+13,Saline
+13,Sangamon
+13,Schuyler
+13,Scott
+13,Shelby
+13,Stark
+13,Stephenson
+13,Tazewell
+13,Union
+13,Vermilion
+13,Wabash
+13,Warren
+13,Washington
+13,Wayne
+13,White
+13,Whiteside
+13,Will
+13,Williamson
+13,Winnebago
+13,Woodford
+14,Adams
+14,Allen
+14,Bartholomew
+14,Benton
+14,Blackford
+14,Boone
+14,Brown
+14,Carroll
+14,Cass
+14,Clark
+14,Clay
+14,Clinton
+14,Crawford
+14,Daviess
+14,Dearborn
+14,Decatur
+14,DeKalb
+14,Delaware
+14,Dubois
+14,Elkhart
+14,Fayette
+14,Floyd
+14,Fountain
+14,Franklin
+14,Fulton
+14,Gibson
+14,Grant
+14,Greene
+14,Hamilton
+14,Hancock
+14,Harrison
+14,Hendricks
+14,Henry
+14,Howard
+14,Huntington
+14,Jackson
+14,Jasper
+14,Jay
+14,Jefferson
+14,Jennings
+14,Johnson
+14,Knox
+14,Kosciusko
+14,LaGrange
+14,Lake
+14,LaPorte
+14,Lawrence
+14,Madison
+14,Marion
+14,Marshall
+14,Martin
+14,Miami
+14,Monroe
+14,Montgomery
+14,Morgan
+14,Newton
+14,Noble
+14,Ohio
+14,Orange
+14,Owen
+14,Parke
+14,Perry
+14,Pike
+14,Porter
+14,Posey
+14,Pulaski
+14,Putnam
+14,Randolph
+14,Ripley
+14,Rush
+14,St. Joseph
+14,Scott
+14,Shelby
+14,Spencer
+14,Starke
+14,Steuben
+14,Sullivan
+14,Switzerland
+14,Tippecanoe
+14,Tipton
+14,Union
+14,Vanderburgh
+14,Vermillion
+14,Vigo
+14,Wabash
+14,Warren
+14,Warrick
+14,Washington
+14,Wayne
+14,Wells
+14,White
+14,Whitley
+15,Adair
+15,Adams
+15,Allamakee
+15,Appanoose
+15,Audubon
+15,Benton
+15,Black Hawk
+15,Boone
+15,Bremer
+15,Buchanan
+15,Buena Vista
+15,Butler
+15,Calhoun
+15,Carroll
+15,Cass
+15,Cedar
+15,Cerro Gordo
+15,Cherokee
+15,Chickasaw
+15,Clarke
+15,Clay
+15,Clayton
+15,Clinton
+15,Crawford
+15,Dallas
+15,Davis
+15,Decatur
+15,Delaware
+15,Des Moines
+15,Dickinson
+15,Dubuque
+15,Emmet
+15,Fayette
+15,Floyd
+15,Franklin
+15,Fremont
+15,Greene
+15,Grundy
+15,Guthrie
+15,Hamilton
+15,Hancock
+15,Hardin
+15,Harrison
+15,Henry
+15,Howard
+15,Humboldt
+15,Ida
+15,Iowa
+15,Jackson
+15,Jasper
+15,Jefferson
+15,Johnson
+15,Jones
+15,Keokuk
+15,Kossuth
+15,Lee
+15,Linn
+15,Louisa
+15,Lucas
+15,Lyon
+15,Madison
+15,Mahaska
+15,Marion
+15,Marshall
+15,Mills
+15,Mitchell
+15,Monona
+15,Monroe
+15,Montgomery
+15,Muscatine
+15,O'Brien
+15,Osceola
+15,Page
+15,Palo Alto
+15,Plymouth
+15,Pocahontas
+15,Polk
+15,Pottawattamie
+15,Poweshiek
+15,Ringgold
+15,Sac
+15,Scott
+15,Shelby
+15,Sioux
+15,Story
+15,Tama
+15,Taylor
+15,Union
+15,Van Buren
+15,Wapello
+15,Warren
+15,Washington
+15,Wayne
+15,Webster
+15,Winnebago
+15,Winneshiek
+15,Woodbury
+15,Worth
+15,Wright
+16,Allen
+16,Anderson
+16,Atchison
+16,Barber
+16,Barton
+16,Bourbon
+16,Brown
+16,Butler
+16,Chase
+16,Chautauqua
+16,Cherokee
+16,Cheyenne
+16,Clark
+16,Clay
+16,Cloud
+16,Coffey
+16,Comanche
+16,Cowley
+16,Crawford
+16,Decatur
+16,Dickinson
+16,Doniphan
+16,Douglas
+16,Edwards
+16,Elk
+16,Ellis
+16,Ellsworth
+16,Finney
+16,Ford
+16,Franklin
+16,Geary
+16,Gove
+16,Graham
+16,Grant
+16,Gray
+16,Greeley
+16,Greenwood
+16,Hamilton
+16,Harper
+16,Harvey
+16,Haskell
+16,Hodgeman
+16,Jackson
+16,Jefferson
+16,Jewell
+16,Johnson
+16,Kearny
+16,Kingman
+16,Kiowa
+16,Labette
+16,Lane
+16,Leavenworth
+16,Lincoln
+16,Linn
+16,Logan
+16,Lyon
+16,McPherson
+16,Marion
+16,Marshall
+16,Meade
+16,Miami
+16,Mitchell
+16,Montgomery
+16,Morris
+16,Morton
+16,Nemaha
+16,Neosho
+16,Ness
+16,Norton
+16,Osage
+16,Osborne
+16,Ottawa
+16,Pawnee
+16,Phillips
+16,Pottawatomie
+16,Pratt
+16,Rawlins
+16,Reno
+16,Republic
+16,Rice
+16,Riley
+16,Rooks
+16,Rush
+16,Russell
+16,Saline
+16,Scott
+16,Sedgwick
+16,Seward
+16,Shawnee
+16,Sheridan
+16,Sherman
+16,Smith
+16,Stafford
+16,Stanton
+16,Stevens
+16,Sumner
+16,Thomas
+16,Trego
+16,Wabaunsee
+16,Wallace
+16,Washington
+16,Wichita
+16,Wilson
+16,Woodson
+16,Wyandotte
+17,Adair
+17,Allen
+17,Anderson
+17,Ballard
+17,Barren
+17,Bath
+17,Bell
+17,Boone
+17,Bourbon
+17,Boyd
+17,Boyle
+17,Bracken
+17,Breathitt
+17,Breckinridge
+17,Bullitt
+17,Butler
+17,Caldwell
+17,Calloway
+17,Campbell
+17,Carlisle
+17,Carroll
+17,Carter
+17,Casey
+17,Christian
+17,Clark
+17,Clay
+17,Clinton
+17,Crittenden
+17,Cumberland
+17,Daviess
+17,Edmonson
+17,Elliott
+17,Estill
+17,Fayette
+17,Fleming
+17,Floyd
+17,Franklin
+17,Fulton
+17,Gallatin
+17,Garrard
+17,Grant
+17,Graves
+17,Grayson
+17,Green
+17,Greenup
+17,Hancock
+17,Hardin
+17,Harlan
+17,Harrison
+17,Hart
+17,Henderson
+17,Henry
+17,Hickman
+17,Hopkins
+17,Jackson
+17,Jefferson
+17,Jessamine
+17,Johnson
+17,Kenton
+17,Knott
+17,Knox
+17,Larue
+17,Laurel
+17,Lawrence
+17,Lee
+17,Leslie
+17,Letcher
+17,Lewis
+17,Lincoln
+17,Livingston
+17,Logan
+17,Lyon
+17,McCracken
+17,McCreary
+17,McLean
+17,Madison
+17,Magoffin
+17,Marion
+17,Marshall
+17,Martin
+17,Mason
+17,Meade
+17,Menifee
+17,Mercer
+17,Metcalfe
+17,Monroe
+17,Montgomery
+17,Morgan
+17,Muhlenberg
+17,Nelson
+17,Nicholas
+17,Ohio
+17,Oldham
+17,Owen
+17,Owsley
+17,Pendleton
+17,Perry
+17,Pike
+17,Powell
+17,Pulaski
+17,Robertson
+17,Rockcastle
+17,Rowan
+17,Russell
+17,Scott
+17,Shelby
+17,Simpson
+17,Spencer
+17,Taylor
+17,Todd
+17,Trigg
+17,Trimble
+17,Union
+17,Warren
+17,Washington
+17,Wayne
+17,Webster
+17,Whitley
+17,Wolfe
+17,Woodford
 18,Acadia Parish
 18,Allen Parish
 18,Ascension Parish
@@ -1174,1744 +1174,1744 @@
 18,West Carroll Parish
 18,West Feliciana Parish
 18,Winn Parish
-19,Androscoggin County
-19,Aroostook County
-19,Cumberland County
-19,Franklin County
-19,Hancock County
-19,Kennebec County
-19,Knox County
-19,Lincoln County
-19,Oxford County
-19,Penobscot County
-19,Piscataquis County
-19,Sagadahoc County
-19,Somerset County
-19,Waldo County
-19,Washington County
-19,York County
-20,Allegany County
-20,Anne Arundel County
-20,Baltimore County
-20,Calvert County
-20,Caroline County
-20,Carroll County
-20,Cecil County
-20,Charles County
-20,Dorchester County
-20,Frederick County
-20,Garrett County
-20,Harford County
-20,Howard County
-20,Kent County
-20,Montgomery County
-20,Prince George's County
-20,Queen Anne's County
-20,St. Mary's County
-20,Somerset County
-20,Talbot County
-20,Washington County
-20,Wicomico County
-20,Worcester County
+19,Androscoggin
+19,Aroostook
+19,Cumberland
+19,Franklin
+19,Hancock
+19,Kennebec
+19,Knox
+19,Lincoln
+19,Oxford
+19,Penobscot
+19,Piscataquis
+19,Sagadahoc
+19,Somerset
+19,Waldo
+19,Washington
+19,York
+20,Allegany
+20,Anne Arundel
+20,Baltimore
+20,Calvert
+20,Caroline
+20,Carroll
+20,Cecil
+20,Charles
+20,Dorchester
+20,Frederick
+20,Garrett
+20,Harford
+20,Howard
+20,Kent
+20,Montgomery
+20,Prince George's
+20,Queen Anne's
+20,St. Mary's
+20,Somerset
+20,Talbot
+20,Washington
+20,Wicomico
+20,Worcester
 20,Baltimore city
-21,Barnstable County
-21,Berkshire County
-21,Bristol County
-21,Dukes County
-21,Essex County
-21,Franklin County
-21,Hampden County
-21,Hampshire County
-21,Middlesex County
-21,Nantucket County
-21,Norfolk County
-21,Plymouth County
-21,Suffolk County
-21,Worcester County
-22,Alcona County
-22,Alger County
-22,Allegan County
-22,Alpena County
-22,Antrim County
-22,Arenac County
-22,Baraga County
-22,Barry County
-22,Bay County
-22,Benzie County
-22,Berrien County
-22,Branch County
-22,Calhoun County
-22,Cass County
-22,Charlevoix County
-22,Cheboygan County
-22,Chippewa County
-22,Clare County
-22,Clinton County
-22,Crawford County
-22,Delta County
-22,Dickinson County
-22,Eaton County
-22,Emmet County
-22,Genesee County
-22,Gladwin County
-22,Gogebic County
-22,Grand Traverse County
-22,Gratiot County
-22,Hillsdale County
-22,Houghton County
-22,Huron County
-22,Ingham County
-22,Ionia County
-22,Iosco County
-22,Iron County
-22,Isabella County
-22,Jackson County
-22,Kalamazoo County
-22,Kalkaska County
-22,Kent County
-22,Keweenaw County
-22,Lake County
-22,Lapeer County
-22,Leelanau County
-22,Lenawee County
-22,Livingston County
-22,Luce County
-22,Mackinac County
-22,Macomb County
-22,Manistee County
-22,Marquette County
-22,Mason County
-22,Mecosta County
-22,Menominee County
-22,Midland County
-22,Missaukee County
-22,Monroe County
-22,Montcalm County
-22,Montmorency County
-22,Muskegon County
-22,Newaygo County
-22,Oakland County
-22,Oceana County
-22,Ogemaw County
-22,Ontonagon County
-22,Osceola County
-22,Oscoda County
-22,Otsego County
-22,Ottawa County
-22,Presque Isle County
-22,Roscommon County
-22,Saginaw County
-22,St. Clair County
-22,St. Joseph County
-22,Sanilac County
-22,Schoolcraft County
-22,Shiawassee County
-22,Tuscola County
-22,Van Buren County
-22,Washtenaw County
-22,Wayne County
-22,Wexford County
-23,Aitkin County
-23,Anoka County
-23,Becker County
-23,Beltrami County
-23,Benton County
-23,Big Stone County
-23,Blue Earth County
-23,Brown County
-23,Carlton County
-23,Carver County
-23,Cass County
-23,Chippewa County
-23,Chisago County
-23,Clay County
-23,Clearwater County
-23,Cook County
-23,Cottonwood County
-23,Crow Wing County
-23,Dakota County
-23,Dodge County
-23,Douglas County
-23,Faribault County
-23,Fillmore County
-23,Freeborn County
-23,Goodhue County
-23,Grant County
-23,Hennepin County
-23,Houston County
-23,Hubbard County
-23,Isanti County
-23,Itasca County
-23,Jackson County
-23,Kanabec County
-23,Kandiyohi County
-23,Kittson County
-23,Koochiching County
-23,Lac qui Parle County
-23,Lake County
-23,Lake of the Woods County
-23,Le Sueur County
-23,Lincoln County
-23,Lyon County
-23,McLeod County
-23,Mahnomen County
-23,Marshall County
-23,Martin County
-23,Meeker County
-23,Mille Lacs County
-23,Morrison County
-23,Mower County
-23,Murray County
-23,Nicollet County
-23,Nobles County
-23,Norman County
-23,Olmsted County
-23,Otter Tail County
-23,Pennington County
-23,Pine County
-23,Pipestone County
-23,Polk County
-23,Pope County
-23,Ramsey County
-23,Red Lake County
-23,Redwood County
-23,Renville County
-23,Rice County
-23,Rock County
-23,Roseau County
-23,St. Louis County
-23,Scott County
-23,Sherburne County
-23,Sibley County
-23,Stearns County
-23,Steele County
-23,Stevens County
-23,Swift County
-23,Todd County
-23,Traverse County
-23,Wabasha County
-23,Wadena County
-23,Waseca County
-23,Washington County
-23,Watonwan County
-23,Wilkin County
-23,Winona County
-23,Wright County
-23,Yellow Medicine County
-24,Adams County
-24,Alcorn County
-24,Amite County
-24,Attala County
-24,Benton County
-24,Bolivar County
-24,Calhoun County
-24,Carroll County
-24,Chickasaw County
-24,Choctaw County
-24,Claiborne County
-24,Clarke County
-24,Clay County
-24,Coahoma County
-24,Copiah County
-24,Covington County
-24,DeSoto County
-24,Forrest County
-24,Franklin County
-24,George County
-24,Greene County
-24,Grenada County
-24,Hancock County
-24,Harrison County
-24,Hinds County
-24,Holmes County
-24,Humphreys County
-24,Issaquena County
-24,Itawamba County
-24,Jackson County
-24,Jasper County
-24,Jefferson County
-24,Jefferson Davis County
-24,Jones County
-24,Kemper County
-24,Lafayette County
-24,Lamar County
-24,Lauderdale County
-24,Lawrence County
-24,Leake County
-24,Lee County
-24,Leflore County
-24,Lincoln County
-24,Lowndes County
-24,Madison County
-24,Marion County
-24,Marshall County
-24,Monroe County
-24,Montgomery County
-24,Neshoba County
-24,Newton County
-24,Noxubee County
-24,Oktibbeha County
-24,Panola County
-24,Pearl River County
-24,Perry County
-24,Pike County
-24,Pontotoc County
-24,Prentiss County
-24,Quitman County
-24,Rankin County
-24,Scott County
-24,Sharkey County
-24,Simpson County
-24,Smith County
-24,Stone County
-24,Sunflower County
-24,Tallahatchie County
-24,Tate County
-24,Tippah County
-24,Tishomingo County
-24,Tunica County
-24,Union County
-24,Walthall County
-24,Warren County
-24,Washington County
-24,Wayne County
-24,Webster County
-24,Wilkinson County
-24,Winston County
-24,Yalobusha County
-24,Yazoo County
-25,Adair County
-25,Andrew County
-25,Atchison County
-25,Audrain County
-25,Barry County
-25,Barton County
-25,Bates County
-25,Benton County
-25,Bollinger County
-25,Boone County
-25,Buchanan County
-25,Butler County
-25,Caldwell County
-25,Callaway County
-25,Camden County
-25,Cape Girardeau County
-25,Carroll County
-25,Carter County
-25,Cass County
-25,Cedar County
-25,Chariton County
-25,Christian County
-25,Clark County
-25,Clay County
-25,Clinton County
-25,Cole County
-25,Cooper County
-25,Crawford County
-25,Dade County
-25,Dallas County
-25,Daviess County
-25,DeKalb County
-25,Dent County
-25,Douglas County
-25,Dunklin County
-25,Franklin County
-25,Gasconade County
-25,Gentry County
-25,Greene County
-25,Grundy County
-25,Harrison County
-25,Henry County
-25,Hickory County
-25,Holt County
-25,Howard County
-25,Howell County
-25,Iron County
-25,Jackson County
-25,Jasper County
-25,Jefferson County
-25,Johnson County
-25,Knox County
-25,Laclede County
-25,Lafayette County
-25,Lawrence County
-25,Lewis County
-25,Lincoln County
-25,Linn County
-25,Livingston County
-25,McDonald County
-25,Macon County
-25,Madison County
-25,Maries County
-25,Marion County
-25,Mercer County
-25,Miller County
-25,Mississippi County
-25,Moniteau County
-25,Monroe County
-25,Montgomery County
-25,Morgan County
-25,New Madrid County
-25,Newton County
-25,Nodaway County
-25,Oregon County
-25,Osage County
-25,Ozark County
-25,Pemiscot County
-25,Perry County
-25,Pettis County
-25,Phelps County
-25,Pike County
-25,Platte County
-25,Polk County
-25,Pulaski County
-25,Putnam County
-25,Ralls County
-25,Randolph County
-25,Ray County
-25,Reynolds County
-25,Ripley County
-25,St. Charles County
-25,St. Clair County
-25,Ste. Genevieve County
-25,St. Francois County
-25,St. Louis County
-25,Saline County
-25,Schuyler County
-25,Scotland County
-25,Scott County
-25,Shannon County
-25,Shelby County
-25,Stoddard County
-25,Stone County
-25,Sullivan County
-25,Taney County
-25,Texas County
-25,Vernon County
-25,Warren County
-25,Washington County
-25,Wayne County
-25,Webster County
-25,Worth County
-25,Wright County
+21,Barnstable
+21,Berkshire
+21,Bristol
+21,Dukes
+21,Essex
+21,Franklin
+21,Hampden
+21,Hampshire
+21,Middlesex
+21,Nantucket
+21,Norfolk
+21,Plymouth
+21,Suffolk
+21,Worcester
+22,Alcona
+22,Alger
+22,Allegan
+22,Alpena
+22,Antrim
+22,Arenac
+22,Baraga
+22,Barry
+22,Bay
+22,Benzie
+22,Berrien
+22,Branch
+22,Calhoun
+22,Cass
+22,Charlevoix
+22,Cheboygan
+22,Chippewa
+22,Clare
+22,Clinton
+22,Crawford
+22,Delta
+22,Dickinson
+22,Eaton
+22,Emmet
+22,Genesee
+22,Gladwin
+22,Gogebic
+22,Grand Traverse
+22,Gratiot
+22,Hillsdale
+22,Houghton
+22,Huron
+22,Ingham
+22,Ionia
+22,Iosco
+22,Iron
+22,Isabella
+22,Jackson
+22,Kalamazoo
+22,Kalkaska
+22,Kent
+22,Keweenaw
+22,Lake
+22,Lapeer
+22,Leelanau
+22,Lenawee
+22,Livingston
+22,Luce
+22,Mackinac
+22,Macomb
+22,Manistee
+22,Marquette
+22,Mason
+22,Mecosta
+22,Menominee
+22,Midland
+22,Missaukee
+22,Monroe
+22,Montcalm
+22,Montmorency
+22,Muskegon
+22,Newaygo
+22,Oakland
+22,Oceana
+22,Ogemaw
+22,Ontonagon
+22,Osceola
+22,Oscoda
+22,Otsego
+22,Ottawa
+22,Presque Isle
+22,Roscommon
+22,Saginaw
+22,St. Clair
+22,St. Joseph
+22,Sanilac
+22,Schoolcraft
+22,Shiawassee
+22,Tuscola
+22,Van Buren
+22,Washtenaw
+22,Wayne
+22,Wexford
+23,Aitkin
+23,Anoka
+23,Becker
+23,Beltrami
+23,Benton
+23,Big Stone
+23,Blue Earth
+23,Brown
+23,Carlton
+23,Carver
+23,Cass
+23,Chippewa
+23,Chisago
+23,Clay
+23,Clearwater
+23,Cook
+23,Cottonwood
+23,Crow Wing
+23,Dakota
+23,Dodge
+23,Douglas
+23,Faribault
+23,Fillmore
+23,Freeborn
+23,Goodhue
+23,Grant
+23,Hennepin
+23,Houston
+23,Hubbard
+23,Isanti
+23,Itasca
+23,Jackson
+23,Kanabec
+23,Kandiyohi
+23,Kittson
+23,Koochiching
+23,Lac qui Parle
+23,Lake
+23,Lake of the Woods
+23,Le Sueur
+23,Lincoln
+23,Lyon
+23,McLeod
+23,Mahnomen
+23,Marshall
+23,Martin
+23,Meeker
+23,Mille Lacs
+23,Morrison
+23,Mower
+23,Murray
+23,Nicollet
+23,Nobles
+23,Norman
+23,Olmsted
+23,Otter Tail
+23,Pennington
+23,Pine
+23,Pipestone
+23,Polk
+23,Pope
+23,Ramsey
+23,Red Lake
+23,Redwood
+23,Renville
+23,Rice
+23,Rock
+23,Roseau
+23,St. Louis
+23,Scott
+23,Sherburne
+23,Sibley
+23,Stearns
+23,Steele
+23,Stevens
+23,Swift
+23,Todd
+23,Traverse
+23,Wabasha
+23,Wadena
+23,Waseca
+23,Washington
+23,Watonwan
+23,Wilkin
+23,Winona
+23,Wright
+23,Yellow Medicine
+24,Adams
+24,Alcorn
+24,Amite
+24,Attala
+24,Benton
+24,Bolivar
+24,Calhoun
+24,Carroll
+24,Chickasaw
+24,Choctaw
+24,Claiborne
+24,Clarke
+24,Clay
+24,Coahoma
+24,Copiah
+24,Covington
+24,DeSoto
+24,Forrest
+24,Franklin
+24,George
+24,Greene
+24,Grenada
+24,Hancock
+24,Harrison
+24,Hinds
+24,Holmes
+24,Humphreys
+24,Issaquena
+24,Itawamba
+24,Jackson
+24,Jasper
+24,Jefferson
+24,Jefferson Davis
+24,Jones
+24,Kemper
+24,Lafayette
+24,Lamar
+24,Lauderdale
+24,Lawrence
+24,Leake
+24,Lee
+24,Leflore
+24,Lincoln
+24,Lowndes
+24,Madison
+24,Marion
+24,Marshall
+24,Monroe
+24,Montgomery
+24,Neshoba
+24,Newton
+24,Noxubee
+24,Oktibbeha
+24,Panola
+24,Pearl River
+24,Perry
+24,Pike
+24,Pontotoc
+24,Prentiss
+24,Quitman
+24,Rankin
+24,Scott
+24,Sharkey
+24,Simpson
+24,Smith
+24,Stone
+24,Sunflower
+24,Tallahatchie
+24,Tate
+24,Tippah
+24,Tishomingo
+24,Tunica
+24,Union
+24,Walthall
+24,Warren
+24,Washington
+24,Wayne
+24,Webster
+24,Wilkinson
+24,Winston
+24,Yalobusha
+24,Yazoo
+25,Adair
+25,Andrew
+25,Atchison
+25,Audrain
+25,Barry
+25,Barton
+25,Bates
+25,Benton
+25,Bollinger
+25,Boone
+25,Buchanan
+25,Butler
+25,Caldwell
+25,Callaway
+25,Camden
+25,Cape Girardeau
+25,Carroll
+25,Carter
+25,Cass
+25,Cedar
+25,Chariton
+25,Christian
+25,Clark
+25,Clay
+25,Clinton
+25,Cole
+25,Cooper
+25,Crawford
+25,Dade
+25,Dallas
+25,Daviess
+25,DeKalb
+25,Dent
+25,Douglas
+25,Dunklin
+25,Franklin
+25,Gasconade
+25,Gentry
+25,Greene
+25,Grundy
+25,Harrison
+25,Henry
+25,Hickory
+25,Holt
+25,Howard
+25,Howell
+25,Iron
+25,Jackson
+25,Jasper
+25,Jefferson
+25,Johnson
+25,Knox
+25,Laclede
+25,Lafayette
+25,Lawrence
+25,Lewis
+25,Lincoln
+25,Linn
+25,Livingston
+25,McDonald
+25,Macon
+25,Madison
+25,Maries
+25,Marion
+25,Mercer
+25,Miller
+25,Mississippi
+25,Moniteau
+25,Monroe
+25,Montgomery
+25,Morgan
+25,New Madrid
+25,Newton
+25,Nodaway
+25,Oregon
+25,Osage
+25,Ozark
+25,Pemiscot
+25,Perry
+25,Pettis
+25,Phelps
+25,Pike
+25,Platte
+25,Polk
+25,Pulaski
+25,Putnam
+25,Ralls
+25,Randolph
+25,Ray
+25,Reynolds
+25,Ripley
+25,St. Charles
+25,St. Clair
+25,Ste. Genevieve
+25,St. Francois
+25,St. Louis
+25,Saline
+25,Schuyler
+25,Scotland
+25,Scott
+25,Shannon
+25,Shelby
+25,Stoddard
+25,Stone
+25,Sullivan
+25,Taney
+25,Texas
+25,Vernon
+25,Warren
+25,Washington
+25,Wayne
+25,Webster
+25,Worth
+25,Wright
 25,St. Louis city
-26,Beaverhead County
-26,Big Horn County
-26,Blaine County
-26,Broadwater County
-26,Carbon County
-26,Carter County
-26,Cascade County
-26,Chouteau County
-26,Custer County
-26,Daniels County
-26,Dawson County
-26,Deer Lodge County
-26,Fallon County
-26,Fergus County
-26,Flathead County
-26,Gallatin County
-26,Garfield County
-26,Glacier County
-26,Golden Valley County
-26,Granite County
-26,Hill County
-26,Jefferson County
-26,Judith Basin County
-26,Lake County
-26,Lewis and Clark County
-26,Liberty County
-26,Lincoln County
-26,McCone County
-26,Madison County
-26,Meagher County
-26,Mineral County
-26,Missoula County
-26,Musselshell County
-26,Park County
-26,Petroleum County
-26,Phillips County
-26,Pondera County
-26,Powder River County
-26,Powell County
-26,Prairie County
-26,Ravalli County
-26,Richland County
-26,Roosevelt County
-26,Rosebud County
-26,Sanders County
-26,Sheridan County
-26,Silver Bow County
-26,Stillwater County
-26,Sweet Grass County
-26,Teton County
-26,Toole County
-26,Treasure County
-26,Valley County
-26,Wheatland County
-26,Wibaux County
-26,Yellowstone County
-27,Adams County
-27,Antelope County
-27,Arthur County
-27,Banner County
-27,Blaine County
-27,Boone County
-27,Box Butte County
-27,Boyd County
-27,Brown County
-27,Buffalo County
-27,Burt County
-27,Butler County
-27,Cass County
-27,Cedar County
-27,Chase County
-27,Cherry County
-27,Cheyenne County
-27,Clay County
-27,Colfax County
-27,Cuming County
-27,Custer County
-27,Dakota County
-27,Dawes County
-27,Dawson County
-27,Deuel County
-27,Dixon County
-27,Dodge County
-27,Douglas County
-27,Dundy County
-27,Fillmore County
-27,Franklin County
-27,Frontier County
-27,Furnas County
-27,Gage County
-27,Garden County
-27,Garfield County
-27,Gosper County
-27,Grant County
-27,Greeley County
-27,Hall County
-27,Hamilton County
-27,Harlan County
-27,Hayes County
-27,Hitchcock County
-27,Holt County
-27,Hooker County
-27,Howard County
-27,Jefferson County
-27,Johnson County
-27,Kearney County
-27,Keith County
-27,Keya Paha County
-27,Kimball County
-27,Knox County
-27,Lancaster County
-27,Lincoln County
-27,Logan County
-27,Loup County
-27,McPherson County
-27,Madison County
-27,Merrick County
-27,Morrill County
-27,Nance County
-27,Nemaha County
-27,Nuckolls County
-27,Otoe County
-27,Pawnee County
-27,Perkins County
-27,Phelps County
-27,Pierce County
-27,Platte County
-27,Polk County
-27,Red Willow County
-27,Richardson County
-27,Rock County
-27,Saline County
-27,Sarpy County
-27,Saunders County
-27,Scotts Bluff County
-27,Seward County
-27,Sheridan County
-27,Sherman County
-27,Sioux County
-27,Stanton County
-27,Thayer County
-27,Thomas County
-27,Thurston County
-27,Valley County
-27,Washington County
-27,Wayne County
-27,Webster County
-27,Wheeler County
-27,York County
-28,Churchill County
-28,Clark County
-28,Douglas County
-28,Elko County
-28,Esmeralda County
-28,Eureka County
-28,Humboldt County
-28,Lander County
-28,Lincoln County
-28,Lyon County
-28,Mineral County
-28,Nye County
-28,Pershing County
-28,Storey County
-28,Washoe County
-28,White Pine County
-28,Carson City County
-29,Belknap County
-29,Carroll County
-29,Cheshire County
-29,Coos County
-29,Grafton County
-29,Hillsborough County
-29,Merrimack County
-29,Rockingham County
-29,Strafford County
-29,Sullivan County
-30,Atlantic County
-30,Bergen County
-30,Burlington County
-30,Camden County
-30,Cape May County
-30,Cumberland County
-30,Essex County
-30,Gloucester County
-30,Hudson County
-30,Hunterdon County
-30,Mercer County
-30,Middlesex County
-30,Monmouth County
-30,Morris County
-30,Ocean County
-30,Passaic County
-30,Salem County
-30,Somerset County
-30,Sussex County
-30,Union County
-30,Warren County
-31,Bernalillo County
-31,Catron County
-31,Chaves County
-31,Cibola County
-31,Colfax County
-31,Curry County
-31,De Baca County
-31,Dona Ana County
-31,Eddy County
-31,Grant County
-31,Guadalupe County
-31,Harding County
-31,Hidalgo County
-31,Lea County
-31,Lincoln County
-31,Los Alamos County
-31,Luna County
-31,McKinley County
-31,Mora County
-31,Otero County
-31,Quay County
-31,Rio Arriba County
-31,Roosevelt County
-31,Sandoval County
-31,San Juan County
-31,San Miguel County
-31,Santa Fe County
-31,Sierra County
-31,Socorro County
-31,Taos County
-31,Torrance County
-31,Union County
-31,Valencia County
-32,Albany County
-32,Allegany County
-32,Bronx County
-32,Broome County
-32,Cattaraugus County
-32,Cayuga County
-32,Chautauqua County
-32,Chemung County
-32,Chenango County
-32,Clinton County
-32,Columbia County
-32,Cortland County
-32,Delaware County
-32,Dutchess County
-32,Erie County
-32,Essex County
-32,Franklin County
-32,Fulton County
-32,Genesee County
-32,Greene County
-32,Hamilton County
-32,Herkimer County
-32,Jefferson County
-32,Kings County
-32,Lewis County
-32,Livingston County
-32,Madison County
-32,Monroe County
-32,Montgomery County
-32,Nassau County
-32,New York County
-32,Niagara County
-32,Oneida County
-32,Onondaga County
-32,Ontario County
-32,Orange County
-32,Orleans County
-32,Oswego County
-32,Otsego County
-32,Putnam County
-32,Queens County
-32,Rensselaer County
-32,Richmond County
-32,Rockland County
-32,St. Lawrence County
-32,Saratoga County
-32,Schenectady County
-32,Schoharie County
-32,Schuyler County
-32,Seneca County
-32,Steuben County
-32,Suffolk County
-32,Sullivan County
-32,Tioga County
-32,Tompkins County
-32,Ulster County
-32,Warren County
-32,Washington County
-32,Wayne County
-32,Westchester County
-32,Wyoming County
-32,Yates County
-33,Alamance County
-33,Alexander County
-33,Alleghany County
-33,Anson County
-33,Ashe County
-33,Avery County
-33,Beaufort County
-33,Bertie County
-33,Bladen County
-33,Brunswick County
-33,Buncombe County
-33,Burke County
-33,Cabarrus County
-33,Caldwell County
-33,Camden County
-33,Carteret County
-33,Caswell County
-33,Catawba County
-33,Chatham County
-33,Cherokee County
-33,Chowan County
-33,Clay County
-33,Cleveland County
-33,Columbus County
-33,Craven County
-33,Cumberland County
-33,Currituck County
-33,Dare County
-33,Davidson County
-33,Davie County
-33,Duplin County
-33,Durham County
-33,Edgecombe County
-33,Forsyth County
-33,Franklin County
-33,Gaston County
-33,Gates County
-33,Graham County
-33,Granville County
-33,Greene County
-33,Guilford County
-33,Halifax County
-33,Harnett County
-33,Haywood County
-33,Henderson County
-33,Hertford County
-33,Hoke County
-33,Hyde County
-33,Iredell County
-33,Jackson County
-33,Johnston County
-33,Jones County
-33,Lee County
-33,Lenoir County
-33,Lincoln County
-33,McDowell County
-33,Macon County
-33,Madison County
-33,Martin County
-33,Mecklenburg County
-33,Mitchell County
-33,Montgomery County
-33,Moore County
-33,Nash County
-33,New Hanover County
-33,Northampton County
-33,Onslow County
-33,Orange County
-33,Pamlico County
-33,Pasquotank County
-33,Pender County
-33,Perquimans County
-33,Person County
-33,Pitt County
-33,Polk County
-33,Randolph County
-33,Richmond County
-33,Robeson County
-33,Rockingham County
-33,Rowan County
-33,Rutherford County
-33,Sampson County
-33,Scotland County
-33,Stanly County
-33,Stokes County
-33,Surry County
-33,Swain County
-33,Transylvania County
-33,Tyrrell County
-33,Union County
-33,Vance County
-33,Wake County
-33,Warren County
-33,Washington County
-33,Watauga County
-33,Wayne County
-33,Wilkes County
-33,Wilson County
-33,Yadkin County
-33,Yancey County
-34,Adams County
-34,Barnes County
-34,Benson County
-34,Billings County
-34,Bottineau County
-34,Bowman County
-34,Burke County
-34,Burleigh County
-34,Cass County
-34,Cavalier County
-34,Dickey County
-34,Divide County
-34,Dunn County
-34,Eddy County
-34,Emmons County
-34,Foster County
-34,Golden Valley County
-34,Grand Forks County
-34,Grant County
-34,Griggs County
-34,Hettinger County
-34,Kidder County
-34,LaMoure County
-34,Logan County
-34,McHenry County
-34,McIntosh County
-34,McKenzie County
-34,McLean County
-34,Mercer County
-34,Morton County
-34,Mountrail County
-34,Nelson County
-34,Oliver County
-34,Pembina County
-34,Pierce County
-34,Ramsey County
-34,Ransom County
-34,Renville County
-34,Richland County
-34,Rolette County
-34,Sargent County
-34,Sheridan County
-34,Sioux County
-34,Slope County
-34,Stark County
-34,Steele County
-34,Stutsman County
-34,Towner County
-34,Traill County
-34,Walsh County
-34,Ward County
-34,Wells County
-34,Williams County
-35,Adams County
-35,Allen County
-35,Ashland County
-35,Ashtabula County
-35,Athens County
-35,Auglaize County
-35,Belmont County
-35,Brown County
-35,Butler County
-35,Carroll County
-35,Champaign County
-35,Clark County
-35,Clermont County
-35,Clinton County
-35,Columbiana County
-35,Coshocton County
-35,Crawford County
-35,Cuyahoga County
-35,Darke County
-35,Defiance County
-35,Delaware County
-35,Erie County
-35,Fairfield County
-35,Fayette County
-35,Franklin County
-35,Fulton County
-35,Gallia County
-35,Geauga County
-35,Greene County
-35,Guernsey County
-35,Hamilton County
-35,Hancock County
-35,Hardin County
-35,Harrison County
-35,Henry County
-35,Highland County
-35,Hocking County
-35,Holmes County
-35,Huron County
-35,Jackson County
-35,Jefferson County
-35,Knox County
-35,Lake County
-35,Lawrence County
-35,Licking County
-35,Logan County
-35,Lorain County
-35,Lucas County
-35,Madison County
-35,Mahoning County
-35,Marion County
-35,Medina County
-35,Meigs County
-35,Mercer County
-35,Miami County
-35,Monroe County
-35,Montgomery County
-35,Morgan County
-35,Morrow County
-35,Muskingum County
-35,Noble County
-35,Ottawa County
-35,Paulding County
-35,Perry County
-35,Pickaway County
-35,Pike County
-35,Portage County
-35,Preble County
-35,Putnam County
-35,Richland County
-35,Ross County
-35,Sandusky County
-35,Scioto County
-35,Seneca County
-35,Shelby County
-35,Stark County
-35,Summit County
-35,Trumbull County
-35,Tuscarawas County
-35,Union County
-35,Van Wert County
-35,Vinton County
-35,Warren County
-35,Washington County
-35,Wayne County
-35,Williams County
-35,Wood County
-35,Wyandot County
-36,Adair County
-36,Alfalfa County
-36,Atoka County
-36,Beaver County
-36,Beckham County
-36,Blaine County
-36,Bryan County
-36,Caddo County
-36,Canadian County
-36,Carter County
-36,Cherokee County
-36,Choctaw County
-36,Cimarron County
-36,Cleveland County
-36,Coal County
-36,Comanche County
-36,Cotton County
-36,Craig County
-36,Creek County
-36,Custer County
-36,Delaware County
-36,Dewey County
-36,Ellis County
-36,Garfield County
-36,Garvin County
-36,Grady County
-36,Grant County
-36,Greer County
-36,Harmon County
-36,Harper County
-36,Haskell County
-36,Hughes County
-36,Jackson County
-36,Jefferson County
-36,Johnston County
-36,Kay County
-36,Kingfisher County
-36,Kiowa County
-36,Latimer County
-36,Le Flore County
-36,Lincoln County
-36,Logan County
-36,Love County
-36,McClain County
-36,McCurtain County
-36,McIntosh County
-36,Major County
-36,Marshall County
-36,Mayes County
-36,Murray County
-36,Muskogee County
-36,Noble County
-36,Nowata County
-36,Okfuskee County
-36,Oklahoma County
-36,Okmulgee County
-36,Osage County
-36,Ottawa County
-36,Pawnee County
-36,Payne County
-36,Pittsburg County
-36,Pontotoc County
-36,Pottawatomie County
-36,Pushmataha County
-36,Roger Mills County
-36,Rogers County
-36,Seminole County
-36,Sequoyah County
-36,Stephens County
-36,Texas County
-36,Tillman County
-36,Tulsa County
-36,Wagoner County
-36,Washington County
-36,Washita County
-36,Woods County
-36,Woodward County
-37,Baker County
-37,Benton County
-37,Clackamas County
-37,Clatsop County
-37,Columbia County
-37,Coos County
-37,Crook County
-37,Curry County
-37,Deschutes County
-37,Douglas County
-37,Gilliam County
-37,Grant County
-37,Harney County
-37,Hood River County
-37,Jackson County
-37,Jefferson County
-37,Josephine County
-37,Klamath County
-37,Lake County
-37,Lane County
-37,Lincoln County
-37,Linn County
-37,Malheur County
-37,Marion County
-37,Morrow County
-37,Multnomah County
-37,Polk County
-37,Sherman County
-37,Tillamook County
-37,Umatilla County
-37,Union County
-37,Wallowa County
-37,Wasco County
-37,Washington County
-37,Wheeler County
-37,Yamhill County
-38,Adams County
-38,Allegheny County
-38,Armstrong County
-38,Beaver County
-38,Bedford County
-38,Berks County
-38,Blair County
-38,Bradford County
-38,Bucks County
-38,Butler County
-38,Cambria County
-38,Cameron County
-38,Carbon County
-38,Centre County
-38,Chester County
-38,Clarion County
-38,Clearfield County
-38,Clinton County
-38,Columbia County
-38,Crawford County
-38,Cumberland County
-38,Dauphin County
-38,Delaware County
-38,Elk County
-38,Erie County
-38,Fayette County
-38,Forest County
-38,Franklin County
-38,Fulton County
-38,Greene County
-38,Huntingdon County
-38,Indiana County
-38,Jefferson County
-38,Juniata County
-38,Lackawanna County
-38,Lancaster County
-38,Lawrence County
-38,Lebanon County
-38,Lehigh County
-38,Luzerne County
-38,Lycoming County
-38,McKean County
-38,Mercer County
-38,Mifflin County
-38,Monroe County
-38,Montgomery County
-38,Montour County
-38,Northampton County
-38,Northumberland County
-38,Perry County
-38,Philadelphia County
-38,Pike County
-38,Potter County
-38,Schuylkill County
-38,Snyder County
-38,Somerset County
-38,Sullivan County
-38,Susquehanna County
-38,Tioga County
-38,Union County
-38,Venango County
-38,Warren County
-38,Washington County
-38,Wayne County
-38,Westmoreland County
-38,Wyoming County
-38,York County
-39,Bristol County
-39,Kent County
-39,Newport County
-39,Providence County
-39,Washington County
-40,Abbeville County
-40,Aiken County
-40,Allendale County
-40,Anderson County
-40,Bamberg County
-40,Barnwell County
-40,Beaufort County
-40,Berkeley County
-40,Calhoun County
-40,Charleston County
-40,Cherokee County
-40,Chester County
-40,Chesterfield County
-40,Clarendon County
-40,Colleton County
-40,Darlington County
-40,Dillon County
-40,Dorchester County
-40,Edgefield County
-40,Fairfield County
-40,Florence County
-40,Georgetown County
-40,Greenville County
-40,Greenwood County
-40,Hampton County
-40,Horry County
-40,Jasper County
-40,Kershaw County
-40,Lancaster County
-40,Laurens County
-40,Lee County
-40,Lexington County
-40,McCormick County
-40,Marion County
-40,Marlboro County
-40,Newberry County
-40,Oconee County
-40,Orangeburg County
-40,Pickens County
-40,Richland County
-40,Saluda County
-40,Spartanburg County
-40,Sumter County
-40,Union County
-40,Williamsburg County
-40,York County
-41,Aurora County
-41,Beadle County
-41,Bennett County
-41,Bon Homme County
-41,Brookings County
-41,Brown County
-41,Brule County
-41,Buffalo County
-41,Butte County
-41,Campbell County
-41,Charles Mix County
-41,Clark County
-41,Clay County
-41,Codington County
-41,Corson County
-41,Custer County
-41,Davison County
-41,Day County
-41,Deuel County
-41,Dewey County
-41,Douglas County
-41,Edmunds County
-41,Fall River County
-41,Faulk County
-41,Grant County
-41,Gregory County
-41,Haakon County
-41,Hamlin County
-41,Hand County
-41,Hanson County
-41,Harding County
-41,Hughes County
-41,Hutchinson County
-41,Hyde County
-41,Jackson County
-41,Jerauld County
-41,Jones County
-41,Kingsbury County
-41,Lake County
-41,Lawrence County
-41,Lincoln County
-41,Lyman County
-41,McCook County
-41,McPherson County
-41,Marshall County
-41,Meade County
-41,Mellette County
-41,Miner County
-41,Minnehaha County
-41,Moody County
-41,Pennington County
-41,Perkins County
-41,Potter County
-41,Roberts County
-41,Sanborn County
-41,Shannon County
-41,Spink County
-41,Stanley County
-41,Sully County
-41,Todd County
-41,Tripp County
-41,Turner County
-41,Union County
-41,Walworth County
-41,Yankton County
-41,Ziebach County
-42,Anderson County
-42,Bedford County
-42,Benton County
-42,Bledsoe County
-42,Blount County
-42,Bradley County
-42,Campbell County
-42,Cannon County
-42,Carroll County
-42,Carter County
-42,Cheatham County
-42,Chester County
-42,Claiborne County
-42,Clay County
-42,Cocke County
-42,Coffee County
-42,Crockett County
-42,Cumberland County
-42,Davidson County
-42,Decatur County
-42,DeKalb County
-42,Dickson County
-42,Dyer County
-42,Fayette County
-42,Fentress County
-42,Franklin County
-42,Gibson County
-42,Giles County
-42,Grainger County
-42,Greene County
-42,Grundy County
-42,Hamblen County
-42,Hamilton County
-42,Hancock County
-42,Hardeman County
-42,Hardin County
-42,Hawkins County
-42,Haywood County
-42,Henderson County
-42,Henry County
-42,Hickman County
-42,Houston County
-42,Humphreys County
-42,Jackson County
-42,Jefferson County
-42,Johnson County
-42,Knox County
-42,Lake County
-42,Lauderdale County
-42,Lawrence County
-42,Lewis County
-42,Lincoln County
-42,Loudon County
-42,McMinn County
-42,McNairy County
-42,Macon County
-42,Madison County
-42,Marion County
-42,Marshall County
-42,Maury County
-42,Meigs County
-42,Monroe County
-42,Montgomery County
-42,Moore County
-42,Morgan County
-42,Obion County
-42,Overton County
-42,Perry County
-42,Pickett County
-42,Polk County
-42,Putnam County
-42,Rhea County
-42,Roane County
-42,Robertson County
-42,Rutherford County
-42,Scott County
-42,Sequatchie County
-42,Sevier County
-42,Shelby County
-42,Smith County
-42,Stewart County
-42,Sullivan County
-42,Sumner County
-42,Tipton County
-42,Trousdale County
-42,Unicoi County
-42,Union County
-42,Van Buren County
-42,Warren County
-42,Washington County
-42,Wayne County
-42,Weakley County
-42,White County
-42,Williamson County
-42,Wilson County
-43,Anderson County
-43,Andrews County
-43,Angelina County
-43,Aransas County
-43,Archer County
-43,Armstrong County
-43,Atascosa County
-43,Austin County
-43,Bailey County
-43,Bandera County
-43,Bastrop County
-43,Baylor County
-43,Bee County
-43,Bell County
-43,Bexar County
-43,Blanco County
-43,Borden County
-43,Bosque County
-43,Bowie County
-43,Brazoria County
-43,Brazos County
-43,Brewster County
-43,Briscoe County
-43,Brooks County
-43,Brown County
-43,Burleson County
-43,Burnet County
-43,Caldwell County
-43,Calhoun County
-43,Callahan County
-43,Cameron County
-43,Camp County
-43,Carson County
-43,Cass County
-43,Castro County
-43,Chambers County
-43,Cherokee County
-43,Childress County
-43,Clay County
-43,Cochran County
-43,Coke County
-43,Coleman County
-43,Collin County
-43,Collingsworth County
-43,Colorado County
-43,Comal County
-43,Comanche County
-43,Concho County
-43,Cooke County
-43,Coryell County
-43,Cottle County
-43,Crane County
-43,Crockett County
-43,Crosby County
-43,Culberson County
-43,Dallam County
-43,Dallas County
-43,Dawson County
-43,Deaf Smith County
-43,Delta County
-43,Denton County
-43,DeWitt County
-43,Dickens County
-43,Dimmit County
-43,Donley County
-43,Duval County
-43,Eastland County
-43,Ector County
-43,Edwards County
-43,Ellis County
-43,El Paso County
-43,Erath County
-43,Falls County
-43,Fannin County
-43,Fayette County
-43,Fisher County
-43,Floyd County
-43,Foard County
-43,Fort Bend County
-43,Franklin County
-43,Freestone County
-43,Frio County
-43,Gaines County
-43,Galveston County
-43,Garza County
-43,Gillespie County
-43,Glasscock County
-43,Goliad County
-43,Gonzales County
-43,Gray County
-43,Grayson County
-43,Gregg County
-43,Grimes County
-43,Guadalupe County
-43,Hale County
-43,Hall County
-43,Hamilton County
-43,Hansford County
-43,Hardeman County
-43,Hardin County
-43,Harris County
-43,Harrison County
-43,Hartley County
-43,Haskell County
-43,Hays County
-43,Hemphill County
-43,Henderson County
-43,Hidalgo County
-43,Hill County
-43,Hockley County
-43,Hood County
-43,Hopkins County
-43,Houston County
-43,Howard County
-43,Hudspeth County
-43,Hunt County
-43,Hutchinson County
-43,Irion County
-43,Jack County
-43,Jackson County
-43,Jasper County
-43,Jeff Davis County
-43,Jefferson County
-43,Jim Hogg County
-43,Jim Wells County
-43,Johnson County
-43,Jones County
-43,Karnes County
-43,Kaufman County
-43,Kendall County
-43,Kenedy County
-43,Kent County
-43,Kerr County
-43,Kimble County
-43,King County
-43,Kinney County
-43,Kleberg County
-43,Knox County
-43,Lamar County
-43,Lamb County
-43,Lampasas County
-43,La Salle County
-43,Lavaca County
-43,Lee County
-43,Leon County
-43,Liberty County
-43,Limestone County
-43,Lipscomb County
-43,Live Oak County
-43,Llano County
-43,Loving County
-43,Lubbock County
-43,Lynn County
-43,McCulloch County
-43,McLennan County
-43,McMullen County
-43,Madison County
-43,Marion County
-43,Martin County
-43,Mason County
-43,Matagorda County
-43,Maverick County
-43,Medina County
-43,Menard County
-43,Midland County
-43,Milam County
-43,Mills County
-43,Mitchell County
-43,Montague County
-43,Montgomery County
-43,Moore County
-43,Morris County
-43,Motley County
-43,Nacogdoches County
-43,Navarro County
-43,Newton County
-43,Nolan County
-43,Nueces County
-43,Ochiltree County
-43,Oldham County
-43,Orange County
-43,Palo Pinto County
-43,Panola County
-43,Parker County
-43,Parmer County
-43,Pecos County
-43,Polk County
-43,Potter County
-43,Presidio County
-43,Rains County
-43,Randall County
-43,Reagan County
-43,Real County
-43,Red River County
-43,Reeves County
-43,Refugio County
-43,Roberts County
-43,Robertson County
-43,Rockwall County
-43,Runnels County
-43,Rusk County
-43,Sabine County
-43,San Augustine County
-43,San Jacinto County
-43,San Patricio County
-43,San Saba County
-43,Schleicher County
-43,Scurry County
-43,Shackelford County
-43,Shelby County
-43,Sherman County
-43,Smith County
-43,Somervell County
-43,Starr County
-43,Stephens County
-43,Sterling County
-43,Stonewall County
-43,Sutton County
-43,Swisher County
-43,Tarrant County
-43,Taylor County
-43,Terrell County
-43,Terry County
-43,Throckmorton County
-43,Titus County
-43,Tom Green County
-43,Travis County
-43,Trinity County
-43,Tyler County
-43,Upshur County
-43,Upton County
-43,Uvalde County
-43,Val Verde County
-43,Van Zandt County
-43,Victoria County
-43,Walker County
-43,Waller County
-43,Ward County
-43,Washington County
-43,Webb County
-43,Wharton County
-43,Wheeler County
-43,Wichita County
-43,Wilbarger County
-43,Willacy County
-43,Williamson County
-43,Wilson County
-43,Winkler County
-43,Wise County
-43,Wood County
-43,Yoakum County
-43,Young County
-43,Zapata County
-43,Zavala County
-44,Beaver County
-44,Box Elder County
-44,Cache County
-44,Carbon County
-44,Daggett County
-44,Davis County
-44,Duchesne County
-44,Emery County
-44,Garfield County
-44,Grand County
-44,Iron County
-44,Juab County
-44,Kane County
-44,Millard County
-44,Morgan County
-44,Piute County
-44,Rich County
-44,Salt Lake County
-44,San Juan County
-44,Sanpete County
-44,Sevier County
-44,Summit County
-44,Tooele County
-44,Uintah County
-44,Utah County
-44,Wasatch County
-44,Washington County
-44,Wayne County
-44,Weber County
-45,Addison County
-45,Bennington County
-45,Caledonia County
-45,Chittenden County
-45,Essex County
-45,Franklin County
-45,Grand Isle County
-45,Lamoille County
-45,Orange County
-45,Orleans County
-45,Rutland County
-45,Washington County
-45,Windham County
-45,Windsor County
-46,Accomack County
-46,Albemarle County
-46,Alleghany County
-46,Amelia County
-46,Amherst County
-46,Appomattox County
-46,Arlington County
-46,Augusta County
-46,Bath County
-46,Bedford County
-46,Bland County
-46,Botetourt County
-46,Brunswick County
-46,Buchanan County
-46,Buckingham County
-46,Campbell County
-46,Caroline County
-46,Carroll County
-46,Charles City County
-46,Charlotte County
-46,Chesterfield County
-46,Clarke County
-46,Craig County
-46,Culpeper County
-46,Cumberland County
-46,Dickenson County
-46,Dinwiddie County
-46,Essex County
-46,Fairfax County
-46,Fauquier County
-46,Floyd County
-46,Fluvanna County
-46,Franklin County
-46,Frederick County
-46,Giles County
-46,Gloucester County
-46,Goochland County
-46,Grayson County
-46,Greene County
-46,Greensville County
-46,Halifax County
-46,Hanover County
-46,Henrico County
-46,Henry County
-46,Highland County
-46,Isle of Wight County
-46,James City County
-46,King and Queen County
-46,King George County
-46,King William County
-46,Lancaster County
-46,Lee County
-46,Loudoun County
-46,Louisa County
-46,Lunenburg County
-46,Madison County
-46,Mathews County
-46,Mecklenburg County
-46,Middlesex County
-46,Montgomery County
-46,Nelson County
-46,New Kent County
-46,Northampton County
-46,Northumberland County
-46,Nottoway County
-46,Orange County
-46,Page County
-46,Patrick County
-46,Pittsylvania County
-46,Powhatan County
-46,Prince Edward County
-46,Prince George County
-46,Prince William County
-46,Pulaski County
-46,Rappahannock County
-46,Richmond County
-46,Roanoke County
-46,Rockbridge County
-46,Rockingham County
-46,Russell County
-46,Scott County
-46,Shenandoah County
-46,Smyth County
-46,Southampton County
-46,Spotsylvania County
-46,Stafford County
-46,Surry County
-46,Sussex County
-46,Tazewell County
-46,Warren County
-46,Washington County
-46,Westmoreland County
-46,Wise County
-46,Wythe County
-46,York County
+26,Beaverhead
+26,Big Horn
+26,Blaine
+26,Broadwater
+26,Carbon
+26,Carter
+26,Cascade
+26,Chouteau
+26,Custer
+26,Daniels
+26,Dawson
+26,Deer Lodge
+26,Fallon
+26,Fergus
+26,Flathead
+26,Gallatin
+26,Garfield
+26,Glacier
+26,Golden Valley
+26,Granite
+26,Hill
+26,Jefferson
+26,Judith Basin
+26,Lake
+26,Lewis and Clark
+26,Liberty
+26,Lincoln
+26,McCone
+26,Madison
+26,Meagher
+26,Mineral
+26,Missoula
+26,Musselshell
+26,Park
+26,Petroleum
+26,Phillips
+26,Pondera
+26,Powder River
+26,Powell
+26,Prairie
+26,Ravalli
+26,Richland
+26,Roosevelt
+26,Rosebud
+26,Sanders
+26,Sheridan
+26,Silver Bow
+26,Stillwater
+26,Sweet Grass
+26,Teton
+26,Toole
+26,Treasure
+26,Valley
+26,Wheatland
+26,Wibaux
+26,Yellowstone
+27,Adams
+27,Antelope
+27,Arthur
+27,Banner
+27,Blaine
+27,Boone
+27,Box Butte
+27,Boyd
+27,Brown
+27,Buffalo
+27,Burt
+27,Butler
+27,Cass
+27,Cedar
+27,Chase
+27,Cherry
+27,Cheyenne
+27,Clay
+27,Colfax
+27,Cuming
+27,Custer
+27,Dakota
+27,Dawes
+27,Dawson
+27,Deuel
+27,Dixon
+27,Dodge
+27,Douglas
+27,Dundy
+27,Fillmore
+27,Franklin
+27,Frontier
+27,Furnas
+27,Gage
+27,Garden
+27,Garfield
+27,Gosper
+27,Grant
+27,Greeley
+27,Hall
+27,Hamilton
+27,Harlan
+27,Hayes
+27,Hitchcock
+27,Holt
+27,Hooker
+27,Howard
+27,Jefferson
+27,Johnson
+27,Kearney
+27,Keith
+27,Keya Paha
+27,Kimball
+27,Knox
+27,Lancaster
+27,Lincoln
+27,Logan
+27,Loup
+27,McPherson
+27,Madison
+27,Merrick
+27,Morrill
+27,Nance
+27,Nemaha
+27,Nuckolls
+27,Otoe
+27,Pawnee
+27,Perkins
+27,Phelps
+27,Pierce
+27,Platte
+27,Polk
+27,Red Willow
+27,Richardson
+27,Rock
+27,Saline
+27,Sarpy
+27,Saunders
+27,Scotts Bluff
+27,Seward
+27,Sheridan
+27,Sherman
+27,Sioux
+27,Stanton
+27,Thayer
+27,Thomas
+27,Thurston
+27,Valley
+27,Washington
+27,Wayne
+27,Webster
+27,Wheeler
+27,York
+28,Churchill
+28,Clark
+28,Douglas
+28,Elko
+28,Esmeralda
+28,Eureka
+28,Humboldt
+28,Lander
+28,Lincoln
+28,Lyon
+28,Mineral
+28,Nye
+28,Pershing
+28,Storey
+28,Washoe
+28,White Pine
+28,Carson City
+29,Belknap
+29,Carroll
+29,Cheshire
+29,Coos
+29,Grafton
+29,Hillsborough
+29,Merrimack
+29,Rockingham
+29,Strafford
+29,Sullivan
+30,Atlantic
+30,Bergen
+30,Burlington
+30,Camden
+30,Cape May
+30,Cumberland
+30,Essex
+30,Gloucester
+30,Hudson
+30,Hunterdon
+30,Mercer
+30,Middlesex
+30,Monmouth
+30,Morris
+30,Ocean
+30,Passaic
+30,Salem
+30,Somerset
+30,Sussex
+30,Union
+30,Warren
+31,Bernalillo
+31,Catron
+31,Chaves
+31,Cibola
+31,Colfax
+31,Curry
+31,De Baca
+31,Dona Ana
+31,Eddy
+31,Grant
+31,Guadalupe
+31,Harding
+31,Hidalgo
+31,Lea
+31,Lincoln
+31,Los Alamos
+31,Luna
+31,McKinley
+31,Mora
+31,Otero
+31,Quay
+31,Rio Arriba
+31,Roosevelt
+31,Sandoval
+31,San Juan
+31,San Miguel
+31,Santa Fe
+31,Sierra
+31,Socorro
+31,Taos
+31,Torrance
+31,Union
+31,Valencia
+32,Albany
+32,Allegany
+32,Bronx
+32,Broome
+32,Cattaraugus
+32,Cayuga
+32,Chautauqua
+32,Chemung
+32,Chenango
+32,Clinton
+32,Columbia
+32,Cortland
+32,Delaware
+32,Dutchess
+32,Erie
+32,Essex
+32,Franklin
+32,Fulton
+32,Genesee
+32,Greene
+32,Hamilton
+32,Herkimer
+32,Jefferson
+32,Kings
+32,Lewis
+32,Livingston
+32,Madison
+32,Monroe
+32,Montgomery
+32,Nassau
+32,New York
+32,Niagara
+32,Oneida
+32,Onondaga
+32,Ontario
+32,Orange
+32,Orleans
+32,Oswego
+32,Otsego
+32,Putnam
+32,Queens
+32,Rensselaer
+32,Richmond
+32,Rockland
+32,St. Lawrence
+32,Saratoga
+32,Schenectady
+32,Schoharie
+32,Schuyler
+32,Seneca
+32,Steuben
+32,Suffolk
+32,Sullivan
+32,Tioga
+32,Tompkins
+32,Ulster
+32,Warren
+32,Washington
+32,Wayne
+32,Westchester
+32,Wyoming
+32,Yates
+33,Alamance
+33,Alexander
+33,Alleghany
+33,Anson
+33,Ashe
+33,Avery
+33,Beaufort
+33,Bertie
+33,Bladen
+33,Brunswick
+33,Buncombe
+33,Burke
+33,Cabarrus
+33,Caldwell
+33,Camden
+33,Carteret
+33,Caswell
+33,Catawba
+33,Chatham
+33,Cherokee
+33,Chowan
+33,Clay
+33,Cleveland
+33,Columbus
+33,Craven
+33,Cumberland
+33,Currituck
+33,Dare
+33,Davidson
+33,Davie
+33,Duplin
+33,Durham
+33,Edgecombe
+33,Forsyth
+33,Franklin
+33,Gaston
+33,Gates
+33,Graham
+33,Granville
+33,Greene
+33,Guilford
+33,Halifax
+33,Harnett
+33,Haywood
+33,Henderson
+33,Hertford
+33,Hoke
+33,Hyde
+33,Iredell
+33,Jackson
+33,Johnston
+33,Jones
+33,Lee
+33,Lenoir
+33,Lincoln
+33,McDowell
+33,Macon
+33,Madison
+33,Martin
+33,Mecklenburg
+33,Mitchell
+33,Montgomery
+33,Moore
+33,Nash
+33,New Hanover
+33,Northampton
+33,Onslow
+33,Orange
+33,Pamlico
+33,Pasquotank
+33,Pender
+33,Perquimans
+33,Person
+33,Pitt
+33,Polk
+33,Randolph
+33,Richmond
+33,Robeson
+33,Rockingham
+33,Rowan
+33,Rutherford
+33,Sampson
+33,Scotland
+33,Stanly
+33,Stokes
+33,Surry
+33,Swain
+33,Transylvania
+33,Tyrrell
+33,Union
+33,Vance
+33,Wake
+33,Warren
+33,Washington
+33,Watauga
+33,Wayne
+33,Wilkes
+33,Wilson
+33,Yadkin
+33,Yancey
+34,Adams
+34,Barnes
+34,Benson
+34,Billings
+34,Bottineau
+34,Bowman
+34,Burke
+34,Burleigh
+34,Cass
+34,Cavalier
+34,Dickey
+34,Divide
+34,Dunn
+34,Eddy
+34,Emmons
+34,Foster
+34,Golden Valley
+34,Grand Forks
+34,Grant
+34,Griggs
+34,Hettinger
+34,Kidder
+34,LaMoure
+34,Logan
+34,McHenry
+34,McIntosh
+34,McKenzie
+34,McLean
+34,Mercer
+34,Morton
+34,Mountrail
+34,Nelson
+34,Oliver
+34,Pembina
+34,Pierce
+34,Ramsey
+34,Ransom
+34,Renville
+34,Richland
+34,Rolette
+34,Sargent
+34,Sheridan
+34,Sioux
+34,Slope
+34,Stark
+34,Steele
+34,Stutsman
+34,Towner
+34,Traill
+34,Walsh
+34,Ward
+34,Wells
+34,Williams
+35,Adams
+35,Allen
+35,Ashland
+35,Ashtabula
+35,Athens
+35,Auglaize
+35,Belmont
+35,Brown
+35,Butler
+35,Carroll
+35,Champaign
+35,Clark
+35,Clermont
+35,Clinton
+35,Columbiana
+35,Coshocton
+35,Crawford
+35,Cuyahoga
+35,Darke
+35,Defiance
+35,Delaware
+35,Erie
+35,Fairfield
+35,Fayette
+35,Franklin
+35,Fulton
+35,Gallia
+35,Geauga
+35,Greene
+35,Guernsey
+35,Hamilton
+35,Hancock
+35,Hardin
+35,Harrison
+35,Henry
+35,Highland
+35,Hocking
+35,Holmes
+35,Huron
+35,Jackson
+35,Jefferson
+35,Knox
+35,Lake
+35,Lawrence
+35,Licking
+35,Logan
+35,Lorain
+35,Lucas
+35,Madison
+35,Mahoning
+35,Marion
+35,Medina
+35,Meigs
+35,Mercer
+35,Miami
+35,Monroe
+35,Montgomery
+35,Morgan
+35,Morrow
+35,Muskingum
+35,Noble
+35,Ottawa
+35,Paulding
+35,Perry
+35,Pickaway
+35,Pike
+35,Portage
+35,Preble
+35,Putnam
+35,Richland
+35,Ross
+35,Sandusky
+35,Scioto
+35,Seneca
+35,Shelby
+35,Stark
+35,Summit
+35,Trumbull
+35,Tuscarawas
+35,Union
+35,Van Wert
+35,Vinton
+35,Warren
+35,Washington
+35,Wayne
+35,Williams
+35,Wood
+35,Wyandot
+36,Adair
+36,Alfalfa
+36,Atoka
+36,Beaver
+36,Beckham
+36,Blaine
+36,Bryan
+36,Caddo
+36,Canadian
+36,Carter
+36,Cherokee
+36,Choctaw
+36,Cimarron
+36,Cleveland
+36,Coal
+36,Comanche
+36,Cotton
+36,Craig
+36,Creek
+36,Custer
+36,Delaware
+36,Dewey
+36,Ellis
+36,Garfield
+36,Garvin
+36,Grady
+36,Grant
+36,Greer
+36,Harmon
+36,Harper
+36,Haskell
+36,Hughes
+36,Jackson
+36,Jefferson
+36,Johnston
+36,Kay
+36,Kingfisher
+36,Kiowa
+36,Latimer
+36,Le Flore
+36,Lincoln
+36,Logan
+36,Love
+36,McClain
+36,McCurtain
+36,McIntosh
+36,Major
+36,Marshall
+36,Mayes
+36,Murray
+36,Muskogee
+36,Noble
+36,Nowata
+36,Okfuskee
+36,Oklahoma
+36,Okmulgee
+36,Osage
+36,Ottawa
+36,Pawnee
+36,Payne
+36,Pittsburg
+36,Pontotoc
+36,Pottawatomie
+36,Pushmataha
+36,Roger Mills
+36,Rogers
+36,Seminole
+36,Sequoyah
+36,Stephens
+36,Texas
+36,Tillman
+36,Tulsa
+36,Wagoner
+36,Washington
+36,Washita
+36,Woods
+36,Woodward
+37,Baker
+37,Benton
+37,Clackamas
+37,Clatsop
+37,Columbia
+37,Coos
+37,Crook
+37,Curry
+37,Deschutes
+37,Douglas
+37,Gilliam
+37,Grant
+37,Harney
+37,Hood River
+37,Jackson
+37,Jefferson
+37,Josephine
+37,Klamath
+37,Lake
+37,Lane
+37,Lincoln
+37,Linn
+37,Malheur
+37,Marion
+37,Morrow
+37,Multnomah
+37,Polk
+37,Sherman
+37,Tillamook
+37,Umatilla
+37,Union
+37,Wallowa
+37,Wasco
+37,Washington
+37,Wheeler
+37,Yamhill
+38,Adams
+38,Allegheny
+38,Armstrong
+38,Beaver
+38,Bedford
+38,Berks
+38,Blair
+38,Bradford
+38,Bucks
+38,Butler
+38,Cambria
+38,Cameron
+38,Carbon
+38,Centre
+38,Chester
+38,Clarion
+38,Clearfield
+38,Clinton
+38,Columbia
+38,Crawford
+38,Cumberland
+38,Dauphin
+38,Delaware
+38,Elk
+38,Erie
+38,Fayette
+38,Forest
+38,Franklin
+38,Fulton
+38,Greene
+38,Huntingdon
+38,Indiana
+38,Jefferson
+38,Juniata
+38,Lackawanna
+38,Lancaster
+38,Lawrence
+38,Lebanon
+38,Lehigh
+38,Luzerne
+38,Lycoming
+38,McKean
+38,Mercer
+38,Mifflin
+38,Monroe
+38,Montgomery
+38,Montour
+38,Northampton
+38,Northumberland
+38,Perry
+38,Philadelphia
+38,Pike
+38,Potter
+38,Schuylkill
+38,Snyder
+38,Somerset
+38,Sullivan
+38,Susquehanna
+38,Tioga
+38,Union
+38,Venango
+38,Warren
+38,Washington
+38,Wayne
+38,Westmoreland
+38,Wyoming
+38,York
+39,Bristol
+39,Kent
+39,Newport
+39,Providence
+39,Washington
+40,Abbeville
+40,Aiken
+40,Allendale
+40,Anderson
+40,Bamberg
+40,Barnwell
+40,Beaufort
+40,Berkeley
+40,Calhoun
+40,Charleston
+40,Cherokee
+40,Chester
+40,Chesterfield
+40,Clarendon
+40,Colleton
+40,Darlington
+40,Dillon
+40,Dorchester
+40,Edgefield
+40,Fairfield
+40,Florence
+40,Georgetown
+40,Greenville
+40,Greenwood
+40,Hampton
+40,Horry
+40,Jasper
+40,Kershaw
+40,Lancaster
+40,Laurens
+40,Lee
+40,Lexington
+40,McCormick
+40,Marion
+40,Marlboro
+40,Newberry
+40,Oconee
+40,Orangeburg
+40,Pickens
+40,Richland
+40,Saluda
+40,Spartanburg
+40,Sumter
+40,Union
+40,Williamsburg
+40,York
+41,Aurora
+41,Beadle
+41,Bennett
+41,Bon Homme
+41,Brookings
+41,Brown
+41,Brule
+41,Buffalo
+41,Butte
+41,Campbell
+41,Charles Mix
+41,Clark
+41,Clay
+41,Codington
+41,Corson
+41,Custer
+41,Davison
+41,Day
+41,Deuel
+41,Dewey
+41,Douglas
+41,Edmunds
+41,Fall River
+41,Faulk
+41,Grant
+41,Gregory
+41,Haakon
+41,Hamlin
+41,Hand
+41,Hanson
+41,Harding
+41,Hughes
+41,Hutchinson
+41,Hyde
+41,Jackson
+41,Jerauld
+41,Jones
+41,Kingsbury
+41,Lake
+41,Lawrence
+41,Lincoln
+41,Lyman
+41,McCook
+41,McPherson
+41,Marshall
+41,Meade
+41,Mellette
+41,Miner
+41,Minnehaha
+41,Moody
+41,Pennington
+41,Perkins
+41,Potter
+41,Roberts
+41,Sanborn
+41,Shannon
+41,Spink
+41,Stanley
+41,Sully
+41,Todd
+41,Tripp
+41,Turner
+41,Union
+41,Walworth
+41,Yankton
+41,Ziebach
+42,Anderson
+42,Bedford
+42,Benton
+42,Bledsoe
+42,Blount
+42,Bradley
+42,Campbell
+42,Cannon
+42,Carroll
+42,Carter
+42,Cheatham
+42,Chester
+42,Claiborne
+42,Clay
+42,Cocke
+42,Coffee
+42,Crockett
+42,Cumberland
+42,Davidson
+42,Decatur
+42,DeKalb
+42,Dickson
+42,Dyer
+42,Fayette
+42,Fentress
+42,Franklin
+42,Gibson
+42,Giles
+42,Grainger
+42,Greene
+42,Grundy
+42,Hamblen
+42,Hamilton
+42,Hancock
+42,Hardeman
+42,Hardin
+42,Hawkins
+42,Haywood
+42,Henderson
+42,Henry
+42,Hickman
+42,Houston
+42,Humphreys
+42,Jackson
+42,Jefferson
+42,Johnson
+42,Knox
+42,Lake
+42,Lauderdale
+42,Lawrence
+42,Lewis
+42,Lincoln
+42,Loudon
+42,McMinn
+42,McNairy
+42,Macon
+42,Madison
+42,Marion
+42,Marshall
+42,Maury
+42,Meigs
+42,Monroe
+42,Montgomery
+42,Moore
+42,Morgan
+42,Obion
+42,Overton
+42,Perry
+42,Pickett
+42,Polk
+42,Putnam
+42,Rhea
+42,Roane
+42,Robertson
+42,Rutherford
+42,Scott
+42,Sequatchie
+42,Sevier
+42,Shelby
+42,Smith
+42,Stewart
+42,Sullivan
+42,Sumner
+42,Tipton
+42,Trousdale
+42,Unicoi
+42,Union
+42,Van Buren
+42,Warren
+42,Washington
+42,Wayne
+42,Weakley
+42,White
+42,Williamson
+42,Wilson
+43,Anderson
+43,Andrews
+43,Angelina
+43,Aransas
+43,Archer
+43,Armstrong
+43,Atascosa
+43,Austin
+43,Bailey
+43,Bandera
+43,Bastrop
+43,Baylor
+43,Bee
+43,Bell
+43,Bexar
+43,Blanco
+43,Borden
+43,Bosque
+43,Bowie
+43,Brazoria
+43,Brazos
+43,Brewster
+43,Briscoe
+43,Brooks
+43,Brown
+43,Burleson
+43,Burnet
+43,Caldwell
+43,Calhoun
+43,Callahan
+43,Cameron
+43,Camp
+43,Carson
+43,Cass
+43,Castro
+43,Chambers
+43,Cherokee
+43,Childress
+43,Clay
+43,Cochran
+43,Coke
+43,Coleman
+43,Collin
+43,Collingsworth
+43,Colorado
+43,Comal
+43,Comanche
+43,Concho
+43,Cooke
+43,Coryell
+43,Cottle
+43,Crane
+43,Crockett
+43,Crosby
+43,Culberson
+43,Dallam
+43,Dallas
+43,Dawson
+43,Deaf Smith
+43,Delta
+43,Denton
+43,DeWitt
+43,Dickens
+43,Dimmit
+43,Donley
+43,Duval
+43,Eastland
+43,Ector
+43,Edwards
+43,Ellis
+43,El Paso
+43,Erath
+43,Falls
+43,Fannin
+43,Fayette
+43,Fisher
+43,Floyd
+43,Foard
+43,Fort Bend
+43,Franklin
+43,Freestone
+43,Frio
+43,Gaines
+43,Galveston
+43,Garza
+43,Gillespie
+43,Glasscock
+43,Goliad
+43,Gonzales
+43,Gray
+43,Grayson
+43,Gregg
+43,Grimes
+43,Guadalupe
+43,Hale
+43,Hall
+43,Hamilton
+43,Hansford
+43,Hardeman
+43,Hardin
+43,Harris
+43,Harrison
+43,Hartley
+43,Haskell
+43,Hays
+43,Hemphill
+43,Henderson
+43,Hidalgo
+43,Hill
+43,Hockley
+43,Hood
+43,Hopkins
+43,Houston
+43,Howard
+43,Hudspeth
+43,Hunt
+43,Hutchinson
+43,Irion
+43,Jack
+43,Jackson
+43,Jasper
+43,Jeff Davis
+43,Jefferson
+43,Jim Hogg
+43,Jim Wells
+43,Johnson
+43,Jones
+43,Karnes
+43,Kaufman
+43,Kendall
+43,Kenedy
+43,Kent
+43,Kerr
+43,Kimble
+43,King
+43,Kinney
+43,Kleberg
+43,Knox
+43,Lamar
+43,Lamb
+43,Lampasas
+43,La Salle
+43,Lavaca
+43,Lee
+43,Leon
+43,Liberty
+43,Limestone
+43,Lipscomb
+43,Live Oak
+43,Llano
+43,Loving
+43,Lubbock
+43,Lynn
+43,McCulloch
+43,McLennan
+43,McMullen
+43,Madison
+43,Marion
+43,Martin
+43,Mason
+43,Matagorda
+43,Maverick
+43,Medina
+43,Menard
+43,Midland
+43,Milam
+43,Mills
+43,Mitchell
+43,Montague
+43,Montgomery
+43,Moore
+43,Morris
+43,Motley
+43,Nacogdoches
+43,Navarro
+43,Newton
+43,Nolan
+43,Nueces
+43,Ochiltree
+43,Oldham
+43,Orange
+43,Palo Pinto
+43,Panola
+43,Parker
+43,Parmer
+43,Pecos
+43,Polk
+43,Potter
+43,Presidio
+43,Rains
+43,Randall
+43,Reagan
+43,Real
+43,Red River
+43,Reeves
+43,Refugio
+43,Roberts
+43,Robertson
+43,Rockwall
+43,Runnels
+43,Rusk
+43,Sabine
+43,San Augustine
+43,San Jacinto
+43,San Patricio
+43,San Saba
+43,Schleicher
+43,Scurry
+43,Shackelford
+43,Shelby
+43,Sherman
+43,Smith
+43,Somervell
+43,Starr
+43,Stephens
+43,Sterling
+43,Stonewall
+43,Sutton
+43,Swisher
+43,Tarrant
+43,Taylor
+43,Terrell
+43,Terry
+43,Throckmorton
+43,Titus
+43,Tom Green
+43,Travis
+43,Trinity
+43,Tyler
+43,Upshur
+43,Upton
+43,Uvalde
+43,Val Verde
+43,Van Zandt
+43,Victoria
+43,Walker
+43,Waller
+43,Ward
+43,Washington
+43,Webb
+43,Wharton
+43,Wheeler
+43,Wichita
+43,Wilbarger
+43,Willacy
+43,Williamson
+43,Wilson
+43,Winkler
+43,Wise
+43,Wood
+43,Yoakum
+43,Young
+43,Zapata
+43,Zavala
+44,Beaver
+44,Box Elder
+44,Cache
+44,Carbon
+44,Daggett
+44,Davis
+44,Duchesne
+44,Emery
+44,Garfield
+44,Grand
+44,Iron
+44,Juab
+44,Kane
+44,Millard
+44,Morgan
+44,Piute
+44,Rich
+44,Salt Lake
+44,San Juan
+44,Sanpete
+44,Sevier
+44,Summit
+44,Tooele
+44,Uintah
+44,Utah
+44,Wasatch
+44,Washington
+44,Wayne
+44,Weber
+45,Addison
+45,Bennington
+45,Caledonia
+45,Chittenden
+45,Essex
+45,Franklin
+45,Grand Isle
+45,Lamoille
+45,Orange
+45,Orleans
+45,Rutland
+45,Washington
+45,Windham
+45,Windsor
+46,Accomack
+46,Albemarle
+46,Alleghany
+46,Amelia
+46,Amherst
+46,Appomattox
+46,Arlington
+46,Augusta
+46,Bath
+46,Bedford
+46,Bland
+46,Botetourt
+46,Brunswick
+46,Buchanan
+46,Buckingham
+46,Campbell
+46,Caroline
+46,Carroll
+46,Charles City
+46,Charlotte
+46,Chesterfield
+46,Clarke
+46,Craig
+46,Culpeper
+46,Cumberland
+46,Dickenson
+46,Dinwiddie
+46,Essex
+46,Fairfax
+46,Fauquier
+46,Floyd
+46,Fluvanna
+46,Franklin
+46,Frederick
+46,Giles
+46,Gloucester
+46,Goochland
+46,Grayson
+46,Greene
+46,Greensville
+46,Halifax
+46,Hanover
+46,Henrico
+46,Henry
+46,Highland
+46,Isle of Wight
+46,James City
+46,King and Queen
+46,King George
+46,King William
+46,Lancaster
+46,Lee
+46,Loudoun
+46,Louisa
+46,Lunenburg
+46,Madison
+46,Mathews
+46,Mecklenburg
+46,Middlesex
+46,Montgomery
+46,Nelson
+46,New Kent
+46,Northampton
+46,Northumberland
+46,Nottoway
+46,Orange
+46,Page
+46,Patrick
+46,Pittsylvania
+46,Powhatan
+46,Prince Edward
+46,Prince George
+46,Prince William
+46,Pulaski
+46,Rappahannock
+46,Richmond
+46,Roanoke
+46,Rockbridge
+46,Rockingham
+46,Russell
+46,Scott
+46,Shenandoah
+46,Smyth
+46,Southampton
+46,Spotsylvania
+46,Stafford
+46,Surry
+46,Sussex
+46,Tazewell
+46,Warren
+46,Washington
+46,Westmoreland
+46,Wise
+46,Wythe
+46,York
 46,Alexandria city
 46,Bedford city
 46,Bristol city
@@ -2951,192 +2951,192 @@
 46,Waynesboro city
 46,Williamsburg city
 46,Winchester city
-47,Adams County
-47,Asotin County
-47,Benton County
-47,Chelan County
-47,Clallam County
-47,Clark County
-47,Columbia County
-47,Cowlitz County
-47,Douglas County
-47,Ferry County
-47,Franklin County
-47,Garfield County
-47,Grant County
-47,Grays Harbor County
-47,Island County
-47,Jefferson County
-47,King County
-47,Kitsap County
-47,Kittitas County
-47,Klickitat County
-47,Lewis County
-47,Lincoln County
-47,Mason County
-47,Okanogan County
-47,Pacific County
-47,Pend Oreille County
-47,Pierce County
-47,San Juan County
-47,Skagit County
-47,Skamania County
-47,Snohomish County
-47,Spokane County
-47,Stevens County
-47,Thurston County
-47,Wahkiakum County
-47,Walla Walla County
-47,Whatcom County
-47,Whitman County
-47,Yakima County
-48,Barbour County
-48,Berkeley County
-48,Boone County
-48,Braxton County
-48,Brooke County
-48,Cabell County
-48,Calhoun County
-48,Clay County
-48,Doddridge County
-48,Fayette County
-48,Gilmer County
-48,Grant County
-48,Greenbrier County
-48,Hampshire County
-48,Hancock County
-48,Hardy County
-48,Harrison County
-48,Jackson County
-48,Jefferson County
-48,Kanawha County
-48,Lewis County
-48,Lincoln County
-48,Logan County
-48,McDowell County
-48,Marion County
-48,Marshall County
-48,Mason County
-48,Mercer County
-48,Mineral County
-48,Mingo County
-48,Monongalia County
-48,Monroe County
-48,Morgan County
-48,Nicholas County
-48,Ohio County
-48,Pendleton County
-48,Pleasants County
-48,Pocahontas County
-48,Preston County
-48,Putnam County
-48,Raleigh County
-48,Randolph County
-48,Ritchie County
-48,Roane County
-48,Summers County
-48,Taylor County
-48,Tucker County
-48,Tyler County
-48,Upshur County
-48,Wayne County
-48,Webster County
-48,Wetzel County
-48,Wirt County
-48,Wood County
-48,Wyoming County
-49,Adams County
-49,Ashland County
-49,Barron County
-49,Bayfield County
-49,Brown County
-49,Buffalo County
-49,Burnett County
-49,Calumet County
-49,Chippewa County
-49,Clark County
-49,Columbia County
-49,Crawford County
-49,Dane County
-49,Dodge County
-49,Door County
-49,Douglas County
-49,Dunn County
-49,Eau Claire County
-49,Florence County
-49,Fond du Lac County
-49,Forest County
-49,Grant County
-49,Green County
-49,Green Lake County
-49,Iowa County
-49,Iron County
-49,Jackson County
-49,Jefferson County
-49,Juneau County
-49,Kenosha County
-49,Kewaunee County
-49,La Crosse County
-49,Lafayette County
-49,Langlade County
-49,Lincoln County
-49,Manitowoc County
-49,Marathon County
-49,Marinette County
-49,Marquette County
-49,Menominee County
-49,Milwaukee County
-49,Monroe County
-49,Oconto County
-49,Oneida County
-49,Outagamie County
-49,Ozaukee County
-49,Pepin County
-49,Pierce County
-49,Polk County
-49,Portage County
-49,Price County
-49,Racine County
-49,Richland County
-49,Rock County
-49,Rusk County
-49,St. Croix County
-49,Sauk County
-49,Sawyer County
-49,Shawano County
-49,Sheboygan County
-49,Taylor County
-49,Trempealeau County
-49,Vernon County
-49,Vilas County
-49,Walworth County
-49,Washburn County
-49,Washington County
-49,Waukesha County
-49,Waupaca County
-49,Waushara County
-49,Winnebago County
-49,Wood County
-50,Albany County
-50,Big Horn County
-50,Campbell County
-50,Carbon County
-50,Converse County
-50,Crook County
-50,Fremont County
-50,Goshen County
-50,Hot Springs County
-50,Johnson County
-50,Laramie County
-50,Lincoln County
-50,Natrona County
-50,Niobrara County
-50,Park County
-50,Platte County
-50,Sheridan County
-50,Sublette County
-50,Sweetwater County
-50,Teton County
-50,Uinta County
-50,Washakie County
-50,Weston County
+47,Adams
+47,Asotin
+47,Benton
+47,Chelan
+47,Clallam
+47,Clark
+47,Columbia
+47,Cowlitz
+47,Douglas
+47,Ferry
+47,Franklin
+47,Garfield
+47,Grant
+47,Grays Harbor
+47,Island
+47,Jefferson
+47,King
+47,Kitsap
+47,Kittitas
+47,Klickitat
+47,Lewis
+47,Lincoln
+47,Mason
+47,Okanogan
+47,Pacific
+47,Pend Oreille
+47,Pierce
+47,San Juan
+47,Skagit
+47,Skamania
+47,Snohomish
+47,Spokane
+47,Stevens
+47,Thurston
+47,Wahkiakum
+47,Walla Walla
+47,Whatcom
+47,Whitman
+47,Yakima
+48,Barbour
+48,Berkeley
+48,Boone
+48,Braxton
+48,Brooke
+48,Cabell
+48,Calhoun
+48,Clay
+48,Doddridge
+48,Fayette
+48,Gilmer
+48,Grant
+48,Greenbrier
+48,Hampshire
+48,Hancock
+48,Hardy
+48,Harrison
+48,Jackson
+48,Jefferson
+48,Kanawha
+48,Lewis
+48,Lincoln
+48,Logan
+48,McDowell
+48,Marion
+48,Marshall
+48,Mason
+48,Mercer
+48,Mineral
+48,Mingo
+48,Monongalia
+48,Monroe
+48,Morgan
+48,Nicholas
+48,Ohio
+48,Pendleton
+48,Pleasants
+48,Pocahontas
+48,Preston
+48,Putnam
+48,Raleigh
+48,Randolph
+48,Ritchie
+48,Roane
+48,Summers
+48,Taylor
+48,Tucker
+48,Tyler
+48,Upshur
+48,Wayne
+48,Webster
+48,Wetzel
+48,Wirt
+48,Wood
+48,Wyoming
+49,Adams
+49,Ashland
+49,Barron
+49,Bayfield
+49,Brown
+49,Buffalo
+49,Burnett
+49,Calumet
+49,Chippewa
+49,Clark
+49,Columbia
+49,Crawford
+49,Dane
+49,Dodge
+49,Door
+49,Douglas
+49,Dunn
+49,Eau Claire
+49,Florence
+49,Fond du Lac
+49,Forest
+49,Grant
+49,Green
+49,Green Lake
+49,Iowa
+49,Iron
+49,Jackson
+49,Jefferson
+49,Juneau
+49,Kenosha
+49,Kewaunee
+49,La Crosse
+49,Lafayette
+49,Langlade
+49,Lincoln
+49,Manitowoc
+49,Marathon
+49,Marinette
+49,Marquette
+49,Menominee
+49,Milwaukee
+49,Monroe
+49,Oconto
+49,Oneida
+49,Outagamie
+49,Ozaukee
+49,Pepin
+49,Pierce
+49,Polk
+49,Portage
+49,Price
+49,Racine
+49,Richland
+49,Rock
+49,Rusk
+49,St. Croix
+49,Sauk
+49,Sawyer
+49,Shawano
+49,Sheboygan
+49,Taylor
+49,Trempealeau
+49,Vernon
+49,Vilas
+49,Walworth
+49,Washburn
+49,Washington
+49,Waukesha
+49,Waupaca
+49,Waushara
+49,Winnebago
+49,Wood
+50,Albany
+50,Big Horn
+50,Campbell
+50,Carbon
+50,Converse
+50,Crook
+50,Fremont
+50,Goshen
+50,Hot Springs
+50,Johnson
+50,Laramie
+50,Lincoln
+50,Natrona
+50,Niobrara
+50,Park
+50,Platte
+50,Sheridan
+50,Sublette
+50,Sweetwater
+50,Teton
+50,Uinta
+50,Washakie
+50,Weston

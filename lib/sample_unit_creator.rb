@@ -89,18 +89,8 @@ class SampleUnitCreator
   end
 
   def get_county(name)
-    state_county = name.split('_')
-    state = state_county[0]
-    county = state_county[1] + ' County'
-    # Counties names are not unique
-    # ex: Oregon & Ohio have a 'Morrow County'
-    state_model = State.find_by(state_name: state)
+    state, county = name.split("_")
 
-    if state_model.nil?
-      puts "Error: state does not exist: #{state}"
-      return nil
-    end
-
-    County.where(name: county, state_id: state_model.id).first
+    County.joins(:state).where(counties: { name: county }, states: { state_name: state }).first
   end
 end

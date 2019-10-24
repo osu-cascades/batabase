@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'static#home'
 
+  mount RailsDb::Engine => '/rails/db', :as => 'do_it'
+
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   scope '/admin' do
@@ -35,4 +38,7 @@ Rails.application.routes.draw do
   namespace :api do
     get '/:state_id/counties', to: 'counties#index', defaults: { format: :json }
   end
+
+  
+ 
 end

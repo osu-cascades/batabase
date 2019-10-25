@@ -9,6 +9,7 @@ end
 
 gem 'activerecord-import'
 gem "aws-sdk-s3", require: false
+gem 'axlsx_rails'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'dotenv-rails'
@@ -18,6 +19,7 @@ gem 'kaminari'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.2.1'
+gem 'rails_db', '2.0.4'
 gem 'webpacker'
 gem 'solargraph'
 

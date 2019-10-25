@@ -1,13 +1,11 @@
 language: ruby
-
 addons:
   chrome: stable
-
 before_install:
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 services:
-  - postgresql
+- postgresql
 
 cache:
   bundler: true
@@ -16,12 +14,20 @@ cache:
   yarn: true
 
 install:
-  - bundle
-  - yarn
+- bundle
+- yarn
 
 before_script:
-  - bundle exec rake db:reset
+- bundle exec rake db:reset
 
 script:
-  - bundle exec rake webpacker:compile
-  - bundle exec rspec
+- bundle exec rake webpacker:compile
+- bundle exec rspec
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: A04FRzy7bQzMewfjMqYe3K7UKUtGU5bV4Cw1nciGgmV796A0SY5xDUUkz5DTkNa1haAsEzxLefQZO7wXTcRSUceFptZvovTP4Dq1azrSXgxtPwoRk/5J/gY8l40ZNRPoKwGK7pkc8jR+tciZlaw6QRqGscIv55BzQ8NQNubchuZXBfyrbvlyeTBggyPD7EPITvjrvtL6S8hi5kJS+wv40yz5u4c5K5x+qcQaWMGMucv1jgA1Mbk3XCFysfbk+I2vwXpfq4/GpC33epp9rXBpfpindJiCiaLHoFEWeb076a30dWp4ILSxKdaLa9lC9/0I2j1UuALJu+Z13QnNlxJU+n0m6emynUTLq2hvNWGwEK3CxEgd+c87WeXdaNlpbU7NNrhpdUNrQVnHq2+HP9uJlXgb2gIH37/tltpe1YnLV4MZc3fkzb9kL088xen1KoYqpd8mBML564zb057eZscAL5fCxDkh/M83dpIUyLLNcPuqQ5CIvO4HJ3hExW4N3T2/3fllnCGKYylQMk6LZuzjorLUvYLn7nqP9s92K5O2SYDEoTcLZq/72mDRhj7U/E/ziPBeG7j8Xlz8tq5dKnFWrAfbD00hVyPlHzK4Rj075l6cquzDwad2AV6C9JhLuQHDdU5vestA5vRxkttHmVPeIu9jYFLa/VKd6zXPjC1M5LE=
+  app:
+    master: batabase
+    develop: batabase-staging

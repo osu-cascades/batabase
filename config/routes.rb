@@ -35,7 +35,4 @@ Rails.application.routes.draw do
   namespace :api do
     get '/:state_id/counties', to: 'counties#index', defaults: { format: :json }
   end
-
-  
- 
 end

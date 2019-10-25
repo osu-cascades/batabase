@@ -1,4 +1,6 @@
 // JS and CSS bundles
 //
 //= app/javascript ../javascripts .js
-//= public/assets/rails_db .png
+
+// PNG Imports for rails_db
+//= public/assets/rails_db .css .js .png

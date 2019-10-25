@@ -43,6 +43,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'rails_db', '2.0.4'
   gem 'axlsx_rails'
+  gem 'travis', '1.8.10'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,4 +1,4 @@
-# Batabase [![Build Status](https://travis-ci.org/osu-cascades/batabase.svg?branch=master)](https://travis-ci.org/osu-cascades/batabase)
+# Batabase [![Build Status](https://travis-ci.org/osu-cascades/batabase.svg?branch=develop)](https://travis-ci.org/osu-cascades/batabase)
 
 Database of bat population data for the Northwestern Bat Hub.
 

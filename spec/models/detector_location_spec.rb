@@ -23,7 +23,7 @@ RSpec.describe DetectorLocation, type: :model do
 
   describe 'members' do
     it 'should return sample_unit id' do
-       expect(detector_location.sample_unit_id).to_not be_nil
+      expect(detector_location.sample_unit_id).to_not be_nil
     end
   end
 end

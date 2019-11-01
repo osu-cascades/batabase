@@ -39,4 +39,5 @@ Rails.application.routes.draw do
   mount RailsDb::Engine => '/rails/db', :as => 'database'
 
   get 'upload' => 'upload#index'
+  post 'upload' => 'upload#import_site_meta'
 end

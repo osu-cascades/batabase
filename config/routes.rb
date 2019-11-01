@@ -37,4 +37,6 @@ Rails.application.routes.draw do
   end
 
   mount RailsDb::Engine => '/rails/db', :as => 'database'
+
+  get 'upload' => 'upload#index'
 end

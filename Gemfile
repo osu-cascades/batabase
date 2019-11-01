@@ -25,6 +25,7 @@ gem 'solargraph'
 
 
 group :development, :test do
+  gem 'byebug'
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'faker'
@@ -36,7 +37,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'byebug'
   gem 'guard-rspec', require: false
   gem 'listen'
   gem "rails-erd"

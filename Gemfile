@@ -19,7 +19,6 @@ gem 'kaminari'
 gem 'pg'
 gem 'puma'
 gem 'rails', '~> 6.0.0'
-gem 'rails_db'
 gem 'webpacker'
 gem 'solargraph'
 

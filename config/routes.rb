@@ -36,7 +36,5 @@ Rails.application.routes.draw do
     get '/:state_id/counties', to: 'counties#index', defaults: { format: :json }
   end
 
-  mount RailsDb::Engine => '/rails/db', :as => 'database'
-
   get 'upload' => 'upload#index'
 end

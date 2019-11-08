@@ -1,4 +1,4 @@
-// JS bundles
+// JS and SCSS bundles
 //
-//= ../javascripts .js
-
+//= link_tree ../javascripts .js
+//= link_tree ../stylesheets .scss

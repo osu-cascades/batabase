@@ -1,47 +1,24 @@
-# Batabase [![Build Status](https://travis-ci.org/osu-cascades/batabase.svg?branch=develop)](https://travis-ci.org/osu-cascades/batabase)
+# README
 
-Database of bat population data for the Northwestern Bat Hub.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Getting Started
+Things you may want to cover:
 
-### Setup
+* Ruby version
 
-#### brew & rvm
+* System dependencies
 
-Below are the steps/requirements needed to run the app:
+* Configuration
 
-* Postgresql `brew install postgresql`
-* Ruby 2.5.1 `rvm use ruby-2.5.1`
-* Clone the repo `git clone git@github.com:osu-cascades/batabase.git`
-* Change directory `cd batabase`
+* Database creation
 
-#### apt & rbenv
+* Database initialization
 
-TODO: this
+* How to run the test suite
 
-Start the application by running commands **sequentially** in seperate terminal tabs or windows:
+* Services (job queues, cache servers, search engines, etc.)
 
-* `rails server`
-* `./bin/webpack-dev-server`
-* `bundle exec guard`
+* Deployment instructions
 
-## Development
-
-### Frontend Components
-
-Create frontend components by running the component generator `rails g component <component-name>`.
-Include the component in the view ERB template with the application helper `#render_component`.
-
-Components will be generated in `app/javascript`
-
-### Populating Database in Staging Environment on Heroku
-
-* Run `heroku pg:reset --remote staging` ! This will drop the database
-* Push local database to heroku `heroku pg:push batabase_development DATABASE_URL --remote staging`
-
-### Test Coverage
-
-Batabase uses the [simplecov](https://github.com/colszowka/simplecov) gem to supply code coverage metrics.
-To view code coverage run the test suite `bundle exec rspec` and open `coverage/index.html` in a browser.
-
-&copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs. All rights reserved.
+* ...

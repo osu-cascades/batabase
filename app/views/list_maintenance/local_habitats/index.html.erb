@@ -1,4 +1,0 @@
-<%= render_component('page') do %>
-  <%= render_component('index-header', { resource: 'Local Habitat', path:  new_local_habitat_path }) %>
-  <%= render_component('index-table', { resources: @local_habitats, attributes: [{label: :label}], view_link: false }) %>
-<% end %>

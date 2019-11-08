@@ -1,0 +1,66 @@
+<nav class='navbar is-dark' role='navigation' aria-label='main navigation'>
+  <div class='navbar-brand'>
+    <%= link_to 'Batabase', root_path, class: 'navbar-item logo' %>
+
+    <a role='button' class='navbar-burger burger' aria-label='menu' aria-expanded='false' data-target='navMenu'>
+      <span aria-hidden='true'></span>
+      <span aria-hidden='true'></span>
+      <span aria-hidden='true'></span>
+    </a>
+  </div>
+
+  <div class='navbar-menu' id='navMenu'>
+        <% if user_signed_in? %>
+
+          <div class='navbar-start'>
+            <%= link_to 'Deployments', deployments_path, class: 'navbar-item' %>
+            <%= link_to 'Sample Units', sample_units_path, class: 'navbar-item' %>
+            <%= link_to 'Upload Data', upload_path, class: 'navbar-item'%>
+            <div class='navbar-item has-dropdown is-hoverable'>
+              <a class='navbar-link'>List Maintenance</a>
+              <div class='navbar-dropdown'>
+                <%= link_to 'Broad Habitats', broad_habitats_path, class: 'navbar-item' %>
+                <%= link_to 'Broad Habitat Forms', broad_habitat_forms_path, class: 'navbar-item' %>
+                <%= link_to 'Clutter Types', clutter_types_path, class: 'navbar-item' %>
+                <%= link_to 'Contacts', contacts_path, class: 'navbar-item' %>
+                <%= link_to 'Detection Targets', detection_targets_path, class: 'navbar-item' %>
+                <%= link_to 'Detectors', detectors_path, class: 'navbar-item' %>
+                <%= link_to 'Distance Ranges', distance_ranges_path, class: 'navbar-item' %>
+                <%= link_to 'Geodetic Systems', geodetic_systems_path, class: 'navbar-item' %>
+                <%= link_to 'Local Habitats', local_habitats_path, class: 'navbar-item' %>
+                <%= link_to 'Organizations', organizations_path, class: 'navbar-item' %>
+                <%= link_to 'Sample Designs', sample_designs_path, class: 'navbar-item' %>
+                <%= link_to 'Species', species_index_path, class: 'navbar-item' %>
+                <%= link_to 'Species Groups', species_groups_path, class: 'navbar-item' %>
+                <%= link_to 'Study Areas', study_areas_path, class: 'navbar-item' %>
+                <%= link_to 'Target Descriptors', target_descriptors_path, class: 'navbar-item' %>
+              </div>
+            </div>
+          </div>
+
+          <div class='navbar-end'>
+            <div class='navbar-item has-dropdown is-hoverable'>
+              <a class='navbar-link'><%= current_user.email %></a>
+              <div class='navbar-dropdown'>
+                <%= link_to 'Edit Profile', edit_user_registration_path, class: 'navbar-item' %>
+                <%= link_to 'Admin Dashboard', users_path, class: 'navbar-item' %>
+                <hr class='navbar-divider'>
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-item' %>
+              </div>
+            </div>
+          </div>
+
+        <% else %>
+
+          <div class='navbar-end'>
+            <div class='buttons'>
+              <%= link_to 'Sign up', new_user_registration_path, class: 'button is-primary' %>
+              <%= link_to 'Sign in', new_user_session_path, class: 'button is-primary is-outlined' %>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

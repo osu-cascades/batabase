@@ -3,8 +3,8 @@ language: ruby
 services:
 - postgresql
 
-before_script:
-- bundle exec rake db:reset
+cache:
+  bundler: true
 
 deploy:
   provider: heroku

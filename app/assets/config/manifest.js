@@ -1,4 +1,4 @@
 // JS bundles
 //
-//= ../../app/javascript ../javascripts .js
+//= ../javascripts .js
 

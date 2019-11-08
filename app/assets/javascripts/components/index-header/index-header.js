@@ -1,1 +1,0 @@
-import "./index-header.scss";

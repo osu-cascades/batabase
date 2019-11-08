@@ -1,0 +1,15 @@
+<div>
+  <div class='field'>
+    <%= f.label 'State', class: 'label' %>
+    <div class='control select'>
+      <%= collection_select(:sample_unit,
+        :state_ids,
+        State.all,
+        :id,
+        :state_name,
+        { prompt: true },
+        { class: 'state-select' })
+      %>
+      </div>
+  </div>
+</div>

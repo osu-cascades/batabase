@@ -1,24 +1,34 @@
-# README
+# Batabase [![Build Status](https://travis-ci.org/osu-cascades/batabase.svg?branch=develop)](https://travis-ci.org/osu-cascades/batabase)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Database of bat population data for the Northwestern Bat Hub.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+### Setup
 
-* System dependencies
+#### brew & rvm
 
-* Configuration
+Below are the steps/requirements needed to run the app:
 
-* Database creation
+* Postgresql: `brew install postgresql`
+* Ruby 2.6.5: `rvm use ruby-2.6.5`
+* Clone the repo: `git clone git@github.com:osu-cascades/batabase.git`
+* Change directory: `cd batabase`
+* Run bundler: `bundle install`
 
-* Database initialization
+#### apt & rbenv
 
-* How to run the test suite
+TODO: this
 
-* Services (job queues, cache servers, search engines, etc.)
+## Development
 
-* Deployment instructions
+Start the server by running
 
-* ...
+* `rails server`
+
+### Test Coverage
+
+Batabase uses the [simplecov](https://github.com/colszowka/simplecov) gem to supply code coverage metrics.
+To view code coverage run the test suite by running `rspec` or `rspec -f d` (this one is personally preferred) and open `coverage/index.html` in a browser.
+
+&copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs. All rights reserved.

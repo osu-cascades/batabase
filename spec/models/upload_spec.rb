@@ -30,6 +30,12 @@ RSpec.describe Upload do
         expect(invalid_upload).to_not be_valid
       end
 
+      it "It contains no type" do
+        invalid_upload.type = ""
+
+        expect(invalid_upload).to_not be_valid
+      end
+
       it "It has a type that isn't meta or sono" do
         invalid_upload.type = "FAKE TYPE"
 

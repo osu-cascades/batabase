@@ -1,0 +1,47 @@
+<%#
+  Alert
+
+  @param dismissible [Boolean] (true) let it be dismissed
+  @param heading [String] (nil) the heading
+  @param message [String] * the actual message
+  @param type [Symbol] (:primary) styles it differently
+%>
+
+<%
+  message = yield.presence || local_assigns.fetch(:message)
+  return if message.blank?
+
+  dismissible = local_assigns.fetch(:dismissible, true)
+  dismissible_classes = dismissible ? 'alert-dismissible fade show' : ''
+
+  heading = local_assigns[:heading].presence
+
+  type = local_assigns.fetch(:type, :primary)
+
+  allowed_types = [
+    :primary, :secondary, 
+    :success, :danger,
+    :warning, :info, 
+    :light, :dark
+  ]
+
+  unless type.in?(allowed_types)
+    raise "#{type} is invalid. Allowed values: #{allowed_types.join(', ')}."
+  end
+
+  type_class = "alert-#{type}"
+%>
+
+<%= content_tag :div, class: "alert #{type_class} #{dismissible_classes}", role: 'alert' do %>
+  <% if dismissible %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  <% end %>
+
+  <% if heading %>
+    <h4 class="alert-heading"><%= heading %></h4>
+  <% end %>
+
+  <%= message %>
+<% end %>

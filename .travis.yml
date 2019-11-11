@@ -7,7 +7,7 @@ cache:
   bundler: true
 
 before_script:
-  - bundle exec rake db:reset
+  - bundle exec rake db:setup
 
 deploy:
   provider: heroku

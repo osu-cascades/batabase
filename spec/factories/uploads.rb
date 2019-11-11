@@ -1,9 +1,13 @@
 FactoryBot.define do
   factory :upload do
     data { 'FAKE DATA' }
-  end
+    
+    trait :meta do
+      upload_type { 'meta' }
+    end
 
-  trait :empty_upload do
-    data { '' }
+    trait :sono do
+      upload_type { 'sono' }
+    end
   end
 end

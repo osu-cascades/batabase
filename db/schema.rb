@@ -453,7 +453,6 @@ ActiveRecord::Schema.define(version: 2019_11_10_235901) do
     t.index ["state_id"], name: "index_users_on_state_id"
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "counties", "states"
   add_foreign_key "deployments", "sample_units"
   add_foreign_key "detector_locations", "detection_targets"

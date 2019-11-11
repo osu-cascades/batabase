@@ -6,6 +6,10 @@ module ComponentsHelper
 
   # All components
 
+  def alert(*options, &block)
+    component(:alert, *options, &block)
+  end
+
   def global_header(*options, &block)
     component(:global_header, *options, &block)
   end

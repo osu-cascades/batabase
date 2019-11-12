@@ -1,4 +1,5 @@
 class UploadsController < ApplicationController
+  require 'csv'
 
   def index
     @uploads = Upload.all
@@ -6,6 +7,7 @@ class UploadsController < ApplicationController
 
   def show
     @upload = Upload.find(params[:id])
+    @upload_csv = CSV.parse(@upload.data)
   end
 
   def new

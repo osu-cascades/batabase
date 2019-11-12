@@ -1,4 +1,5 @@
 class UploadsController < ApplicationController
+
   def index
     @uploads = Upload.all
   end
@@ -13,13 +14,14 @@ class UploadsController < ApplicationController
 
   def create
     upload_data = params[:upload][:data]
+    csv_string = File.read(upload_data.path)
+
     filename = upload_data.original_filename
     upload_type = params[:upload][:upload_type]
 
-    byebug
     @upload = Upload.create(
       filename: filename,
-      data: upload_data,
+      data: csv_string,
       upload_type: upload_type
     )
 

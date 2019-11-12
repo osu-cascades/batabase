@@ -32,7 +32,9 @@ gem 'bootstrap'
 gem 'jquery-rails'
 
 # Gem that generates forms already in bootstrap style
-gem "bootstrap_form", "~> 4.0"
+gem 'bootstrap_form', '~> 4.0'
+
+gem 'datagrid'
 
 # Devise is a flexible authentication solution for Rails based on Warden. Doc: https://github.com/plataformatec/devise
 gem 'devise'

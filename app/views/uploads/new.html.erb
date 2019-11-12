@@ -2,7 +2,7 @@
   <h2>Import CSV Data</h2>
 
   <%= bootstrap_form_for(@upload) do |f| %>
-    <%= f.select :upload_type, ['site_data', 'sonobat_data'] %>
+    <%= f.select :upload_type, [['Site Data', 'meta'], ['Sonobat Data', 'sono']] %>
     <%= f.file_field :data %>
     <%= f.submit "Upload CSV"%>
   <% end %>

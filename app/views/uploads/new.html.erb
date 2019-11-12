@@ -1,12 +1,10 @@
 <div class="container">
-  <h2>Import Site Meta Data</h2>
+  <h2>Import CSV Data</h2>
 
-<%= form_with model: @upload do |f| %>
-  <%= label_tag(:upload_type, "Upload Type:") %>
-  <%= f.select :upload_type, ['site_data', 'sonobat_data'] %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Upload CSV"%>
-<% end %>
-
+  <%= bootstrap_form_for(@upload) do |f| %>
+    <%= f.select :upload_type, ['site_data', 'sonobat_data'] %>
+    <%= f.file_field :data %>
+    <%= f.submit "Upload CSV"%>
+  <% end %>
+  
 </div>
-

@@ -1,4 +1,5 @@
-<h2>Import Site Meta Data</h2>
+<div class="container">
+  <h2>Import Site Meta Data</h2>
 
 <%= form_with model: @upload do |f| %>
   <%= label_tag(:upload_type, "Upload Type:") %>
@@ -6,3 +7,6 @@
   <%= file_field_tag :file %>
   <%= submit_tag "Upload CSV"%>
 <% end %>
+
+</div>
+

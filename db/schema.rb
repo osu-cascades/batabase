@@ -427,7 +427,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_235901) do
   end
 
   create_table "uploads", force: :cascade do |t|
-    t.string "file_name"
+    t.string "filename"
     t.string "data"
     t.string "upload_type"
   end

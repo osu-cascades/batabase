@@ -13,12 +13,12 @@ class UploadsController < ApplicationController
 
   def create
     upload_data = params[:upload][:data]
-    file_name = upload_data.original_filename
+    filename = upload_data.original_filename
     upload_type = params[:upload][:upload_type]
 
     byebug
     @upload = Upload.create(
-      file_name: file_name,
+      filename: filename,
       data: upload_data,
       upload_type: upload_type
     )

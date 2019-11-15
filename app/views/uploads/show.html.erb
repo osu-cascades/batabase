@@ -1,22 +1,37 @@
 <div>
-    <div class="table-responsive">
-      <table class="table uploads-smaller-font">
-        <thead class="thead-dark">
+  <h3><%= @upload_filename %></h3>
+    <%= 
+      link_to "Commit Upload",
+      upload_commit_path(@upload.id),
+      class: 'btn btn-success',
+      method: :commit
+    %>
+
+    <%= 
+      link_to "Delete Upload",
+      uploads_path(@upload.id),
+      class: 'btn btn-danger',
+      method: :destroy
+    %>
+  
+  <div class="table-responsive border-info">
+    <table class="table uploads-smaller-font">
+      <thead class="thead-dark">
+        <tr>
+          <% @upload_csv[0].each do |header| %>
+            <th scope="col"><%= header %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @upload_csv[1..-1].each do |row| %>
           <tr>
-            <% @upload_csv[0].each do |header| %>
-              <th scope="col"><%= header %></th>
+            <% row.each do |col| %>
+              <td><%= col %></td>
             <% end %>
           </tr>
-        </thead>
-        <tbody>
-          <% @upload_csv[1..-1].each do |row| %>
-            <tr>
-              <% row.each do |col| %>
-                <td><%= col %></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>    
+        <% end %>
+      </tbody>
+    </table>
+  </div>    
 </div>

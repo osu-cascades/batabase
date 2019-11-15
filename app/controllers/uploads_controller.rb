@@ -7,6 +7,7 @@ class UploadsController < ApplicationController
 
   def show
     @upload = Upload.find(params[:id])
+    @upload_filename = @upload.filename
     @upload_csv = CSV.parse(@upload.data)
     
   end
@@ -39,6 +40,13 @@ class UploadsController < ApplicationController
   def destroy
     Upload.find(params[:id]).destroy
 
+    redirect_to uploads_path
+  end
+
+  def commit
+    upload = Upload.find(params[:upload_id])
+    # This will be where the work happens for turning
+    # the CSV into tables in db
     redirect_to uploads_path
   end
 end

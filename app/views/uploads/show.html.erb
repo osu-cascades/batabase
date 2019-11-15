@@ -1,19 +1,20 @@
 <div>
-  <h3><%= @upload_filename %></h3>
+  <h3 class="mx-1"><%= @upload_filename %></h3>
+    <div class="d-flex flex-row mb-1">
     <%= 
-      button_to "Commit Upload",
+      link_to "Commit Upload",
       upload_commit_path(@upload),
-      class: 'btn btn-success',
+      class: 'btn btn-success mx-1',
       method: :commit
     %>
-
     <%= 
       button_to "Delete Upload",
       upload_path(@upload),
       class: 'btn btn-danger',
       method: :delete
     %>
-  
+    </div>
+    
   <div class="table-responsive border-info">
     <table class="table uploads-smaller-font">
       <thead class="thead-dark">

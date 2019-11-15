@@ -1,3 +1,4 @@
+<div class="d-flex justify-content-center">
 <div class="table-responsive border-info">
   <table class="table">
     <thead>
@@ -33,4 +34,12 @@
       <% end %>
     </tbody>
   <table>
+</div>
+<div class="row justify-content-center">
+  <%= 
+    link_to "+",
+    new_upload_path(),
+    class: 'btn btn-success px-3',
+    method: :new
+  %>
 </div>

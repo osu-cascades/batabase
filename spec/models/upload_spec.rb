@@ -4,7 +4,7 @@ RSpec.describe Upload do
   let(:upload) { FactoryBot.build_stubbed(:upload, :meta) }
 
   describe "Upload Validation" do
-    context "A upload is valid if" do
+    context "An upload is valid if" do
       it "It contains data" do
         upload.data = "FAKE DATA"
 
@@ -22,7 +22,7 @@ RSpec.describe Upload do
       end
     end
 
-    context "A upload is invalid if" do
+    context "An upload is invalid if" do
       it "It contains no data" do
         upload.data = ""
 

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_15_181103) do
+ActiveRecord::Schema.define(version: 2019_11_15_195547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "counties", force: :cascade do |t|
+    t.string "name"
+    t.bigint "state_id", null: false
+    t.index ["state_id"], name: "index_counties_on_state_id"
+  end
 
   create_table "states", force: :cascade do |t|
     t.string "name"
@@ -25,4 +31,5 @@ ActiveRecord::Schema.define(version: 2019_11_15_181103) do
     t.string "upload_type"
   end
 
+  add_foreign_key "counties", "states"
 end

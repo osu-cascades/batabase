@@ -1,1 +1,8 @@
 @import "bootstrap";
+@import "home/home.css";
+
+.fill-viewport {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}

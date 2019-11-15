@@ -34,6 +34,9 @@ gem 'jquery-rails'
 # Devise is a flexible authentication solution for Rails based on Warden. Doc: https://github.com/plataformatec/devise
 gem 'devise'
 
+# Activerecord import allows us to bulk import csv data into active record quickly and efficiently
+gem 'activerecord-import'
+
 # This in included with devise. Not sure if we can use it but I am leaving this for future me.
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -50,6 +53,7 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -60,6 +64,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
+
 # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end

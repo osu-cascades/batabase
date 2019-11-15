@@ -5,4 +5,8 @@ class County < ApplicationRecord
   def get_state
     self.state.name
   end
+
+  def get_abbreviation
+    self.state.abbreviation
+  end
 end

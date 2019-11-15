@@ -6,7 +6,7 @@ RSpec.describe State do
   describe "State Validation" do
     context "A state is valid if" do
       it "It has a name" do
-        state.name = "FAKE NEME"
+        state.name = "FAKE NAME"
 
         expect(state).to be_valid
       end

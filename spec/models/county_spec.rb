@@ -21,9 +21,14 @@ RSpec.describe County do
     end
   end
 
-  describe 'County Functionality' do
-    context 'A county knows what state it is in' do
-      
+  describe "County Functionality" do
+    context "A county has access to information about the state it resides in" do
+      it "It can retrieve its state name" do
+        expected = "FAKE NAME"
+        actual = county.get_state
+
+        expect(actual).to eq(expected)
+      end
     end
   end
 end

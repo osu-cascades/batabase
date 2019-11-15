@@ -1,2 +1,9 @@
 @import "bootstrap";
 @import "rails_bootstrap_forms";
+@import "home/home.css";
+
+.fill-viewport {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}

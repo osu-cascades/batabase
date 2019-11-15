@@ -1,17 +1,17 @@
 <div>
   <h3><%= @upload_filename %></h3>
     <%= 
-      link_to "Commit Upload",
-      upload_commit_path(@upload.id),
+      button_to "Commit Upload",
+      upload_commit_path(@upload),
       class: 'btn btn-success',
       method: :commit
     %>
 
     <%= 
-      link_to "Delete Upload",
-      uploads_path(@upload.id),
+      button_to "Delete Upload",
+      upload_path(@upload),
       class: 'btn btn-danger',
-      method: :destroy
+      method: :delete
     %>
   
   <div class="table-responsive border-info">

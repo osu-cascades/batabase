@@ -6,8 +6,8 @@
 
 <% uploads = yield.presence || local_assigns.fetch(:uploads) %>
 
-<%= content_tag :div, role: 'uploads-list' do %>
-  <table class="table">
+<%= content_tag :div, class: 'table-responsive', role: 'uploads-list' do %>
+  <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">Filename</th>

@@ -16,15 +16,11 @@ class UploadsController < ApplicationController
   end
 
   def create
-    upload_data = params[:upload][:data]
-    csv_string = File.read(upload_data.path)
-
-    filename = upload_data.original_filename
-    upload_type = params[:upload][:upload_type]
+    upload_type, upload_data = params[:upload].values
 
     @upload = Upload.create(
-      data: csv_string,
-      filename: filename,
+      data: File.read(upload_data.path),
+      filename: upload_data.original_filename,
       upload_type: upload_type
     )
 

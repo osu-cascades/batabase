@@ -17,7 +17,12 @@ class UploadsController < ApplicationController
 
   def create
     upload_type = params[:upload][:upload_type]
-    upload_data = params[:upload][:upload_data]
+    upload_data = params[:upload][:data]
+
+    if upload_data.content_type != "text/csv"
+      render(:new)
+      return
+    end
 
     @upload = Upload.create(
       data: File.read(upload_data.path),

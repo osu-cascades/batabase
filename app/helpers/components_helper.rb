@@ -14,6 +14,10 @@ module ComponentsHelper
     component(:global_header, *options, &block)
   end
 
+    def uploads_list(*options, &block)
+    component(:uploads_list, *options, &block)
+  end
+
   # These are component calls for bootstrap popover and tooltips.
   # We aren't using them yet but we are just keeping them around.
   # def popover(content, title: '', **options)

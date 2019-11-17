@@ -1,0 +1,44 @@
+<%#
+  Uploads List
+
+  @param uploads [Array] * array of uploads
+%>
+
+<% uploads = yield.presence || local_assigns.fetch(:uploads) %>
+
+<%= content_tag :div, role: 'uploads-list' do %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Filename</th>
+        <th scope="col">View Upload</th>
+        <th scope="col">Delete Upload</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% uploads.each do |upload| %>
+        <tr>
+          <td>
+            <%= upload.filename %>
+          </td>
+          <td>
+            <%=
+              link_to "View Upload",
+              upload_path(upload),
+              class: 'btn btn-primary btn-sm',
+              method: :show
+            %>
+          </td>
+          <td>
+            <%= 
+              button_to "Delete Upload",
+              upload_path(upload),
+              class: 'btn btn-danger btn-sm',
+              method: :delete
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

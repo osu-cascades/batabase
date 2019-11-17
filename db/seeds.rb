@@ -21,3 +21,9 @@ columns = [:label]
 values = CSV.read(Rails.root.join('db/seed_data/detection_targets.csv'))
 
 DetectionTarget.import columns, values
+
+# Import target descriptor data from csv
+columns = [:detection_target_id, :label]
+values = CSV.read(Rails.root.join('db/seed_data/target_descriptors.csv'))
+
+County.import columns, values

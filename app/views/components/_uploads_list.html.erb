@@ -4,7 +4,10 @@
   @param uploads [Array] * array of uploads
 %>
 
-<% uploads = yield.presence || local_assigns.fetch(:uploads) %>
+<%
+  uploads = yield.presence || local_assigns.fetch(:uploads)
+  return if uploads.nil?
+%>
 
 <%= content_tag :div, class: 'table-responsive', role: 'uploads-list' do %>
   <table class="table table-hover">

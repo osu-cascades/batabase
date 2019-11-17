@@ -14,7 +14,11 @@ module ComponentsHelper
     component(:global_header, *options, &block)
   end
 
-    def uploads_list(*options, &block)
+  def upload_details(*options, &block)
+    component(:upload_details, *options, &block)
+  end
+
+  def uploads_list(*options, &block)
     component(:uploads_list, *options, &block)
   end
 

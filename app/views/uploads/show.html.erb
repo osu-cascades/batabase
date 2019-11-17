@@ -1,26 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="table-responsive">
-      <table class="table uploads-smaller-font">
-        <caption class="mx-1"><%= @upload_filename %></caption>
-        <thead class="thead-dark">
-          <tr>
-            <% @upload_csv[0].each do |header| %>
-              <th scope="col"><%= header %></th>
-            <% end %>
-          </tr>
-        </thead>
-        <tbody>
-          <% @upload_csv[1..-1].each do |row| %>
-            <tr>
-              <% row.each do |col| %>
-                <td><%= col %></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+    <%= upload_details data: @upload_csv, filename: @upload_filename %>
   </div>
   <div class="row justify-content-around mb-3">
     <%=

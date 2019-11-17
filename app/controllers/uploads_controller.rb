@@ -9,7 +9,6 @@ class UploadsController < ApplicationController
     @upload = Upload.find(params[:id])
     @upload_filename = @upload.filename
     @upload_csv = CSV.parse(@upload.data)
-    
   end
 
   def new
@@ -24,8 +23,8 @@ class UploadsController < ApplicationController
     upload_type = params[:upload][:upload_type]
 
     @upload = Upload.create(
-      filename: filename,
       data: csv_string,
+      filename: filename,
       upload_type: upload_type
     )
 

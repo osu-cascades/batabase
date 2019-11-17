@@ -7,8 +7,8 @@ class UploadsController < ApplicationController
 
   def show
     @upload = Upload.find(params[:id])
-    @upload_filename = @upload.filename
     @upload_csv = CSV.parse(@upload.data)
+    @upload_filename = @upload.filename
   end
 
   def new

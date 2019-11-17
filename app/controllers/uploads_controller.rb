@@ -16,7 +16,8 @@ class UploadsController < ApplicationController
   end
 
   def create
-    upload_type, upload_data = params[:upload].values
+    upload_type = params[:upload][:upload_type]
+    upload_data = params[:upload][:upload_data]
 
     @upload = Upload.create(
       data: File.read(upload_data.path),

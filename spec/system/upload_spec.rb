@@ -1,14 +1,16 @@
 require 'rails_helper'
 
+GENERATED_UPLOAD_COUNT = 3
+
 RSpec.describe 'Upload Flows', type: :system do
   context 'View Uploads Flow' do
     before(:each) do
-      create_list(:upload, 3, :meta)
+      create_list(:upload, GENERATED_UPLOAD_COUNT, :meta)
       visit uploads_path
     end
 
     it 'A user can view all uploads' do
-      expect(page).to have_content('FAKE_FILENAME.csv')
+      1.upto(GENERATED_UPLOAD_COUNT) { |i| expect(page).to have_content("FAKE_FILENAME_#{i}.csv") }
     end
   end
 end

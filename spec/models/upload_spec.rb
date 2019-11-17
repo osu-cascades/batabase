@@ -11,6 +11,22 @@ RSpec.describe Upload do
         expect(upload).to be_valid
       end
 
+      it "It has a filename ending in csv" do
+        upload.filename = "FAKE_FILENAME.csv"
+
+        expect(upload).to be_valid
+      end
+
+      it "It's csv file name ending is not case sensative" do
+        upload.filename = "FAKE_FILENAME.cSV"
+
+        expect(upload).to be_valid
+
+        upload.filename = "FAKE_FILENAME.CSV"
+
+        expect(upload).to be_valid
+      end
+
       it "It has a type of meta or sono" do
         upload.upload_type = "meta"
 
@@ -25,6 +41,22 @@ RSpec.describe Upload do
     context "An upload is invalid if" do
       it "It contains no data" do
         upload.data = ""
+
+        expect(upload).to_not be_valid
+      end
+
+      it "It has no filename" do
+        upload.filename = ""
+
+        expect(upload).to_not be_valid
+      end
+
+      it "It has a filename not ending in csv" do
+        upload.filename = "FAKE_FILENAME.suv"
+
+        expect(upload).to_not be_valid
+
+        upload.filename = "FAKE_FILENAME.vsc"
 
         expect(upload).to_not be_valid
       end

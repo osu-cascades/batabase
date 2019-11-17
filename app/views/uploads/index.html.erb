@@ -1,0 +1,20 @@
+<div class="d-flex flex-column">
+  <% if @uploads.nil? %>
+    <%=
+      alert dismissible: false,
+      type: :danger,
+      heading: "Could not load uploads",
+      message: "Something went wrong. Try reloading the webpage",
+      styling: "m-3"
+    %>
+  <% else %>
+    <%= uploads_list uploads: @uploads %>
+
+    <%=
+      link_to "Add Upload",
+      new_upload_path,
+      class: 'btn btn-success align-self-center px-3',
+      method: :new
+    %>
+  <% end %>
+</div>

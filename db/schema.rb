@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_15_195547) do
+ActiveRecord::Schema.define(version: 2019_11_17_030721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,15 +21,27 @@ ActiveRecord::Schema.define(version: 2019_11_15_195547) do
     t.index ["state_id"], name: "index_counties_on_state_id"
   end
 
+  create_table "detection_targets", force: :cascade do |t|
+    t.string "label"
+  end
+
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "abbreviation"
   end
 
+  create_table "target_descriptors", force: :cascade do |t|
+    t.string "label"
+    t.bigint "detection_target_id", null: false
+    t.index ["detection_target_id"], name: "index_target_descriptors_on_detection_target_id"
+  end
+
   create_table "uploads", force: :cascade do |t|
+    t.string "filename"
     t.string "data"
     t.string "upload_type"
   end
 
   add_foreign_key "counties", "states"
+  add_foreign_key "target_descriptors", "detection_targets"
 end

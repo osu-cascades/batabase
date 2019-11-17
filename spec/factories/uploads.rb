@@ -1,8 +1,7 @@
 FactoryBot.define do
   factory :upload do
-    filename { 'FAKE_FILENAME.csv' }
-
     data { 'FAKE DATA' }
+    filename { 'FAKE_FILENAME.FAKE' }
     
     trait :meta do
       upload_type { 'meta' }

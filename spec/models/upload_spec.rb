@@ -5,15 +5,14 @@ RSpec.describe Upload do
 
   describe "Upload Validation" do
     context "An upload is valid if" do
-      it "It has a filename" do
-        upload.filename = "FAKE_FILENAME.csv"
+      it "It contains data" do
+        upload.data = "FAKE DATA"
 
         expect(upload).to be_valid
       end
 
-
-      it "It contains data" do
-        upload.data = "FAKE DATA"
+      it "It has a filename" do
+        upload.filename = "FAKE_FILENAME.csv"
 
         expect(upload).to be_valid
       end

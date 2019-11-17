@@ -49,6 +49,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+
+  # Lets get some pride up in these tests
+  gem 'rspec-pride'
 end
 
 group :development do

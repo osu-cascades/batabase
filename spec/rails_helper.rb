@@ -21,6 +21,10 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = true
 
+  config.before(:each) do
+    FactoryBot.rewind_sequences
+  end
+
   config.before(:each, type: :system) do
     driven_by :rack_test
   end

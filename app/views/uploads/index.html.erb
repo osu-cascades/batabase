@@ -8,12 +8,12 @@
     %>
   <% else %>
     <%= uploads_list uploads: @uploads %>
-  <% end %>
 
-  <%= 
-    link_to "Add Upload",
-    new_upload_path,
-    class: 'btn btn-success align-self-center px-3',
-    method: :new
-  %>
+    <%= 
+      link_to "Add Upload",
+      new_upload_path,
+      class: 'btn btn-success align-self-center px-3',
+      method: :new
+    %>
+  <% end %>
 </div>

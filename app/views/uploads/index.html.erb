@@ -1,11 +1,13 @@
 <div class="d-flex flex-column">
-  <% if @uploads.nil? %>
-    <%=
-      alert type: :danger,
-      heading: "Could not load uploads",
-      message: "Something went wrong. Try reloading the webpage",
-      dismissible: false
-    %>
+  <% if not @uploads.nil? %>
+    <div class="p-3">
+      <%=
+        alert type: :danger,
+        heading: "Could not load uploads",
+        message: "Something went wrong. Try reloading the webpage",
+        dismissible: false
+      %>
+    </div>
   <% else %>
     <%= uploads_list uploads: @uploads %>
 

@@ -35,6 +35,12 @@ RSpec.describe Upload do
         expect(upload).to_not be_valid
       end
 
+      it "It has no filename" do
+        upload.filename = ""
+
+        expect(upload).to_not be_valid
+      end
+
       it "It contains no type" do
         upload.upload_type = ""
 

@@ -1,6 +1,7 @@
 <%#
   Alert
 
+  @param styling [String] ("") extra classes to be applied to container div
   @param dismissible [Boolean] (true) let it be dismissed
   @param heading [String] (nil) the heading
   @param message [String] * the actual message
@@ -30,9 +31,11 @@
   end
 
   type_class = "alert-#{type}"
+
+  styling = local_assigns.fetch(:styling, "")
 %>
 
-<%= content_tag :div, class: "alert #{type_class} #{dismissible_classes}", role: 'alert' do %>
+<%= content_tag :div, class: "alert #{type_class} #{dismissible_classes} #{styling}", role: 'alert' do %>
   <% if dismissible %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>

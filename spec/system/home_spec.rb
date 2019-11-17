@@ -5,8 +5,10 @@ RSpec.describe 'Home Flows', type: :system do
     context 'View Home Page Flow' do
       it 'A user can view home page' do
         visit home_index_path
-        
-        expect(page).to have_content('Batabase')
+
+        page_title = find_by_id('home-title')
+
+        expect(page_title).to have_content('Batabase')
       end
     end
   end

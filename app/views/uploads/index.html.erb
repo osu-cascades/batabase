@@ -1,5 +1,5 @@
 <div class="d-flex flex-column">
-  <% if not @uploads.nil? %>
+  <% if @uploads.nil? %>
     <%=
       alert dismissible: false,
       type: :danger,

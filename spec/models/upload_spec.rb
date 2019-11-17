@@ -51,6 +51,16 @@ RSpec.describe Upload do
         expect(upload).to_not be_valid
       end
 
+      it "It has a filename not ending in csv" do
+        upload.filename = "FAKE_FILENAME.suv"
+
+        expect(upload).to_not be_valid
+
+        upload.filename = "FAKE_FILENAME.vsc"
+
+        expect(upload).to_not be_valid
+      end
+
       it "It contains no type" do
         upload.upload_type = ""
 

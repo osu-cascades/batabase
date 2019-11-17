@@ -1,38 +1,39 @@
-<div>
-  <h3 class="mx-1"><%= @upload_filename %></h3>
-    <div class="d-flex flex-row mb-1">
-    <%= 
-      link_to "Commit Upload",
-      upload_commit_path(@upload),
-      class: 'btn btn-success mx-1',
-      method: :commit
-    %>
-    <%= 
-      button_to "Delete Upload",
-      upload_path(@upload),
-      class: 'btn btn-danger',
-      method: :delete
-    %>
-    </div>
-    
-  <div class="table-responsive border-info">
-    <table class="table uploads-smaller-font">
-      <thead class="thead-dark">
-        <tr>
-          <% @upload_csv[0].each do |header| %>
-            <th scope="col"><%= header %></th>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <% @upload_csv[1..-1].each do |row| %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table uploads-smaller-font">
+        <caption class="mx-1"><%= @upload_filename %></caption>
+        <thead class="thead-dark">
           <tr>
-            <% row.each do |col| %>
-              <td><%= col %></td>
+            <% @upload_csv[0].each do |header| %>
+              <th scope="col"><%= header %></th>
             <% end %>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @upload_csv[1..-1].each do |row| %>
+            <tr>
+              <% row.each do |col| %>
+                <td><%= col %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-around mb-3">
+    <%=
+      button_to "Delete Upload",
+      upload_path(@upload),
+      class: 'btn btn-danger mx-2 align-self-end',
+      method: :delete
+    %>
+    <%=
+      link_to "Commit Upload",
+      upload_commit_path(@upload),
+      class: 'btn btn-success mx-2',
+      method: :commit
+    %>
   </div>
 </div>

@@ -1,12 +1,10 @@
-<h2>Import Site Meta Data</h2>
-<%= form_tag('upload#import_site_meta', multipart: true) do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import CSV"%>
-<% end %>
-<br>
+<div class="container">
+  <h2>Import CSV Data</h2>
 
-<h2>Import Sonobat Audio Anaylsis</h2>
-<%= form_tag('upload#import_audio_analysis', multipart: true) do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import CSV"%>
-<% end %>
+  <%= bootstrap_form_for(@upload) do |f| %>
+    <%= f.select :upload_type, [['Site Data', 'meta'], ['Sonobat Data', 'sono']] %>
+    <%= f.file_field :data %>
+    <%= f.submit "Upload CSV"%>
+  <% end %>
+  
+</div>

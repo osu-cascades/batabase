@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_030721) do
   end
 
   create_table "uploads", force: :cascade do |t|
+    t.string "filename"
     t.string "data"
     t.string "upload_type"
   end

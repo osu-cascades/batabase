@@ -4,7 +4,7 @@ GENERATED_UPLOAD_COUNT = 3
 
 RSpec.describe 'Upload Flows', type: :system do
   context 'Index' do
-    before(:each) do
+    before :each do
       create_list(:upload, GENERATED_UPLOAD_COUNT, :meta)
       visit uploads_path
     end
@@ -31,6 +31,28 @@ RSpec.describe 'Upload Flows', type: :system do
       find('a', text: 'Add Upload').click
 
       expect(page).to_not have_content("FAKE_FILENAME_1.csv")
+    end
+  end
+
+  context "New" do
+    before :each do
+      visit new_upload_path
+    end
+    
+    it 'A user successfully uploads a csv file' do
+      select('Site Metadata', from: 'Upload type')
+      attach_file('Data', 'spec/fixtures/meta_upload.csv')
+      click_button 'Upload CSV'
+
+      expect(page).to have_content("Commit Upload")
+    end
+
+    it 'A user unsuccessfully attempts to upload a csv file' do
+      select('Site Metadata', from: 'Upload type')
+      attach_file('Data', 'spec/fixtures/empty_upload.csv')
+      click_button 'Upload CSV'
+
+      expect(page).to have_content("File must contain data")
     end
   end
 end

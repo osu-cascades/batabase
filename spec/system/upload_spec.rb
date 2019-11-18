@@ -59,11 +59,13 @@ RSpec.describe 'Upload Flows', type: :system do
     # TODO: add test to verify file name is reflected and add that to how the form works to make it pass
     # TODO: change this test to check for the error message for a miss named file
     it "A user unsuccessfully attempts to upload a file that isn't a csv" do
+      pending("See TODOs")
+
       select('Site Metadata', from: 'Upload type')
       attach_file('Data', 'spec/fixtures/bad_upload.sbeav')
       click_button 'Upload CSV'
 
-      expect(page).to have_content("Import CSV Data")
+      expect(page).to have_content("Only CSV files are allowed")
     end
   end
 end

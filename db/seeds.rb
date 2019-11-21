@@ -27,3 +27,9 @@ columns = [:detection_target_id, :label]
 values = CSV.read(Rails.root.join('db/seed_data/target_descriptors.csv'))
 
 TargetDescriptor.import columns, values
+
+# Import target descriptor data from csv
+columns = [:habitat_class, :habitat_form]
+values = CSV.read(Rails.root.join('db/seed_data/broad_habitat.csv'))
+
+BroadHabitat.import columns, values

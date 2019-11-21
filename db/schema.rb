@@ -10,14 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_092350) do
+ActiveRecord::Schema.define(version: 2019_11_21_111345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "broad_habitat_forms", force: :cascade do |t|
+    t.string "label"
+    t.bigint "broad_habitat_id", null: false
+    t.index ["broad_habitat_id"], name: "index_broad_habitat_forms_on_broad_habitat_id"
+  end
+
   create_table "broad_habitats", force: :cascade do |t|
-    t.string "habitat_class"
-    t.string "habitat_form"
+    t.string "label"
   end
 
   create_table "counties", force: :cascade do |t|
@@ -47,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_092350) do
     t.string "upload_type"
   end
 
+  add_foreign_key "broad_habitat_forms", "broad_habitats"
   add_foreign_key "counties", "states"
   add_foreign_key "target_descriptors", "detection_targets"
 end

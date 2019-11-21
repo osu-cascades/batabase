@@ -28,8 +28,14 @@ values = CSV.read(Rails.root.join('db/seed_data/target_descriptors.csv'))
 
 TargetDescriptor.import columns, values
 
-# Import target descriptor data from csv
-columns = [:habitat_class, :habitat_form]
-values = CSV.read(Rails.root.join('db/seed_data/broad_habitat.csv'))
+# Import broad habitat data from csv
+columns = [:label]
+values = CSV.read(Rails.root.join('db/seed_data/broad_habitats.csv'))
 
 BroadHabitat.import columns, values
+
+# Import broad habitat form data from csv
+columns = [:broad_habitat_id, :label]
+values = CSV.read(Rails.root.join('db/seed_data/broad_habitat_forms.csv'))
+
+BroadHabitatForm.import columns, values

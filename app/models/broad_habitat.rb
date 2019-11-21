@@ -1,4 +1,4 @@
 class BroadHabitat < ApplicationRecord
-  validates :habitat_class, presence: true, allow_blank: false
-  validates :habitat_form, presence: true, allow_blank: false
+  validates :label, presence: true, allow_blank: false
+  has_many :broad_habitat_forms, dependent: :destroy
 end

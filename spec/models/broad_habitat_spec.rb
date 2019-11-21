@@ -13,7 +13,7 @@ RSpec.describe BroadHabitat do
     end
 
     context "An broad habitat is invalid if" do
-      it "It has no habitat class" do
+      it "It has no habitat label" do
         broad_habitat.label = ""
 
         expect(broad_habitat).to_not be_valid

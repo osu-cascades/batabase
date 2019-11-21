@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_030721) do
+ActiveRecord::Schema.define(version: 2019_11_21_092350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "broad_habitats", force: :cascade do |t|
+    t.string "habitat_class"
+    t.string "habitat_form"
+  end
 
   create_table "counties", force: :cascade do |t|
     t.string "name"

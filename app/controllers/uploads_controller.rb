@@ -12,6 +12,12 @@ class UploadsController < ApplicationController
   end
 
   def new
+    if params[:incorrect_format] == "true"
+      @incorrect_format = true
+    else
+      @incorrect_format = false
+    end
+
     @upload = Upload.new
   end
 
@@ -20,7 +26,7 @@ class UploadsController < ApplicationController
     upload_data = params[:upload][:data]
 
     if upload_data.content_type != "text/csv"
-      render(:new)
+      redirect_to action: 'new', incorrect_format: true
       return
     end
 

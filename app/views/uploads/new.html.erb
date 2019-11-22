@@ -6,5 +6,15 @@
     <%= f.file_field :data %>
     <%= f.submit "Upload CSV"%>
   <% end %>
-  
+
+  <% if @incorrect_format %>
+    <%=
+      alert dismissible: false,
+      type: :danger,
+      heading: "Only CSV files are allowed",
+      message: "Upload of incorrect file attempted, please try again",
+      styling: "mt-3"
+    %>
+  <% end %>
+
 </div>

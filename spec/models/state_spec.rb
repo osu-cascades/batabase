@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe State do
   let(:state) { FactoryBot.build_stubbed(:state) }
+  let(:state_with_counties) { FactoryBot.build_stubbed(:state, :has_counties) }
 
   describe "State Validation" do
     context "A state is valid if" do
@@ -29,6 +30,21 @@ RSpec.describe State do
         state.abbreviation = ""
 
         expect(state).to_not be_valid
+      end
+    end
+
+    describe "State Functionality" do
+      context "County Interactions" do
+        it 'A state can check if it has counties' do
+          expect(state.counties?).to be false
+          expect(state_with_counties.counties?).to be true
+        end
+
+        it 'A state can return all counties associated with it' do
+          expected = Array.new(5) { |i| County.new( name: "FAKE NAME #{i.humanize.upcase}") }
+
+          expect(state_with_counties.counties.size).to eq(5)
+        end
       end
     end
   end

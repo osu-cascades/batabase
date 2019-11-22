@@ -32,17 +32,17 @@ RSpec.describe State do
         expect(state).to_not be_valid
       end
     end
+  end
 
-    describe "State Functionality" do
-      context "County Interactions" do
-        it 'A state can check if it has counties' do
-          expect(state.counties?).to be false
-          expect(state_with_counties.counties?).to be true
-        end
+  describe "State Functionality" do
+    context "County Interactions" do
+      it 'A state can check if it has counties' do
+        expect(state.counties?).to be false
+        expect(state_with_counties.counties?).to be true
+      end
 
-        it 'A state can return all counties associated with it' do
-          expect(state_with_counties.counties.size).to eq(5)
-        end
+      it 'A state can return all counties associated with it' do
+        expect(state_with_counties.counties.size).to eq(5)
       end
     end
   end

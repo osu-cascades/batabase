@@ -104,6 +104,7 @@ GEM
     ffi (1.11.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    humanize (2.4.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
@@ -265,6 +266,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   factory_bot_rails
+  humanize
   jbuilder (~> 2.7)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

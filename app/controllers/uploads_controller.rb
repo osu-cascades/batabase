@@ -25,11 +25,6 @@ class UploadsController < ApplicationController
     upload_type = params[:upload][:upload_type]
     upload_data = params[:upload][:data]
 
-    if @upload.errors.any?
-      render(:new)
-      return
-    end
-
     string_data = File.read(upload_data.path)
     if string_data.empty?
       redirect_to action: 'new', empty_file: true
@@ -41,6 +36,11 @@ class UploadsController < ApplicationController
       filename: upload_data.original_filename,
       upload_type: upload_type
     )
+
+    if @upload.errors.any?
+      render(:new)
+      return
+    end
 
     redirect_to action: 'show', id: @upload.id
   end

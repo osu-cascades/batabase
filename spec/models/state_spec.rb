@@ -41,8 +41,6 @@ RSpec.describe State do
         end
 
         it 'A state can return all counties associated with it' do
-          expected = Array.new(5) { |i| County.new( name: "FAKE NAME #{i.humanize.upcase}") }
-
           expect(state_with_counties.counties.size).to eq(5)
         end
       end

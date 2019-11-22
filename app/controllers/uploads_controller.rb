@@ -12,11 +12,11 @@ class UploadsController < ApplicationController
   end
 
   def new
-    # if params[:incorrect_format] == "true"
-    #   @incorrect_format = true
-    # else
-    #   @incorrect_format = false
-    # end
+    if params[:empty_file] == "true"
+      @empty_file = true
+    else
+      @empty_file = false
+    end
 
     @upload = Upload.new
   end
@@ -25,21 +25,22 @@ class UploadsController < ApplicationController
     upload_type = params[:upload][:upload_type]
     upload_data = params[:upload][:data]
 
-    # if upload_data.content_type != "text/csv"
-    #   redirect_to action: 'new', incorrect_format: true
-    #   return
-    # end
-
-    @upload = Upload.create(
-      data: File.read(upload_data.path),
-      filename: upload_data.original_filename,
-      upload_type: upload_type
-    )
-
     if @upload.errors.any?
       render(:new)
       return
     end
+
+    string_data = File.read(upload_data.path)
+    if string_data.empty?
+      redirect_to action: 'new', empty_file: true
+      return
+    end
+
+    @upload = Upload.create(
+      data: string_data,
+      filename: upload_data.original_filename,
+      upload_type: upload_type
+    )
 
     redirect_to action: 'show', id: @upload.id
   end

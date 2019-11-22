@@ -39,11 +39,11 @@ RSpec.describe Upload do
     end
 
     context "An upload is invalid if" do
-      it "It contains no data" do
-        upload.data = ""
+      # it "It contains no data" do
+      #   upload.data = ""
 
-        expect(upload).to_not be_valid
-      end
+      #   expect(upload).to_not be_valid
+      # end
 
       it "It has no filename" do
         upload.filename = ""

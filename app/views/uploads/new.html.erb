@@ -8,12 +8,12 @@
     <%= f.submit "Upload CSV" %>
   <% end %>
 
-  <% if @incorrect_format %>
+  <% if @empty_file %>
     <%=
       alert dismissible: false,
       type: :danger,
-      heading: "Only CSV files are allowed",
-      message: "Upload of incorrect file attempted, please try again",
+      heading: "File uploaded was empty",
+      message: "File must contain data",
       styling: "mt-3"
     %>
   <% end %>

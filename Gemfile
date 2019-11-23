@@ -72,6 +72,9 @@ group :test do
 
 # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  # Used to create all caps number names for tests
+  gem 'humanize'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

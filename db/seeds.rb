@@ -39,3 +39,9 @@ columns = [:broad_habitat_id, :label]
 values = CSV.read(Rails.root.join('db/seed_data/broad_habitat_forms.csv'))
 
 BroadHabitatForm.import columns, values
+
+# Import software data from csv
+columns = [:name]
+values = CSV.read(Rails.root.join('db/seed_data/softwares.csv'))
+
+Software.import columns, values

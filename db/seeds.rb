@@ -51,3 +51,11 @@ columns = [:direction]
 values = CSV.read(Rails.root.join('db/seed_data/orientations.csv'))
 
 Orientation.import columns, values
+
+# TODO: figure out how to define my own id when importing the sample units
+# TODO: once that works see if it can continue on sequence after import?
+# Import sample unit data from csv
+# columns = [:sample_unit_id, :grts, :broad_habitat_id, :broad_habitat_form_id]
+# values = CSV.read(Rails.root.join('db/seed_data/sample_units.csv'))
+
+# SampleUnit.import columns, values

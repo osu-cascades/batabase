@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_23_050531) do
+ActiveRecord::Schema.define(version: 2019_11_23_092813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 2019_11_23_050531) do
 
   create_table "orientations", force: :cascade do |t|
     t.string "direction"
+  end
+
+  create_table "sample_units", id: false, force: :cascade do |t|
+    t.string "agency"
+    t.integer "grts"
   end
 
   create_table "softwares", force: :cascade do |t|

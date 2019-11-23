@@ -45,3 +45,9 @@ columns = [:name]
 values = CSV.read(Rails.root.join('db/seed_data/softwares.csv'))
 
 Software.import columns, values
+
+# Import orientation data from csv
+columns = [:direction]
+values = CSV.read(Rails.root.join('db/seed_data/orientations.csv'))
+
+Orientation.import columns, values

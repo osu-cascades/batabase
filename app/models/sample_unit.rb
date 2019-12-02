@@ -6,14 +6,12 @@ class SampleUnit < ApplicationRecord
   # has_many :detector_locations, dependent: :destroy
   # accepts_nested_attributes_for :detector_locations, allow_destroy: true
 
-  #TODO: figure out if we need a has many on the other end for these
   belongs_to :broad_habitat, optional: true
   belongs_to :broad_habitat_form, optional: true
 
   has_many :sample_unit_states
   has_many :sample_unit_counties
 
-  # TODO: figure out if these are needed
   has_many :states, through: :sample_unit_states
   has_many :counties, through: :sample_unit_counties
 

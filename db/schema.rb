@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_23_092813) do
+ActiveRecord::Schema.define(version: 2019_12_02_222246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,13 @@ ActiveRecord::Schema.define(version: 2019_11_23_092813) do
     t.string "direction"
   end
 
-  create_table "sample_units", id: false, force: :cascade do |t|
+  create_table "sample_units", primary_key: "sample_unit_id", force: :cascade do |t|
     t.string "agency"
     t.integer "grts"
+    t.bigint "broad_habitat_id", null: false
+    t.bigint "broad_habitat_form_id", null: false
+    t.index ["broad_habitat_form_id"], name: "index_sample_units_on_broad_habitat_form_id"
+    t.index ["broad_habitat_id"], name: "index_sample_units_on_broad_habitat_id"
   end
 
   create_table "softwares", force: :cascade do |t|
@@ -67,5 +71,7 @@ ActiveRecord::Schema.define(version: 2019_11_23_092813) do
 
   add_foreign_key "broad_habitat_forms", "broad_habitats"
   add_foreign_key "counties", "states"
+  add_foreign_key "sample_units", "broad_habitat_forms"
+  add_foreign_key "sample_units", "broad_habitats"
   add_foreign_key "target_descriptors", "detection_targets"
 end

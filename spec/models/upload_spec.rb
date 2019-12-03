@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Upload do
+RSpec.describe Upload, type: :model do
   let(:upload) { FactoryBot.build_stubbed(:upload, :meta) }
 
   describe "Upload Validation" do

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe BroadHabitat do
+RSpec.describe BroadHabitat, type: :model do
   let(:broad_habitat) { FactoryBot.build_stubbed(:broad_habitat) }
 
   describe "Broad Habitat Validation" do

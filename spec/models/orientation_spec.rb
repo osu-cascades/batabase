@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Orientation do
+RSpec.describe Orientation, type: :model do
   let(:orientation) { FactoryBot.build_stubbed(:orientation, :north) }
 
   describe "Orientation Validation" do

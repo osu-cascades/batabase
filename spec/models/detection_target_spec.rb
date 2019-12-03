@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe DetectionTarget do
+RSpec.describe DetectionTarget, type: :model do
   let(:detection_target) { FactoryBot.build_stubbed(:detection_target) }
 
   describe "Detection Target Validation" do

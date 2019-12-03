@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe County do
+RSpec.describe County, type: :model do
   let(:county) { FactoryBot.build_stubbed(:county) }
 
   describe "County Validation" do

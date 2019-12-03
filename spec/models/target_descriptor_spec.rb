@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe TargetDescriptor do
+RSpec.describe TargetDescriptor, type: :model do
   let(:target_descriptor) { FactoryBot.build_stubbed(:target_descriptor) }
 
   describe "Target Descriptor Validation" do

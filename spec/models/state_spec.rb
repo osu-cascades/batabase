@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe State do
+RSpec.describe State, type: :model do
   let(:state) { FactoryBot.build_stubbed(:state) }
   let(:state_with_counties) { FactoryBot.build_stubbed(:state, :has_counties) }
 

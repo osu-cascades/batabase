@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Software do
+RSpec.describe Software, type: :model do
   let(:software) { FactoryBot.build_stubbed(:software, :sonobat) }
 
   describe "Software Validation" do

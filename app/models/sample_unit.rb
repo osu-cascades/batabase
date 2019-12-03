@@ -1,8 +1,8 @@
 class SampleUnit < ApplicationRecord
-  validate :agency
+  validates :agency, length: { maximum: 50 }
   validates :grts, numericality: { only_integer: true }
 
-  # TODO: Detector locations
+  # TODO: Create Detector locations table and it's associations
   # has_many :detector_locations, dependent: :destroy
   # accepts_nested_attributes_for :detector_locations, allow_destroy: true
 
@@ -14,6 +14,15 @@ class SampleUnit < ApplicationRecord
 
   has_many :states, through: :sample_unit_states
   has_many :counties, through: :sample_unit_counties
+
+  def broad_habitat_label
+    broad_habitat.label
+  end
+
+
+  def broad_habitat_form_label
+    broad_habitat_form.label
+  end
 
   def primary_state
     # TODO: this

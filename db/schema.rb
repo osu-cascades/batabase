@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_222246) do
+ActiveRecord::Schema.define(version: 2019_12_03_004659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,23 @@ ActiveRecord::Schema.define(version: 2019_12_02_222246) do
     t.string "direction"
   end
 
-  create_table "sample_units", primary_key: "sample_unit_id", force: :cascade do |t|
+  create_table "sample_unit_counties", force: :cascade do |t|
+    t.decimal "percentage", precision: 5, scale: 2
+    t.bigint "county_id", null: false
+    t.bigint "sample_unit_id", null: false
+    t.index ["county_id"], name: "index_sample_unit_counties_on_county_id"
+    t.index ["sample_unit_id"], name: "index_sample_unit_counties_on_sample_unit_id"
+  end
+
+  create_table "sample_unit_states", force: :cascade do |t|
+    t.decimal "percentage", precision: 5, scale: 2
+    t.bigint "state_id", null: false
+    t.bigint "sample_unit_id", null: false
+    t.index ["sample_unit_id"], name: "index_sample_unit_states_on_sample_unit_id"
+    t.index ["state_id"], name: "index_sample_unit_states_on_state_id"
+  end
+
+  create_table "sample_units", force: :cascade do |t|
     t.string "agency"
     t.integer "grts"
     t.bigint "broad_habitat_id", null: false
@@ -71,6 +87,10 @@ ActiveRecord::Schema.define(version: 2019_12_02_222246) do
 
   add_foreign_key "broad_habitat_forms", "broad_habitats"
   add_foreign_key "counties", "states"
+  add_foreign_key "sample_unit_counties", "counties"
+  add_foreign_key "sample_unit_counties", "sample_units"
+  add_foreign_key "sample_unit_states", "sample_units"
+  add_foreign_key "sample_unit_states", "states"
   add_foreign_key "sample_units", "broad_habitat_forms"
   add_foreign_key "sample_units", "broad_habitats"
   add_foreign_key "target_descriptors", "detection_targets"

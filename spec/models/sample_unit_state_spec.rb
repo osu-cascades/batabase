@@ -22,6 +22,12 @@ RSpec.describe SampleUnitState, type: :model do
 
         expect(sample_unit_state).to_not be_valid
       end
+
+      it "It has a percentage of zero" do
+        sample_unit_state.percentage = 0
+
+        expect(sample_unit_state).to_not be_valid
+      end
     end
   end
 

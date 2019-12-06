@@ -64,6 +64,12 @@ values = CSV.read(Rails.root.join('db/seed_data/sampling_frequencies.csv'))
 
 SamplingFrequency.import columns, values
 
+# Import pre-triggers data from csv
+columns = [:delay]
+values = CSV.read(Rails.root.join('db/seed_data/pre_triggers.csv'))
+
+PreTrigger.import columns, values
+
 # Import local habitat data from csv
 columns = [:label]
 values = CSV.read(Rails.root.join('db/seed_data/local_habitats.csv'))

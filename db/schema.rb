@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_004659) do
+ActiveRecord::Schema.define(version: 2019_12_06_044854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 2019_12_03_004659) do
   end
 
   create_table "detection_targets", force: :cascade do |t|
+    t.string "label"
+  end
+
+  create_table "local_habitats", force: :cascade do |t|
     t.string "label"
   end
 

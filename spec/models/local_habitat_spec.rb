@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Orientation, type: :model do
+RSpec.describe LocalHabitat, type: :model do
   let(:local_habitat) { FactoryBot.build_stubbed(:local_habitat, :mixed_conifer) }
 
   describe "Local Habitat Validation" do

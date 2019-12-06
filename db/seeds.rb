@@ -58,6 +58,12 @@ values = CSV.read(Rails.root.join('db/seed_data/local_habitats.csv'))
 
 LocalHabitat.import columns, values
 
+# Import local habitat data from csv
+columns = [:label]
+values = CSV.read(Rails.root.join('db/seed_data/geodetic_systems.csv'))
+
+GeodeticSystem.import columns, values
+
 # TODO: get a file with all sample units
 # This will hopefully just work once I clean the data with all the sample units
 

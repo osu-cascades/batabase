@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_081232) do
+ActiveRecord::Schema.define(version: 2019_12_06_085031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_081232) do
     t.string "serial_number"
     t.string "model"
     t.string "manufacturer"
+  end
+
+  create_table "geodetic_systems", force: :cascade do |t|
+    t.string "label"
   end
 
   create_table "local_habitats", force: :cascade do |t|

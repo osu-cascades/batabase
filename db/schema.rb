@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 2019_12_06_194456) do
   enable_extension "plpgsql"
 
   create_table "broad_habitat_forms", force: :cascade do |t|
-    t.string "label"
+    t.string "name"
     t.bigint "broad_habitat_id", null: false
     t.index ["broad_habitat_id"], name: "index_broad_habitat_forms_on_broad_habitat_id"
   end
 
   create_table "broad_habitats", force: :cascade do |t|
-    t.string "label"
+    t.string "name"
   end
 
   create_table "contacts", force: :cascade do |t|

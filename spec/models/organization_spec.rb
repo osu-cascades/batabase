@@ -7,6 +7,7 @@ RSpec.describe Organization, type: :model do
     context "Organization is valid if" do
       it "It has a name" do
         organization.name = "FAKE NAME"
+
         expect(organization).to be_valid
       end
     end
@@ -14,11 +15,13 @@ RSpec.describe Organization, type: :model do
     context "Organization is invalid if" do
       it "It does not have a name" do
         organization.name = nil
+
         expect(organization).to_not be_valid
       end
 
       it "It has a blank name" do
         organization.name = ""
+
         expect(organization).to_not be_valid
       end
     end

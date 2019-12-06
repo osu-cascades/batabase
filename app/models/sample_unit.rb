@@ -28,15 +28,15 @@ class SampleUnit < ApplicationRecord
   end
 
   def primary_state_name
-    sample_unit_states.max_by(&:percentage).name
+    primary_state.name
   end
 
   def primary_state_abbreviation
-    sample_unit_states.max_by(&:percentage).abbreviation
+    primary_state.abbreviation
   end
 
   def primary_state_percentage
-    sample_unit_states.max_by(&:percentage).percentage
+    primary_state.percentage
   end
 
   def primary_county
@@ -44,11 +44,11 @@ class SampleUnit < ApplicationRecord
   end
 
   def primary_county_name
-    sample_unit_counties.max_by(&:percentage).name
+    primary_county.name
   end
 
   def primary_county_percentage
-    sample_unit_counties.max_by(&:percentage).percentage
+    primary_county.percentage
   end
 
 end

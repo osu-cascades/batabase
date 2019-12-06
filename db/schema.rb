@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_194456) do
+ActiveRecord::Schema.define(version: 2019_12_06_205106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_194456) do
     t.bigint "broad_habitat_form_id", null: false
     t.index ["broad_habitat_form_id"], name: "index_sample_units_on_broad_habitat_form_id"
     t.index ["broad_habitat_id"], name: "index_sample_units_on_broad_habitat_id"
+  end
+
+  create_table "sampling_frequencies", force: :cascade do |t|
+    t.float "frequency"
   end
 
   create_table "softwares", force: :cascade do |t|

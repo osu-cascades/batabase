@@ -58,6 +58,12 @@ values = CSV.read(Rails.root.join('db/seed_data/orientations.csv'))
 
 Orientation.import columns, values
 
+# Import sampling frequency data from csv
+columns = [:frequency]
+values = CSV.read(Rails.root.join('db/seed_data/sampling_frequencies.csv'))
+
+SamplingFrequency.import columns, values
+
 # Import local habitat data from csv
 columns = [:label]
 values = CSV.read(Rails.root.join('db/seed_data/local_habitats.csv'))

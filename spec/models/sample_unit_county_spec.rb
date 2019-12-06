@@ -22,6 +22,12 @@ RSpec.describe SampleUnitCounty, type: :model do
 
         expect(sample_unit_county).to_not be_valid
       end
+
+      it "It has a percentage of zero" do
+        sample_unit_county.percentage = 0
+
+        expect(sample_unit_county).to_not be_valid
+      end
     end
   end
 

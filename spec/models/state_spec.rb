@@ -59,6 +59,13 @@ RSpec.describe State, type: :model do
         expect(true).to be(false)
       end
     end
+
+    context "Contact Interactions" do
+      it 'A state can return the contacts its associated with' do
+        pending("TODO: this")
+        expect(true).to be(false)
+      end
+    end
   end
 
 end

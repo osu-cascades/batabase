@@ -22,7 +22,7 @@ RSpec.describe County, type: :model do
   end
 
   describe "County Functionality" do
-    context "State interactions" do
+    context "State Interactions" do
       it "It can retrieve the name of the state it's in" do
         expected = "FAKE NAME"
         actual = county.get_state
@@ -48,6 +48,13 @@ RSpec.describe County, type: :model do
 
     context "Sample Unit Interactions" do
       it 'A county can return the sample units its associated with' do
+        pending("TODO: this")
+        expect(true).to be(false)
+      end
+    end
+
+    context "Contact Interactions" do
+      it 'A county can return the contacts its associated with' do
         pending("TODO: this")
         expect(true).to be(false)
       end

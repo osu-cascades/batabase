@@ -47,7 +47,7 @@ RSpec.describe Detector, type: :model do
 
   describe "Detector Functionality" do
     context "Organization Interactions" do
-      it "It can return who owns the detector" do
+      it "It can return what organization owns the detector" do
         expect(detector.owner).to eq('FAKE NAME')
       end
     end

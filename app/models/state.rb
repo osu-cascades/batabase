@@ -6,6 +6,7 @@ class State < ApplicationRecord
   has_many :counties, dependent: :destroy
   has_many :sample_unit_states
   has_many :sample_units, through: :sample_unit_states
+  has_many :contacts
 
 
   def counties?

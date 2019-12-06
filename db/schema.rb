@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_185859) do
+ActiveRecord::Schema.define(version: 2019_12_06_194456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2019_12_06_185859) do
 
   create_table "broad_habitats", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.string "notes"
+    t.bigint "state_id", null: false
+    t.bigint "organization_id", null: false
+    t.index ["organization_id"], name: "index_contacts_on_organization_id"
+    t.index ["state_id"], name: "index_contacts_on_state_id"
   end
 
   create_table "counties", force: :cascade do |t|
@@ -106,6 +116,8 @@ ActiveRecord::Schema.define(version: 2019_12_06_185859) do
   end
 
   add_foreign_key "broad_habitat_forms", "broad_habitats"
+  add_foreign_key "contacts", "organizations"
+  add_foreign_key "contacts", "states"
   add_foreign_key "counties", "states"
   add_foreign_key "detectors", "organizations"
   add_foreign_key "sample_unit_counties", "counties"

@@ -70,6 +70,12 @@ values = CSV.read(Rails.root.join('db/seed_data/pre_triggers.csv'))
 
 PreTrigger.import columns, values
 
+# Import trigger sensitivities data from csv
+columns = [:sensitivity]
+values = CSV.read(Rails.root.join('db/seed_data/trigger_sensitivities.csv'))
+
+TriggerSensitivity.import columns, values
+
 # Import recording length data from csv
 columns = [:length]
 values = CSV.read(Rails.root.join('db/seed_data/recording_lengths.csv'))

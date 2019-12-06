@@ -10,8 +10,6 @@ RSpec.describe Orientation, type: :model do
           orientation.direction = direction
           expect(orientation).to be_valid
         end
-
-        
       end
     end
 

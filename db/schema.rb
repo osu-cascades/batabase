@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_221825) do
+ActiveRecord::Schema.define(version: 2019_12_06_223935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_221825) do
     t.string "label"
     t.bigint "detection_target_id", null: false
     t.index ["detection_target_id"], name: "index_target_descriptors_on_detection_target_id"
+  end
+
+  create_table "trigger_sensitivities", force: :cascade do |t|
+    t.string "sensitivity"
   end
 
   create_table "uploads", force: :cascade do |t|

@@ -2,7 +2,10 @@ require "rails_helper"
 
 RSpec.describe SampleUnit, type: :model do
   let(:sample_unit) { FactoryBot.build_stubbed(:sample_unit) }
+  let(:sample_unit_with_sample_unit_states) { FactoryBot.build_stubbed(:sample_unit, :has_multiple_sample_unit_states) }
+  let(:sample_unit_with_sample_unit_counties) { FactoryBot.build_stubbed(:sample_unit, :has_multiple_sample_unit_counties) }
   let(:sample_unit_with_habitat) { FactoryBot.build_stubbed(:sample_unit, :has_broad_habitat_information) }
+
 
   describe "Sample Unit Validation" do
     context "An sample unit is valid if" do
@@ -43,25 +46,63 @@ RSpec.describe SampleUnit, type: :model do
   describe "Sample Unit Functionality" do
     context "State Interactions" do
       it 'A sample unit can return which state it primarily consists of' do
-        pending("TODO: this")
-        expect(true).to be(false)
+        primary_state = sample_unit_with_sample_unit_states.primary_state
+        expect(primary_state.percentage).to eq(0.2)
+      end
+
+      it 'A sample unit can return the name of the state it primarily consists of' do
+        # TODO: Make this better
+        state = create(:state, id: 1)
+
+        expect(sample_unit_with_sample_unit_states.primary_state_name).to eq("FAKE NAME")
+      end
+
+      it 'A sample unit can return the abbreviation of the state it primarily consists of' do
+        expect(sample_unit_with_sample_unit_states.primary_state_percentage).to eq(0.2)
+      end
+
+      it 'A sample unit can return the percentage of the state it primarily consists of' do
+        # TODO: Make this better
+        state = create(:state, id: 1)
+
+        expect(sample_unit_with_sample_unit_states.primary_state_name).to eq("FAKE NAME")
       end
 
       it 'A sample unit can return an array of states it consists of' do
         pending("TODO: this")
         expect(true).to be(false)
       end
+
+      it 'A sample unit can return an array of sample unit states associated with it' do
+        expect(sample_unit_with_sample_unit_states.sample_unit_states.size).to eq(3)
+      end
     end
 
     context "County Interactions" do
       it 'A sample unit can return which county it primarily consists of' do
-        pending("TODO: this")
-        expect(true).to be(false)
+        primary_county = sample_unit_with_sample_unit_counties.primary_county
+        expect(primary_county.percentage).to eq(0.2)
+      end
+
+      it 'A sample unit can return the name of the county it primarily consists of' do
+        # TODO: Make this better
+        state = create(:state, id: 1)
+        county = create(:county, state_id: 1, id: 1)
+
+        expect(sample_unit_with_sample_unit_counties.primary_county_name).to eq("FAKE NAME")
+      end
+
+      it 'A sample unit can return the abbreviation of the county it primarily consists of' do
+        expect(sample_unit_with_sample_unit_counties.primary_county_percentage).to eq(0.2)
       end
 
       it 'A sample unit can return an array of counties it consists of' do
         pending("TODO: this")
         expect(true).to be(false)
+      end
+
+      it 'A sample unit can return an array of sample unit counties associated with it' do
+        expect(sample_unit_with_sample_unit_counties.sample_unit_counties.size).to eq(3)
       end
     end
 

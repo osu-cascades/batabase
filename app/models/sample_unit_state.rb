@@ -4,5 +4,11 @@ class SampleUnitState < ApplicationRecord
   belongs_to :sample_unit
   belongs_to :state
 
-  # TODO: add methods for pulling data about state
+  def name
+    state.name
+  end
+
+  def abbreviation
+    state.abbreviation
+  end
 end

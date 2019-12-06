@@ -37,5 +37,20 @@ RSpec.describe County, type: :model do
         expect(actual).to eq(expected)
       end
     end
+
+
+    context "Sample Unit County Interactions" do
+      it 'A county can return the sample unit counties its associated with' do
+        pending("TODO: this")
+        expect(true).to be(false)
+      end
+    end
+
+    context "Sample Unit Interactions" do
+      it 'A county can return the sample units its associated with' do
+        pending("TODO: this")
+        expect(true).to be(false)
+      end
+    end
   end
 end

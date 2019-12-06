@@ -19,18 +19,36 @@ class SampleUnit < ApplicationRecord
     broad_habitat.label
   end
 
-
   def broad_habitat_form_label
     broad_habitat_form.label
   end
 
   def primary_state
-    # TODO: this
+    sample_unit_states.max_by(&:percentage)
+  end
+
+  def primary_state_name
+    sample_unit_states.max_by(&:percentage).name
+  end
+
+  def primary_state_abbreviation
+    sample_unit_states.max_by(&:percentage).abbreviation
+  end
+
+  def primary_state_percentage
+    sample_unit_states.max_by(&:percentage).percentage
   end
 
   def primary_county
-    # TODO: this
+    sample_unit_counties.max_by(&:percentage)
   end
 
-  # TODO: add methods for pulling data about states and counties and their percents
+  def primary_county_name
+    sample_unit_counties.max_by(&:percentage).name
+  end
+
+  def primary_county_percentage
+    sample_unit_counties.max_by(&:percentage).percentage
+  end
+
 end

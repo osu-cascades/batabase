@@ -45,6 +45,20 @@ RSpec.describe State, type: :model do
         expect(state_with_counties.counties.size).to eq(5)
       end
     end
+
+    context "Sample Unit State Interactions" do
+      it 'A state can return the sample unit states its associated with' do
+        pending("TODO: this")
+        expect(true).to be(false)
+      end
+    end
+
+    context "Sample Unit Interactions" do
+      it 'A state can return the sample units its associated with' do
+        pending("TODO: this")
+        expect(true).to be(false)
+      end
+    end
   end
 
 end

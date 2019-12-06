@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :broad_habitat do
-    label { 'FAKE NAME' }
+    name { 'FAKE NAME' }
   end
 end

@@ -118,8 +118,8 @@ RSpec.describe SampleUnit, type: :model do
         expect(sample_unit.broad_habitat).to be_nil
       end
 
-      it "A sample unit can return its associated broad habitat's label" do
-        expect(sample_unit_with_habitat.broad_habitat_label).to eq("FAKE LABEL")
+      it "A sample unit can return its associated broad habitat's name" do
+        expect(sample_unit_with_habitat.broad_habitat_name).to eq("FAKE NAME")
       end
 
       it "A sample unit can return its associated broad habitat form if it exists" do
@@ -130,8 +130,8 @@ RSpec.describe SampleUnit, type: :model do
         expect(sample_unit.broad_habitat_form).to be_nil
       end
 
-      it "A sample unit can return its associated broad habitat form's label" do
-        expect(sample_unit_with_habitat.broad_habitat_form_label).to eq("FAKE LABEL")
+      it "A sample unit can return its associated broad habitat form's name" do
+        expect(sample_unit_with_habitat.broad_habitat_form_name).to eq("FAKE NAME")
       end
     end
   end

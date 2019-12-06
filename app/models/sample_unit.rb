@@ -15,12 +15,12 @@ class SampleUnit < ApplicationRecord
   has_many :states, through: :sample_unit_states
   has_many :counties, through: :sample_unit_counties
 
-  def broad_habitat_label
-    broad_habitat.label
+  def broad_habitat_name
+    broad_habitat.name
   end
 
-  def broad_habitat_form_label
-    broad_habitat_form.label
+  def broad_habitat_form_name
+    broad_habitat_form.name
   end
 
   def primary_state

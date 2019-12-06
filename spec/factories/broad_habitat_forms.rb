@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :broad_habitat_form do
     broad_habitat
-    label { 'FAKE NAME' }
+    name { 'FAKE NAME' }
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_220540) do
+ActiveRecord::Schema.define(version: 2019_12_06_221825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_220540) do
 
   create_table "pre_triggers", force: :cascade do |t|
     t.float "delay"
+  end
+
+  create_table "recording_lengths", force: :cascade do |t|
+    t.float "length"
   end
 
   create_table "sample_unit_counties", force: :cascade do |t|

@@ -70,6 +70,12 @@ values = CSV.read(Rails.root.join('db/seed_data/pre_triggers.csv'))
 
 PreTrigger.import columns, values
 
+# Import recording length data from csv
+columns = [:length]
+values = CSV.read(Rails.root.join('db/seed_data/recording_lengths.csv'))
+
+RecordingLength.import columns, values
+
 # Import local habitat data from csv
 columns = [:label]
 values = CSV.read(Rails.root.join('db/seed_data/local_habitats.csv'))

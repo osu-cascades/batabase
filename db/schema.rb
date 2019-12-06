@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_085031) do
+ActiveRecord::Schema.define(version: 2019_12_06_185859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,10 +36,11 @@ ActiveRecord::Schema.define(version: 2019_12_06_085031) do
   end
 
   create_table "detectors", force: :cascade do |t|
-    t.string "owner"
     t.string "serial_number"
     t.string "model"
     t.string "manufacturer"
+    t.bigint "organization_id", null: false
+    t.index ["organization_id"], name: "index_detectors_on_organization_id"
   end
 
   create_table "geodetic_systems", force: :cascade do |t|
@@ -48,6 +49,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_085031) do
 
   create_table "local_habitats", force: :cascade do |t|
     t.string "label"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "orientations", force: :cascade do |t|
@@ -102,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_085031) do
 
   add_foreign_key "broad_habitat_forms", "broad_habitats"
   add_foreign_key "counties", "states"
+  add_foreign_key "detectors", "organizations"
   add_foreign_key "sample_unit_counties", "counties"
   add_foreign_key "sample_unit_counties", "sample_units"
   add_foreign_key "sample_unit_states", "sample_units"

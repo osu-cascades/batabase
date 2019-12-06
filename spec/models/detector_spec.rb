@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Detector, type: :model do
-  let(:detector) { FactoryBot.build_stubbed(:detector, :blm) }
+  let(:detector) { FactoryBot.build_stubbed(:detector) }
 
   describe "Detector Validation" do
     context "Detector is valid if" do
@@ -21,13 +21,6 @@ RSpec.describe Detector, type: :model do
         detector.serial_number = "FAKE SERIAL NUMBER"
 
         expect(detector).to be_valid
-      end
-
-      it "It has an owner" do
-        [ "ODFW", "NPS", "BLM", "USFS", "OSU", "Other" ].each do |owner|
-          detector.owner = owner
-          expect(detector).to be_valid
-        end
       end
     end
 
@@ -49,17 +42,13 @@ RSpec.describe Detector, type: :model do
 
         expect(detector).to_not be_valid
       end
+    end
+  end
 
-      it "It contains no owner" do
-        detector.owner = ""
-
-        expect(detector).to_not be_valid
-      end
-
-      it "It has a label that isn't pre-specified" do
-        detector.owner = "BAD OWNER"
-
-        expect(detector).to_not be_valid
+  describe "Detector Functionality" do
+    context "Organization Interactions" do
+      it "It can return who owns the detector" do
+        expect(detector.owner).to eq('FAKE NAME')
       end
     end
   end

@@ -13,7 +13,7 @@ RSpec.describe GeodeticSystem, type: :model do
     end
 
     context "Geodetic system is invalid if" do
-      it "It contains no label" do
+      it "It has no label" do
         geodetic_system.label = ""
 
         expect(geodetic_system).to_not be_valid

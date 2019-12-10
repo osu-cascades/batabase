@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_223935) do
+ActiveRecord::Schema.define(version: 2019_12_06_194456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,14 +69,6 @@ ActiveRecord::Schema.define(version: 2019_12_06_223935) do
     t.string "direction"
   end
 
-  create_table "pre_triggers", force: :cascade do |t|
-    t.float "delay"
-  end
-
-  create_table "recording_lengths", force: :cascade do |t|
-    t.float "length"
-  end
-
   create_table "sample_unit_counties", force: :cascade do |t|
     t.decimal "percentage", precision: 5, scale: 2
     t.bigint "county_id", null: false
@@ -102,10 +94,6 @@ ActiveRecord::Schema.define(version: 2019_12_06_223935) do
     t.index ["broad_habitat_id"], name: "index_sample_units_on_broad_habitat_id"
   end
 
-  create_table "sampling_frequencies", force: :cascade do |t|
-    t.float "frequency"
-  end
-
   create_table "softwares", force: :cascade do |t|
     t.string "name"
   end
@@ -119,10 +107,6 @@ ActiveRecord::Schema.define(version: 2019_12_06_223935) do
     t.string "label"
     t.bigint "detection_target_id", null: false
     t.index ["detection_target_id"], name: "index_target_descriptors_on_detection_target_id"
-  end
-
-  create_table "trigger_sensitivities", force: :cascade do |t|
-    t.string "sensitivity"
   end
 
   create_table "uploads", force: :cascade do |t|

@@ -40,7 +40,7 @@ RSpec.describe 'Upload Flows', type: :system do
     end
     
     it 'A user successfully uploads a csv file' do
-      select('Site Metadata', from: 'Upload type')
+      select('Site Metadata', from: 'Upload Type')
       attach_file('Data', 'spec/fixtures/meta_upload.csv')
       click_button 'Upload CSV'
 
@@ -48,7 +48,7 @@ RSpec.describe 'Upload Flows', type: :system do
     end
 
     it 'A user unsuccessfully attempts to upload a csv file' do
-      select('Site Metadata', from: 'Upload type')
+      select('Site Metadata', from: 'Upload Type')
       attach_file('Data', 'spec/fixtures/empty_upload.csv')
       click_button 'Upload CSV'
 

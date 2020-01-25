@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class State < ApplicationRecord
   # TODO: add length check
   validates :abbreviation, presence: true, allow_blank: false
@@ -7,7 +9,6 @@ class State < ApplicationRecord
   has_many :sample_unit_states
   has_many :sample_units, through: :sample_unit_states
   has_many :contacts
-
 
   def counties?
     !counties.empty?

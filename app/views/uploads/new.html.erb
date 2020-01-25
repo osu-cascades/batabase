@@ -1,30 +1,12 @@
 <div class="container mt-3">
   <h2>Import CSV Data</h2>
-  <%= form_with model: @upload, class: "form-horizontal center" do |f| %>
-    <div class="form-group">
-      <div class="col-md-8">
-        <%= f.label :upload_type, "Upload Type", class: "control-label" %>
-        <%= f.select :upload_type, [['Site Metadata', 'meta'], ['Sonobat Output', 'sono']], {}, class: "form-control" %>
-      </div>
+  <%= simple_form_for @upload do |f| %>
+    <div class="form-group mt-4">
+      <%= f.input :upload_type, collection: [['Site Metadata', 'meta'], ['Sonobat Output', 'sono']], selected: 0 %>
     </div>
     <div class="form-group">
-      <div class="col-md-8">
-        <div class="custom-file">
-          <%= f.label :data, for: "file-input", class: "custom-file-label", id: "file-input-label"%>
-          <%= f.file_field :data, class: "custom-file-input", id: "file-input" %>
-        </div>
-      </div>
+      <%= f.file_field :data %>
     </div>
-    <div class="col-md-8">
-      <%= f.submit "Upload CSV", class: "btn btn-default btn-primary" %>
-    </div>
+    <%= f.submit "Upload CSV"%>
   <% end %>
 </div>
-<script>
-  document.querySelector('.custom-file-input').addEventListener('change', function(e) {
-   var fileName = document.getElementById("file-input").files[0].name;
-  
-   var inputLabel = document.getElementById("file-input-label");
-   inputLabel.innerText = fileName;
-  });
-</script>

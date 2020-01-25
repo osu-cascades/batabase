@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SampleUnit < ApplicationRecord
   validates :agency, length: { maximum: 50 }
   validates :grts, numericality: { only_integer: true }
@@ -50,5 +52,4 @@ class SampleUnit < ApplicationRecord
   def primary_county_percentage
     primary_county.percentage
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UploadsController < ApplicationController
   require 'csv'
 
@@ -19,7 +21,7 @@ class UploadsController < ApplicationController
     upload_type = params[:upload][:upload_type]
     upload_data = params[:upload][:data]
 
-    if upload_data.content_type != "text/csv"
+    if upload_data.content_type != 'text/csv'
       render(:new)
       return
     end

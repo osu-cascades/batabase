@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SampleUnitCounty < ApplicationRecord
   validates :percentage, numericality: { greater_than: 0.0 }
 
@@ -7,5 +9,4 @@ class SampleUnitCounty < ApplicationRecord
   def name
     county.name
   end
-
 end

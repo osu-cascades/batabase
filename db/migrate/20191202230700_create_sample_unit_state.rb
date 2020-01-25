@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSampleUnitState < ActiveRecord::Migration[6.0]
   def change
     create_table :sample_unit_states do |t|

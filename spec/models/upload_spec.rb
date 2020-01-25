@@ -1,78 +1,79 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe Upload, type: :model do
   let(:upload) { FactoryBot.build_stubbed(:upload, :meta) }
 
-  describe "Upload Validation" do
-    context "An upload is valid if" do
-      it "It contains data" do
-        upload.data = "FAKE DATA"
+  describe 'Upload Validation' do
+    context 'An upload is valid if' do
+      it 'It contains data' do
+        upload.data = 'FAKE DATA'
 
         expect(upload).to be_valid
       end
 
-      it "It has a filename ending in csv" do
-        upload.filename = "FAKE_FILENAME.csv"
+      it 'It has a filename ending in csv' do
+        upload.filename = 'FAKE_FILENAME.csv'
 
         expect(upload).to be_valid
       end
 
       it "It's csv file name ending is not case sensative" do
-        upload.filename = "FAKE_FILENAME.cSV"
+        upload.filename = 'FAKE_FILENAME.cSV'
 
         expect(upload).to be_valid
 
-        upload.filename = "FAKE_FILENAME.CSV"
+        upload.filename = 'FAKE_FILENAME.CSV'
 
         expect(upload).to be_valid
       end
 
-      it "It has a type of meta or sono" do
-        upload.upload_type = "meta"
+      it 'It has a type of meta or sono' do
+        upload.upload_type = 'meta'
 
         expect(upload).to be_valid
 
-        upload.upload_type = "sono"
+        upload.upload_type = 'sono'
 
         expect(upload).to be_valid
       end
     end
 
-    context "An upload is invalid if" do
-      it "It contains no data" do
-        upload.data = ""
+    context 'An upload is invalid if' do
+      it 'It contains no data' do
+        upload.data = ''
 
         expect(upload).to_not be_valid
       end
 
-      it "It has no filename" do
-        upload.filename = ""
+      it 'It has no filename' do
+        upload.filename = ''
 
         expect(upload).to_not be_valid
       end
 
-      it "It has a filename not ending in csv" do
-        upload.filename = "FAKE_FILENAME.suv"
+      it 'It has a filename not ending in csv' do
+        upload.filename = 'FAKE_FILENAME.suv'
 
         expect(upload).to_not be_valid
 
-        upload.filename = "FAKE_FILENAME.vsc"
+        upload.filename = 'FAKE_FILENAME.vsc'
 
         expect(upload).to_not be_valid
       end
 
-      it "It contains no type" do
-        upload.upload_type = ""
+      it 'It contains no type' do
+        upload.upload_type = ''
 
         expect(upload).to_not be_valid
       end
 
       it "It has a type that isn't meta or sono" do
-        upload.upload_type = "FAKE TYPE"
+        upload.upload_type = 'FAKE TYPE'
 
         expect(upload).to_not be_valid
       end
     end
   end
-
 end

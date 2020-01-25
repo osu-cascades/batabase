@@ -1,6 +1,5 @@
 <div class="container mt-3">
   <h2>Import CSV Data</h2>
-
   <%= form_with model: @upload, class: "form-horizontal center" do |f| %>
     <div class="form-group">
       <div class="col-md-8">
@@ -18,15 +17,14 @@
     </div>
     <div class="col-md-8">
       <%= f.submit "Upload CSV", class: "btn btn-default btn-primary" %>
-    </div>   
+    </div>
   <% end %>
 </div>
-
 <script>
- document.querySelector('.custom-file-input').addEventListener('change', function(e) {
-  var fileName = document.getElementById("file-input").files[0].name;
+  document.querySelector('.custom-file-input').addEventListener('change', function(e) {
+   var fileName = document.getElementById("file-input").files[0].name;
   
-  var inputLabel = document.getElementById("file-input-label");
-  inputLabel.innerText = fileName;
- });
+   var inputLabel = document.getElementById("file-input-label");
+   inputLabel.innerText = fileName;
+  });
 </script>

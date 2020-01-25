@@ -7,12 +7,4 @@ class County < ApplicationRecord
   has_many :sample_units, through: :sample_unit_counties
 
   belongs_to :state
-
-  def get_state
-    state.name
-  end
-
-  def get_abbreviation
-    state.abbreviation
-  end
 end

@@ -27,14 +27,14 @@ RSpec.describe County, type: :model do
     context 'State Interactions' do
       it "It can retrieve the name of the state it's in" do
         expected = 'FAKE NAME'
-        actual = county.get_state
+        actual = county.state.name
 
         expect(actual).to eq(expected)
       end
 
       it "It can retrieve the abbreviation of the state it's in" do
         expected = 'FAKE ABBREVIATION'
-        actual = county.get_abbreviation
+        actual = county.state.abbreviation
 
         expect(actual).to eq(expected)
       end

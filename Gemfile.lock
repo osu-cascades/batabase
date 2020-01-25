@@ -75,9 +75,6 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    bootstrap_form (4.3.0)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.29.0)
@@ -259,6 +256,9 @@ GEM
     selenium-webdriver (3.142.6)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    simple_form (5.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     simplecov (0.17.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -328,7 +328,6 @@ DEPENDENCIES
   activerecord-import
   bootsnap (>= 1.4.2)
   bootstrap
-  bootstrap_form (~> 4.0)
   byebug
   capybara (>= 2.15)
   devise
@@ -346,6 +345,7 @@ DEPENDENCIES
   rubocop
   sass-rails (>= 6)
   selenium-webdriver
+  simple_form
   simplecov
   solargraph
   spring

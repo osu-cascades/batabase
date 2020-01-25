@@ -35,8 +35,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap'
 gem 'jquery-rails'
 
-# Gem that generates forms already in bootstrap style
-gem 'bootstrap_form', '~> 4.0'
+# Form builder that makes custom forms easy that inherits bootstrap
+gem 'simple_form'
 
 # Devise is a flexible authentication solution for Rails based on Warden. Doc: https://github.com/plataformatec/devise
 gem 'devise'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'activerecord-import/base'
 
 # load the appropriate database adapter (postgresql, mysql2, sqlite3, etc)

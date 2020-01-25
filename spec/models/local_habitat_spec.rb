@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'csv'
 require 'rails_helper'
 
 RSpec.describe LocalHabitat, type: :model do
@@ -8,8 +9,10 @@ RSpec.describe LocalHabitat, type: :model do
   describe 'Local Habitat Validation' do
     context 'Local habitat is valid if' do
       it 'It has a label' do
-        ['mixed conifer', 'dry conifer', 'hardwood', 'alpine forest', 'mesic forest', 'urban', 'agriculture', 'grassland', 'shrub-steppe'].each do |label|
-          local_habitat.label = label
+        VALID_LABELS = CSV.read(Rails.root.join('db/seed_data/local_habitats.csv'))
+
+        VALID_LABELS.each do |label|
+          local_habitat.label = label.first
           expect(local_habitat).to be_valid
         end
       end

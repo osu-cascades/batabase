@@ -62,6 +62,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Rubocop provides ruby and erb linting on save
+  gem 'rubocop'
+
+  # Solargraph is a language server that provides intellisense, code completion, and inline documentation for Ruby.
+  gem 'solargraph'
+
+  gem 'htmlbeautifier'
 end
 
 group :test do
@@ -70,7 +78,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
 
-# Easy installation and use of web drivers to run system tests with browsers
+  # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 
   # Used to create all caps number names for tests

@@ -1,41 +1,43 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe State, type: :model do
   let(:state) { FactoryBot.build_stubbed(:state) }
   let(:state_with_counties) { FactoryBot.build_stubbed(:state, :has_counties) }
 
-  describe "State Validation" do
-    context "A state is valid if" do
-      it "It has a name" do
-        state.name = "FAKE NAME"
+  describe 'State Validation' do
+    context 'A state is valid if' do
+      it 'It has a name' do
+        state.name = 'FAKE NAME'
 
         expect(state).to be_valid
       end
 
-      it "It has an abbreviation" do
-        state.abbreviation = "FAKE ABBREVIATION"
+      it 'It has an abbreviation' do
+        state.abbreviation = 'FAKE ABBREVIATION'
 
         expect(state).to be_valid
       end
     end
 
-    context "A state is invalid if" do
-      it "It has no name" do
-        state.name = ""
+    context 'A state is invalid if' do
+      it 'It has no name' do
+        state.name = ''
 
         expect(state).to_not be_valid
       end
 
-      it "It has no abbreviation" do
-        state.abbreviation = ""
+      it 'It has no abbreviation' do
+        state.abbreviation = ''
 
         expect(state).to_not be_valid
       end
     end
   end
 
-  describe "State Functionality" do
-    context "County Interactions" do
+  describe 'State Functionality' do
+    context 'County Interactions' do
       it 'A state can check if it has counties' do
         expect(state.counties?).to be false
         expect(state_with_counties.counties?).to be true
@@ -46,26 +48,25 @@ RSpec.describe State, type: :model do
       end
     end
 
-    context "Sample Unit State Interactions" do
+    context 'Sample Unit State Interactions' do
       it 'A state can return the sample unit states its associated with' do
-        pending("TODO: this")
+        pending('TODO: this')
         expect(true).to be(false)
       end
     end
 
-    context "Sample Unit Interactions" do
+    context 'Sample Unit Interactions' do
       it 'A state can return the sample units its associated with' do
-        pending("TODO: this")
+        pending('TODO: this')
         expect(true).to be(false)
       end
     end
 
-    context "Contact Interactions" do
+    context 'Contact Interactions' do
       it 'A state can return the contacts its associated with' do
-        pending("TODO: this")
+        pending('TODO: this')
         expect(true).to be(false)
       end
     end
   end
-
 end

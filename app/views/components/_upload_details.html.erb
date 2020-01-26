@@ -4,7 +4,6 @@
   @param data [CSV] * data parsed from data string of upload
   @param filename [String] * filename of csv data uploaded
 %>
-
 <%
   data = yield.presence || local_assigns.fetch(:data)
   return if data.blank?
@@ -12,25 +11,24 @@
   filename = yield.presence || local_assigns.fetch(:filename)
   return if filename.blank?
 %>
-
 <%= content_tag :div, class: 'table-responsive', role: 'upload-details' do %>
-    <table class="table uploads-smaller-font">
-      <caption class="mx-1"><%= filename %></caption>
-      <thead class="thead-dark">
+  <table class="table uploads-smaller-font">
+    <caption class="mx-1"><%= filename %></caption>
+    <thead class="thead-dark">
+      <tr>
+        <% data[0].each do |header| %>
+          <th scope="col"><%= header %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% data[1..-1].each do |row| %>
         <tr>
-          <% data[0].each do |header| %>
-            <th scope="col"><%= header %></th>
+          <% row.each do |col| %>
+            <td><%= col %></td>
           <% end %>
         </tr>
-      </thead>
-      <tbody>
-        <% data[1..-1].each do |row| %>
-          <tr>
-            <% row.each do |col| %>
-              <td><%= col %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>

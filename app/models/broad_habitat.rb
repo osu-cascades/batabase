@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BroadHabitat < ApplicationRecord
   validates :name, presence: true, allow_blank: false
 

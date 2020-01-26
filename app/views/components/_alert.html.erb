@@ -7,7 +7,6 @@
   @param message [String] * the actual message
   @param type [Symbol] (:primary) styles it differently
 %>
-
 <%
   message = yield.presence || local_assigns.fetch(:message)
   return if message.blank?
@@ -34,17 +33,14 @@
 
   styling = local_assigns.fetch(:styling, "")
 %>
-
 <%= content_tag :div, class: "alert #{type_class} #{dismissible_classes} #{styling}", role: 'alert' do %>
   <% if dismissible %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   <% end %>
-
   <% if heading %>
     <h4 class="alert-heading"><%= heading %></h4>
   <% end %>
-
   <%= message %>
 <% end %>

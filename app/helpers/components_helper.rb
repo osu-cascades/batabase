@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ComponentsHelper
   # Main component call
   def component(name, *options, &block)

@@ -1,10 +1,9 @@
 <div class="container mt-3">
   <h2>Import CSV Data</h2>
-
-  <%= bootstrap_form_with(model: @upload) do |f| %>
-    <%= f.select :upload_type, [['Site Metadata', 'meta'], ['Sonobat Output', 'sono']] %>
-    <%= f.file_field :data %>
-    <%= f.submit "Upload CSV"%>
+  <%= simple_form_for @upload do |f| %>
+    <%= f.input :upload_type, collection: [['Site Metadata', 'meta'], ['Sonobat Output', 'sono']], selected: 0, :input_html => { :id => 'upload-type-selector' } %>
+    <%= f.input :data, as: :file %>
+    <%= f.button :submit, "Upload CSV", class: "btn-primary" %>
+    <%= f.button :button, "Reset", type: "reset", class: "btn-outline-danger" %>
   <% end %>
-  
 </div>

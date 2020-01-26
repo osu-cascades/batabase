@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# TODO: alphabetize these
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -31,8 +35,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap'
 gem 'jquery-rails'
 
-# Gem that generates forms already in bootstrap style
-gem 'bootstrap_form', '~> 4.0'
+# Form builder that makes custom forms easy that inherits bootstrap https://github.com/heartcombo/simple_form
+gem 'simple_form'
 
 # Devise is a flexible authentication solution for Rails based on Warden. Doc: https://github.com/plataformatec/devise
 gem 'devise'
@@ -56,12 +60,20 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Rubocop provides ruby and erb linting on save
+  gem 'rubocop'
+
+  # Solargraph is a language server that provides intellisense, code completion, and inline documentation for Ruby.
+  gem 'solargraph'
+
+  gem 'htmlbeautifier'
 end
 
 group :test do
@@ -70,7 +82,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
 
-# Easy installation and use of web drivers to run system tests with browsers
+  # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 
   # Used to create all caps number names for tests

@@ -1,0 +1,10 @@
+/*
+  *= require_self
+  *= require main
+*/
+
+.fill-viewport {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}

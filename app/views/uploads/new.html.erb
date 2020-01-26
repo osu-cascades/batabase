@@ -1,12 +1,9 @@
 <div class="container mt-3">
   <h2>Import CSV Data</h2>
   <%= simple_form_for @upload do |f| %>
-    <div class="form-group mt-4">
-      <%= f.input :upload_type, collection: [['Site Metadata', 'meta'], ['Sonobat Output', 'sono']], selected: 0 %>
-    </div>
-    <div class="form-group">
-      <%= f.file_field :data %>
-    </div>
-    <%= f.submit "Upload CSV"%>
+    <%= f.input :upload_type, collection: [['Site Metadata', 'meta'], ['Sonobat Output', 'sono']], selected: 0 %>
+    <%= f.input :data, as: :file %>
+    <%= f.button :submit, class: "btn-primary" %>
+    <%= f.button :button, "Reset", type: "reset", class: "btn-outline-danger" %>
   <% end %>
 </div>

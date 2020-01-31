@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :detector do
     organization
+    firmware { 'FAKE FIRMWARE' }
     manufacturer { 'FAKE MANUFACTURER' }
     model { 'FAKE MODEL' }
     serial_number { 'FAKE SERIAL NUMBER' }

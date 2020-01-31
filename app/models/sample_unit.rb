@@ -4,7 +4,6 @@ class SampleUnit < ApplicationRecord
   validates :agency, length: { maximum: 50 }
   validates :grts, numericality: { only_integer: true }
 
-  # TODO: Create Detector locations table and it's associations
   # has_many :detector_locations, dependent: :destroy
   # accepts_nested_attributes_for :detector_locations, allow_destroy: true
 

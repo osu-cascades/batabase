@@ -7,6 +7,12 @@ RSpec.describe Detector, type: :model do
 
   describe 'Detector Validation' do
     context 'Detector is valid if' do
+      it 'It has firmware specified' do
+        detector.firmware = 'FAKE FIRMWARE'
+
+        expect(detector).to be_valid
+      end
+
       it 'It has a manufacturer' do
         detector.manufacturer = 'FAKE MANUFACTURER'
 
@@ -27,6 +33,12 @@ RSpec.describe Detector, type: :model do
     end
 
     context 'Detector is invalid if' do
+      it 'It has no firmware specified' do
+        detector.firmware = ''
+
+        expect(detector).to_not be_valid
+      end
+
       it 'It has no manufacturer' do
         detector.manufacturer = ''
 

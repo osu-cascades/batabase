@@ -1,22 +1,22 @@
-1,river
-1,stream
-1,spring
-1,lake
-1,pond
-1,wetland
-1,stocktank/trough
-2,large canyon bottom
-2,large canyon top
-2,small arroyo dry gulch bottom
-2,small arroyo dry gulch top
-3,ridge top
-3,cliff bottom
-3,cliff top
-4,large
-4,medium
-4,small
-5,old young forest
-5,forest open land
-6,small gap
-6,trail
-6,roadway
+1,"river"
+1,"stream"
+1,"spring"
+1,"lake"
+1,"pond"
+1,"wetland"
+1,"stocktank/trough"
+2,"large canyon bottom"
+2,"large canyon top"
+2,"small arroyo dry gulch bottom"
+2,"small arroyo dry gulch top"
+3,"ridge top"
+3,"cliff bottom"
+3,"cliff top"
+4,"large"
+4,"medium"
+4,"small"
+5,"old young forest"
+5,"forest open land"
+6,"small gap"
+6,"trail"
+6,"roadway"

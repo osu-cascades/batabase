@@ -5,18 +5,18 @@
 1, pond
 1, wetland
 1, stocktank/trough
-2, largecanyonbottom
-2, largecanyontop
-2, smallarroyodrygulchbottom
-2, smallarroyodrygulchtop
-3, ridgetop
-3, cliffbottom
-3, clifftop
+2, large canyon bottom
+2, large canyon top
+2, small arroyo dry gulch bottom
+2, small arroyo dry gulch top
+3, ridge top
+3, cliff bottom
+3, cliff top
 4, large
 4, medium
 4, small
-5, oldyoungforest
-5, forestopenland
-6, smallgap
+5, old young forest
+5, forest open land
+6, small gap
 6, trail
 6, roadway

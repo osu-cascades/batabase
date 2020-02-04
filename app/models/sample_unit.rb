@@ -4,7 +4,7 @@ class SampleUnit < ApplicationRecord
   validates :agency, length: { maximum: 50 }
   validates :grts, numericality: { only_integer: true }
 
-  # has_many :detector_locations, dependent: :destroy
+  has_many :detector_locations, dependent: :destroy
   # accepts_nested_attributes_for :detector_locations, allow_destroy: true
 
   belongs_to :broad_habitat, optional: true

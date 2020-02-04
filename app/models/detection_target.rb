@@ -3,4 +3,5 @@
 class DetectionTarget < ApplicationRecord
   validates :label, presence: true, allow_blank: false
   has_many :target_descriptors, dependent: :destroy
+  has_many :detector_locations
 end

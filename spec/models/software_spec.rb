@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Software, type: :model do
   let(:software) { FactoryBot.build_stubbed(:software, :sonobat) }
+  let(:software_using_defaults) { FactoryBot.create(:default_software) }
 
   describe 'Software Validation' do
     context 'Software is valid if' do
@@ -72,4 +73,14 @@ RSpec.describe Software, type: :model do
       end
     end
   end
+
+  # describe 'Software default behavior' do
+  #   context 'Software default values' do
+  #     it 'It should have a default value for acceptable call quality upon creation' do
+  #       expected_quality = 0.80
+
+  #       expect(software_using_defaults.acceptable_call_quality).to eq expected_quality
+  #     end
+  #   end
+  # end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_224929) do
+ActiveRecord::Schema.define(version: 2020_02_06_233209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2020_02_04_224929) do
   end
 
   create_table "detector_locations", force: :cascade do |t|
-    t.bigint "sample_unit_id"
     t.string "quad_id"
     t.integer "quad_no"
     t.string "location_id"
@@ -55,17 +54,15 @@ ActiveRecord::Schema.define(version: 2020_02_04_224929) do
     t.float "longitude"
     t.float "elevation"
     t.string "driving_directions"
-    t.bigint "local_habitat_id"
-    t.bigint "detection_target_id"
-    t.bigint "target_descriptor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "detectors", force: :cascade do |t|
-    t.string "serial_number"
-    t.string "model"
+    t.string "firmware"
     t.string "manufacturer"
+    t.string "model"
+    t.string "serial_number"
     t.bigint "organization_id", null: false
     t.index ["organization_id"], name: "index_detectors_on_organization_id"
   end
@@ -84,14 +81,6 @@ ActiveRecord::Schema.define(version: 2020_02_04_224929) do
 
   create_table "orientations", force: :cascade do |t|
     t.string "direction"
-  end
-
-  create_table "pre_triggers", force: :cascade do |t|
-    t.float "delay"
-  end
-
-  create_table "recording_lengths", force: :cascade do |t|
-    t.float "length"
   end
 
   create_table "sample_unit_counties", force: :cascade do |t|
@@ -119,12 +108,17 @@ ActiveRecord::Schema.define(version: 2020_02_04_224929) do
     t.index ["broad_habitat_id"], name: "index_sample_units_on_broad_habitat_id"
   end
 
-  create_table "sampling_frequencies", force: :cascade do |t|
-    t.float "frequency"
-  end
-
   create_table "softwares", force: :cascade do |t|
     t.string "name"
+    t.string "version"
+    t.string "classifier_package"
+    t.float "acceptable_call_quality", default: 0.8
+    t.float "sequence_decision_threshold", default: 0.9
+    t.integer "max_no_calls", default: 16
+    t.string "logfile_notes"
+    t.string "other_settings"
+    t.bigint "contact_id", null: false
+    t.index ["contact_id"], name: "index_softwares_on_contact_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -136,10 +130,6 @@ ActiveRecord::Schema.define(version: 2020_02_04_224929) do
     t.string "label"
     t.bigint "detection_target_id", null: false
     t.index ["detection_target_id"], name: "index_target_descriptors_on_detection_target_id"
-  end
-
-  create_table "trigger_sensitivities", force: :cascade do |t|
-    t.string "sensitivity"
   end
 
   create_table "uploads", force: :cascade do |t|
@@ -159,5 +149,6 @@ ActiveRecord::Schema.define(version: 2020_02_04_224929) do
   add_foreign_key "sample_unit_states", "states"
   add_foreign_key "sample_units", "broad_habitat_forms"
   add_foreign_key "sample_units", "broad_habitats"
+  add_foreign_key "softwares", "contacts"
   add_foreign_key "target_descriptors", "detection_targets"
 end

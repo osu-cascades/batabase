@@ -16,6 +16,24 @@ RSpec.describe Software, type: :model do
 
         expect(software).to be_valid
       end
+
+      it 'It has an acceptable call quality that is a number' do
+        software.acceptable_call_quality = 0.50
+
+        expect(software).to be_valid
+      end
+
+      it 'It has a sequence decision threshold that is a number' do
+        software.sequence_decision_threshold = 0.80
+
+        expect(software).to be_valid
+      end
+
+      it 'It has a max number of calls that is a whole number' do
+        software.max_no_calls = 30
+
+        expect(software).to be_valid
+      end
     end
 
     context 'Software is invalid if' do
@@ -25,7 +43,7 @@ RSpec.describe Software, type: :model do
         expect(software).to_not be_valid
       end
 
-      it "It has name that isn't Sonobat 4 or Kaleidoscope" do
+      it 'It has name that isn\'t Sonobat 4 or Kaleidoscope' do
         software.name = 'Sonobat 3'
 
         expect(software).to_not be_valid
@@ -33,6 +51,24 @@ RSpec.describe Software, type: :model do
         software.name = 'Caleidoscope'
 
         expect(software).to_not be_valid
+      end
+
+      it 'It has a non numeric acceptable call quality' do
+        software.acceptable_call_quality = 'very good call'
+
+        expect(software).to_not be_valid
+      end
+
+      it 'It has a non numeric sequence decision threshold call quality' do
+        software.sequence_decision_threshold = 'high'
+
+        expect(software).to_not be_valid
+      end
+
+      it 'It has a max number of calls that isn\'t a whole number' do
+        software.max_no_calls = 0.5
+
+        expect(software).to_not be_valid 
       end
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_212617) do
+ActiveRecord::Schema.define(version: 2020_02_06_231142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(version: 2020_02_06_212617) do
     t.integer "max_no_calls", default: 16
     t.string "logfile_notes"
     t.string "other_settings"
+    t.bigint "contact_id", null: false
+    t.index ["contact_id"], name: "index_softwares_on_contact_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -134,5 +136,6 @@ ActiveRecord::Schema.define(version: 2020_02_06_212617) do
   add_foreign_key "sample_unit_states", "states"
   add_foreign_key "sample_units", "broad_habitat_forms"
   add_foreign_key "sample_units", "broad_habitats"
+  add_foreign_key "softwares", "contacts"
   add_foreign_key "target_descriptors", "detection_targets"
 end

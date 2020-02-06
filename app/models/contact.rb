@@ -7,4 +7,5 @@ class Contact < ApplicationRecord
 
   belongs_to :organization, optional: true
   belongs_to :state
+  has_many :softwares
 end

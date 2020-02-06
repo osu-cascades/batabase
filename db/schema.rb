@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_194456) do
+ActiveRecord::Schema.define(version: 2020_02_06_192116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,13 @@ ActiveRecord::Schema.define(version: 2019_12_06_194456) do
 
   create_table "softwares", force: :cascade do |t|
     t.string "name"
+    t.string "version"
+    t.string "classifier_package"
+    t.float "acceptable_call_quality"
+    t.float "sequence_decision_threshold"
+    t.integer "max_no_calls"
+    t.string "logfile_notes"
+    t.string "other_settings"
   end
 
   create_table "states", force: :cascade do |t|

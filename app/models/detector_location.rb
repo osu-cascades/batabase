@@ -2,6 +2,7 @@ class DetectorLocation < ApplicationRecord
   belongs_to :sample_unit
   belongs_to :detection_target
   belongs_to :target_descriptor
+  belongs_to :local_habitat
 
   validates :quad_id, presence: true, allow_blank: false, inclusion: {
     in: ['NE', 'NW', 'SE', 'SW']

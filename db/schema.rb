@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_233209) do
+ActiveRecord::Schema.define(version: 2020_02_06_234549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,10 @@ ActiveRecord::Schema.define(version: 2020_02_06_233209) do
     t.string "driving_directions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "sample_unit_id", null: false
+    t.bigint "detection_target_id", null: false
+    t.index ["detection_target_id"], name: "index_detector_locations_on_detection_target_id"
+    t.index ["sample_unit_id"], name: "index_detector_locations_on_sample_unit_id"
   end
 
   create_table "detectors", force: :cascade do |t|
@@ -112,13 +116,11 @@ ActiveRecord::Schema.define(version: 2020_02_06_233209) do
     t.string "name"
     t.string "version"
     t.string "classifier_package"
-    t.float "acceptable_call_quality", default: 0.8
-    t.float "sequence_decision_threshold", default: 0.9
-    t.integer "max_no_calls", default: 16
-    t.string "logfile_notes"
+    t.float "acceptable_call_quality"
+    t.float "sequence_decision_threshold"
+    t.integer "max_no_calls"
+    t.string "log_file_notes"
     t.string "other_settings"
-    t.bigint "contact_id", null: false
-    t.index ["contact_id"], name: "index_softwares_on_contact_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -142,6 +144,8 @@ ActiveRecord::Schema.define(version: 2020_02_06_233209) do
   add_foreign_key "contacts", "organizations"
   add_foreign_key "contacts", "states"
   add_foreign_key "counties", "states"
+  add_foreign_key "detector_locations", "detection_targets"
+  add_foreign_key "detector_locations", "sample_units"
   add_foreign_key "detectors", "organizations"
   add_foreign_key "sample_unit_counties", "counties"
   add_foreign_key "sample_unit_counties", "sample_units"
@@ -149,6 +153,5 @@ ActiveRecord::Schema.define(version: 2020_02_06_233209) do
   add_foreign_key "sample_unit_states", "states"
   add_foreign_key "sample_units", "broad_habitat_forms"
   add_foreign_key "sample_units", "broad_habitats"
-  add_foreign_key "softwares", "contacts"
   add_foreign_key "target_descriptors", "detection_targets"
 end

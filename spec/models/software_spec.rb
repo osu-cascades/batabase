@@ -43,7 +43,7 @@ RSpec.describe Software, type: :model do
         expect(software).to_not be_valid
       end
 
-      it 'It has name that isn\'t Sonobat 4 or Kaleidoscope' do
+      it "It has name that isn't Sonobat 4 or Kaleidoscope" do
         software.name = 'Sonobat 3'
 
         expect(software).to_not be_valid
@@ -65,10 +65,10 @@ RSpec.describe Software, type: :model do
         expect(software).to_not be_valid
       end
 
-      it 'It has a max number of calls that isn\'t a whole number' do
+      it "It has a max number of calls that isn't a whole number" do
         software.max_no_calls = 0.5
 
-        expect(software).to_not be_valid 
+        expect(software).to_not be_valid
       end
     end
   end

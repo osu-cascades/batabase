@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_231142) do
     t.float "acceptable_call_quality", default: 0.8
     t.float "sequence_decision_threshold", default: 0.9
     t.integer "max_no_calls", default: 16
-    t.string "logfile_notes"
+    t.string "log_file_notes"
     t.string "other_settings"
     t.bigint "contact_id", null: false
     t.index ["contact_id"], name: "index_softwares_on_contact_id"

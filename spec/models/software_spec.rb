@@ -54,13 +54,13 @@ RSpec.describe Software, type: :model do
       end
 
       it 'It has a non numeric acceptable call quality' do
-        software.acceptable_call_quality = 'very good call'
+        software.acceptable_call_quality = 'INVALID'
 
         expect(software).to_not be_valid
       end
 
       it 'It has a non numeric sequence decision threshold call quality' do
-        software.sequence_decision_threshold = 'high'
+        software.sequence_decision_threshold = 'INVALID'
 
         expect(software).to_not be_valid
       end

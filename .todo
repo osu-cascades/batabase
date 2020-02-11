@@ -20,3 +20,4 @@ Data TODOs
 - [] add belongs to relation (sample_unit->species_group)
 - [] add species and species group models where they have a many to many relationship
 - [] use the data from "xrefSpeciesSpeciesGroup.csv" as a way to build the relationships when creating species and species groups
+- [] Remove "FederalAgency" field from sample_unit

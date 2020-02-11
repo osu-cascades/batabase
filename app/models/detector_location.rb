@@ -7,7 +7,7 @@ class DetectorLocation < ApplicationRecord
   belongs_to :local_habitat
 
   validates :quad_id, presence: true, allow_blank: false, inclusion: {
-    in: ['NW', 'NE', 'SW' 'SE']
+    in: ['NW', 'NE', 'SW', 'SE']
   }
 
   validates :quad_no, presence: true, numericality: { only_integer: true }, inclusion: 1..20

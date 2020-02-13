@@ -1,20 +1,24 @@
-Data TODOs
-- [] add fake detector data to build test database
-- [] finishing cleaning sample unit data
-- [] create detector locations table and it's associations
-- [] add has many relation (detection_target->detector_location)
-- [] add belongs to relation (detector_location->detection_target)
-- [] add has many relation (target_descriptor->detector_location)
-- [] add belongs to relation (detector_location->target_descriptor)
+Model TODOs
+- [x] create detector locations table and it's associations
+- [x] add has many relation (detection_target->detector_location)
+- [x] add belongs to relation (detector_location->detection_target)
+- [x] add has many relation (target_descriptor->detector_location)
+- [x] add belongs to relation (detector_location->target_descriptor)
 - [] add species group as either table or add to deployment model (verify in access for this decision)
 - [] add distance range as either table or add to deployment model (verify in access for this decision)
 - [] add microphone type as either table or add to deployment model (verify in access for this decision)
 - [] add clutter type to either the deployment model or make a look up table if there are many
-- [] finish modeling software
-- [] put software model under test
-- [] add detector location model (belongs to sample unit)
-- [] add belongs to relation (detector_location->sample_unit)
-- [] add has many relation (sample_unit->detector_location)
-- [] figure out if recovery contact is an organization or if it should inherit through contact
+- [x] finish modeling software
+- [x] put software model under test
+- [x] add detector location model (belongs to sample unit)
+- [x] add belongs to relation (detector_location->sample_unit)
+- [x] add has many relation (sample_unit->detector_location)
+- [x] figure out if recovery contact is an organization or if it should inherit through contact
+- [] recovery contact is just a contact with a deployment attached to it. make a recovery contact
 - [] add has many relation (species_group->sample_unit)
 - [] add belongs to relation (sample_unit->species_group)
+- [x] ensure that contacts have all specified relationships and they are tested
+
+Data TODOs
+- [] add fake detector data to build test database
+- [] finishing cleaning sample unit data

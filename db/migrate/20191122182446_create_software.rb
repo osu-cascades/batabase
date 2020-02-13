@@ -3,7 +3,7 @@
 class CreateSoftware < ActiveRecord::Migration[6.0]
   def change
     create_table :softwares do |t|
-      t.string :name
+      t.string :name, default: 'Sonobat 4'
       t.string :version
       t.string :classifier_package
       t.float :acceptable_call_quality, default: 0.8

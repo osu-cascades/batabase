@@ -39,7 +39,7 @@ RSpec.describe SampleUnitCounty, type: :model do
         expect(sample_unit_county.county.class).to be(County)
       end
 
-      it 'A sample unit county can return the name of the county it belongs to' do
+      it 'A sample unit county can fetch the name of the county it belongs to' do
         expect(sample_unit_county.name).to eq('FAKE NAME')
       end
     end

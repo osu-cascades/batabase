@@ -5,14 +5,16 @@ FactoryBot.define do
     name { 'FAKE NAME' }
     abbreviation { 'FAKE ABBREVIATION' }
 
+    trait :has_contacts do
+      contacts { FactoryBot.build_list(:contact, 5) }
+    end
+
     trait :has_counties do
-      counties do
-        Array.new(5) do |i|
-          County.new(
-            name: "FAKE NAME #{i.humanize.upcase}"
-          )
-        end
-      end
+      counties { FactoryBot.build_list(:county, 5) }
+    end
+
+    trait :has_sample_units do
+      sample_units { FactoryBot.build_list(:sample_unit, 5) }
     end
   end
 end

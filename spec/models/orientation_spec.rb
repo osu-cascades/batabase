@@ -10,6 +10,7 @@ RSpec.describe Orientation, type: :model do
       it 'It has a named direction' do
         ['N', 'W', 'E', 'S', 'NW', 'NE', 'SW', 'SE'].each do |direction|
           orientation.direction = direction
+
           expect(orientation).to be_valid
         end
       end
@@ -23,11 +24,7 @@ RSpec.describe Orientation, type: :model do
       end
 
       it "It has a direction that isn't a named direction" do
-        orientation.direction = 'WN'
-
-        expect(orientation).to_not be_valid
-
-        orientation.direction = 'Q'
+        orientation.direction = 'INVALID DIRECTION'
 
         expect(orientation).to_not be_valid
       end

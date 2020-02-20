@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Software, type: :model do
-  let(:software) { FactoryBot.build_stubbed(:software, :sonobat) }
+  let(:software) { FactoryBot.build_stubbed(:software) }
 
   describe 'Software Validation' do
     context 'Software is valid if' do
@@ -44,11 +44,11 @@ RSpec.describe Software, type: :model do
       end
 
       it "It has name that isn't Sonobat 4 or Kaleidoscope" do
-        software.name = 'Sonobat 3'
+        software.name = 'INVALID'
 
         expect(software).to_not be_valid
 
-        software.name = 'Caleidoscope'
+        software.name = 'INVALID'
 
         expect(software).to_not be_valid
       end
@@ -91,6 +91,14 @@ RSpec.describe Software, type: :model do
         expected_number_of_calls = 16
 
         expect(software.max_no_calls).to eq expected_number_of_calls
+      end
+    end
+  end
+
+  describe 'Software Functionality' do
+    context 'Contact Interactions' do
+      it 'A software can fetch the contact is belongs to' do
+        expect(software.contact.class).to be(Contact)
       end
     end
   end

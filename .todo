@@ -21,6 +21,7 @@ Model TODOs
 - [] add tests to show that dependent destroy interactions are working correctly
 - [] refactor detector location spec test for callback function
 - [] refactor sample unit tests and test groupings
+- [] look into combining orientation into associated models
 
 Data TODOs
 - [] add fake detector data to build test database

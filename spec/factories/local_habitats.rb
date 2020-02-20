@@ -37,5 +37,9 @@ FactoryBot.define do
     trait :shrub_steppe do
       label { 'shrub-steppe' }
     end
+
+    trait :has_detector_locations do
+      detector_locations { FactoryBot.build_list(:detector_location, 5) }
+    end
   end
 end

@@ -22,7 +22,10 @@ Model TODOs
 - [] refactor detector location spec test for callback function
 - [] refactor sample unit tests and test groupings
 - [] look into combining orientation into associated models
+- [] use the data from "xrefSpeciesSpeciesGroup.csv" as a way to build the relationships when creating species and species groups
+- [] remove "FederalAgency" field from sample_unit
 
 Data TODOs
 - [] add fake detector data to build test database
 - [] finishing cleaning sample unit data
+- [] add species and species group models where they have a many to many relationship

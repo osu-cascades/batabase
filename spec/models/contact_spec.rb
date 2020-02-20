@@ -77,19 +77,19 @@ RSpec.describe Contact, type: :model do
 
   describe 'Contact Functionality' do
     context 'Organization Interactions' do
-      it 'A contact can fetch the organization it is associated with' do
+      it 'A contact can fetch the organization associated with it' do
         expect(contact_with_organization.organization.class).to be(Organization)
       end
     end
 
     context 'State Interactions' do
-      it 'A contact can fetch the state it is associated with' do
+      it 'A contact can fetch the state associated with it' do
         expect(contact.state.class).to be(State)
       end
     end
 
     context 'Software Interactions' do
-      it 'A contact can fetch all of the software it is associated with' do
+      it 'A contact can fetch all of the software associated with it' do
         contact_with_software.softwares.each do |current_software|
           expect(current_software.class).to be(Software)
         end

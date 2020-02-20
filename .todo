@@ -18,6 +18,9 @@ Model TODOs
 - [] add has many relation (species_group->sample_unit)
 - [] add belongs to relation (sample_unit->species_group)
 - [x] ensure that contacts have all specified relationships and they are tested
+- [] add tests to show that dependent destroy interactions are working correctly
+- [] refactor detector location spec test for callback function
+- [] refactor sample unit tests and test groupings
 
 Data TODOs
 - [] add fake detector data to build test database

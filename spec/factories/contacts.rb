@@ -12,16 +12,7 @@ FactoryBot.define do
     end
 
     trait :has_software do
-      softwares do
-        Array.new(5) do |i|
-          Software.new(
-            version: "FAKE VERSION #{i.humanize.upcase}",
-            classifier_package: 'FAKE CLASSIFIER PACKAGE',
-            log_file_notes: 'FAKE LOGFILE NOTES',
-            other_settings: 'FAKE OTHER SETTINGS'
-          )
-        end
-      end
+      softwares { FactoryBot.build_list(:software, 5) }
     end
   end
 end

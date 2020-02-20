@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :software do
+    name { 'Sonobat 4' }
     version { 'FAKE VERSION' }
     classifier_package { 'FAKE CLASSIFIER PACKAGE' }
     acceptable_call_quality { 0.8 }
@@ -11,10 +12,6 @@ FactoryBot.define do
     other_settings { 'FAKE OTHER SETTINGS' }
 
     contact
-
-    trait :sonobat do
-      name { 'Sonobat 4' }
-    end
 
     trait :Kaleidoscope do
       name { 'Kaleidoscope' }

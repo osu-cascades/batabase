@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe Contact, type: :model do
   let(:contact) { FactoryBot.build_stubbed(:contact) }
   let(:contact_with_organization) { FactoryBot.build_stubbed(:contact, :has_organization) }
+  let(:contact_with_software) { FactoryBot.build_stubbed(:contact, :has_software) }
 
   describe 'Contact Validation' do
     context 'Contact is valid if' do
@@ -76,16 +77,24 @@ RSpec.describe Contact, type: :model do
 
   describe 'Contact Functionality' do
     context 'Organization Interactions' do
-      it 'A contact can return the organization it is associated with' do
-        pending('TODO: this')
-        expect(true).to be(false)
+      it 'A contact can fetch the organization associated with it' do
+        expect(contact_with_organization.organization.class).to be(Organization)
       end
     end
 
     context 'State Interactions' do
-      it 'A contact can return the state it is associated with' do
-        pending('TODO: this')
-        expect(true).to be(false)
+      it 'A contact can fetch the state associated with it' do
+        expect(contact.state.class).to be(State)
+      end
+    end
+
+    context 'Software Interactions' do
+      it 'A contact can fetch all of the software associated with it' do
+        contact_with_software.softwares.each do |current_software|
+          expect(current_software.class).to be(Software)
+        end
+
+        expect(contact_with_software.softwares.length).to eq(5)
       end
     end
   end

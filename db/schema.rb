@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_231142) do
+ActiveRecord::Schema.define(version: 2020_02_07_020508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,26 @@ ActiveRecord::Schema.define(version: 2020_02_06_231142) do
 
   create_table "detection_targets", force: :cascade do |t|
     t.string "label"
+  end
+
+  create_table "detector_locations", force: :cascade do |t|
+    t.string "quad_id"
+    t.integer "quad_no"
+    t.string "location_identifier"
+    t.string "location_name"
+    t.float "latitude"
+    t.float "longitude"
+    t.float "elevation"
+    t.string "driving_directions"
+    t.string "land_ownership"
+    t.bigint "sample_unit_id", null: false
+    t.bigint "detection_target_id", null: false
+    t.bigint "target_descriptor_id", null: false
+    t.bigint "local_habitat_id", null: false
+    t.index ["detection_target_id"], name: "index_detector_locations_on_detection_target_id"
+    t.index ["local_habitat_id"], name: "index_detector_locations_on_local_habitat_id"
+    t.index ["sample_unit_id"], name: "index_detector_locations_on_sample_unit_id"
+    t.index ["target_descriptor_id"], name: "index_detector_locations_on_target_descriptor_id"
   end
 
   create_table "detectors", force: :cascade do |t|
@@ -96,7 +116,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_231142) do
   end
 
   create_table "softwares", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "Sonobat 4"
     t.string "version"
     t.string "classifier_package"
     t.float "acceptable_call_quality", default: 0.8
@@ -129,6 +149,10 @@ ActiveRecord::Schema.define(version: 2020_02_06_231142) do
   add_foreign_key "contacts", "organizations"
   add_foreign_key "contacts", "states"
   add_foreign_key "counties", "states"
+  add_foreign_key "detector_locations", "detection_targets"
+  add_foreign_key "detector_locations", "local_habitats"
+  add_foreign_key "detector_locations", "sample_units"
+  add_foreign_key "detector_locations", "target_descriptors"
   add_foreign_key "detectors", "organizations"
   add_foreign_key "sample_unit_counties", "counties"
   add_foreign_key "sample_unit_counties", "sample_units"

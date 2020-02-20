@@ -39,11 +39,11 @@ RSpec.describe SampleUnitState, type: :model do
         expect(sample_unit_state.state.class).to be(State)
       end
 
-      it 'A sample unit state can return the name of the state it belongs to' do
+      it 'A sample unit state can fetch the name of the state it belongs to' do
         expect(sample_unit_state.name).to eq('FAKE NAME')
       end
 
-      it 'A sample unit state can return the abbreviation of the state it belongs to' do
+      it 'A sample unit state can fetch the abbreviation of the state it belongs to' do
         expect(sample_unit_state.abbreviation).to eq('FAKE ABBREVIATION')
       end
     end

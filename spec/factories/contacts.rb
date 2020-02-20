@@ -10,5 +10,9 @@ FactoryBot.define do
     trait :has_organization do
       organization
     end
+
+    trait :has_software do
+      softwares { FactoryBot.build_list(:software, 5) }
+    end
   end
 end

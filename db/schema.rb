@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_21_215543) do
+ActiveRecord::Schema.define(version: 2020_02_21_220651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,13 @@ ActiveRecord::Schema.define(version: 2020_02_21_215543) do
   create_table "species_groups", force: :cascade do |t|
     t.string "label"
     t.string "summary"
+  end
+
+  create_table "species_species_groups", id: false, force: :cascade do |t|
+    t.bigint "species_id", null: false
+    t.bigint "species_group_id", null: false
+    t.index ["species_group_id", "species_id"], name: "index_species_species_groups_on_species_group_id_and_species_id"
+    t.index ["species_id", "species_group_id"], name: "index_species_species_groups_on_species_id_and_species_group_id"
   end
 
   create_table "states", force: :cascade do |t|

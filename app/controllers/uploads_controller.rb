@@ -47,7 +47,12 @@ class UploadsController < ApplicationController
   end
 
   def commit
-    @upload = Upload.find(params[:upload_id])
+    upload = Upload.find(params[:upload_id])
+    workflow = CommitUploadWorkflow(upload)
+    if workflow.validate
+      workflow.run!
+    end
+
     # This will be where the work happens for turning
     # the CSV into tables in db
     redirect_to uploads_path

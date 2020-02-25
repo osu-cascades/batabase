@@ -29,3 +29,8 @@ Data TODOs
 - [] add fake detector data to build test database
 - [] finishing cleaning sample unit data
 - [] add species and species group models where they have a many to many relationship
+
+Workflow TODOs
+- [] add test for workflow
+- [] add workflow for parsing data
+- [] make sure that workflow is fully unit tested

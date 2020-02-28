@@ -13,7 +13,7 @@ class DetectorsGrid
   filter(:manufacturer, :string)
   filter(:model, :string)
   filter(:serial_number, :string)
-  filter(:organization_id, :integer)
+  filter(:organization_id, :string)
 
   #
   # Columns
@@ -23,5 +23,5 @@ class DetectorsGrid
   column(:manufacturer)
   column(:model)
   column(:serial_number)
-  column(:organization_id)
+  column(:organization) { |asset| asset.organization.name }
 end

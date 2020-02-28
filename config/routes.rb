@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :uploads do
     get :commit
   end
-  
-  resources :detectors
+
+  resources :detectors, :only => [:index]
 end

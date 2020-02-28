@@ -22,6 +22,8 @@ class CommitUpload
       'United States Forest Service' => 'USFS'
     }
 
+    long_name.default = 'Other'
+
     data.each do |row|
       current_serial_number = row['Detector Serial No.']
 

@@ -1,1 +1,5 @@
-<h1>Detectors Here!</h1>
+<h1>Detectors</h1>
+<div>
+  <%= datagrid_form_for @detectors_grid, url: detectors_path %>
+  <%= datagrid_table(@detectors_grid) %>
+</div>

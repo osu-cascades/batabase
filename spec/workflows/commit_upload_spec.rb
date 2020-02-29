@@ -31,4 +31,11 @@ RSpec.describe CommitUpload, type: :workflow do
 
     CommitUpload.new(expected).send(:create_detectors)
   end
+
+  it 'Can create a contact from raw survey 123 data' do
+    expected = CSV.read(Rails.root.join('spec/fixtures/populated_bulk_upload_template.csv'), headers: true)
+    create(:state, name: 'Oregon', abbreviation: 'OR')
+    create(:organization, name: 'OSU')
+    CommitUpload.new(expected).send(:create_contacts)
+  end
 end

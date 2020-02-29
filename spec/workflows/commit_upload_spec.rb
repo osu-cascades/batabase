@@ -29,6 +29,6 @@ RSpec.describe CommitUpload, type: :workflow do
     expected = CSV.read(Rails.root.join('spec/fixtures/populated_bulk_upload_template.csv'), headers: true)
     create(:organization, name: 'OSU')
 
-    CommitUpload.new(expected).run
+    CommitUpload.new(expected).send(:create_detectors)
   end
 end

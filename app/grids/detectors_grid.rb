@@ -2,7 +2,7 @@ class DetectorsGrid
   include Datagrid
 
   scope do
-    Detector
+    Detector.includes(:organization)
   end
 
   #
@@ -13,7 +13,9 @@ class DetectorsGrid
   filter(:manufacturer, :string)
   filter(:model, :string)
   filter(:serial_number, :string)
-  filter(:organization_id, :string)
+  filter(:organization_name, :string, header: "Organization") do |value|
+    self.joins(:organization).where(:organizations => {:name => value})
+  end
 
   #
   # Columns
@@ -23,5 +25,7 @@ class DetectorsGrid
   column(:manufacturer)
   column(:model)
   column(:serial_number)
-  column(:organization) { |asset| asset.organization.name }
+  column(:organization, header: "Organization") do |detector|
+    detector.organization.name
+  end 
 end

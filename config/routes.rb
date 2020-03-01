@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   resources :detectors, :only => [:index]
+  resources :contacts, :only => [:index]
 end

@@ -24,6 +24,12 @@ values = CSV.read(Rails.root.join('db/seed_data/organizations.csv'))
 
 Organization.import columns, values
 
+# Import contact data from csv
+columns = [:last_name, :first_name, :notes, :organization_id, :state_id]
+values = CSV.read(Rails.root.join('db/seed_data/contacts.csv'))
+
+Contact.import columns, values
+
 # Import detector data from csv
 columns = [:firmware, :manufacturer, :model, :serial_number, :organization_id]
 values = CSV.read(Rails.root.join('db/seed_data/detectors.csv'))

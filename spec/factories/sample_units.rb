@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :sample_unit do
-    agency { 'FAKE AGENCY' }
+    code { 42 }
     grts { 42 }
 
     trait :has_sample_unit_states do

@@ -60,6 +60,12 @@ RSpec.describe Detector, type: :model do
   end
 
   describe 'Detector Functionality' do
+    it 'Can return the code of a detector (Organization + Serial Number)' do
+      expected = detector.owner + '-' + detector.serial_number
+
+      expect(detector.code).to eq(expected)
+    end
+
     context 'Organization Interactions' do
       it 'It can return what organization owns the detector' do
         expect(detector.owner).to eq('FAKE NAME')

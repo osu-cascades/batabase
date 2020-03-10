@@ -6,7 +6,7 @@ class Deployment < ApplicationRecord
   validates :clutter_percent, presence: true, numericality: { only_integer: true }, inclusion: { in: 1..5 }
   validates :sampling_frequency, numericality: { only_integer: true }
 
-  belongs_to :sample_unit
+  belongs_to :detector_location
   belongs_to :detector
   belongs_to :distance_range
   belongs_to :clutter_type

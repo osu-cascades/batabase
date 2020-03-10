@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_07_020508) do
+ActiveRecord::Schema.define(version: 2020_03_10_200610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(version: 2020_02_07_020508) do
   end
 
   create_table "broad_habitats", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "clutter_types", force: :cascade do |t|
     t.string "name"
   end
 
@@ -39,6 +43,45 @@ ActiveRecord::Schema.define(version: 2020_02_07_020508) do
     t.string "name"
     t.bigint "state_id", null: false
     t.index ["state_id"], name: "index_counties_on_state_id"
+  end
+
+  create_table "deployments", force: :cascade do |t|
+    t.text "comments"
+    t.decimal "microphone_height_off_ground", precision: 5, scale: 2, default: "3.0"
+    t.string "microphone_orientation"
+    t.integer "clutter_percent"
+    t.integer "sampling_frequency", default: 500
+    t.string "pre_trigger", default: "OFF"
+    t.string "recording_length", default: "5"
+    t.string "hp_filter", default: "NO"
+    t.string "auto_record", default: "YES"
+    t.string "trigger_sensitivity", default: "MED"
+    t.integer "input_gain", default: 45
+    t.string "trigger_level", default: "160"
+    t.integer "interval", default: 0
+    t.integer "gain", default: 12
+    t.string "sixteen_thousand_high_filter", default: "OFF"
+    t.integer "sample_rate", default: 384
+    t.string "min_duration", default: "1.5"
+    t.string "max_duration", default: "none"
+    t.integer "min_trigger_frequency", default: 7
+    t.integer "trigger_window", default: 3
+    t.string "max_length", default: "00:05"
+    t.string "compression", default: "none"
+    t.datetime "deployment_date"
+    t.datetime "recovery_date"
+    t.datetime "recording_start"
+    t.datetime "recording_stop"
+    t.integer "primary_contact_id"
+    t.integer "recovery_contact_id"
+    t.bigint "sample_unit_id", null: false
+    t.bigint "detector_id", null: false
+    t.bigint "distance_range_id"
+    t.bigint "clutter_type_id", null: false
+    t.index ["clutter_type_id"], name: "index_deployments_on_clutter_type_id"
+    t.index ["detector_id"], name: "index_deployments_on_detector_id"
+    t.index ["distance_range_id"], name: "index_deployments_on_distance_range_id"
+    t.index ["sample_unit_id"], name: "index_deployments_on_sample_unit_id"
   end
 
   create_table "detection_targets", force: :cascade do |t|
@@ -74,6 +117,10 @@ ActiveRecord::Schema.define(version: 2020_02_07_020508) do
     t.index ["organization_id"], name: "index_detectors_on_organization_id"
   end
 
+  create_table "distance_ranges", force: :cascade do |t|
+    t.string "label"
+  end
+
   create_table "geodetic_systems", force: :cascade do |t|
     t.string "label"
   end
@@ -84,10 +131,6 @@ ActiveRecord::Schema.define(version: 2020_02_07_020508) do
 
   create_table "organizations", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "orientations", force: :cascade do |t|
-    t.string "direction"
   end
 
   create_table "sample_unit_counties", force: :cascade do |t|
@@ -107,10 +150,10 @@ ActiveRecord::Schema.define(version: 2020_02_07_020508) do
   end
 
   create_table "sample_units", force: :cascade do |t|
-    t.string "agency"
+    t.integer "code"
     t.integer "grts"
-    t.bigint "broad_habitat_id", null: false
-    t.bigint "broad_habitat_form_id", null: false
+    t.bigint "broad_habitat_id"
+    t.bigint "broad_habitat_form_id"
     t.index ["broad_habitat_form_id"], name: "index_sample_units_on_broad_habitat_form_id"
     t.index ["broad_habitat_id"], name: "index_sample_units_on_broad_habitat_id"
   end
@@ -149,6 +192,10 @@ ActiveRecord::Schema.define(version: 2020_02_07_020508) do
   add_foreign_key "contacts", "organizations"
   add_foreign_key "contacts", "states"
   add_foreign_key "counties", "states"
+  add_foreign_key "deployments", "clutter_types"
+  add_foreign_key "deployments", "detectors"
+  add_foreign_key "deployments", "distance_ranges"
+  add_foreign_key "deployments", "sample_units"
   add_foreign_key "detector_locations", "detection_targets"
   add_foreign_key "detector_locations", "local_habitats"
   add_foreign_key "detector_locations", "sample_units"

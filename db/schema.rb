@@ -74,14 +74,14 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
     t.datetime "recording_stop"
     t.integer "primary_contact_id"
     t.integer "recovery_contact_id"
-    t.bigint "sample_unit_id", null: false
+    t.bigint "detector_location_id", null: false
     t.bigint "detector_id", null: false
     t.bigint "distance_range_id"
     t.bigint "clutter_type_id", null: false
     t.index ["clutter_type_id"], name: "index_deployments_on_clutter_type_id"
     t.index ["detector_id"], name: "index_deployments_on_detector_id"
+    t.index ["detector_location_id"], name: "index_deployments_on_detector_location_id"
     t.index ["distance_range_id"], name: "index_deployments_on_distance_range_id"
-    t.index ["sample_unit_id"], name: "index_deployments_on_sample_unit_id"
   end
 
   create_table "detection_targets", force: :cascade do |t|
@@ -193,9 +193,9 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
   add_foreign_key "contacts", "states"
   add_foreign_key "counties", "states"
   add_foreign_key "deployments", "clutter_types"
+  add_foreign_key "deployments", "detector_locations"
   add_foreign_key "deployments", "detectors"
   add_foreign_key "deployments", "distance_ranges"
-  add_foreign_key "deployments", "sample_units"
   add_foreign_key "detector_locations", "detection_targets"
   add_foreign_key "detector_locations", "local_habitats"
   add_foreign_key "detector_locations", "sample_units"

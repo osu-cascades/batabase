@@ -97,7 +97,6 @@ class CommitUpload
       'shrub-steppe' => 'shrub-steppe'
     }
 
-  #   long_name.default = 'Other'
     data.each do |row|
       next if row['Location ID'].nil?
 
@@ -111,13 +110,11 @@ class CommitUpload
       current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
       next if current_sample_unit.nil?
 
-      # next if row['Habitat (Choose One)'].nil?
       current_habitat_label = local_habitat_names[row['Habitat (choose one)']];
       next if current_habitat_label.nil?
-      #TODO: either change seeded data to omit spaces or translate labels 
-      current_local_habitat = LocalHabitat.find_by(current_habitat_label)
+
+      current_local_habitat = LocalHabitat.find_by(label: current_habitat_label)
       
-      byebug
       next if current_local_habitat.nil?
 
       current_quad_number = current_location_id.split('').pop
@@ -133,6 +130,23 @@ class CommitUpload
       if current_land_ownership == nil
         current_land_ownership = ''
       end
+
+      current_latitude = row['x']
+      current_longitude = row['y']
+
+      current_driving_directions = row['Directions to Site']
+
+      DetectorLocation.create(
+        quad_id: current_quad_id, 
+        quad_no: current_quad_number,
+        location_name: current_location_name,
+        latitude: current_latitude,
+        longitude: current_longitude,
+        driving_directions: current_driving_directions,
+        land_ownership: current_land_ownership,
+        sample_unit_id: current_sample_unit.id,
+        local_habitat_id: current_local_habitat.id
+      )
     end
   end
 end

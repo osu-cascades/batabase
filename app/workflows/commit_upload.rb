@@ -86,23 +86,37 @@ class CommitUpload
   end
 
   def create_detector_locations
+      local_habitat_names = {
+      'mixedconifer' => 'mixed conifer',
+      'dryconifer' => 'dry conifer',
+      'alpineforest' => 'alpine forest',
+      'mesicforest' => 'mesic forest',
+      'urban' => 'urban',
+      'agriculture' => 'agriculture',
+      'grassland' => 'grassland',
+      'shrub-steppe' => 'shrub-steppe'
+    }
+
+  #   long_name.default = 'Other'
     data.each do |row|
       next if row['Location ID'].nil?
 
       current_location_id = row['Location ID']
+
+      existing_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID'].upcase)
+      next unless existing_detector_location.nil?
 
       current_sample_unit_code = row['Location ID'].split('_')
 
       current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
       next if current_sample_unit.nil?
 
-      next if row['Habitat (Choose One)'].nil?
-      current_habitat_label = row['Habitat (Choose One)'].split(' ').join('')
-      byebug
-
+      # next if row['Habitat (Choose One)'].nil?
+      current_habitat_label = local_habitat_names[row['Habitat (choose one)']];
+      next if current_habitat_label.nil?
       #TODO: either change seeded data to omit spaces or translate labels 
-      current_local_habitat = LocalHabitat.find_by(label: current_habitat_label)
-
+      current_local_habitat = LocalHabitat.find_by(current_habitat_label)
+      
       byebug
       next if current_local_habitat.nil?
 
@@ -110,7 +124,15 @@ class CommitUpload
       current_quad_id = current_location_id[-3, 2].upcase
 
 
+      current_location_name = row['Site Name']
+      if current_location_name == nil
+        current_location_name = ''
+      end
 
+      current_land_ownership = row['Land Ownership']
+      if current_land_ownership == nil
+        current_land_ownership = ''
+      end
     end
   end
 end

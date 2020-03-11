@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe TargetDescriptor, type: :model do
   let(:target_descriptor) { FactoryBot.build_stubbed(:target_descriptor) }
-  let(:target_descriptor_with_detector_locations) { FactoryBot.build_stubbed(:target_descriptor, :has_detector_locations) }
+  # let(:target_descriptor_with_detector_locations) { FactoryBot.build_stubbed(:target_descriptor, :has_detector_locations) }
 
   describe 'Target Descriptor Validation' do
     context 'An target descriptor is valid if' do
@@ -32,12 +32,14 @@ RSpec.describe TargetDescriptor, type: :model do
     end
 
     context 'Detector Locations Interactions' do
-      it 'A target descriptor can fetch all of the detector locations associated with it' do
-        target_descriptor_with_detector_locations.detector_locations.each do |detector_location|
-          expect(detector_location.class).to be(DetectorLocation)
-        end
+      it 'A target descriptor can fetch all of the detector locations associated with it through it\'s detection target' do
+        expect(target_descriptor.detection_target.detector_location.class).to be(DetectorLocation)
+      end
+    end
 
-        expect(target_descriptor_with_detector_locations.detector_locations.length).to eq(5)
+    context 'Detection Target Interactions' do
+      it 'A target descriptor can feth the detection target it is associated with' do
+        expect(target_descriptor.detection_target.class).to be(DetectionTarget)
       end
     end
   end

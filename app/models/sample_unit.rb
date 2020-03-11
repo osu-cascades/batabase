@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SampleUnit < ApplicationRecord
-  validates :agency, length: { maximum: 50 }
+  validates :code, numericality: { only_integer: true }
   validates :grts, numericality: { only_integer: true }
 
   has_many :detector_locations, dependent: :destroy

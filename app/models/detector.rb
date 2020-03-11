@@ -8,6 +8,10 @@ class Detector < ApplicationRecord
 
   belongs_to :organization
 
+  def code
+    organization.name + '-' + serial_number
+  end
+
   def owner
     organization.name
   end

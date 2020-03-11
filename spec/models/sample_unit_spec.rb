@@ -10,13 +10,6 @@ RSpec.describe SampleUnit, type: :model do
 
   describe 'Sample Unit Validation' do
     context 'An sample unit is valid if' do
-      it 'It has an agency with a length below 50 characters' do
-        valid_agency_of_48_characters = 'FAKE' * 12
-        sample_unit.agency = valid_agency_of_48_characters
-
-        expect(sample_unit).to be_valid
-      end
-
       it 'It has a grts that is an integer' do
         sample_unit.grts = 42
 
@@ -25,13 +18,6 @@ RSpec.describe SampleUnit, type: :model do
     end
 
     context 'An sample unit is invalid if' do
-      it 'It has an agency with a length above 50 characters' do
-        invalid_agency_of_52_characters = 'FAKE' * 13
-        sample_unit.agency = invalid_agency_of_52_characters
-
-        expect(sample_unit).to_not be_valid
-      end
-
       it 'It has a grts that is not an integer' do
         sample_unit.grts = 4.2
 

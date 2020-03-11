@@ -24,6 +24,18 @@ values = CSV.read(Rails.root.join('db/seed_data/organizations.csv'))
 
 Organization.import columns, values
 
+# Import contact data from csv
+columns = [:last_name, :first_name, :notes, :organization_id, :state_id]
+values = CSV.read(Rails.root.join('db/seed_data/contacts.csv'))
+
+Contact.import columns, values
+
+# Import detector data from csv
+columns = [:firmware, :manufacturer, :model, :serial_number, :organization_id]
+values = CSV.read(Rails.root.join('db/seed_data/detectors.csv'))
+
+Detector.import columns, values
+
 # Import detection target data from csv
 columns = [:label]
 values = CSV.read(Rails.root.join('db/seed_data/detection_targets.csv'))
@@ -48,17 +60,23 @@ values = CSV.read(Rails.root.join('db/seed_data/broad_habitat_forms.csv'))
 
 BroadHabitatForm.import columns, values
 
+# Import clutter type data from csv
+columns = [:name]
+values = CSV.read(Rails.root.join('db/seed_data/clutter_types.csv'))
+
+ClutterType.import columns, values
+
+# Import distance range data from csv
+columns = [:label]
+values = CSV.read(Rails.root.join('db/seed_data/distance_ranges.csv'))
+
+DistanceRange.import columns, values
+
 # Import software data from csv
 columns = [:name]
 values = CSV.read(Rails.root.join('db/seed_data/softwares.csv'))
 
 Software.import columns, values
-
-# Import orientation data from csv
-columns = [:direction]
-values = CSV.read(Rails.root.join('db/seed_data/orientations.csv'))
-
-Orientation.import columns, values
 
 # Import local habitat data from csv
 columns = [:label]
@@ -66,17 +84,14 @@ values = CSV.read(Rails.root.join('db/seed_data/local_habitats.csv'))
 
 LocalHabitat.import columns, values
 
-# Import local habitat data from csv
+# Import geodetic system data from csv
 columns = [:label]
 values = CSV.read(Rails.root.join('db/seed_data/geodetic_systems.csv'))
 
 GeodeticSystem.import columns, values
 
-# TODO: get a file with all sample units
-# This will hopefully just work once I clean the data with all the sample units
-
 # Import sample unit data from csv
-columns = [:grts, :broad_habitat_id, :broad_habitat_form_id]
+columns = [:code, :grts, :broad_habitat_id, :broad_habitat_form_id]
 values = CSV.read(Rails.root.join('db/seed_data/sample_units.csv'))
 
 SampleUnit.import columns, values
@@ -92,3 +107,23 @@ columns = [:sample_unit_id, :county_id, :percentage]
 values = CSV.read(Rails.root.join('db/seed_data/sample_unit_counties.csv'))
 
 SampleUnitCounty.import columns, values
+
+# Import detector location data from csv
+columns = [
+  :quad_id,
+  :quad_no,
+  :location_identifier,
+  :location_name,
+  :latitude,
+  :longitude,
+  :elevation,
+  :driving_directions,
+  :land_ownership,
+  :sample_unit_id,
+  :detection_target_id,
+  :target_descriptor_id,
+  :local_habitat_id
+]
+values = CSV.read(Rails.root.join('db/seed_data/detector_locations.csv'))
+
+DetectorLocation.import columns, values

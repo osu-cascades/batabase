@@ -15,7 +15,7 @@ FactoryBot.define do
     driving_directions { 'FAKE DRIVING DIRECTIONS' }
 
     trait :has_detection_targets do
-      FactoryBot.build_list(:detection_target, 3)
+      detection_targets { FactoryBot.build_list(:detection_target, 3) }
     end
   end
 end

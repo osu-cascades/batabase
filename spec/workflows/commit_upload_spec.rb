@@ -25,17 +25,20 @@ RSpec.describe CommitUpload, type: :workflow do
     expect(commit_upload.data).to eq(expected)
   end
 
-  it 'Can create a detector from raw survey 123 data' do
-    expected = CSV.read(Rails.root.join('spec/fixtures/populated_bulk_upload_template.csv'), headers: true)
-    create(:organization, name: 'OSU')
+  # it 'Can create a detector from raw survey 123 data if the detector doesn\'t exist' do
+  #   expected = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
+  #   create(:organization, name: 'OSU')
 
-    CommitUpload.new(expected).send(:create_detectors)
-  end
+  #   expect { CommitUpload.new(expected).send(:create_detectors) }.to change { Detector.count }
+  # end
 
   it 'Can create a contact from raw survey 123 data' do
-    expected = CSV.read(Rails.root.join('spec/fixtures/populated_bulk_upload_template.csv'), headers: true)
-    create(:state, name: 'Oregon', abbreviation: 'OR')
+    expected = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
     create(:organization, name: 'OSU')
-    CommitUpload.new(expected).send(:create_contacts)
+    fake_sample_unit = create(:sample_unit, code: 107915)
+    fake_state = create(:state, name: 'Alabama', abbreviation: 'AL')
+    create(:sample_unit_state, sample_unit_id: fake_sample_unit.id, state_id: fake_state.id)
+
+    expect { CommitUpload.new(expected).send(:create_contacts) }.to change { Contact.count }
   end
 end

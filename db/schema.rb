@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_072038) do
+ActiveRecord::Schema.define(version: 2020_03_11_072617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 2020_03_11_072038) do
 
   create_table "detection_targets", force: :cascade do |t|
     t.string "label"
+    t.bigint "detector_location_id"
+    t.index ["detector_location_id"], name: "index_detection_targets_on_detector_location_id"
   end
 
   create_table "detector_locations", force: :cascade do |t|
@@ -192,6 +194,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_072038) do
   add_foreign_key "deployments", "detector_locations"
   add_foreign_key "deployments", "detectors"
   add_foreign_key "deployments", "distance_ranges"
+  add_foreign_key "detection_targets", "detector_locations"
   add_foreign_key "detector_locations", "local_habitats"
   add_foreign_key "detector_locations", "sample_units"
   add_foreign_key "detectors", "organizations"

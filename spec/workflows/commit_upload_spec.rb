@@ -41,4 +41,12 @@ RSpec.describe CommitUpload, type: :workflow do
 
     expect { CommitUpload.new(expected).send(:create_contacts) }.to change { Contact.count }
   end
+
+  it 'Can create detector locations from raw survey 123 data' do
+    csv_data = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
+    create(:local_habitat, label: 'mixed conifer')
+    create(:sample_unit, code: 107915)
+
+    expect { CommitUpload.new(csv_data).send(:create_detector_locations) }.to change { DetectorLocation.count }
+  end
 end

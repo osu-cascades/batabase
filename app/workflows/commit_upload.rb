@@ -84,4 +84,33 @@ class CommitUpload
       )
     end
   end
+
+  def create_detector_locations
+    data.each do |row|
+      next if row['Location ID'].nil?
+
+      current_location_id = row['Location ID']
+
+      current_sample_unit_code = row['Location ID'].split('_')
+
+      current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
+      next if current_sample_unit.nil?
+
+      next if row['Habitat (Choose One)'].nil?
+      current_habitat_label = row['Habitat (Choose One)'].split(' ').join('')
+      byebug
+
+      #TODO: either change seeded data to omit spaces or translate labels 
+      current_local_habitat = LocalHabitat.find_by(label: current_habitat_label)
+
+      byebug
+      next if current_local_habitat.nil?
+
+      current_quad_number = current_location_id.split('').pop
+      current_quad_id = current_location_id[-3, 2].upcase
+
+
+
+    end
+  end
 end

@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class DetectorLocation < ApplicationRecord
-  belongs_to :detection_target
+  has_many :detection_targets
   belongs_to :local_habitat
   belongs_to :sample_unit
-  belongs_to :target_descriptor
 
   validates :quad_id, presence: true, allow_blank: false, inclusion: {
     in: ['NW', 'NE', 'SW', 'SE']

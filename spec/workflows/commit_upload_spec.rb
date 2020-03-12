@@ -70,6 +70,8 @@ RSpec.describe CommitUpload, type: :workflow do
     )
 
     fake_clutter_type = create(:clutter_type, name: 'Vegetation')
+    fake_clutter_percent = create(:clutter_percent, label: '0%')
+    fake_distance_range = create(:distance_range, label: '< 5m')
     fake_detector = create(:detector, serial_number: 51965)
 
     fake_organization = create(:organization, name: 'OSU')

@@ -233,6 +233,13 @@ class CommitUpload
         end
       end
 
+      current_distance_range_label = convert_distance_to_clutter_to_distance_range(row['Distance to Clutter (m)'].to_i)
+      current_distance_range = DistanceRange.find_by(label: current_distance_range_label);
+
+      
+      # Making default clutter percent until we know where that comes from
+      default_clutter_perecent = ClutterPercent.find_by(label: "0%")
+
 
       current_detector_serial_number = row['Detector Serial No.']
 
@@ -261,55 +268,55 @@ class CommitUpload
       if row['SAMP. FREQ'] != nil
         current_sample_frequency = row['SAMP. FREQ']
       else
-        current_sample_frequency = nil
+        current_sample_frequency = 500
       end
 
       if row['PRETRIG'] != nil
         current_pre_trigger = row['PRETRIG']
       else
-        current_pre_trigger = nil
+        current_pre_trigger = "OFF"
       end
 
       if row['REC. LEN'] != nil
         current_recording_length = row['REC. LEN']
       else
-        current_recording_length = nil
+        current_recording_length = "5"
       end
 
       if row['HP-FILTER'] != nil
        current_hp_filter = row['HP-FILTER']
       else
-        current_hp_filter = nil
+        current_hp_filter = "NO"
       end
 
       if row['AUTOREC'] != nil
         current_auto_record = row['AUTOREC']
       else
-        current_auto_record = nil
+        current_auto_record = "YES"
       end
 
       if row['T. SENSE'] != nil
         current_trigger_sensitivity = row['T. SENSE']
       else
-        current_trigger_sensitivity = nil
+        current_trigger_sensitivity = "MED"
       end
 
       if row['INPUT GAIN'] != nil
         current_input_gain = row['INPUT GAIN']
       else
-        current_input_gain = nil
+        current_input_gain = 45
       end
 
       if row['TRIG LEV'] != nil
         current_trigger_level = row['TRIG LEV']
       else
-        current_trigger_level = nil
+        current_trigger_level = "160"
       end
 
       if row['INTERVAL'] != nil
         current_interval = row['INTERVAL']
       else
-        current_interval = nil
+        current_interval = 0
       end
 
       if row['TIMER ON'] != nil
@@ -333,10 +340,13 @@ class CommitUpload
       Deployment.create!(
         detector_location_id: current_detector_location.id,
         clutter_type_id: current_clutter_type.id,
+        clutter_percent_id: default_clutter_perecent.id,
+        distance_range_id: current_distance_range.id,
         detector_id: current_detector.id,
         deployment_date: current_deployment_date,
         recovery_date: current_recovery_date,
         primary_contact_id: current_primary_contact.id,
+        recovery_contact_id: current_primary_contact.id, # TODO: this needs to be resolved to a real recovery contact
         microphone_height_off_ground: current_microphone_height,
         microphone_orientation: current_microphone_orientation,
         sampling_frequency: current_sample_frequency,
@@ -377,6 +387,54 @@ class CommitUpload
     )
 
     return datetime
+  end
+
+  def convert_distance_to_clutter_to_distance_range(distance)
+
+    case distance
+    when 0..4
+      result = "< 5m"
+    when 5
+      result = "5m"
+    when 6..9
+      result = "5-10m"
+    when 10
+      result = "10m"
+    when 11..14
+      result = "10-15m"
+    when 15
+      result = "15m"
+    when 16..19
+      result = "15-20m"
+    when 20
+      result = "20m"
+    when 21..29
+      result = "20-30m"
+    when 30..40
+      result = "30-40m"
+    when 41..49
+      result = "40-50m"
+    when 50
+      result = "50m"
+    when 51-60
+      result = "50-60m"
+    when 61..70
+      result = "60-70m"
+    when 75
+      result = "75m"
+    when 71..80
+      result = "70-80m"
+    when 81..90
+      result = "80-90m"
+    when 100
+      result = "100m"
+    when distance > 100
+      result = "> 100m"
+    else
+      result = "Unknown"
+    end
+
+    return result
   end
   
 end

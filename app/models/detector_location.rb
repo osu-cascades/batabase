@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
 class DetectorLocation < ApplicationRecord
+  validates :quad_id, presence: true, allow_blank: false, inclusion: {
+    in: ['NW', 'NE', 'SW', 'SE']
+  }
+
+  validates :quad_no, allow_nil: true, inclusion: 1..20
+
+  has_many :deployments
+
   belongs_to :detection_target
   belongs_to :local_habitat
   belongs_to :sample_unit
   belongs_to :target_descriptor
-
-  validates :quad_id, presence: true, allow_blank: false, inclusion: {
-    in: ['NW', 'NE', 'SW', 'SE']
-  }
-  validates :quad_no, presence: true, numericality: { only_integer: true }, inclusion: 1..20
 
   before_create :set_location_identifier
 

@@ -66,6 +66,12 @@ values = CSV.read(Rails.root.join('db/seed_data/clutter_types.csv'))
 
 ClutterType.import columns, values
 
+# Import clutter percent data from csv
+columns = [:label]
+values = CSV.read(Rails.root.join('db/seed_data/clutter_percents.csv'))
+
+ClutterPercent.import columns, values
+
 # Import distance range data from csv
 columns = [:label]
 values = CSV.read(Rails.root.join('db/seed_data/distance_ranges.csv'))
@@ -127,3 +133,42 @@ columns = [
 values = CSV.read(Rails.root.join('db/seed_data/detector_locations.csv'))
 
 DetectorLocation.import columns, values
+
+# Import deployments data from csv
+columns = [
+  :comments,
+  :microphone_height_off_ground,
+  :microphone_orientation,
+  :sampling_frequency,
+  :pre_trigger,
+  :recording_length,
+  :hp_filter,
+  :auto_record,
+  :trigger_sensitivity,
+  :input_gain,
+  :trigger_level,
+  :interval,
+  :gain,
+  :sixteen_thousand_high_filter,
+  :sample_rate,
+  :min_duration,
+  :max_duration,
+  :min_trigger_frequency,
+  :trigger_window,
+  :max_length,
+  :compression,
+  :deployment_date,
+  :recovery_date,
+  :recording_start,
+  :recording_stop,
+  :primary_contact_id,
+  :recovery_contact_id,
+  :detector_location_id,
+  :detector_id,
+  :distance_range_id,
+  :clutter_type_id,
+  :clutter_percent_id
+]
+values = CSV.read(Rails.root.join('db/seed_data/deployments.csv'))
+
+Deployment.import columns, values

@@ -10,6 +10,8 @@ Model TODOs
 - [] refactor sample unit tests and test groupings
 - [] look into combining orientation into associated models
 - [] use the data from "xrefSpeciesSpeciesGroup.csv" as a way to build the relationships when creating species and species groups
+- [] add tests for cluster type associations
+- [] add tests for cluster percent associations
 - [x] add clutter type to either the deployment model or make a look up table if there are many
 - [x] create detector locations table and it's associations
 - [x] add has many relation (detection_target->detector_location)

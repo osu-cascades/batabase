@@ -5,8 +5,7 @@ class CreateDeployments < ActiveRecord::Migration[6.0]
     create_table :deployments do |t|
       t.text :comments
       t.decimal :microphone_height_off_ground, precision: 5, scale: 2, default: 3.0
-      t.string :microphone_orientation
-      t.integer :clutter_percent
+      t.string :microphone_orientation, default: ''
       t.integer :sampling_frequency, default: 500
       t.string :pre_trigger, default: 'OFF'
       t.string :recording_length, default: '5'

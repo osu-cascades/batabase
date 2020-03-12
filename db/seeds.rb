@@ -37,16 +37,16 @@ values = CSV.read(Rails.root.join('db/seed_data/detectors.csv'))
 Detector.import columns, values
 
 # Import detection target data from csv
-# columns = [:label]
-# values = CSV.read(Rails.root.join('db/seed_data/detection_targets.csv'))
+columns = [:label]
+values = CSV.read(Rails.root.join('db/seed_data/detection_targets.csv'))
 
-# DetectionTarget.import columns, values
+DetectionTarget.import columns, values
 
 # Import target descriptor data from csv
-# columns = [:detection_target_id, :label]
-# values = CSV.read(Rails.root.join('db/seed_data/target_descriptors.csv'))
+columns = [:detection_target_id, :label]
+values = CSV.read(Rails.root.join('db/seed_data/target_descriptors.csv'))
 
-# TargetDescriptor.import columns, values
+TargetDescriptor.import columns, values
 
 # Import broad habitat data from csv
 columns = [:name]

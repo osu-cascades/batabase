@@ -212,8 +212,8 @@ class CommitUpload
       next if row['Location ID'].nil?
 
       current_location_id = row['Location ID']
-      existing_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID'].upcase)
-      next if existing_detector_location.nil?
+      current_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID'].upcase)
+      next if current_detector_location.nil?
 
       current_clutter_type_name = row['Clutter Type']
       current_other_clutter_type_name = row['Enter other Clutter Type']
@@ -244,12 +244,12 @@ class CommitUpload
       current_deployment_date_string = row['Deployment Date']
       next if current_deployment_date_string.nil?
 
-      deployment_date = convert_string_date_to_datetime(row['Deployment Date'])
+      current_deployment_date = convert_string_date_to_datetime(row['Deployment Date'])
 
       current_recovery_date_string = row['Recovery Date']
       next if current_recovery_date_string.nil?
 
-      recovery_date = convert_string_date_to_datetime(row['Recovery Date'])
+      current_recovery_date = convert_string_date_to_datetime(row['Recovery Date'])
 
 
       current_primary_contact_name = row['Deployment Contact'].split
@@ -319,9 +319,9 @@ class CommitUpload
       end
 
       if row['TIMER OFF'] != nil
-        current_recording_end = convert_string_date_to_datetime(row['TIMER OFF'])
+        current_recording_stop = convert_string_date_to_datetime(row['TIMER OFF'])
       else
-        current_recording_end = nil
+        current_recording_stop = nil
       end
 
       if row['Comments'] != nil
@@ -329,6 +329,29 @@ class CommitUpload
       else
         current_comments = ''
       end
+
+      Deployment.create!(
+        detector_location_id: current_detector_location.id,
+        clutter_type_id: current_clutter_type.id,
+        detector_id: current_detector.id,
+        deployment_date: current_deployment_date,
+        recovery_date: current_recovery_date,
+        primary_contact_id: current_primary_contact.id,
+        microphone_height_off_ground: current_microphone_height,
+        microphone_orientation: current_microphone_orientation,
+        sampling_frequency: current_sample_frequency,
+        pre_trigger: current_pre_trigger,
+        recording_length: current_recording_length,
+        hp_filter: current_hp_filter,
+        auto_record: current_auto_record,
+        trigger_sensitivity: current_trigger_sensitivity,
+        input_gain: current_input_gain,
+        trigger_level: current_trigger_level,
+        interval: current_interval,
+        recording_start: current_recording_start,
+        recording_stop: current_recording_stop,
+        comments: current_comments
+      )
     end
   end
 

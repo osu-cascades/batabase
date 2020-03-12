@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_000324) do
+ActiveRecord::Schema.define(version: 2020_03_12_072027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,9 +104,9 @@ ActiveRecord::Schema.define(version: 2020_03_12_000324) do
     t.string "driving_directions"
     t.string "land_ownership"
     t.bigint "sample_unit_id", null: false
-    t.bigint "local_habitat_id", null: false
-    t.bigint "detection_target_id"
     t.bigint "target_descriptor_id", null: false
+    t.bigint "local_habitat_id", null: false
+    t.bigint "detection_target_id", null: false
     t.index ["detection_target_id"], name: "index_detector_locations_on_detection_target_id"
     t.index ["local_habitat_id"], name: "index_detector_locations_on_local_habitat_id"
     t.index ["sample_unit_id"], name: "index_detector_locations_on_sample_unit_id"

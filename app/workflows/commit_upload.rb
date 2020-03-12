@@ -220,6 +220,8 @@ class CommitUpload
       current_clutter_type_name = row['Clutter Type']
       current_other_clutter_type_name = row['Enter other Clutter Type']
 
+      next if current_clutter_type_name.nil?
+
       if current_other_clutter_type_name == nil
         current_clutter_type = ClutterType.find_by(name: current_clutter_type_name.capitalize)
         if current_clutter_type == nil

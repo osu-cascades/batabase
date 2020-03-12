@@ -31,8 +31,8 @@ class CreateDeployments < ActiveRecord::Migration[6.0]
       t.datetime :recording_stop
 
       # Adding both contact references here since it's being manually done
-      t.references :primary_contact_id, foreign_key: { to_table: 'contacts' }
-      t.references :recovery_contact_id, foreign_key: { to_table: 'contacts' }
+      t.references :primary_contact, foreign_key: { to_table: 'contacts' }
+      t.references :recovery_contact, foreign_key: { to_table: 'contacts' }
     end
   end
 end

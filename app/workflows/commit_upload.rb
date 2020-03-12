@@ -344,8 +344,6 @@ class CommitUpload
     time = DateTime.parse(time_val).strftime("%H:%M:%S")
     time_vals = time.split(':')
 
-
-
     datetime = DateTime.new(
       date_vals[2].to_i, 
       date_vals[0].to_i, 
@@ -359,7 +357,6 @@ class CommitUpload
   end
 
   def convert_distance_to_clutter_to_distance_range(distance)
-
     case distance
     when 0..4
       result = "< 5m"

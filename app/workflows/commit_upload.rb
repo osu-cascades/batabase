@@ -8,7 +8,7 @@ class CommitUpload
   end
 
   def run
-    create_detectors
+    # create_detectors
     create_contacts
   end
 
@@ -85,68 +85,68 @@ class CommitUpload
     end
   end
 
-  def create_detector_locations
-      local_habitat_names = {
-      'mixedconifer' => 'mixed conifer',
-      'dryconifer' => 'dry conifer',
-      'alpineforest' => 'alpine forest',
-      'mesicforest' => 'mesic forest',
-      'urban' => 'urban',
-      'agriculture' => 'agriculture',
-      'grassland' => 'grassland',
-      'shrub-steppe' => 'shrub-steppe'
-    }
+  # def create_detector_locations
+  #     local_habitat_names = {
+  #     'mixedconifer' => 'mixed conifer',
+  #     'dryconifer' => 'dry conifer',
+  #     'alpineforest' => 'alpine forest',
+  #     'mesicforest' => 'mesic forest',
+  #     'urban' => 'urban',
+  #     'agriculture' => 'agriculture',
+  #     'grassland' => 'grassland',
+  #     'shrub-steppe' => 'shrub-steppe'
+  #   }
 
-    data.each do |row|
-      next if row['Location ID'].nil?
+  #   data.each do |row|
+  #     next if row['Location ID'].nil?
 
-      current_location_id = row['Location ID']
+  #     current_location_id = row['Location ID']
 
-      existing_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID'].upcase)
-      next unless existing_detector_location.nil?
+  #     existing_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID'].upcase)
+  #     next unless existing_detector_location.nil?
 
-      current_sample_unit_code = row['Location ID'].split('_')
+  #     current_sample_unit_code = row['Location ID'].split('_')
 
-      current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
-      next if current_sample_unit.nil?
+  #     current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
+  #     next if current_sample_unit.nil?
 
-      current_habitat_label = local_habitat_names[row['Habitat (choose one)']];
-      next if current_habitat_label.nil?
+  #     current_habitat_label = local_habitat_names[row['Habitat (choose one)']];
+  #     next if current_habitat_label.nil?
 
-      current_local_habitat = LocalHabitat.find_by(label: current_habitat_label)
+  #     current_local_habitat = LocalHabitat.find_by(label: current_habitat_label)
       
-      next if current_local_habitat.nil?
+  #     next if current_local_habitat.nil?
 
-      current_quad_number = current_location_id.split('').pop
-      current_quad_id = current_location_id[-3, 2].upcase
+  #     current_quad_number = current_location_id.split('').pop
+  #     current_quad_id = current_location_id[-3, 2].upcase
 
 
-      current_location_name = row['Site Name']
-      if current_location_name == nil
-        current_location_name = ''
-      end
+  #     current_location_name = row['Site Name']
+  #     if current_location_name == nil
+  #       current_location_name = ''
+  #     end
 
-      current_land_ownership = row['Land Ownership']
-      if current_land_ownership == nil
-        current_land_ownership = ''
-      end
+  #     current_land_ownership = row['Land Ownership']
+  #     if current_land_ownership == nil
+  #       current_land_ownership = ''
+  #     end
 
-      current_latitude = row['x']
-      current_longitude = row['y']
+  #     current_latitude = row['x']
+  #     current_longitude = row['y']
 
-      current_driving_directions = row['Directions to Site']
+  #     current_driving_directions = row['Directions to Site']
 
-      DetectorLocation.create(
-        quad_id: current_quad_id, 
-        quad_no: current_quad_number,
-        location_name: current_location_name,
-        latitude: current_latitude,
-        longitude: current_longitude,
-        driving_directions: current_driving_directions,
-        land_ownership: current_land_ownership,
-        sample_unit_id: current_sample_unit.id,
-        local_habitat_id: current_local_habitat.id
-      )
-    end
-  end
+  #     DetectorLocation.create(
+  #       quad_id: current_quad_id, 
+  #       quad_no: current_quad_number,
+  #       location_name: current_location_name,
+  #       latitude: current_latitude,
+  #       longitude: current_longitude,
+  #       driving_directions: current_driving_directions,
+  #       land_ownership: current_land_ownership,
+  #       sample_unit_id: current_sample_unit.id,
+  #       local_habitat_id: current_local_habitat.id
+  #     )
+  #   end
+  # end
 end

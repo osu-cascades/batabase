@@ -4,6 +4,7 @@ FactoryBot.define do
   factory :detector_location do
     sample_unit
     local_habitat
+    detection_target
 
     quad_id { 'NW' }
     quad_no { 1 }
@@ -13,9 +14,5 @@ FactoryBot.define do
     longitude { 42.42 }
     elevation { 42.42 }
     driving_directions { 'FAKE DRIVING DIRECTIONS' }
-
-    trait :has_detection_targets do
-      detection_targets { FactoryBot.build_list(:detection_target, 3) }
-    end
   end
 end

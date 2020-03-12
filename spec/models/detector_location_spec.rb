@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe DetectorLocation, type: :model do
   let(:detector_location) { FactoryBot.build_stubbed(:detector_location) }
-  let(:detector_location_with_detection_targets) { FactoryBot.build_stubbed(:detector_location, :has_detection_targets) }
 
   describe 'Detector Location Validation' do
     context 'Detector location is valid if' do
@@ -34,8 +33,8 @@ RSpec.describe DetectorLocation, type: :model do
 
   describe 'Detector Location Functionality' do
     context 'Detection Target Interactions' do
-      it 'A detector location can fetch the detection targets associated with it' do
-        expect(detector_location_with_detection_targets.detection_targets.length).to be(3)
+      it 'A detector location can fetch the detection target associated with it' do
+        expect(detector_location.detection_target.class).to be(DetectionTarget)
       end
     end
 

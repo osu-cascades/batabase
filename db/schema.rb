@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_223934) do
+ActiveRecord::Schema.define(version: 2020_03_11_234749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,13 +88,6 @@ ActiveRecord::Schema.define(version: 2020_03_11_223934) do
     t.string "label"
   end
 
-  create_table "detection_targets_detector_locations", id: false, force: :cascade do |t|
-    t.bigint "detector_location_id", null: false
-    t.bigint "detection_target_id", null: false
-    t.index ["detection_target_id", "detector_location_id"], name: "detection_detector_loc_index"
-    t.index ["detector_location_id", "detection_target_id"], name: "detector_loc_target_index"
-  end
-
   create_table "detector_locations", force: :cascade do |t|
     t.string "quad_id"
     t.integer "quad_no"
@@ -107,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_03_11_223934) do
     t.string "land_ownership"
     t.bigint "sample_unit_id", null: false
     t.bigint "local_habitat_id", null: false
+    t.bigint "detection_target_id"
+    t.index ["detection_target_id"], name: "index_detector_locations_on_detection_target_id"
     t.index ["local_habitat_id"], name: "index_detector_locations_on_local_habitat_id"
     t.index ["sample_unit_id"], name: "index_detector_locations_on_sample_unit_id"
   end
@@ -199,6 +194,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_223934) do
   add_foreign_key "deployments", "detector_locations"
   add_foreign_key "deployments", "detectors"
   add_foreign_key "deployments", "distance_ranges"
+  add_foreign_key "detector_locations", "detection_targets"
   add_foreign_key "detector_locations", "local_habitats"
   add_foreign_key "detector_locations", "sample_units"
   add_foreign_key "detectors", "organizations"

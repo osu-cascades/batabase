@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DetectorLocation < ApplicationRecord
-  has_many :detection_targets
+  belongs_to :detection_target
   belongs_to :local_habitat
   belongs_to :sample_unit
 

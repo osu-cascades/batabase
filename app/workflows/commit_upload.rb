@@ -206,4 +206,82 @@ class CommitUpload
       )
     end
   end
+
+  def create_deployments
+    data.each do |row|
+      next if row['Location ID'].nil?
+
+      current_location_id = row['Location ID']
+      existing_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID'].upcase)
+      next if existing_detector_location.nil?
+
+      current_clutter_type_name = row['Clutter Type']
+      current_other_clutter_type_name = row['Enter other Clutter Type']
+
+      if current_other_clutter_type_name == nil
+        current_clutter_type = ClutterType.find_by(name: current_clutter_type_name.capitalize)
+        if current_clutter_type == nil
+          current_clutter_type.create(name: current_clutter_type_name)
+        end
+      else
+        current_clutter_type = ClutterType.find_by(
+          name: "#{current_clutter_type_name.capitalize}, #{current_other_clutter_type_name.capitalize}"
+        )
+        
+        if current_clutter_type == nil
+          current_clutter_type = ClutterType.create(name: "#{current_clutter_type_name.capitalize}, #{current_other_clutter_type_name.capitalize}")
+        end
+      end
+
+
+      current_detector_serial_number = row['Detector Serial No.']
+
+      next if current_detector_serial_number.nil?
+      current_detector = Detector.find_by(serial_number: current_detector_serial_number)
+
+      #TODO: figure out how to parse distance ranges
+
+      current_deployment_date_string = row['Deployment Date']
+      next if current_deployment_date_string.nil?
+
+      deployment_date = convert_string_date_to_datetime(row['Deployment Date'])
+
+      current_recovery_date_string = row['Recovery Date']
+      next if current_recovery_date_string.nil?
+
+      recovery_date = convert_string_date_to_datetime(row['Recovery Date'])
+
+
+      current_primary_contact_name = row['Deployment Contact'].split
+      current_primary_contact = Contact.find_by(first_name: current_primary_contact_name[0])
+
+      current_microphone_height = row['Microphone Height (m)'].to_d
+      byebug
+    end
+  end
+
+  # Just a helper to convert the fields to correct type
+  def convert_string_date_to_datetime(string_date)
+    date_list = string_date.split(' ')
+
+    date_vals = date_list[0].split('/')
+    time_val = date_list[1] + date_list[2]
+    
+    time = DateTime.parse(time_val).strftime("%H:%M:%S")
+    time_vals = time.split(':')
+
+
+
+    datetime = DateTime.new(
+      date_vals[2].to_i, 
+      date_vals[0].to_i, 
+      date_vals[1].to_i,
+      time_vals[0].to_i,
+      time_vals[1].to_i,
+      time_vals[2].to_i
+    )
+
+    return datetime
+  end
+  
 end

@@ -8,7 +8,9 @@ class CommitUpload
   end
 
   def run
+    create_contacts
     create_detector_locations
+    create_deployments
   end
 
   private
@@ -221,7 +223,7 @@ class CommitUpload
       if current_other_clutter_type_name == nil
         current_clutter_type = ClutterType.find_by(name: current_clutter_type_name.capitalize)
         if current_clutter_type == nil
-          current_clutter_type.create(name: current_clutter_type_name)
+          current_clutter_type = ClutterType.create(name: current_clutter_type_name)
         end
       else
         current_clutter_type = ClutterType.find_by(
@@ -236,7 +238,7 @@ class CommitUpload
       current_distance_range_label = convert_distance_to_clutter_to_distance_range(row['Distance to Clutter (m)'].to_i)
       current_distance_range = DistanceRange.find_by(label: current_distance_range_label);
 
-      
+
       # Making default clutter percent until we know where that comes from
       default_clutter_perecent = ClutterPercent.find_by(label: "0%")
 
@@ -245,6 +247,7 @@ class CommitUpload
 
       next if current_detector_serial_number.nil?
       current_detector = Detector.find_by(serial_number: current_detector_serial_number)
+      next if current_detector.nil?
 
       #TODO: figure out how to parse distance ranges
 

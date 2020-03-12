@@ -31,7 +31,8 @@ Data TODOs
 - [] add species and species group models where they have a many to many relationship
 - [] swap out activerecord-import for the new rails 6 method of bulk building data from pre made datasets
 - [] add detector location seeding data and seed it
-- [] go back and update contacts 
+- [] go back and update contacts
+- [] add extra columns to detector locations from the data
 - [x] finishing cleaning sample unit data
 
 Workflow TODOs

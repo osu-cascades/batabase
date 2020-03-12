@@ -256,7 +256,79 @@ class CommitUpload
       current_primary_contact = Contact.find_by(first_name: current_primary_contact_name[0])
 
       current_microphone_height = row['Microphone Height (m)'].to_d
-      byebug
+      current_microphone_orientation = row['Microphone Orientation']
+
+      if row['SAMP. FREQ'] != nil
+        current_sample_frequency = row['SAMP. FREQ']
+      else
+        current_sample_frequency = nil
+      end
+
+      if row['PRETRIG'] != nil
+        current_pre_trigger = row['PRETRIG']
+      else
+        current_pre_trigger = nil
+      end
+
+      if row['REC. LEN'] != nil
+        current_recording_length = row['REC. LEN']
+      else
+        current_recording_length = nil
+      end
+
+      if row['HP-FILTER'] != nil
+       current_hp_filter = row['HP-FILTER']
+      else
+        current_hp_filter = nil
+      end
+
+      if row['AUTOREC'] != nil
+        current_auto_record = row['AUTOREC']
+      else
+        current_auto_record = nil
+      end
+
+      if row['T. SENSE'] != nil
+        current_trigger_sensitivity = row['T. SENSE']
+      else
+        current_trigger_sensitivity = nil
+      end
+
+      if row['INPUT GAIN'] != nil
+        current_input_gain = row['INPUT GAIN']
+      else
+        current_input_gain = nil
+      end
+
+      if row['TRIG LEV'] != nil
+        current_trigger_level = row['TRIG LEV']
+      else
+        current_trigger_level = nil
+      end
+
+      if row['INTERVAL'] != nil
+        current_interval = row['INTERVAL']
+      else
+        current_interval = nil
+      end
+
+      if row['TIMER ON'] != nil
+        current_recording_start = convert_string_date_to_datetime(row['TIMER ON'])
+      else
+        current_recording_start = nil
+      end
+
+      if row['TIMER OFF'] != nil
+        current_recording_end = convert_string_date_to_datetime(row['TIMER OFF'])
+      else
+        current_recording_end = nil
+      end
+
+      if row['Comments'] != nil
+        current_comments = row['Comments']
+      else
+        current_comments = ''
+      end
     end
   end
 

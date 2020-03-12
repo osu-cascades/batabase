@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :detectors, :only => [:index]
   resources :contacts, :only => [:index]
+  resources :deployments, :only => [:index]
 end

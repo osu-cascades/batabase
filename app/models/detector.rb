@@ -6,6 +6,8 @@ class Detector < ApplicationRecord
   validates :model, presence: true, allow_blank: false
   validates :serial_number, presence: true, allow_blank: false
 
+  has_many :deployments
+
   belongs_to :organization
 
   def code

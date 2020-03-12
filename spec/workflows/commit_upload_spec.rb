@@ -52,29 +52,29 @@ RSpec.describe CommitUpload, type: :workflow do
     expect { CommitUpload.new(csv_data).send(:create_detector_locations) }.to change { DetectorLocation.count }
   end
 
-  it 'Can create deployments from raw survey 123 data' do
-    csv_data = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
-    fake_local_habitat = create(:local_habitat, label: 'dry conifer')
-    fake_detection_target = create(:detection_target, label: 'rock')
-    fake_target_descriptor = create(:target_descriptor, label: 'ridge top', detection_target_id: fake_detection_target.id)
-    fake_sample_unit = create(:sample_unit, code: 107915)
+  # it 'Can create deployments from raw survey 123 data' do
+  #   csv_data = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
+  #   fake_local_habitat = create(:local_habitat, label: 'dry conifer')
+  #   fake_detection_target = create(:detection_target, label: 'rock')
+  #   fake_target_descriptor = create(:target_descriptor, label: 'ridge top', detection_target_id: fake_detection_target.id)
+  #   fake_sample_unit = create(:sample_unit, code: 107915)
 
-    fake_detector_location = create(
-      :detector_location, 
-      quad_id: 'NE', 
-      quad_no: 1,
-      local_habitat_id: fake_local_habitat.id,
-      detection_target_id: fake_detection_target.id,
-      target_descriptor_id: fake_target_descriptor.id,
-      sample_unit_id: fake_sample_unit.id
-    )
+  #   fake_detector_location = create(
+  #     :detector_location, 
+  #     quad_id: 'NE', 
+  #     quad_no: 1,
+  #     local_habitat_id: fake_local_habitat.id,
+  #     detection_target_id: fake_detection_target.id,
+  #     target_descriptor_id: fake_target_descriptor.id,
+  #     sample_unit_id: fake_sample_unit.id
+  #   )
 
-    fake_clutter_type = create(:clutter_type, name: 'Vegetation')
-    fake_detector = create(:detector, serial_number: 51965)
+  #   fake_clutter_type = create(:clutter_type, name: 'Vegetation')
+  #   fake_detector = create(:detector, serial_number: 51965)
 
-    fake_organization = create(:organization, name: 'OSU')
-    fake_primary_contact = create(:contact, first_name: 'sara', organization_id: fake_organization.id)
+  #   fake_organization = create(:organization, name: 'OSU')
+  #   fake_primary_contact = create(:contact, first_name: 'sara', organization_id: fake_organization.id)
 
-    expect { CommitUpload.new(csv_data).send(:create_deployments) }.to change { Deployment.count }
-  end
+  #   expect { CommitUpload.new(csv_data).send(:create_deployments) }.to change { Deployment.count }
+  # end
 end

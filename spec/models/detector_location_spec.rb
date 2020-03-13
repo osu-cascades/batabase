@@ -50,6 +50,12 @@ RSpec.describe DetectorLocation, type: :model do
       end
     end
 
+    context 'Target Descriptor Interactions' do
+      it 'A detector location can fetch the target descriptor associated with it' do
+        expect(detector_location.target_descriptor.class).to be(TargetDescriptor)
+      end
+    end
+
     context 'After Create Callback' do
       it 'Sets location identifier using existing model details' do
         # TODO: Make this better

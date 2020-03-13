@@ -31,7 +31,7 @@ RSpec.describe TargetDescriptor, type: :model do
       end
     end
 
-    context 'Detector Location Interactions' do
+    context 'Detector Locations Interactions' do
       it 'A target descriptor can fetch all of the detector locations associated with it' do
         target_descriptor_with_detector_locations.detector_locations.each do |detector_location|
           expect(detector_location.class).to be(DetectorLocation)

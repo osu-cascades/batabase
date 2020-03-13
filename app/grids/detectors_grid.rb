@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DetectorsGrid
   include Datagrid
 
@@ -8,13 +10,13 @@ class DetectorsGrid
   #
   # Filters
   #
-  
+
   filter(:firmware, :string)
   filter(:manufacturer, :string)
   filter(:model, :string)
   filter(:serial_number, :string)
-  filter(:organization_name, :string, header: "Organization") do |value|
-    self.joins(:organization).where(:organizations => {:name => value})
+  filter(:organization_name, :string, header: 'Organization') do |value|
+    joins(:organization).where(organizations: { name: value })
   end
 
   #
@@ -25,7 +27,7 @@ class DetectorsGrid
   column(:manufacturer)
   column(:model)
   column(:serial_number)
-  column(:organization, header: "Organization") do |detector|
+  column(:organization, header: 'Organization') do |detector|
     detector.organization.name
-  end 
+  end
 end

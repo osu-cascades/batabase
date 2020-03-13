@@ -9,7 +9,7 @@ FactoryBot.define do
     end
 
     trait :has_detector_locations do
-      detector_locations { FactoryBot.build_list(:detector_location, 3) }
+      detector_locations { FactoryBot.build_list(:detector_location, 5) }
     end
   end
 end

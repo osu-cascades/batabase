@@ -33,7 +33,7 @@ RSpec.describe TargetDescriptor, type: :model do
 
     context 'Detector Locations Interactions' do
       it 'A target descriptor can fetch all of its detector locations' do
-        expect(target_descriptor_with_detector_locations.detector_locations.length).to be(3)
+        expect(target_descriptor_with_detector_locations.detector_locations.length).to eq(5)
       end
     end
 

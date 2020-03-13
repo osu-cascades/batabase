@@ -10,15 +10,15 @@ class DetectorLocation < ApplicationRecord
   has_many :deployments
 
   belongs_to :detection_target
+  belongs_to :target_descriptor
   belongs_to :local_habitat
   belongs_to :sample_unit
-  belongs_to :target_descriptor
 
   before_create :set_location_identifier
 
   private
 
   def set_location_identifier
-    self.location_identifier = "#{sample_unit_id}_#{quad_id}#{quad_no}"
+    self.location_identifier = "#{sample_unit.code}_#{quad_id}#{quad_no}"
   end
 end

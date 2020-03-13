@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   resources :uploads do
     get :commit
   end
-  resources :sample_units
+
+  resources :detectors, only: [:index]
+  resources :contacts, only: [:index]
+  resources :deployments, only: [:index]
 end

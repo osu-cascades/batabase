@@ -1,6 +1,7 @@
 /*
   *= require_self
   *= require main
+  *= require datagrid
 */
 
 .fill-viewport {

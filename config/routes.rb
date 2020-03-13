@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get :commit
   end
 
-  resources :detectors, :only => [:index]
-  resources :contacts, :only => [:index]
-  resources :deployments, :only => [:index]
+  resources :detectors, only: [:index]
+  resources :contacts, only: [:index]
+  resources :deployments, only: [:index]
 end

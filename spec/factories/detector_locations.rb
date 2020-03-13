@@ -5,6 +5,7 @@ FactoryBot.define do
     sample_unit
     local_habitat
     detection_target
+    target_descriptor
 
     quad_id { 'NW' }
     quad_no { 1 }

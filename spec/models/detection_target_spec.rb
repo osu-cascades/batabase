@@ -37,7 +37,11 @@ RSpec.describe DetectionTarget, type: :model do
     end
 
     context 'Detector Locations Interactions' do
-      it 'A detection target can fetch the detector locations associated with it' do
+      it 'A detection target can fetch all of the detector locations associated with it' do
+        detection_target_with_detector_locations.detector_locations.each do |detector_location|
+          expect(detector_location.class).to be(DetectorLocation)
+        end
+
         expect(detection_target_with_detector_locations.detector_locations.length).to eq(5)
       end
     end

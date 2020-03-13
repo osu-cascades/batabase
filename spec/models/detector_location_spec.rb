@@ -57,12 +57,14 @@ RSpec.describe DetectorLocation, type: :model do
         broad_habitat_form = create(:broad_habitat_form, broad_habitat_id: broad_habitat.id)
         local_habitat = create(:local_habitat, :hardwood)
         sample_unit = create(:sample_unit, broad_habitat_id: broad_habitat.id, broad_habitat_form_id: broad_habitat_form.id)
-        target_descriptor = create(:target_descriptor, )
-    
+        detection_target = create(:detection_target)
+        target_descriptor = create(:target_descriptor)
+
         valid_detector_location = create(
           :detector_location,
           sample_unit_id: sample_unit.id,
           local_habitat_id: local_habitat.id,
+          detection_target_id: detection_target.id,
           target_descriptor_id: target_descriptor.id
         )
 

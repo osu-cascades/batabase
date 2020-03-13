@@ -26,20 +26,18 @@ RSpec.describe TargetDescriptor, type: :model do
 
   describe 'Target Descriptor Functionality' do
     context 'Detection Target Interactions' do
-      it 'A target descriptor can fetch the detection targets associated with it' do
+      it 'A target descriptor can fetch the detection target associated with it' do
         expect(target_descriptor.detection_target.class).to be(DetectionTarget)
       end
     end
 
-    context 'Detector Locations Interactions' do
-      it 'A target descriptor can fetch all of its detector locations' do
+    context 'Detector Location Interactions' do
+      it 'A target descriptor can fetch all of the detector locations associated with it' do
+        target_descriptor_with_detector_locations.detector_locations.each do |detector_location|
+          expect(detector_location.class).to be(DetectorLocation)
+        end
+
         expect(target_descriptor_with_detector_locations.detector_locations.length).to eq(5)
-      end
-    end
-
-    context 'Detection Target Interactions' do
-      it 'A target descriptor can fetch the detection target it is associated with' do
-        expect(target_descriptor.detection_target.class).to be(DetectionTarget)
       end
     end
   end

@@ -10,6 +10,7 @@ class DetectorLocation < ApplicationRecord
   has_many :deployments
 
   belongs_to :detection_target
+  belongs_to :target_descriptor
   belongs_to :local_habitat
   belongs_to :sample_unit
 

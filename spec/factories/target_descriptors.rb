@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :target_descriptor do
     detection_target
+
     label { 'FAKE LABEL' }
 
     trait :has_detector_locations do

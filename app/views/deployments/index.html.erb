@@ -1,0 +1,10 @@
+<div class="d-flex flex-row">
+  <%= datagrid_form_for @deployments_grid, url: deployments_path %>
+  <%= datagrid_table(@deployments_grid) %>
+</div>
+<script>
+  form_width = document.querySelector('form').offsetWidth
+  table_width = document.querySelector('table').offsetWidth
+  
+  document.querySelector('.fill-viewport').style.width = form_width + table_width + 'px'
+</script>

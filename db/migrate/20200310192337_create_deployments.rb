@@ -5,8 +5,7 @@ class CreateDeployments < ActiveRecord::Migration[6.0]
     create_table :deployments do |t|
       t.text :comments
       t.decimal :microphone_height_off_ground, precision: 5, scale: 2, default: 3.0
-      t.string :microphone_orientation
-      t.integer :clutter_percent
+      t.string :microphone_orientation, default: ''
       t.integer :sampling_frequency, default: 500
       t.string :pre_trigger, default: 'OFF'
       t.string :recording_length, default: '5'
@@ -32,8 +31,8 @@ class CreateDeployments < ActiveRecord::Migration[6.0]
       t.datetime :recording_stop
 
       # Adding both contact references here since it's being manually done
-      t.integer :primary_contact_id
-      t.integer :recovery_contact_id
+      t.references :primary_contact, foreign_key: { to_table: 'contacts' }
+      t.references :recovery_contact, foreign_key: { to_table: 'contacts' }
     end
   end
 end

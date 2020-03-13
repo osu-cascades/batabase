@@ -25,10 +25,60 @@ RSpec.describe CommitUpload, type: :workflow do
     expect(commit_upload.data).to eq(expected)
   end
 
-  it 'Can create a detector from raw survey 123 data' do
-    expected = CSV.read(Rails.root.join('spec/fixtures/populated_bulk_upload_template.csv'), headers: true)
+  it "Can create a detector from raw survey 123 data if the detector doesn't exist" do
+    pending("TODO: can't really create new detectors from the current data. Solution needed")
+
+    expected = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
     create(:organization, name: 'OSU')
 
-    CommitUpload.new(expected).run
+    expect { CommitUpload.new(expected).send(:create_detectors) }.to change(Detector, :count)
+  end
+
+  it 'Can create a contact from raw survey 123 data' do
+    expected = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
+    create(:organization, name: 'OSU')
+    fake_sample_unit = create(:sample_unit, code: 107_915)
+    fake_state = create(:state, name: 'Alabama', abbreviation: 'AL')
+    create(:sample_unit_state, sample_unit_id: fake_sample_unit.id, state_id: fake_state.id)
+
+    expect { CommitUpload.new(expected).send(:create_contacts) }.to change(Contact, :count)
+  end
+
+  it 'Can create detector locations and their detection targets and descriptors from raw survey 123 data' do
+    csv_data = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
+    create(:local_habitat, label: 'dry conifer')
+    create(:sample_unit, code: 107_915)
+    create(:detection_target, label: 'rock')
+    create(:target_descriptor, label: 'ridge top')
+
+    expect { CommitUpload.new(csv_data).send(:create_detector_locations) }.to change(DetectorLocation, :count)
+  end
+
+  it 'Can create deployments from raw survey 123 data' do
+    csv_data = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
+    fake_local_habitat = create(:local_habitat, label: 'dry conifer')
+    fake_detection_target = create(:detection_target, label: 'rock')
+    fake_target_descriptor = create(:target_descriptor, label: 'ridge top', detection_target_id: fake_detection_target.id)
+    fake_sample_unit = create(:sample_unit, code: 107_915)
+
+    create(
+      :detector_location,
+      quad_id: 'NE',
+      quad_no: 1,
+      local_habitat_id: fake_local_habitat.id,
+      detection_target_id: fake_detection_target.id,
+      target_descriptor_id: fake_target_descriptor.id,
+      sample_unit_id: fake_sample_unit.id
+    )
+
+    create(:clutter_type, name: 'Vegetation')
+    create(:clutter_percent, label: '0%')
+    create(:distance_range, label: '< 5m')
+    create(:detector, serial_number: 51_965)
+
+    fake_organization = create(:organization, name: 'OSU')
+    create(:contact, first_name: 'sara', organization_id: fake_organization.id)
+
+    expect { CommitUpload.new(csv_data).send(:create_deployments) }.to change(Deployment, :count)
   end
 end

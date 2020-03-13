@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
     t.string "name"
   end
 
+  create_table "clutter_percents", force: :cascade do |t|
+    t.string "label"
+  end
+
   create_table "clutter_types", force: :cascade do |t|
     t.string "name"
   end
@@ -48,8 +52,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
   create_table "deployments", force: :cascade do |t|
     t.text "comments"
     t.decimal "microphone_height_off_ground", precision: 5, scale: 2, default: "3.0"
-    t.string "microphone_orientation"
-    t.integer "clutter_percent"
+    t.string "microphone_orientation", default: ""
     t.integer "sampling_frequency", default: 500
     t.string "pre_trigger", default: "OFF"
     t.string "recording_length", default: "5"
@@ -72,16 +75,20 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
     t.datetime "recovery_date"
     t.datetime "recording_start"
     t.datetime "recording_stop"
-    t.integer "primary_contact_id"
-    t.integer "recovery_contact_id"
+    t.bigint "primary_contact_id"
+    t.bigint "recovery_contact_id"
     t.bigint "detector_location_id", null: false
     t.bigint "detector_id", null: false
     t.bigint "distance_range_id"
     t.bigint "clutter_type_id", null: false
+    t.bigint "clutter_percent_id"
+    t.index ["clutter_percent_id"], name: "index_deployments_on_clutter_percent_id"
     t.index ["clutter_type_id"], name: "index_deployments_on_clutter_type_id"
     t.index ["detector_id"], name: "index_deployments_on_detector_id"
     t.index ["detector_location_id"], name: "index_deployments_on_detector_location_id"
     t.index ["distance_range_id"], name: "index_deployments_on_distance_range_id"
+    t.index ["primary_contact_id"], name: "index_deployments_on_primary_contact_id"
+    t.index ["recovery_contact_id"], name: "index_deployments_on_recovery_contact_id"
   end
 
   create_table "detection_targets", force: :cascade do |t|
@@ -192,7 +199,10 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
   add_foreign_key "contacts", "organizations"
   add_foreign_key "contacts", "states"
   add_foreign_key "counties", "states"
+  add_foreign_key "deployments", "clutter_percents"
   add_foreign_key "deployments", "clutter_types"
+  add_foreign_key "deployments", "contacts", column: "primary_contact_id"
+  add_foreign_key "deployments", "contacts", column: "recovery_contact_id"
   add_foreign_key "deployments", "detector_locations"
   add_foreign_key "deployments", "detectors"
   add_foreign_key "deployments", "distance_ranges"

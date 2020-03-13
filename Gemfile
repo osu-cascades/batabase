@@ -76,7 +76,11 @@ group :development do
   # Solargraph is a language server that provides intellisense, code completion, and inline documentation for Ruby.
   gem 'solargraph'
 
+  # Formats html.erb files
   gem 'htmlbeautifier'
+
+  # Generates erb diagrams of the database schema on migration
+  gem 'rails-erd'
 end
 
 group :test do

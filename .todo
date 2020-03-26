@@ -45,3 +45,4 @@ Workflow TODOs
 General
 - [] normalize table create file and class names
 - [] normalize names to either use label or name across models
+- [] add ERD to readme

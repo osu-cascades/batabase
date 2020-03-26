@@ -33,6 +33,6 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 
 ## Data model
 
-![erd](erd.jpg?raw=true)
+![erd](erd.png?raw=true)
 
 &copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs. All rights reserved.

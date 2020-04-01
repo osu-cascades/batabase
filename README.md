@@ -4,27 +4,21 @@ Database of bat population data for the Northwestern Bat Hub.
 
 ## Getting Started
 
-### Setup
+### Requirements
 
-#### brew & rvm
+Below are requirements and their versions running this project locally. It is up to you to setup any required tools that you may need.
 
-Below are the steps/requirements needed to run the app:
+- Postgresql: `10`
+- Ruby: `2.6.5`
+- Repo: `git@github.com:osu-cascades/batabase.git`
+- Bundler: `2.1.4`
 
-- Postgresql: `brew install postgresql`
-- Ruby 2.6.5: `rvm use ruby-2.6.5`
-- Clone the repo: `git clone git@github.com:osu-cascades/batabase.git`
-- Change directory: `cd batabase`
-- Run bundler: `bundle install`
+### First Time Setup
 
-#### apt & rbenv
-
-TODO: this
-
-## Development
-
-Start the server by running
-
-- `rails server`
+- set local ruby version either via rvm: `rvm use ruby-2.6.5` or rbenv `rbenv local 2.6.5`
+- Install gems: `bundle install` (If this fails ensure you have bundler installed. Bundler 2+ suggested)
+- Build the database: `rake db:create db:migrate db:seed` (If this fails ensure that you have a postgres database created for your \$USER account)
+- Run the server: `rails s`
 
 ### Test Coverage
 

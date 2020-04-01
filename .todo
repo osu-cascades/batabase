@@ -1,17 +1,18 @@
-Model TODOs
+### Model
+
 - [] add species group as either table or add to deployment model (verify in access for this decision)
-- [] add distance range as either table or add to deployment model (verify in access for this decision)
-- [] add microphone type as either table or add to deployment model (verify in access for this decision)
-- [] recovery contact is just a contact with a deployment attached to it. make a recovery contact
 - [] add has many relation (species_group->sample_unit)
 - [] add belongs to relation (sample_unit->species_group)
 - [] add tests to show that dependent destroy interactions are working correctly
 - [] refactor detector location spec test for callback function
 - [] refactor sample unit tests and test groupings
-- [] look into combining orientation into associated models
 - [] use the data from "xrefSpeciesSpeciesGroup.csv" as a way to build the relationships when creating species and species groups
-- [] add tests for clutter type associations
-- [] add tests for clutter percent associations
+- [x] add microphone type as either table or add to deployment model (verify in access for this decision)
+- [x] add distance range as either table or add to deployment model (verify in access for this decision)
+- [x] add tests for clutter type associations
+- [x] add tests for clutter percent associations
+- [x] look into combining orientation into associated models
+- [x] recovery contact is just a contact with a deployment attached to it. make a recovery contact (Found a nice solution for this)
 - [x] add clutter type to either the deployment model or make a look up table if there are many
 - [x] create detector locations table and it's associations
 - [x] add has many relation (detection_target->detector_location)
@@ -27,17 +28,19 @@ Model TODOs
 - [x] figure out if recovery contact is an organization or if it should inherit through contact
 - [x] remove "FederalAgency" field from sample_unit
 
-Data TODOs
-- [] add fake detector data to build test database
-- [] look into new sample unit data to see what must be done to use that instead of the current sample unit set
+### Data
+
 - [] add species and species group models where they have a many to many relationship
-- [] swap out activerecord-import for the new rails 6 method of bulk building data from pre made datasets
-- [] add detector location seeding data and seed it
-- [] go back and update contacts
-- [] add extra columns to detector locations from the data
+- [] update all seeding data using current access data
+- [x] look into new sample unit data to see what must be done to use that instead of the current sample unit set
+- [x] add detector location seeding data and seed it
+- [x] add extra columns to detector locations from the data
+- [x] add fake detector data to build test database
+- [x] swap out activerecord-import for the new rails 6 method of bulk building data from pre made datasets (activerecord-import is better for our use case)
 - [x] finishing cleaning sample unit data
 
-Workflow TODOs
+### Workflow
+
 - [] convert upload workflow to use manually made upload form
 - [] ensure that tests are correctly testing all portions of the workflow
 - [x] add test for workflow
@@ -46,6 +49,7 @@ Workflow TODOs
 
 General
 - [] swap out custom component use to the system used by github
+- [] add user login using devise
 - [] normalize table create file and class names
 - [] normalize names to either use label or name across models
 - [x] add ERD to readme

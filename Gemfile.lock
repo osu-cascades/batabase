@@ -309,6 +309,8 @@ GEM
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
+    view_component (2.2.1)
+      capybara (~> 3)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.1)
@@ -366,6 +368,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+  view_component
   web-console (>= 3.3.0)
   webdrivers
 

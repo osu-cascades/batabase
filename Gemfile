@@ -47,9 +47,8 @@ gem 'devise'
 # Activerecord import allows us to bulk import csv data into active record quickly and efficiently
 gem 'activerecord-import'
 
-# This in included with devise. Not sure if we can use it but I am leaving this for future me.
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Used to create react style components in rails easily.
+gem "view_component"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -115,12 +115,8 @@ class CommitUpload
       current_quad_number = current_location_id.split('').pop
       current_quad_id = current_location_id[-3, 2].upcase
 
-      current_location_name = row['Site Name']
-      current_location_name = '' if current_location_name.nil?
-
-      current_land_ownership = row['Land Ownership']
-      current_land_ownership = '' if current_land_ownership.nil?
-
+      current_location_name = row['Site Name'].nil? ? '' : row['Site Name']
+      current_land_ownership = row['Land Ownership'].nil? ? '' : row['Land Ownership']
       current_driving_directions = row['Directions to Site']
 
       if row['Waterbody']
@@ -225,79 +221,21 @@ class CommitUpload
       current_microphone_height = row['Microphone Height (m)'].to_d
       current_microphone_orientation = row['Microphone Orientation']
 
-      current_sample_frequency =
-        if row['SAMP. FREQ'] != nil
-          row['SAMP. FREQ']
-        else
-          500
-        end
+      current_sample_frequency = row['SAMP. FREQ'].nil? ? 500 : row['SAMP. FREQ']
+      current_pre_trigger = row['PRETRIG'].nil? ? 'OFF' : row['PRETRIG']
+      current_recording_length = row['REC. LEN'].nil? ? '5' : row['REC. LEN']
+      current_hp_filter = row['HP-FILTER'].nil? ? 'NO' : row['HP-FILTER']
+      current_auto_record = row['AUTOREC'].nil? ? 'YES' : row['AUTOREC']
 
-      current_pre_trigger =
-        if !row['PRETRIG'].nil?
-          row['PRETRIG']
-        else
-          'OFF'
-        end
+      current_trigger_sensitivity = row['T. SENSE'].nil? ? 'MED' : row['T. SENSE']
+      current_input_gain = row['INPUT GAIN'].nil? ? 45 : row['INPUT GAIN']
+      current_trigger_level = row['TRIG LEV'].nil? ? '160' : row['TRIG LEV']
+      current_interval = row['INTERVAL'].nil? ? 0 : row['INTERVAL']
 
-      current_recording_length =
-        if row['REC. LEN'] != nil
-          row['REC. LEN']
-        else
-          '5'
-        end
+      current_recording_start = row['TIMER ON'].nil? ? '' : convert_string_date_to_datetime(row['TIMER ON'])
+      current_recording_stop = row['TIMER OFF'].nil? ? '' : convert_string_date_to_datetime(row['TIMER OFF'])
 
-      current_hp_filter =
-        if !row['HP-FILTER'].nil?
-          row['HP-FILTER']
-        else
-          'NO'
-        end
-
-      current_auto_record =
-        if !row['AUTOREC'].nil?
-          row['AUTOREC']
-        else
-          'YES'
-        end
-
-      current_trigger_sensitivity =
-        if row['T. SENSE'] != nil
-          row['T. SENSE']
-        else
-          'MED'
-        end
-
-      current_input_gain =
-        if row['INPUT GAIN'] != nil
-          row['INPUT GAIN']
-        else
-          45
-        end
-
-      current_trigger_level =
-        if row['TRIG LEV'] != nil
-          row['TRIG LEV']
-        else
-          '160'
-        end
-
-      current_interval =
-        if !row['INTERVAL'].nil?
-          row['INTERVAL']
-        else
-          0
-        end
-
-      current_recording_start = (convert_string_date_to_datetime(row['TIMER ON']) if row['TIMER ON'] != nil)
-
-      current_recording_stop = (convert_string_date_to_datetime(row['TIMER OFF']) if row['TIMER OFF'] != nil)
-
-      current_comments =
-        if !row['Comments'].nil?
-          row['Comments']
-        else
-          ''
-        end
+      current_comments = row['Comments'].nil? ? '' : row['Comments']
 
       Deployment.create!(
         detector_location_id: current_detector_location.id,
@@ -350,48 +288,49 @@ class CommitUpload
   end
 
   def convert_distance_to_clutter_to_distance_range(distance)
-    result = case distance
-             when 0..4
-               '< 5m'
-             when 5
-               '5m'
-             when 6..9
-               '5-10m'
-             when 10
-               '10m'
-             when 11..14
-               '10-15m'
-             when 15
-               '15m'
-             when 16..19
-               '15-20m'
-             when 20
-               '20m'
-             when 21..29
-               '20-30m'
-             when 30..40
-               '30-40m'
-             when 41..49
-               '40-50m'
-             when 50
-               '50m'
-             when 51 - 60
-               '50-60m'
-             when 61..70
-               '60-70m'
-             when 75
-               '75m'
-             when 71..80
-               '70-80m'
-             when 81..90
-               '80-90m'
-             when 100
-               '100m'
-             when distance > 100
-               '> 100m'
-             else
-               'Unknown'
-             end
+    result =
+      case distance
+      when 0..4
+        '< 5m'
+      when 5
+        '5m'
+      when 6..9
+        '5-10m'
+      when 10
+        '10m'
+      when 11..14
+        '10-15m'
+      when 15
+        '15m'
+      when 16..19
+        '15-20m'
+      when 20
+        '20m'
+      when 21..29
+        '20-30m'
+      when 30..40
+        '30-40m'
+      when 41..49
+        '40-50m'
+      when 50
+        '50m'
+      when 51 - 60
+        '50-60m'
+      when 61..70
+        '60-70m'
+      when 75
+        '75m'
+      when 71..80
+        '70-80m'
+      when 81..90
+        '80-90m'
+      when 100
+        '100m'
+      when distance > 100
+        '> 100m'
+      else
+        'Unknown'
+      end
 
     result
   end

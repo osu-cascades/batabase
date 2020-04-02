@@ -48,7 +48,7 @@ gem 'devise'
 gem 'activerecord-import'
 
 # Used to create react style components in rails easily.
-gem "view_component"
+gem 'view_component'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

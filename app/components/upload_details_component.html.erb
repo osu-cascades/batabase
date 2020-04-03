@@ -1,0 +1,21 @@
+<%= content_tag :div, class: 'table-responsive', role: 'upload-details' do %>
+  <table class="table uploads-smaller-font">
+    <caption class="mx-1"><%= @filename %></caption>
+    <thead class="thead-dark">
+      <tr>
+        <% @data[0].each do |header| %>
+          <th scope="col"><%= header %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @data[1..-1].each do |row| %>
+        <tr>
+          <% row.each do |col| %>
+            <td><%= col %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

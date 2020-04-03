@@ -31,6 +31,29 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 
 ## Project TODO list
 
+### Component
+
+- [ ] move alert component logic into the component class
+
+### Data
+
+- [ ] add species and species group models where they have a many to many relationship
+- [ ] update all seeding data using current access data
+- [x] look into new sample unit data to see what must be done to use that instead of the current sample unit set
+- [x] add detector location seeding data and seed it
+- [x] add extra columns to detector locations from the data
+- [x] add fake detector data to build test database
+- [x] swap out activerecord-import for the new rails 6 method of bulk building data from pre made datasets (activerecord-import is better for our use case)
+- [x] finishing cleaning sample unit data
+
+### General
+
+- [ ] swap out custom component use to the system used by github
+- [ ] add user login using devise
+- [ ] normalize table create file and class names
+- [ ] normalize names to either use label or name across models
+- [x] add ERD to readme
+
 ### Model
 
 - [ ] add species group as either table or add to deployment model (verify in access for this decision)
@@ -61,17 +84,6 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 - [x] figure out if recovery contact is an organization or if it should inherit through contact
 - [x] remove "FederalAgency" field from sample_unit
 
-### Data
-
-- [ ] add species and species group models where they have a many to many relationship
-- [ ] update all seeding data using current access data
-- [x] look into new sample unit data to see what must be done to use that instead of the current sample unit set
-- [x] add detector location seeding data and seed it
-- [x] add extra columns to detector locations from the data
-- [x] add fake detector data to build test database
-- [x] swap out activerecord-import for the new rails 6 method of bulk building data from pre made datasets (activerecord-import is better for our use case)
-- [x] finishing cleaning sample unit data
-
 ### Workflow
 
 - [ ] convert upload workflow to use manually made upload form
@@ -79,13 +91,5 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 - [x] add test for workflow
 - [x] add workflow for parsing data
 - [x] make sure that workflow is fully unit tested
-
-### General
-
-- [ ] swap out custom component use to the system used by github
-- [ ] add user login using devise
-- [ ] normalize table create file and class names
-- [ ] normalize names to either use label or name across models
-- [x] add ERD to readme
 
 &copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs. All rights reserved.

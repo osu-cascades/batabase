@@ -8,6 +8,12 @@
   </head>
   <body class="fill-viewport">
     <%= render(GlobalHeaderComponent.new) %>
+    <% if notice %>
+      <p class="alert alert-success my-0"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger my-0"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

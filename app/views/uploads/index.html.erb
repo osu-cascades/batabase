@@ -1,14 +1,13 @@
 <div class="d-flex flex-column">
   <% if @uploads.nil? %>
     <%=
-      alert dismissible: false,
+      render(AlertComponent.new(dismissible: false,
       type: :danger,
-      heading: "Could not load uploads",
-      message: "Something went wrong. Try reloading the webpage",
-      styling: "m-3"
+      message: "Something went wrong. Try reloading the webpage.",
+      styling: "m-3"))
     %>
   <% else %>
-    <%= uploads_list uploads: @uploads %>
+    <%= render(UploadListComponent.new(uploads: @uploads)) %>
     <%=
       link_to "Add Upload",
       new_upload_path,

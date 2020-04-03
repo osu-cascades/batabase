@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    <%= @upload.filename %>
+  </td>
+  <td>
+    <%=
+      link_to "View Upload",
+      upload_path(@upload),
+      class: 'btn btn-primary btn-sm',
+      method: :show
+    %>
+  </td>
+  <td>
+    <%=
+      button_to "Delete Upload",
+      upload_path(@upload),
+      class: 'btn btn-danger btn-sm',
+      method: :delete
+    %>
+  </td>
+</tr>

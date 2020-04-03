@@ -1,0 +1,30 @@
+<%
+  return if @message.blank?
+
+  dismissible_classes = @dismissible ? 'alert-dismissible fade show' : ''
+
+  allowed_types = [
+    :primary, :secondary, 
+    :success, :danger,
+    :warning, :info, 
+    :light, :dark
+  ]
+
+  unless @type.in?(allowed_types)
+    raise "#{@type} is invalid. Allowed values: #{allowed_types.join(', ')}."
+  end
+
+  type_class = "alert-#{@type}"
+
+%>
+<%= content_tag :div, class: "alert #{type_class} #{dismissible_classes} #{@styling}", role: 'alert', id: 'alert' do %>
+  <% if @dismissible %>
+    <button aria-label='Close' class='close' data-dismiss='alert' id='alert-button' type='button'>
+      <span aria-hidden='true'>&times;</span>
+    </button>
+  <% end %>
+  <% if !@heading.blank? %>
+    <h4 class='alert-heading' id='alert-heading'><%= @heading %></h4>
+  <% end %>
+  <p class='my-0' id='alert-message'><%= @message %></p>
+<% end %>

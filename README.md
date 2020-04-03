@@ -34,6 +34,9 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 ### Component
 
 - [ ] move alert component logic into the component class
+- [ ] move datagrid into it's own component
+- [ ] add tests for upload list component
+- [ ] add tests for upload component
 
 ### Data
 
@@ -52,6 +55,7 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 - [ ] add user login using devise
 - [ ] normalize table create file and class names
 - [ ] normalize names to either use label or name across models
+- [ ] add system tests for datagrid for better coverage
 - [x] add ERD to readme
 
 ### Model

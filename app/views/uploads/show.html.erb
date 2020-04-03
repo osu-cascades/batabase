@@ -1,15 +1,15 @@
 <div class="container-fluid">
   <% if @upload.nil? or @upload_csv.blank? or @upload_filename.blank? %>
     <%=
-      alert dismissible: false,
+      render(AlertComponent.new(dismissible: false,
       type: :danger,
       heading: "Could not load data",
-      message: "Something went wrong. Try reloading the webpage",
-      styling: "mt-3"
+      message: "Something went wrong. Try reloading the webpage.",
+      styling: "mt-3"))
     %>
   <% else %>
     <div class="row">
-      <%= upload_details data: @upload_csv, filename: @upload_filename %>
+      <%= render(UploadDetailsComponent.new(data: @upload_csv, filename: @upload_filename)) %>
     </div>
     <div class="row justify-content-around mb-3">
       <%=

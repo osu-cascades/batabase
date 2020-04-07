@@ -34,17 +34,15 @@ RSpec.describe CommitUpload, type: :workflow do
   #   expect { CommitUpload.new(expected).send(:create_detectors) }.to change(Detector, :count)
   # end
 
-  # it 'Can create a contact from raw survey 123 data' do
-  #   expected = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
-  #   create(:organization, name: 'OSU')
-  #   fake_sample_unit = create(:sample_unit, code: 107_915)
-  #   fake_state = create(:state, name: 'Alabama', abbreviation: 'AL')
-  #   create(:sample_unit_state, sample_unit_id: fake_sample_unit.id, state_id: fake_state.id)
+  it 'Can create a contact from a site meta data upload template' do
+    expected = CSV.read(Rails.root.join('spec/fixtures/Site_Metadata_BulkUpload_Template.csv'), headers: true)
+    create(:organization, name: 'OSU')
+    create(:state, name: 'Oregon', abbreviation: 'OR')
 
-  #   expect { CommitUpload.new(expected).send(:create_contacts) }.to change(Contact, :count)
-  # end
+    expect { CommitUpload.new(expected).send(:create_contacts) }.to change(Contact, :count)
+  end
 
-  it 'Can create detector locations and their detection targets and descriptors from raw survey 123 data' do
+  it 'Can create detector locations and their detection targets and descriptors from a site meta data upload template' do
     csv_data = CSV.read(Rails.root.join('spec/fixtures/Site_Metadata_BulkUpload_Template.csv'), headers: true)
     create(:local_habitat, label: 'dry conifer')
     create(:sample_unit, code: 107_915)

@@ -8,7 +8,7 @@ class CommitUpload
   end
 
   def run
-    # create_contacts
+    create_contacts
     create_detector_locations
     # create_deployments
   end
@@ -32,18 +32,26 @@ class CommitUpload
 
       next unless existing_contact.nil?
 
-      current_organization_name = row['Deployment Agency']
+      organization_names = {
+        'Oregon State University-Cascades' => 'OSU',
+        'National Park Service' => 'NPS',
+        'Oregon Department of Fish and Wildlife' => 'ODFW',
+        'Bureau of Land Management' => 'BLM',
+        'United States Forest Service' => 'USFS'
+      }
+
+      organization_names.default = 'Other'
+
+      current_organization_name = organization_names[row['Deployment Agency']]
       current_organization = Organization.find_by(name: current_organization_name)
 
       next if current_organization.nil?
 
-      current_sample_unit_code = row['Location ID'].split('_')
+      current_state_abbreviation = row['State']
+      next if current_state_abbreviation.nil?
 
-      current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
-
-      next if current_sample_unit.nil?
-
-      current_state = current_sample_unit.primary_state.state
+      current_state = State.find_by(abbreviation: current_state_abbreviation)
+      next if current_state.nil?
 
       Contact.create!(
         first_name: current_contact_name.first,
@@ -150,7 +158,6 @@ class CommitUpload
       end
 
       next if current_target_descriptor.id.nil?
-
 
       current_latitude = row['Latitude']
       current_longitude = row['Longitude']

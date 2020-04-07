@@ -8,9 +8,9 @@ class CommitUpload
   end
 
   def run
-    create_contacts
+    # create_contacts
     create_detector_locations
-    create_deployments
+    # create_deployments
   end
 
   private
@@ -93,20 +93,23 @@ class CommitUpload
     }
 
     data.each do |row|
-      next if row['Location ID'].nil?
+      next if row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")'].nil?
 
-      current_location_id = row['Location ID']
+      current_location_id = row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")']
 
-      existing_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID'].upcase)
+      existing_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")'].upcase)
       next unless existing_detector_location.nil?
 
-      current_sample_unit_code = row['Location ID'].split('_')
+      current_sample_unit_code = row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")'].split('_')
+
 
       current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
       next if current_sample_unit.nil?
 
+
       current_habitat_label = local_habitat_names[row['Habitat (choose one)']]
       next if current_habitat_label.nil?
+
 
       current_local_habitat = LocalHabitat.find_by(label: current_habitat_label)
 
@@ -116,7 +119,9 @@ class CommitUpload
       current_quad_id = current_location_id[-3, 2].upcase
 
       current_location_name = row['Site Name'].nil? ? '' : row['Site Name']
+
       current_land_ownership = row['Land Ownership'].nil? ? '' : row['Land Ownership']
+
       current_driving_directions = row['Directions to Site']
 
       if row['Waterbody']
@@ -146,8 +151,9 @@ class CommitUpload
 
       next if current_target_descriptor.id.nil?
 
-      current_latitude = row['x']
-      current_longitude = row['y']
+
+      current_latitude = row['Latitude']
+      current_longitude = row['Longitude']
 
       DetectorLocation.create!(
         quad_id: current_quad_id,

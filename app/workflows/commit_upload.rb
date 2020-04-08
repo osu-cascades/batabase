@@ -281,6 +281,8 @@ class CommitUpload
         )
       end
 
+      # This is for the case of a SM4BAT detector. It reports different fields than the D500X so a separate flow is needed
+
       # if current_detector.model == 'SM4BAT'
       #   current_gain = row['Gain (SM4BAT)']
       #   current_16k_filter = row['16K High Filter (SM4BAT)']

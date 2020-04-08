@@ -10,7 +10,7 @@ class CommitUpload
   def run
     create_contacts
     create_detector_locations
-    # create_deployments
+    create_deployments
   end
 
   private
@@ -180,7 +180,7 @@ class CommitUpload
 
   def create_deployments
     data.each do |row|
-      current_location_id = row['Location ID']
+      current_location_id = row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")']
 
       next if current_location_id.nil?
 
@@ -208,8 +208,8 @@ class CommitUpload
       current_distance_range_label = convert_distance_to_clutter_to_distance_range(row['Distance to Clutter (m)'].to_i)
       current_distance_range = DistanceRange.find_by(label: current_distance_range_label)
 
-      # Making default clutter percent until we know where that comes from
-      default_clutter_perecent = ClutterPercent.find_by(label: '0%')
+      current_clutter_category = row['Clutter Category']
+      current_clutter_percent = ClutterPercent.find_by(id: current_clutter_category)
 
       current_detector_serial_number = row['Detector Serial No.']
 
@@ -221,7 +221,9 @@ class CommitUpload
       current_deployment_date_string = row['Deployment Date']
       next if current_deployment_date_string.nil?
 
+
       current_deployment_date = convert_string_date_to_datetime(row['Deployment Date'])
+
 
       current_recovery_date_string = row['Recovery Date']
       next if current_recovery_date_string.nil?
@@ -234,47 +236,93 @@ class CommitUpload
       current_microphone_height = row['Microphone Height (m)'].to_d
       current_microphone_orientation = row['Microphone Orientation']
 
-      current_sample_frequency = row['SAMP. FREQ'].nil? ? 500 : row['SAMP. FREQ']
-      current_pre_trigger = row['PRETRIG'].nil? ? 'OFF' : row['PRETRIG']
-      current_recording_length = row['REC. LEN'].nil? ? '5' : row['REC. LEN']
-      current_hp_filter = row['HP-FILTER'].nil? ? 'NO' : row['HP-FILTER']
-      current_auto_record = row['AUTOREC'].nil? ? 'YES' : row['AUTOREC']
-
-      current_trigger_sensitivity = row['T. SENSE'].nil? ? 'MED' : row['T. SENSE']
-      current_input_gain = row['INPUT GAIN'].nil? ? 45 : row['INPUT GAIN']
-      current_trigger_level = row['TRIG LEV'].nil? ? '160' : row['TRIG LEV']
-      current_interval = row['INTERVAL'].nil? ? 0 : row['INTERVAL']
-
-      current_recording_start = row['TIMER ON'].nil? ? '' : convert_string_date_to_datetime(row['TIMER ON'])
-      current_recording_stop = row['TIMER OFF'].nil? ? '' : convert_string_date_to_datetime(row['TIMER OFF'])
-
       current_comments = row['Comments'].nil? ? '' : row['Comments']
 
-      Deployment.create!(
-        detector_location_id: current_detector_location.id,
-        clutter_type_id: current_clutter_type.id,
-        clutter_percent_id: default_clutter_perecent.id,
-        distance_range_id: current_distance_range.id,
-        detector_id: current_detector.id,
-        deployment_date: current_deployment_date,
-        recovery_date: current_recovery_date,
-        primary_contact_id: current_primary_contact.id,
-        recovery_contact_id: current_primary_contact.id, # TODO: this needs to be resolved to a real recovery contact
-        microphone_height_off_ground: current_microphone_height,
-        microphone_orientation: current_microphone_orientation,
-        sampling_frequency: current_sample_frequency,
-        pre_trigger: current_pre_trigger,
-        recording_length: current_recording_length,
-        hp_filter: current_hp_filter,
-        auto_record: current_auto_record,
-        trigger_sensitivity: current_trigger_sensitivity,
-        input_gain: current_input_gain,
-        trigger_level: current_trigger_level,
-        interval: current_interval,
-        recording_start: current_recording_start,
-        recording_stop: current_recording_stop,
-        comments: current_comments
-      )
+      if current_detector.model == 'D500X'
+        current_sample_frequency = row['SAMP. FREQ'].nil? ? 500 : row['SAMP. FREQ (D500X)']
+        current_pre_trigger = row['PRETRIG'].nil? ? 'OFF' : row['PRETRIG (D500X)']
+        current_recording_length = row['REC. LEN'].nil? ? '5' : row['REC. LEN (D500X)']
+        current_hp_filter = row['HP-FILTER'].nil? ? 'NO' : row['HP-FILTER (D500X)']
+        current_auto_record = row['AUTOREC'].nil? ? 'YES' : row['AUTOREC (D500X)']
+
+        current_trigger_sensitivity = row['T. SENSE (D500X)'].nil? ? 'MED' : row['T. SENSE (D500X)']
+        current_input_gain = row['INPUT GAIN (D500X)'].nil? ? 45 : row['INPUT GAIN (D500X)']
+        current_trigger_level = row['TRIG LEV (D500X)'].nil? ? '160' : row['TRIG LEV (D500X)']
+        current_interval = row['INTERVAL (D500X)'].nil? ? 0 : row['INTERVAL (D500X)']
+
+        current_recording_start = row['TIMER ON (D500X)'].nil? ? '' : convert_string_date_to_datetime(row['TIMER ON (D500X)'])
+        current_recording_stop = row['TIMER OFF (D500X)'].nil? ? '' : convert_string_date_to_datetime(row['TIMER OFF (D500X)'])
+
+
+        Deployment.create!(
+          detector_location_id: current_detector_location.id,
+          clutter_type_id: current_clutter_type.id,
+          clutter_percent_id: current_clutter_percent.id,
+          distance_range_id: current_distance_range.id,
+          detector_id: current_detector.id,
+          deployment_date: current_deployment_date,
+          recovery_date: current_recovery_date,
+          primary_contact_id: current_primary_contact.id,
+          recovery_contact_id: current_primary_contact.id, # TODO: this needs to be resolved to a real recovery contact
+          microphone_height_off_ground: current_microphone_height,
+          microphone_orientation: current_microphone_orientation,
+          sampling_frequency: current_sample_frequency,
+          pre_trigger: current_pre_trigger,
+          recording_length: current_recording_length,
+          hp_filter: current_hp_filter,
+          auto_record: current_auto_record,
+          trigger_sensitivity: current_trigger_sensitivity,
+          input_gain: current_input_gain,
+          trigger_level: current_trigger_level,
+          interval: current_interval,
+          recording_start: current_recording_start,
+          recording_stop: current_recording_stop,
+          comments: current_comments
+        )
+      end
+
+      # if current_detector.model == 'SM4BAT'
+      #   current_gain = row['Gain (SM4BAT)']
+      #   current_16k_filter = row['16K High Filter (SM4BAT)']
+      #   current_sample_rate = row['Sample Rate (kHz) (SM4BAT)']
+      #   current_min_duration = row['Min Duration (SM4BAT)']
+      #   current_max_duration = row['Max Duration (SM4BAT)']
+      #   current_min_trigger_freq = row['Min Trig Freq (kHz) (SM4BAT)']
+      #   current_trigger_level = row['Trigger Level (dB) (SM4BAT)']
+      #   current_trigger_window = row['Trigger Window (SM4BAT)']
+      #   current_max_length = row['Max Length (sec) (SM4BAT)']
+      #   current_compression = row['Compression (SM4BAT)']
+      #   current_start_time = row['Start Time (SM4BAT)']
+      #   currend_end_time = row['End Time (SM4BAT)']
+
+      #   Deployment.create!(
+      #     detector_location_id: current_detector_location.id,
+      #     clutter_type_id: current_clutter_type.id,
+      #     clutter_percent_id: default_clutter_perecent.id,
+      #     distance_range_id: current_distance_range.id,
+      #     detector_id: current_detector.id,
+      #     deployment_date: current_deployment_date,
+      #     recovery_date: current_recovery_date,
+      #     primary_contact_id: current_primary_contact.id,
+      #     recovery_contact_id: current_primary_contact.id, # TODO: this needs to be resolved to a real recovery contact
+      #     microphone_height_off_ground: current_microphone_height,
+      #     microphone_orientation: current_microphone_orientation,
+      #     gain: current_gain
+      #     sixteen_thousand_high_filter: current_16k_filter,
+      #     sample_rate: current_sample_rate,
+      #     min_duration: current_min_duration,
+      #     max_duration: current_max_duration,
+      #     min_trigger_frequency: current_min_trigger_freq,
+      #     trigger_level: current_trigger_level,
+      #     max_length: current_max_length,
+      #     compression: current_compression,
+      #     recording_start: current_start_time
+      #     recording_stop: current_end_time,
+      #     comments: current_comments
+      #   )
+      # end
+
+      
     end
   end
 
@@ -283,10 +331,8 @@ class CommitUpload
     date_list = string_date.split(' ')
 
     date_vals = date_list[0].split('/')
-    time_val = date_list[1] + date_list[2]
 
-    time = DateTime.parse(time_val).strftime('%H:%M:%S')
-    time_vals = time.split(':')
+    time_vals = date_list[1].split(':')
 
     datetime = DateTime.new(
       date_vals[2].to_i,
@@ -294,7 +340,7 @@ class CommitUpload
       date_vals[1].to_i,
       time_vals[0].to_i,
       time_vals[1].to_i,
-      time_vals[2].to_i
+      0
     )
 
     datetime

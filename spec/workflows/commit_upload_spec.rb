@@ -52,31 +52,31 @@ RSpec.describe CommitUpload, type: :workflow do
     expect { CommitUpload.new(csv_data).send(:create_detector_locations) }.to change(DetectorLocation, :count)
   end
 
-  # it 'Can create deployments from raw survey 123 data' do
-  #   csv_data = CSV.read(Rails.root.join('spec/fixtures/raw_oregon_survey123_output.csv'), headers: true)
-  #   fake_local_habitat = create(:local_habitat, label: 'dry conifer')
-  #   fake_detection_target = create(:detection_target, label: 'rock')
-  #   fake_target_descriptor = create(:target_descriptor, label: 'ridge top', detection_target_id: fake_detection_target.id)
-  #   fake_sample_unit = create(:sample_unit, code: 107_915)
+  it 'Can create deployments a site meta data upload template' do
+    csv_data = CSV.read(Rails.root.join('spec/fixtures/Site_Metadata_BulkUpload_Template.csv'), headers: true)
+    fake_local_habitat = create(:local_habitat, label: 'dry conifer')
+    fake_detection_target = create(:detection_target, label: 'rock')
+    fake_target_descriptor = create(:target_descriptor, label: 'ridge top', detection_target_id: fake_detection_target.id)
+    fake_sample_unit = create(:sample_unit, code: 107_915)
 
-  #   create(
-  #     :detector_location,
-  #     quad_id: 'NE',
-  #     quad_no: 1,
-  #     local_habitat_id: fake_local_habitat.id,
-  #     detection_target_id: fake_detection_target.id,
-  #     target_descriptor_id: fake_target_descriptor.id,
-  #     sample_unit_id: fake_sample_unit.id
-  #   )
+    create(
+      :detector_location,
+      quad_id: 'NE',
+      quad_no: 1,
+      local_habitat_id: fake_local_habitat.id,
+      detection_target_id: fake_detection_target.id,
+      target_descriptor_id: fake_target_descriptor.id,
+      sample_unit_id: fake_sample_unit.id
+    )
 
-  #   create(:clutter_type, name: 'Vegetation')
-  #   create(:clutter_percent, label: '0%')
-  #   create(:distance_range, label: '< 5m')
-  #   create(:detector, serial_number: 51_965)
+    create(:clutter_type, name: 'Vegetation')
+    create(:clutter_percent, id: 1, label: '0%')
+    create(:distance_range, label: '20m')
+    create(:detector, serial_number: 51965, model: 'D500X')
 
-  #   fake_organization = create(:organization, name: 'OSU')
-  #   create(:contact, first_name: 'sara', organization_id: fake_organization.id)
+    fake_organization = create(:organization, name: 'OSU')
+    create(:contact, first_name: 'Trent', last_name: 'Hawkins', organization_id: fake_organization.id)
 
-  #   expect { CommitUpload.new(csv_data).send(:create_deployments) }.to change(Deployment, :count)
-  # end
+    expect { CommitUpload.new(csv_data).send(:create_deployments) }.to change(Deployment, :count)
+  end
 end

@@ -52,7 +52,7 @@ RSpec.describe CommitUpload, type: :workflow do
     expect { CommitUpload.new(csv_data).send(:create_detector_locations) }.to change(DetectorLocation, :count)
   end
 
-  it 'Can create deployments frome a site meta data upload template' do
+  it 'Can create deployments from a site meta data upload template' do
     csv_data = CSV.read(Rails.root.join(data_csv_path), headers: true)
     fake_local_habitat = create(:local_habitat, label: 'dry conifer')
     fake_detection_target = create(:detection_target, label: 'rock')

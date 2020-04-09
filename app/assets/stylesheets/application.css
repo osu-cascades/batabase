@@ -5,7 +5,7 @@
 */
 
 .fill-viewport {
-  height: 100%;
-  display: flex;
   flex-flow: column;
+  display: flex;
+  height: 100%;
 }

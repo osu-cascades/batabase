@@ -70,7 +70,7 @@ RSpec.describe CommitUpload, type: :workflow do
     )
 
     create(:clutter_type, name: 'Vegetation')
-    create(:clutter_percent, id: 1, label: '0%')
+    create(:clutter_percent, id: 123, label: '0%')
     create(:distance_range, label: '20m')
     create(:detector, serial_number: 51965, model: 'D500X')
 

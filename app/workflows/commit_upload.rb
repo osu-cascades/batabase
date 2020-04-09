@@ -8,12 +8,56 @@ class CommitUpload
   end
 
   def run
+    create_detectors
     create_contacts
     create_detector_locations
     create_deployments
   end
 
   private
+
+  def create_detectors
+    organization_names = {
+      'Oregon State University-Cascades' => 'OSU',
+      'National Park Service' => 'NPS',
+      'Oregon Department of Fish and Wildlife' => 'ODFW',
+      'Bureau of Land Management' => 'BLM',
+      'United States Forest Service' => 'USFS'
+    }
+
+    organization_names.default = 'Other'
+
+    data.each do |row|
+      current_serial_number = row['Detector Serial No.']
+
+      next if current_serial_number.nil?
+
+      existing_detector = Detector.find_by(serial_number: current_serial_number)
+
+      next unless existing_detector.nil?
+
+      current_firmware = 'Unknown' # can be backfilled later when uploading audio metadata
+
+      current_detector_model = row['Detector Model'].split
+
+      current_actual_model = current_detector_model.pop
+      current_manufacturer = current_detector_model.join(' ')
+
+      current_organization_name = row['Deployment Agency']
+
+      current_organization = Organization.find_by(name: organization_names[current_organization_name])
+
+      next if current_organization.nil?
+
+      Detector.create!(
+        firmware: current_firmware,
+        serial_number: current_serial_number,
+        model: current_actual_model,
+        manufacturer: current_manufacturer,
+        organization_id: current_organization.id
+      )
+    end
+  end
 
   def create_contacts
     data.each do |row|
@@ -185,10 +229,12 @@ class CommitUpload
       next if current_location_id.nil?
 
       current_detector_location = DetectorLocation.find_by(location_identifier: current_location_id.upcase)
+
       next if current_detector_location.nil?
 
       current_clutter_type_name = row['Clutter Type']
       current_other_clutter_type_name = row['Enter other Clutter Type']
+
 
       next if current_clutter_type_name.nil?
 
@@ -216,9 +262,12 @@ class CommitUpload
       next if current_detector_serial_number.nil?
 
       current_detector = Detector.find_by(serial_number: current_detector_serial_number)
+
+
       next if current_detector.nil?
 
       current_deployment_date_string = row['Deployment Date']
+
       next if current_deployment_date_string.nil?
 
 
@@ -226,6 +275,7 @@ class CommitUpload
 
 
       current_recovery_date_string = row['Recovery Date']
+
       next if current_recovery_date_string.nil?
 
       current_recovery_date = convert_string_date_to_datetime(row['Recovery Date'])
@@ -238,93 +288,69 @@ class CommitUpload
 
       current_comments = row['Comments'].nil? ? '' : row['Comments']
 
+      current_sample_frequency = row['SAMP. FREQ'].nil? ? 500 : row['SAMP. FREQ (D500X)']
+      current_pre_trigger = row['PRETRIG'].nil? ? 'OFF' : row['PRETRIG (D500X)']
+      current_recording_length = row['REC. LEN'].nil? ? '5' : row['REC. LEN (D500X)']
+      current_hp_filter = row['HP-FILTER'].nil? ? 'NO' : row['HP-FILTER (D500X)']
+      current_auto_record = row['AUTOREC'].nil? ? 'YES' : row['AUTOREC (D500X)']
+      current_trigger_sensitivity = row['T. SENSE (D500X)'].nil? ? 'MED' : row['T. SENSE (D500X)']
+      current_input_gain = row['INPUT GAIN (D500X)'].nil? ? 45 : row['INPUT GAIN (D500X)']
+      current_trigger_level = row['TRIG LEV (D500X)'].nil? ? '160' : row['TRIG LEV (D500X)']
+      current_interval = row['INTERVAL (D500X)'].nil? ? 0 : row['INTERVAL (D500X)']
+      current_gain = row['Gain (SM4BAT)']
+      current_16k_filter = row['16K High Filter (SM4BAT)']
+      current_sample_rate = row['Sample Rate (kHz) (SM4BAT)']
+      current_min_duration = row['Min Duration (SM4BAT)']
+      current_max_duration = row['Max Duration (SM4BAT)']
+      current_min_trigger_freq = row['Min Trig Freq (kHz) (SM4BAT)']
+      current_trigger_level = row['Trigger Level (dB) (SM4BAT)']
+      current_trigger_window = row['Trigger Window (SM4BAT)']
+      current_max_length = row['Max Length (sec) (SM4BAT)']
+      current_compression = row['Compression (SM4BAT)']
+
       if current_detector.model == 'D500X'
-        current_sample_frequency = row['SAMP. FREQ'].nil? ? 500 : row['SAMP. FREQ (D500X)']
-        current_pre_trigger = row['PRETRIG'].nil? ? 'OFF' : row['PRETRIG (D500X)']
-        current_recording_length = row['REC. LEN'].nil? ? '5' : row['REC. LEN (D500X)']
-        current_hp_filter = row['HP-FILTER'].nil? ? 'NO' : row['HP-FILTER (D500X)']
-        current_auto_record = row['AUTOREC'].nil? ? 'YES' : row['AUTOREC (D500X)']
-
-        current_trigger_sensitivity = row['T. SENSE (D500X)'].nil? ? 'MED' : row['T. SENSE (D500X)']
-        current_input_gain = row['INPUT GAIN (D500X)'].nil? ? 45 : row['INPUT GAIN (D500X)']
-        current_trigger_level = row['TRIG LEV (D500X)'].nil? ? '160' : row['TRIG LEV (D500X)']
-        current_interval = row['INTERVAL (D500X)'].nil? ? 0 : row['INTERVAL (D500X)']
-
-        current_recording_start = row['TIMER ON (D500X)'].nil? ? '' : convert_string_date_to_datetime(row['TIMER ON (D500X)'])
-        current_recording_stop = row['TIMER OFF (D500X)'].nil? ? '' : convert_string_date_to_datetime(row['TIMER OFF (D500X)'])
-
-
-        Deployment.create!(
-          detector_location_id: current_detector_location.id,
-          clutter_type_id: current_clutter_type.id,
-          clutter_percent_id: current_clutter_percent.id,
-          distance_range_id: current_distance_range.id,
-          detector_id: current_detector.id,
-          deployment_date: current_deployment_date,
-          recovery_date: current_recovery_date,
-          primary_contact_id: current_primary_contact.id,
-          recovery_contact_id: current_primary_contact.id, # TODO: this needs to be resolved to a real recovery contact
-          microphone_height_off_ground: current_microphone_height,
-          microphone_orientation: current_microphone_orientation,
-          sampling_frequency: current_sample_frequency,
-          pre_trigger: current_pre_trigger,
-          recording_length: current_recording_length,
-          hp_filter: current_hp_filter,
-          auto_record: current_auto_record,
-          trigger_sensitivity: current_trigger_sensitivity,
-          input_gain: current_input_gain,
-          trigger_level: current_trigger_level,
-          interval: current_interval,
-          recording_start: current_recording_start,
-          recording_stop: current_recording_stop,
-          comments: current_comments
-        )
+        current_recording_start = row['TIMER ON (D500X)']
+        current_recording_stop = row['TIMER OFF (D500X)']
+      else
+        current_recording_start = row['Start Time (SM4BAT)']
+        current_recording_stop = row['End Time (SM4BAT)']      
       end
 
-      # This is for the case of a SM4BAT detector. It reports different fields than the D500X so a separate flow is needed
-
-      # if current_detector.model == 'SM4BAT'
-      #   current_gain = row['Gain (SM4BAT)']
-      #   current_16k_filter = row['16K High Filter (SM4BAT)']
-      #   current_sample_rate = row['Sample Rate (kHz) (SM4BAT)']
-      #   current_min_duration = row['Min Duration (SM4BAT)']
-      #   current_max_duration = row['Max Duration (SM4BAT)']
-      #   current_min_trigger_freq = row['Min Trig Freq (kHz) (SM4BAT)']
-      #   current_trigger_level = row['Trigger Level (dB) (SM4BAT)']
-      #   current_trigger_window = row['Trigger Window (SM4BAT)']
-      #   current_max_length = row['Max Length (sec) (SM4BAT)']
-      #   current_compression = row['Compression (SM4BAT)']
-      #   current_start_time = row['Start Time (SM4BAT)']
-      #   currend_end_time = row['End Time (SM4BAT)']
-
-      #   Deployment.create!(
-      #     detector_location_id: current_detector_location.id,
-      #     clutter_type_id: current_clutter_type.id,
-      #     clutter_percent_id: default_clutter_perecent.id,
-      #     distance_range_id: current_distance_range.id,
-      #     detector_id: current_detector.id,
-      #     deployment_date: current_deployment_date,
-      #     recovery_date: current_recovery_date,
-      #     primary_contact_id: current_primary_contact.id,
-      #     recovery_contact_id: current_primary_contact.id, # TODO: this needs to be resolved to a real recovery contact
-      #     microphone_height_off_ground: current_microphone_height,
-      #     microphone_orientation: current_microphone_orientation,
-      #     gain: current_gain
-      #     sixteen_thousand_high_filter: current_16k_filter,
-      #     sample_rate: current_sample_rate,
-      #     min_duration: current_min_duration,
-      #     max_duration: current_max_duration,
-      #     min_trigger_frequency: current_min_trigger_freq,
-      #     trigger_level: current_trigger_level,
-      #     max_length: current_max_length,
-      #     compression: current_compression,
-      #     recording_start: current_start_time
-      #     recording_stop: current_end_time,
-      #     comments: current_comments
-      #   )
-      # end
-
-      
+      Deployment.create!(
+        detector_location_id: current_detector_location.id,
+        clutter_type_id: current_clutter_type.id,
+        clutter_percent_id: current_clutter_percent.id,
+        distance_range_id: current_distance_range.id,
+        detector_id: current_detector.id,
+        deployment_date: current_deployment_date,
+        recovery_date: current_recovery_date,
+        primary_contact_id: current_primary_contact.id,
+        recovery_contact_id: current_primary_contact.id, # TODO: this needs to be resolved to a real recovery contact
+        microphone_height_off_ground: current_microphone_height,
+        microphone_orientation: current_microphone_orientation,
+        sampling_frequency: current_sample_frequency,
+        pre_trigger: current_pre_trigger,
+        recording_length: current_recording_length,
+        hp_filter: current_hp_filter,
+        auto_record: current_auto_record,
+        trigger_sensitivity: current_trigger_sensitivity,
+        input_gain: current_input_gain,
+        trigger_level: current_trigger_level,
+        interval: current_interval,
+        
+        gain: current_gain,
+        sixteen_thousand_high_filter: current_16k_filter,
+        sample_rate: current_sample_rate,
+        min_duration: current_min_duration,
+        max_duration: current_max_duration,
+        min_trigger_frequency: current_min_trigger_freq,
+        trigger_window: current_trigger_window,
+        max_length: current_max_length,
+        compression: current_compression,
+        recording_start: current_recording_start,
+        recording_stop: current_recording_stop,
+        comments: current_comments
+      )
     end
   end
 

@@ -4,6 +4,8 @@ require 'csv'
 require 'rails_helper'
 
 RSpec.describe CommitUpload, type: :workflow do
+  data_csv_path = 'spec/fixtures/Site_Metadata_BulkUpload_Template.csv'
+  
   it 'Exists' do
     commit_upload = CommitUpload.new
 
@@ -18,24 +20,22 @@ RSpec.describe CommitUpload, type: :workflow do
   end
 
   it 'Can accept csv data' do
-    expected = CSV.read(Rails.root.join('spec/fixtures/Site_Metadata_BulkUpload_Template.csv'))
+    expected = CSV.read(Rails.root.join(data_csv_path))
 
     commit_upload = CommitUpload.new(expected)
 
     expect(commit_upload.data).to eq(expected)
   end
 
-  # it "Can create a detector from the site meta data upload template if the detector doesn't exist" do
-  #   pending("TODO: can't really create new detectors from the current data. Solution needed")
+  it "Can create a detector from the site meta data upload template if the detector doesn't exist" do
+    expected = CSV.read(Rails.root.join(data_csv_path), headers: true)
+    create(:organization, name: 'OSU')
 
-  #   expected = CSV.read(Rails.root.join('spec/fixtures/Site_Metadata_BulkUpload_Template.csv'), headers: true)
-  #   create(:organization, name: 'OSU')
-
-  #   expect { CommitUpload.new(expected).send(:create_detectors) }.to change(Detector, :count)
-  # end
+    expect { CommitUpload.new(expected).send(:create_detectors) }.to change(Detector, :count)
+  end
 
   it 'Can create a contact from a site meta data upload template' do
-    expected = CSV.read(Rails.root.join('spec/fixtures/Site_Metadata_BulkUpload_Template.csv'), headers: true)
+    expected = CSV.read(Rails.root.join(data_csv_path), headers: true)
     create(:organization, name: 'OSU')
     create(:state, name: 'Oregon', abbreviation: 'OR')
 
@@ -43,7 +43,7 @@ RSpec.describe CommitUpload, type: :workflow do
   end
 
   it 'Can create detector locations and their detection targets and descriptors from a site meta data upload template' do
-    csv_data = CSV.read(Rails.root.join('spec/fixtures/Site_Metadata_BulkUpload_Template.csv'), headers: true)
+    csv_data = CSV.read(Rails.root.join(data_csv_path), headers: true)
     create(:local_habitat, label: 'dry conifer')
     create(:sample_unit, code: 107_915)
     create(:detection_target, label: 'rock')
@@ -52,8 +52,8 @@ RSpec.describe CommitUpload, type: :workflow do
     expect { CommitUpload.new(csv_data).send(:create_detector_locations) }.to change(DetectorLocation, :count)
   end
 
-  it 'Can create deployments a site meta data upload template' do
-    csv_data = CSV.read(Rails.root.join('spec/fixtures/Site_Metadata_BulkUpload_Template.csv'), headers: true)
+  it 'Can create deployments frome a site meta data upload template' do
+    csv_data = CSV.read(Rails.root.join(data_csv_path), headers: true)
     fake_local_habitat = create(:local_habitat, label: 'dry conifer')
     fake_detection_target = create(:detection_target, label: 'rock')
     fake_target_descriptor = create(:target_descriptor, label: 'ridge top', detection_target_id: fake_detection_target.id)

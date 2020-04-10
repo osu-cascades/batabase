@@ -56,6 +56,7 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 - [ ] normalize table create file and class names
 - [ ] normalize names to either use label or name across models
 - [ ] add system tests for datagrid for better coverage
+- [ ] add tests for sign up, sign in, sign out, and other devise flows
 - [x] add ERD to readme
 
 ### Model
@@ -67,6 +68,9 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 - [ ] refactor detector location spec test for callback function
 - [ ] refactor sample unit tests and test groupings
 - [ ] use the data from "xrefSpeciesSpeciesGroup.csv" as a way to build the relationships when creating species and species groups
+- [ ] add multiple roles to user
+- [ ] add organization and state relationships to user
+- [ ] add tests to user
 - [x] add microphone type as either table or add to deployment model (verify in access for this decision)
 - [x] add distance range as either table or add to deployment model (verify in access for this decision)
 - [x] add tests for clutter type associations

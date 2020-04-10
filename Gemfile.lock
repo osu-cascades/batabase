@@ -93,6 +93,10 @@ GEM
     choice (0.2.0)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    database_cleaner (1.8.4)
+    database_cleaner-active_record (1.8.0)
+      activerecord
+      database_cleaner (~> 1.8.0)
     datagrid (1.6.0)
       rails (>= 4.0)
     devise (4.7.1)
@@ -346,6 +350,7 @@ DEPENDENCIES
   bootstrap_form (~> 4.0)
   byebug
   capybara (>= 2.15)
+  database_cleaner-active_record
   datagrid
   devise
   factory_bot_rails

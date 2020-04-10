@@ -4,10 +4,29 @@
     <title>Batabase</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_include_tag :application %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body class="fill-viewport">
-    <%= render(GlobalHeaderComponent.new) %>
+    <%= render(GlobalHeaderComponent.new(signed_in: user_signed_in?)) %>
+    <% if notice %>
+      <%=
+        render(AlertComponent.new(dismissible: false,
+          type: :info,
+          message: notice,
+          styling: "my-0 rounded-0")
+        )
+      %>
+    <% end %>
+    <% if alert %>
+      <%=
+        render(AlertComponent.new(dismissible: false,
+          type: :danger,
+          message: alert,
+          styling: "my-0 rounded-0")
+        )
+      %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

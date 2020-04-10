@@ -2,10 +2,11 @@
   <% if @upload.nil? or @upload_csv.blank? or @upload_filename.blank? %>
     <%=
       render(AlertComponent.new(dismissible: false,
-      type: :danger,
-      heading: "Could not load data",
-      message: "Something went wrong. Try reloading the webpage.",
-      styling: "mt-3"))
+        type: :danger,
+        heading: "Could not load data",
+        message: "Something went wrong. Try reloading the webpage.",
+        styling: "mt-3")
+      )
     %>
   <% else %>
     <div class="row">

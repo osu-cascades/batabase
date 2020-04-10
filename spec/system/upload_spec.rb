@@ -5,9 +5,12 @@ require 'rails_helper'
 GENERATED_UPLOAD_COUNT = 3
 
 RSpec.describe 'Upload Flows', type: :system do
+  let(:user) { FactoryBot.create(:user) }
+
   context 'Index' do
     before :each do
       create_list(:upload, GENERATED_UPLOAD_COUNT, :meta)
+      sign_in user
       visit uploads_path
     end
 
@@ -38,6 +41,7 @@ RSpec.describe 'Upload Flows', type: :system do
 
   context 'New' do
     before :each do
+      sign_in user
       visit new_upload_path
     end
 

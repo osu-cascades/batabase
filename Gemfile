@@ -50,6 +50,9 @@ gem 'activerecord-import'
 # Used to create react style components in rails easily.
 gem 'view_component'
 
+# Used to create all caps number names for prints and tests
+gem 'humanize'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -91,8 +94,8 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 
-  # Used to create all caps number names for tests
-  gem 'humanize'
+  # Database cleaning for resetting database while when creating records is required for testing
+  gem 'database_cleaner-active_record'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -8,12 +8,56 @@ class CommitUpload
   end
 
   def run
+    create_detectors
     create_contacts
     create_detector_locations
     create_deployments
   end
 
   private
+
+  def create_detectors
+    organization_names = {
+      'Oregon State University-Cascades' => 'OSU',
+      'National Park Service' => 'NPS',
+      'Oregon Department of Fish and Wildlife' => 'ODFW',
+      'Bureau of Land Management' => 'BLM',
+      'United States Forest Service' => 'USFS'
+    }
+
+    organization_names.default = 'Other'
+
+    data.each do |row|
+      current_serial_number = row['Detector Serial No.']
+
+      next if current_serial_number.nil?
+
+      existing_detector = Detector.find_by(serial_number: current_serial_number)
+
+      next unless existing_detector.nil?
+
+      current_firmware = 'Unknown' # can be backfilled later when uploading audio metadata
+
+      current_detector_model = row['Detector Model'].split
+
+      current_actual_model = current_detector_model.pop
+      current_manufacturer = current_detector_model.join(' ')
+
+      current_organization_name = row['Deployment Agency']
+
+      current_organization = Organization.find_by(name: organization_names[current_organization_name])
+
+      next if current_organization.nil?
+
+      Detector.create!(
+        firmware: current_firmware,
+        serial_number: current_serial_number,
+        model: current_actual_model,
+        manufacturer: current_manufacturer,
+        organization_id: current_organization.id
+      )
+    end
+  end
 
   def create_contacts
     data.each do |row|
@@ -32,18 +76,26 @@ class CommitUpload
 
       next unless existing_contact.nil?
 
-      current_organization_name = row['Deployment Agency']
+      organization_names = {
+        'Oregon State University-Cascades' => 'OSU',
+        'National Park Service' => 'NPS',
+        'Oregon Department of Fish and Wildlife' => 'ODFW',
+        'Bureau of Land Management' => 'BLM',
+        'United States Forest Service' => 'USFS'
+      }
+
+      organization_names.default = 'Other'
+
+      current_organization_name = organization_names[row['Deployment Agency']]
       current_organization = Organization.find_by(name: current_organization_name)
 
       next if current_organization.nil?
 
-      current_sample_unit_code = row['Location ID'].split('_')
+      current_state_abbreviation = row['State']
+      next if current_state_abbreviation.nil?
 
-      current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
-
-      next if current_sample_unit.nil?
-
-      current_state = current_sample_unit.primary_state.state
+      current_state = State.find_by(abbreviation: current_state_abbreviation)
+      next if current_state.nil?
 
       Contact.create!(
         first_name: current_contact_name.first,
@@ -93,14 +145,14 @@ class CommitUpload
     }
 
     data.each do |row|
-      next if row['Location ID'].nil?
+      next if row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")'].nil?
 
-      current_location_id = row['Location ID']
+      current_location_id = row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")']
 
-      existing_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID'].upcase)
+      existing_detector_location = DetectorLocation.find_by(location_identifier: row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")'].upcase)
       next unless existing_detector_location.nil?
 
-      current_sample_unit_code = row['Location ID'].split('_')
+      current_sample_unit_code = row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")'].split('_')
 
       current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
       next if current_sample_unit.nil?
@@ -116,7 +168,9 @@ class CommitUpload
       current_quad_id = current_location_id[-3, 2].upcase
 
       current_location_name = row['Site Name'].nil? ? '' : row['Site Name']
+
       current_land_ownership = row['Land Ownership'].nil? ? '' : row['Land Ownership']
+
       current_driving_directions = row['Directions to Site']
 
       if row['Waterbody']
@@ -146,8 +200,8 @@ class CommitUpload
 
       next if current_target_descriptor.id.nil?
 
-      current_latitude = row['x']
-      current_longitude = row['y']
+      current_latitude = row['Latitude']
+      current_longitude = row['Longitude']
 
       DetectorLocation.create!(
         quad_id: current_quad_id,
@@ -167,11 +221,12 @@ class CommitUpload
 
   def create_deployments
     data.each do |row|
-      current_location_id = row['Location ID']
+      current_location_id = row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")']
 
       next if current_location_id.nil?
 
       current_detector_location = DetectorLocation.find_by(location_identifier: current_location_id.upcase)
+
       next if current_detector_location.nil?
 
       current_clutter_type_name = row['Clutter Type']
@@ -195,22 +250,25 @@ class CommitUpload
       current_distance_range_label = convert_distance_to_clutter_to_distance_range(row['Distance to Clutter (m)'].to_i)
       current_distance_range = DistanceRange.find_by(label: current_distance_range_label)
 
-      # Making default clutter percent until we know where that comes from
-      default_clutter_perecent = ClutterPercent.find_by(label: '0%')
+      current_clutter_category = row['Clutter Category']
+      current_clutter_percent = ClutterPercent.find_by(id: current_clutter_category)
 
       current_detector_serial_number = row['Detector Serial No.']
 
       next if current_detector_serial_number.nil?
 
       current_detector = Detector.find_by(serial_number: current_detector_serial_number)
+
       next if current_detector.nil?
 
       current_deployment_date_string = row['Deployment Date']
+
       next if current_deployment_date_string.nil?
 
       current_deployment_date = convert_string_date_to_datetime(row['Deployment Date'])
 
       current_recovery_date_string = row['Recovery Date']
+
       next if current_recovery_date_string.nil?
 
       current_recovery_date = convert_string_date_to_datetime(row['Recovery Date'])
@@ -221,26 +279,40 @@ class CommitUpload
       current_microphone_height = row['Microphone Height (m)'].to_d
       current_microphone_orientation = row['Microphone Orientation']
 
-      current_sample_frequency = row['SAMP. FREQ'].nil? ? 500 : row['SAMP. FREQ']
-      current_pre_trigger = row['PRETRIG'].nil? ? 'OFF' : row['PRETRIG']
-      current_recording_length = row['REC. LEN'].nil? ? '5' : row['REC. LEN']
-      current_hp_filter = row['HP-FILTER'].nil? ? 'NO' : row['HP-FILTER']
-      current_auto_record = row['AUTOREC'].nil? ? 'YES' : row['AUTOREC']
-
-      current_trigger_sensitivity = row['T. SENSE'].nil? ? 'MED' : row['T. SENSE']
-      current_input_gain = row['INPUT GAIN'].nil? ? 45 : row['INPUT GAIN']
-      current_trigger_level = row['TRIG LEV'].nil? ? '160' : row['TRIG LEV']
-      current_interval = row['INTERVAL'].nil? ? 0 : row['INTERVAL']
-
-      current_recording_start = row['TIMER ON'].nil? ? '' : convert_string_date_to_datetime(row['TIMER ON'])
-      current_recording_stop = row['TIMER OFF'].nil? ? '' : convert_string_date_to_datetime(row['TIMER OFF'])
-
       current_comments = row['Comments'].nil? ? '' : row['Comments']
+
+      current_sample_frequency = row['SAMP. FREQ'].nil? ? 500 : row['SAMP. FREQ (D500X)']
+      current_pre_trigger = row['PRETRIG'].nil? ? 'OFF' : row['PRETRIG (D500X)']
+      current_recording_length = row['REC. LEN'].nil? ? '5' : row['REC. LEN (D500X)']
+      current_hp_filter = row['HP-FILTER'].nil? ? 'NO' : row['HP-FILTER (D500X)']
+      current_auto_record = row['AUTOREC'].nil? ? 'YES' : row['AUTOREC (D500X)']
+      current_trigger_sensitivity = row['T. SENSE (D500X)'].nil? ? 'MED' : row['T. SENSE (D500X)']
+      current_input_gain = row['INPUT GAIN (D500X)'].nil? ? 45 : row['INPUT GAIN (D500X)']
+      current_trigger_level = row['TRIG LEV (D500X)'].nil? ? '160' : row['TRIG LEV (D500X)']
+      current_interval = row['INTERVAL (D500X)'].nil? ? 0 : row['INTERVAL (D500X)']
+      current_gain = row['Gain (SM4BAT)']
+      current_16k_filter = row['16K High Filter (SM4BAT)']
+      current_sample_rate = row['Sample Rate (kHz) (SM4BAT)']
+      current_min_duration = row['Min Duration (SM4BAT)']
+      current_max_duration = row['Max Duration (SM4BAT)']
+      current_min_trigger_freq = row['Min Trig Freq (kHz) (SM4BAT)']
+      current_trigger_level ||= row['Trigger Level (dB) (SM4BAT)']
+      current_trigger_window = row['Trigger Window (SM4BAT)']
+      current_max_length = row['Max Length (sec) (SM4BAT)']
+      current_compression = row['Compression (SM4BAT)']
+
+      if current_detector.model == 'D500X'
+        current_recording_start = row['TIMER ON (D500X)']
+        current_recording_stop = row['TIMER OFF (D500X)']
+      else
+        current_recording_start = row['Start Time (SM4BAT)']
+        current_recording_stop = row['End Time (SM4BAT)']
+      end
 
       Deployment.create!(
         detector_location_id: current_detector_location.id,
         clutter_type_id: current_clutter_type.id,
-        clutter_percent_id: default_clutter_perecent.id,
+        clutter_percent_id: current_clutter_percent.id,
         distance_range_id: current_distance_range.id,
         detector_id: current_detector.id,
         deployment_date: current_deployment_date,
@@ -258,6 +330,16 @@ class CommitUpload
         input_gain: current_input_gain,
         trigger_level: current_trigger_level,
         interval: current_interval,
+
+        gain: current_gain,
+        sixteen_thousand_high_filter: current_16k_filter,
+        sample_rate: current_sample_rate,
+        min_duration: current_min_duration,
+        max_duration: current_max_duration,
+        min_trigger_frequency: current_min_trigger_freq,
+        trigger_window: current_trigger_window,
+        max_length: current_max_length,
+        compression: current_compression,
         recording_start: current_recording_start,
         recording_stop: current_recording_stop,
         comments: current_comments
@@ -270,10 +352,8 @@ class CommitUpload
     date_list = string_date.split(' ')
 
     date_vals = date_list[0].split('/')
-    time_val = date_list[1] + date_list[2]
 
-    time = DateTime.parse(time_val).strftime('%H:%M:%S')
-    time_vals = time.split(':')
+    time_vals = date_list[1].split(':')
 
     datetime = DateTime.new(
       date_vals[2].to_i,
@@ -281,7 +361,7 @@ class CommitUpload
       date_vals[1].to_i,
       time_vals[0].to_i,
       time_vals[1].to_i,
-      time_vals[2].to_i
+      0
     )
 
     datetime

@@ -296,7 +296,7 @@ class CommitUpload
       current_min_duration = row['Min Duration (SM4BAT)']
       current_max_duration = row['Max Duration (SM4BAT)']
       current_min_trigger_freq = row['Min Trig Freq (kHz) (SM4BAT)']
-      current_trigger_level = row['Trigger Level (dB) (SM4BAT)']
+      current_trigger_level ||= row['Trigger Level (dB) (SM4BAT)']
       current_trigger_window = row['Trigger Window (SM4BAT)']
       current_max_length = row['Max Length (sec) (SM4BAT)']
       current_compression = row['Compression (SM4BAT)']

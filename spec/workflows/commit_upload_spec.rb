@@ -5,7 +5,7 @@ require 'rails_helper'
 
 RSpec.describe CommitUpload, type: :workflow do
   data_csv_path = 'spec/fixtures/Site_Metadata_BulkUpload_Template.csv'
-  
+
   it 'Exists' do
     commit_upload = CommitUpload.new
 
@@ -70,9 +70,9 @@ RSpec.describe CommitUpload, type: :workflow do
     )
 
     create(:clutter_type, name: 'Vegetation')
-    create(:clutter_percent, id: 123, label: '0%')
+    create(:clutter_percent, id: 1, label: '0%')
     create(:distance_range, label: '20m')
-    create(:detector, serial_number: 51965, model: 'D500X')
+    create(:detector, serial_number: 51_965, model: 'D500X')
 
     fake_organization = create(:organization, name: 'OSU')
     create(:contact, first_name: 'Trent', last_name: 'Hawkins', organization_id: fake_organization.id)

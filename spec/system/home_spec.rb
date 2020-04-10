@@ -3,13 +3,20 @@
 require 'rails_helper'
 
 RSpec.describe 'Home Flows', type: :system do
+  let(:user) { FactoryBot.create(:user) }
+
   context 'Index' do
-    it 'A user can view home page' do
+    it 'A non signed in user user cannot view home page' do
       visit home_index_path
 
-      page_title = find_by_id('home-title')
+      expect(current_path).not_to eq(home_index_path)
+    end
 
-      expect(page_title).to have_content('Batabase')
+    it 'A signed in user user can view home page' do
+      sign_in user
+      visit home_index_path
+
+      expect(current_path).to eq(home_index_path)
     end
   end
 end

@@ -1,0 +1,20 @@
+<div class="container mt-3">
+  <h2>Log in</h2>
+  <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex flex-column justify-content-around">
+        <%= render "devise/shared/links" %>
+      </div>
+      <div class="d-flex flex-column justify-content-around">
+        <% if devise_mapping.rememberable? %>
+          <div class="mb-2">
+            <%= f.check_box :remember_me %>
+          </div>
+        <% end %>
+        <%= f.submit "Log in" %>
+      </div>
+    </div>
+  <% end %>
+</div>

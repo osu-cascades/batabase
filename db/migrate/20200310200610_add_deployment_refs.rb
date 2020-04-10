@@ -6,5 +6,6 @@ class AddDeploymentRefs < ActiveRecord::Migration[6.0]
     add_reference :deployments, :detector, null: false, foreign_key: true
     add_reference :deployments, :distance_range, null: true, foreign_key: true
     add_reference :deployments, :clutter_type, null: false, foreign_key: true
+    add_reference :deployments, :clutter_percent, null: true, foreign_key: true
   end
 end

@@ -7,8 +7,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+# Used to create visual table grids with sortable columns and filters
+gem 'datagrid'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.1'
+gem 'rails', '~> 6.0.2'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
@@ -44,9 +47,11 @@ gem 'devise'
 # Activerecord import allows us to bulk import csv data into active record quickly and efficiently
 gem 'activerecord-import'
 
-# This in included with devise. Not sure if we can use it but I am leaving this for future me.
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Used to create react style components in rails easily.
+gem 'view_component'
+
+# Used to create all caps number names for prints and tests
+gem 'humanize'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -73,7 +78,11 @@ group :development do
   # Solargraph is a language server that provides intellisense, code completion, and inline documentation for Ruby.
   gem 'solargraph'
 
+  # Formats html.erb files
   gem 'htmlbeautifier'
+
+  # Generates erb diagrams of the database schema on migration
+  gem 'rails-erd'
 end
 
 group :test do
@@ -85,8 +94,8 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 
-  # Used to create all caps number names for tests
-  gem 'humanize'
+  # Database cleaning for resetting database while when creating records is required for testing
+  gem 'database_cleaner-active_record'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

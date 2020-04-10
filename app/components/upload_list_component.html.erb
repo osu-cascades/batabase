@@ -1,0 +1,16 @@
+<%= content_tag :div, class: 'table-responsive', role: 'uploads-list' do %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Filename</th>
+        <th scope="col">View Upload</th>
+        <th scope="col">Delete Upload</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @uploads.each do |upload| %>
+        <%= render(UploadComponent.new(upload: upload)) %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

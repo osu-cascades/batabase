@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_200610) do
+ActiveRecord::Schema.define(version: 2020_04_03_184342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
 
   create_table "broad_habitats", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "clutter_percents", force: :cascade do |t|
+    t.string "label"
   end
 
   create_table "clutter_types", force: :cascade do |t|
@@ -48,8 +52,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
   create_table "deployments", force: :cascade do |t|
     t.text "comments"
     t.decimal "microphone_height_off_ground", precision: 5, scale: 2, default: "3.0"
-    t.string "microphone_orientation"
-    t.integer "clutter_percent"
+    t.string "microphone_orientation", default: ""
     t.integer "sampling_frequency", default: 500
     t.string "pre_trigger", default: "OFF"
     t.string "recording_length", default: "5"
@@ -72,16 +75,20 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
     t.datetime "recovery_date"
     t.datetime "recording_start"
     t.datetime "recording_stop"
-    t.integer "primary_contact_id"
-    t.integer "recovery_contact_id"
+    t.bigint "primary_contact_id"
+    t.bigint "recovery_contact_id"
     t.bigint "detector_location_id", null: false
     t.bigint "detector_id", null: false
     t.bigint "distance_range_id"
     t.bigint "clutter_type_id", null: false
+    t.bigint "clutter_percent_id"
+    t.index ["clutter_percent_id"], name: "index_deployments_on_clutter_percent_id"
     t.index ["clutter_type_id"], name: "index_deployments_on_clutter_type_id"
     t.index ["detector_id"], name: "index_deployments_on_detector_id"
     t.index ["detector_location_id"], name: "index_deployments_on_detector_location_id"
     t.index ["distance_range_id"], name: "index_deployments_on_distance_range_id"
+    t.index ["primary_contact_id"], name: "index_deployments_on_primary_contact_id"
+    t.index ["recovery_contact_id"], name: "index_deployments_on_recovery_contact_id"
   end
 
   create_table "detection_targets", force: :cascade do |t|
@@ -188,11 +195,39 @@ ActiveRecord::Schema.define(version: 2020_03_10_200610) do
     t.string "upload_type"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+  end
+
   add_foreign_key "broad_habitat_forms", "broad_habitats"
   add_foreign_key "contacts", "organizations"
   add_foreign_key "contacts", "states"
   add_foreign_key "counties", "states"
+  add_foreign_key "deployments", "clutter_percents"
   add_foreign_key "deployments", "clutter_types"
+  add_foreign_key "deployments", "contacts", column: "primary_contact_id"
+  add_foreign_key "deployments", "contacts", column: "recovery_contact_id"
   add_foreign_key "deployments", "detector_locations"
   add_foreign_key "deployments", "detectors"
   add_foreign_key "deployments", "distance_ranges"

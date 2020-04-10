@@ -154,14 +154,11 @@ class CommitUpload
 
       current_sample_unit_code = row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")'].split('_')
 
-
       current_sample_unit = SampleUnit.find_by(code: current_sample_unit_code[0].to_i)
       next if current_sample_unit.nil?
 
-
       current_habitat_label = local_habitat_names[row['Habitat (choose one)']]
       next if current_habitat_label.nil?
-
 
       current_local_habitat = LocalHabitat.find_by(label: current_habitat_label)
 
@@ -235,7 +232,6 @@ class CommitUpload
       current_clutter_type_name = row['Clutter Type']
       current_other_clutter_type_name = row['Enter other Clutter Type']
 
-
       next if current_clutter_type_name.nil?
 
       if current_other_clutter_type_name.nil?
@@ -263,16 +259,13 @@ class CommitUpload
 
       current_detector = Detector.find_by(serial_number: current_detector_serial_number)
 
-
       next if current_detector.nil?
 
       current_deployment_date_string = row['Deployment Date']
 
       next if current_deployment_date_string.nil?
 
-
       current_deployment_date = convert_string_date_to_datetime(row['Deployment Date'])
-
 
       current_recovery_date_string = row['Recovery Date']
 
@@ -313,7 +306,7 @@ class CommitUpload
         current_recording_stop = row['TIMER OFF (D500X)']
       else
         current_recording_start = row['Start Time (SM4BAT)']
-        current_recording_stop = row['End Time (SM4BAT)']      
+        current_recording_stop = row['End Time (SM4BAT)']
       end
 
       Deployment.create!(
@@ -337,7 +330,7 @@ class CommitUpload
         input_gain: current_input_gain,
         trigger_level: current_trigger_level,
         interval: current_interval,
-        
+
         gain: current_gain,
         sixteen_thousand_high_filter: current_16k_filter,
         sample_rate: current_sample_rate,

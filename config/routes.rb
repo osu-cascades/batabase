@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get :commit
   end
 
-  resources :detectors, only: [:index]
+  resources :detectors
   resources :contacts, only: [:index]
   resources :deployments, only: [:index]
 end

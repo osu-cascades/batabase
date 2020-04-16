@@ -2,3 +2,11 @@
   <%= datagrid_form_for @detectors_grid, url: detectors_path %>
   <%= datagrid_table(@detectors_grid) %>
 </div>
+<div class="d-flex justify-content-center mt-2 mb-2">
+    <%=
+        link_to "Add Detector",
+        new_detector_path,
+        class: 'btn btn-success align-self-center px-3',
+        method: :get
+      %>
+  </div>

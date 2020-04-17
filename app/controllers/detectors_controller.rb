@@ -45,7 +45,7 @@ class DetectorsController < ApplicationController
       return
     end
     
-    redirect_to detectors_path
+    redirect_to detectors_path, notice: 'Detector Successfuly Added'
     return
   end
 
@@ -93,7 +93,7 @@ class DetectorsController < ApplicationController
       return
     end
 
-    redirect_to detectors_path, notice: 'Detector Updated'
+    redirect_to detectors_path, notice: 'Detector Successfully Updated'
     return
   end
 

@@ -1,4 +1,6 @@
 class DetectorsController < ApplicationController
+  rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
+
   def index
     @detectors_grid = DetectorsGrid.new(params[:detectors_grid])
   end
@@ -29,12 +31,24 @@ class DetectorsController < ApplicationController
     )
 
     if @detector.errors.any?
-      byebug
       render(:new)
       return
     end
     
     redirect_to detectors_path
+    return
+  end
+
+  def destroy
+    @detector = Detector.destroy(params[:id])
+    redirect_to detectors_path
+    return
+  end
+
+  private
+
+  def invalid_foreign_key
+    redirect_to detectors_path, alert: 'DELETE CANCELED: The detector selected still has deployments associated with it.'
     return
   end
 end

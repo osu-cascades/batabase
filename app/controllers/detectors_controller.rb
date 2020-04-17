@@ -49,6 +49,54 @@ class DetectorsController < ApplicationController
     return
   end
 
+  def edit
+    @detector = Detector.find(params[:id])
+    @model = @detector
+    @fields = [
+      :firmware,
+      :manufacturer,
+      :model,
+      :serial_number,
+      :owner
+    ]
+
+    @header_text = "Update Detector"
+  end
+
+  def update
+    detector_firmware = params[:detector][:firmware]
+    detector_manufacturer = params[:detector][:manufacturer]
+    detector_model = params[:detector][:model]
+    detector_serial_number = params[:detector][:serial_number]
+    detector_owners_organization_name = params[:detector][:owner]
+
+
+
+    detector_to_update = Detector.find(params[:id])
+
+    owning_organization = Organization.find_by(name: detector_owners_organization_name)
+
+    if owning_organization.nil?
+      owning_organization = Organization.find_by(name: "Other")
+    end
+
+    detector_to_update.update!(
+      firmware: detector_firmware,
+      manufacturer: detector_manufacturer,
+      model: detector_model,
+      serial_number: detector_serial_number,
+      organization_id: owning_organization.id
+    )
+
+    if detector_to_update.errors.any?
+      redirect_to detectors_path, alert: detector_to_update.errors.messages
+      return
+    end
+
+    redirect_to detectors_path, notice: 'Detector Updated'
+    return
+  end
+
   def destroy
     @detector = Detector.destroy(params[:id])
     redirect_to detectors_path

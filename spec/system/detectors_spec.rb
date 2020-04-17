@@ -71,5 +71,34 @@ RSpec.describe 'Detectors Flow', type: :system do
 
         expect(page).not_to have_content('FAKE SERIAL NUMBER')
     end
+
+    it 'A user can update the fields of a detector' do
+      fake_organization = create(:organization, name: 'Other')
+      second_fake_organization = create(:organization, name: 'OSU')
+
+      create(:detector, 
+        firmware: 'FAKE FIRMWARE', 
+        manufacturer: 'FAKE MANUFACTURER', 
+        model: 'FAKE MODEL', 
+        serial_number: 'FAKE SERIAL NUMBER',
+        organization_id: fake_organization.id
+      )
+
+      visit detectors_path
+
+      find('a', text: 'UPDATE').click
+
+      fill_in 'Firmware', with: 'DIFFERENT FIRMWARE'
+      fill_in 'Manufacturer', with: 'DIFFERENT MANUFACTURER'
+        
+      fill_in 'Model', with: 'DIFFERENT MODEL'
+      fill_in 'Serial number', with: 'FAKE SERIAL NUMBER'
+      fill_in 'Owner', with: 'OSU'
+
+      click_button 'Update Detector'
+
+      expect(page).to have_content('DIFFERENT MANUFACTURER')
+      expect(Detector.count).to be(1)
+    end
   end    
 end

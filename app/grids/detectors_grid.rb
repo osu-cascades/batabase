@@ -30,4 +30,8 @@ class DetectorsGrid
   column(:organization, header: 'Organization') do |detector|
     detector.organization.name
   end
+  
+  column(:delete, html: true, header: 'Delete') do |detector|
+    link_to "DELETE", detector, method: "delete", data: { confirm: "Are you sure?", disable_with: "Doing stuff" }
+  end
 end

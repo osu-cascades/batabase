@@ -1,11 +1,1 @@
-<div class="container mt-3">
-  <h2>Create Detector</h2>
-  <%= bootstrap_form_with(model: @detector, local: true) do |f| %>
-    <%= f.text_field :firmware %>
-    <%= f.text_field :manufacturer %>
-    <%= f.text_field :model %>
-    <%= f.text_field :serial_number %>
-    <%= f.text_field :organization %>
-    <%= f.submit "Create Detector" %>
-  <% end %>
-</div>
+<%= render(CreateUpdateFormComponent.new(@model, @fields, 'Create Detector')) %>

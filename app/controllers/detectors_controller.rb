@@ -7,6 +7,16 @@ class DetectorsController < ApplicationController
 
   def new
     @detector = Detector.new
+    @model = @detector
+    @fields = [
+      :firmware,
+      :manufacturer,
+      :model,
+      :serial_number,
+      :organization
+    ]
+
+    @header_text = "Create Detector"
   end
 
   def create

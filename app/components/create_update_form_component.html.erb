@@ -1,0 +1,9 @@
+<div class="container mt-3">
+ <h3><%= @header_text %></h3>
+  <%= bootstrap_form_with(model: @model, local: true) do |f| %>
+    <% @fields.each do |field| %>
+      <%= f.text_field field %>
+    <% end %>
+    <%= f.submit "#{@header_text}" %>
+  <% end %>
+</div>

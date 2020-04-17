@@ -28,7 +28,7 @@ class DetectorsGrid
   column(:model)
   column(:serial_number)
   column(:organization, header: 'Organization') do |detector|
-    detector.organization.name
+    detector.owner
   end
   
   column(:delete, html: true, header: 'Delete') do |detector|

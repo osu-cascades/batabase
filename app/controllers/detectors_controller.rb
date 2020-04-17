@@ -32,7 +32,7 @@ class DetectorsController < ApplicationController
       detectors_organization = Organization.find_by(name: "Other")
     end
 
-    @detector = Detector.create!(
+    @detector = Detector.create(
       firmware: detector_firmware,
       manufacturer: detector_manufacturer,
       model: detector_model,
@@ -41,7 +41,7 @@ class DetectorsController < ApplicationController
     )
 
     if @detector.errors.any?
-      render(:new)
+      redirect_to detectors_path, alert: @detector.errors.messages
       return
     end
     
@@ -80,7 +80,7 @@ class DetectorsController < ApplicationController
       owning_organization = Organization.find_by(name: "Other")
     end
 
-    detector_to_update.update!(
+    detector_to_update.update(
       firmware: detector_firmware,
       manufacturer: detector_manufacturer,
       model: detector_model,

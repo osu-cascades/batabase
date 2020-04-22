@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
 
   
-  resources :contacts, only: [:index]
+  resources :contacts
   resources :deployments, only: [:index]
 end

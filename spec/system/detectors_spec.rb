@@ -100,5 +100,35 @@ RSpec.describe 'Detectors Flow', type: :system do
       expect(page).to have_content('DIFFERENT MANUFACTURER')
       expect(Detector.count).to be(1)
     end
+
+    context 'Queries' do
+      it 'A user can query for a detector by it\'s organization' do
+        first_fake_organization = create(:organization, name: 'OSU')
+        second_fake_organization = create(:organization, name: 'Other')
+
+        create(:detector, 
+          firmware: 'FIRST FAKE FIRMWARE', 
+          manufacturer: 'FAKE MANUFACTURER', 
+          model: 'FAKE MODEL', 
+          serial_number: 'FAKE SERIAL NUMBER',
+          organization_id: first_fake_organization.id
+        )
+
+        create(:detector, 
+          firmware: 'SECOND FAKE FIRMWARE', 
+          manufacturer: 'FAKE MANUFACTURER', 
+          model: 'FAKE MODEL', 
+          serial_number: 'FAKE SERIAL NUMBER',
+          organization_id: second_fake_organization.id
+        )
+
+        visit detectors_path
+
+        fill_in 'Organization', with: 'OSU'
+        click_button 'Search'
+
+        expect(page).not_to have_content('SECOND FAKE FIRMWARE')
+      end
+    end
   end    
 end

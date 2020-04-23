@@ -8,6 +8,7 @@ class DetectorsController < ApplicationController
   def new
     @detector = Detector.new
     @model = @detector
+    
     @fields = [
       { type: :text_field, name: :firmware },
       { type: :text_field, name: :manufacturer },
@@ -26,6 +27,7 @@ class DetectorsController < ApplicationController
     detector_serial_number = params[:detector][:serial_number]
     detector_owners_organization_name = params[:detector][:organization]
 
+    byebug
     detectors_organization = Organization.find_by(name: detector_owners_organization_name)
 
     if detectors_organization.nil?
@@ -52,12 +54,13 @@ class DetectorsController < ApplicationController
   def edit
     @detector = Detector.find(params[:id])
     @model = @detector
+
     @fields = [
-      :firmware,
-      :manufacturer,
-      :model,
-      :serial_number,
-      :owner
+      { type: :text_field, name: :firmware },
+      { type: :text_field, name: :manufacturer },
+      { type: :text_field, name: :model },
+      { type: :text_field, name: :serial_number },
+      { type: :text_field, name: :owner }
     ]
 
     @header_text = "Update Detector"

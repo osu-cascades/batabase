@@ -2,7 +2,7 @@
  <h3><%= @header_text %></h3>
   <%= bootstrap_form_with(model: @model, label_errors: true, inline_errors: true, local: true) do |f| %>
     <% @fields.each do |field| %>
-      <%= f.text_field field, required: true %>
+      <%= f.send(field[:type], field[:name], required: true) %>
     <% end %>
     <%= f.submit "#{@header_text}" %>
   <% end %>

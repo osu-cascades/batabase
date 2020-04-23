@@ -9,11 +9,11 @@ class DetectorsController < ApplicationController
     @detector = Detector.new
     @model = @detector
     @fields = [
-      :firmware,
-      :manufacturer,
-      :model,
-      :serial_number,
-      :organization
+      { type: :text_field, name: :firmware },
+      { type: :text_field, name: :manufacturer },
+      { type: :text_field, name: :model },
+      { type: :text_field, name: :serial_number },
+      { type: :text_field, name: :organization }
     ]
 
     @header_text = "Create Detector"

@@ -20,5 +20,10 @@ RSpec.describe 'Contacts Flow', type: :system do
       find('a', text: 'Add Contact').click
       expect(page).to have_content('Create Contact')
     end
+
+    it 'A user can add a new contact' do
+      
+      visit contacts_path
+    end
   end
 end

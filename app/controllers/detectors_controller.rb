@@ -8,13 +8,13 @@ class DetectorsController < ApplicationController
   def new
     @detector = Detector.new
     @model = @detector
-    
+
     @fields = [
-      { type: :text_field, name: :firmware },
-      { type: :text_field, name: :manufacturer },
-      { type: :text_field, name: :model },
-      { type: :text_field, name: :serial_number },
-      { type: :text_field, name: :organization }
+      { type: :text_field, name: :firmware, options: {} },
+      { type: :text_field, name: :manufacturer, options: {} },
+      { type: :text_field, name: :model, options: {} },
+      { type: :text_field, name: :serial_number, options: {} },
+      { type: :text_field, name: :organization, options: {} }
     ]
 
     @header_text = "Create Detector"
@@ -56,11 +56,11 @@ class DetectorsController < ApplicationController
     @model = @detector
 
     @fields = [
-      { type: :text_field, name: :firmware },
-      { type: :text_field, name: :manufacturer },
-      { type: :text_field, name: :model },
-      { type: :text_field, name: :serial_number },
-      { type: :text_field, name: :owner }
+      { type: :text_field, name: :firmware, options: {} },
+      { type: :text_field, name: :manufacturer, options: {} },
+      { type: :text_field, name: :model, options: {} },
+      { type: :text_field, name: :serial_number, options: {} },
+      { type: :text_field, name: :owner, options: {} }
     ]
 
     @header_text = "Update Detector"

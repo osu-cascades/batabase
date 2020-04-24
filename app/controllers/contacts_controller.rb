@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'csv'
 
 class ContactsController < ApplicationController
   def index
@@ -8,13 +9,20 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @model = @contact
+    states = CSV.read(Rails.root.join('db/seed_data/states.csv')).to_h
     @fields = [
-      :first_name,
-      :last_name,
-      :state,
-      :organization
+      { type: :text_field, name: :first_name, options: {} },
+      { type: :text_field, name: :last_name, options: {} },
+      { type: :text_area, name: :notes, options: {} },
+      { type: :select, name: :state, options: states },
+      { type: :text_field, name: :organization, options: {} }
     ]
 
     @header_text = "Create Contact"
   end
+
+  def create
+    byebug
+  end
+
 end

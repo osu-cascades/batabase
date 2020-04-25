@@ -12,4 +12,8 @@ class Contact < ApplicationRecord
   belongs_to :state
 
   has_many :softwares
+
+  def employer
+    self.organization.name
+  end
 end

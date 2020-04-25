@@ -58,5 +58,31 @@ RSpec.describe 'Contacts Flow', type: :system do
       find('a', text: 'DELETE').click
       expect(page).not_to have_content('FAKE FIRST')
     end
+
+    it 'A user can update an existing contact' do
+      fake_state = create(:state, name: 'Oregon', abbreviation: 'OR')
+      fake_organization = create(:organization, name: 'OSU')
+      create(
+        :contact,
+        first_name: 'FAKE FIRST',
+        last_name: 'FAKE LAST',
+        notes: 'SOME FAKE NOTES',
+        state_id: fake_state.id,
+        organization_id: fake_organization.id
+      )
+
+      visit contacts_path
+
+      find('a', text: 'UPDATE').click
+
+      expect(page).to have_content('Update Contact')
+      
+      fill_in 'First name', with: 'DIFFERENT FIRST NAME'
+
+      click_button 'Update Contact'
+
+      expect(page).not_to have_content('Update Contact')
+      expect(page).to have_content('DIFFERENT FIRST NAME')
+    end
   end
 end

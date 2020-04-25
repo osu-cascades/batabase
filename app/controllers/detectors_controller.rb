@@ -105,8 +105,8 @@ class DetectorsController < ApplicationController
 
   private
 
-  def invalid_foreign_key
-    redirect_to detectors_path, alert: 'DELETE CANCELED: The detector selected still has deployments associated with it.'
+  def invalid_foreign_key(exception)
+    redirect_to detectors_path, alert: "DELETE CANCELED:  #{exception}"
     return
   end
 end

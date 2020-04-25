@@ -24,4 +24,8 @@ class ContactsGrid
   column(:organization, header: 'Organization') do |contact|
     contact.organization.name
   end
+
+  column(:delete, html: true, header: 'Delete') do |contact|
+    link_to "DELETE", contact, method: "delete", data: { confirm: "Are you sure?", disable_with: "Deleting...." }
+  end
 end

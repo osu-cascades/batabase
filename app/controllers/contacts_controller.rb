@@ -52,4 +52,10 @@ class ContactsController < ApplicationController
     return
   end
 
+  def destroy
+    @contact = Contact.destroy(params[:id])
+    redirect_to contacts_path
+    return
+  end
+
 end

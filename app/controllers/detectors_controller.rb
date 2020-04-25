@@ -27,7 +27,6 @@ class DetectorsController < ApplicationController
     detector_serial_number = params[:detector][:serial_number]
     detector_owners_organization_name = params[:detector][:organization]
 
-    byebug
     detectors_organization = Organization.find_by(name: detector_owners_organization_name)
 
     if detectors_organization.nil?
@@ -72,8 +71,6 @@ class DetectorsController < ApplicationController
     detector_model = params[:detector][:model]
     detector_serial_number = params[:detector][:serial_number]
     detector_owners_organization_name = params[:detector][:owner]
-
-
 
     detector_to_update = Detector.find(params[:id])
 

@@ -22,8 +22,21 @@ RSpec.describe 'Contacts Flow', type: :system do
     end
 
     it 'A user can add a new contact' do
-      
+      create(:organization, name: 'OSU')
+      create(:state, name: 'Oregon', abbreviation: 'OR')
+
       visit contacts_path
+
+      find('a', text: 'Add Contact').click
+
+      fill_in 'First name', with: 'FAKE FIRST NAME'
+      fill_in 'Last name', with: 'FAKE LAST NAME'
+      fill_in 'Notes', with: 'SOME FAKE NOTES THAT GO TO GREAT LENGTH.'
+      select 'Oregon', from: 'State'
+      fill_in 'Organization', with: 'OSU'
+
+      click_button 'Create Contact'
+      expect(page).to have_content('FAKE FIRST NAME')
     end
   end
 end

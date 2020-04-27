@@ -76,9 +76,8 @@ class ContactsController < ApplicationController
     last_name = params[:contact][:last_name]
     notes = params[:contact][:notes]
     state_abbreviation = params[:contact][:state]
-    organization_name = params[:contact][:organization]
+    organization_name = params[:contact][:employer]
 
-    byebug
     contact_to_update = Contact.find(params[:id])
 
     state = State.find_by(abbreviation: state_abbreviation)
@@ -88,7 +87,7 @@ class ContactsController < ApplicationController
       organization = Organization.find_by(name: 'Other')
     end
 
-    contact_to_update.create(
+    contact_to_update.update(
       first_name: first_name,
       last_name: last_name,
       notes: notes,

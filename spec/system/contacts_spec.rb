@@ -33,7 +33,7 @@ RSpec.describe 'Contacts Flow', type: :system do
       fill_in 'Last name', with: 'FAKE LAST NAME'
       fill_in 'Notes', with: 'SOME FAKE NOTES THAT GO TO GREAT LENGTH.'
       select 'Oregon', from: 'State'
-      fill_in 'Organization', with: 'OSU'
+      select 'OSU', from: 'Organization'
 
       click_button 'Create Contact'
       expect(page).to have_content('FAKE FIRST NAME')

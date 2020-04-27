@@ -11,13 +11,16 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @model = @contact
+
+    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
     states = CSV.read(Rails.root.join('db/seed_data/states.csv')).to_h
+    
     @fields = [
       { type: :text_field, name: :first_name, options: {} },
       { type: :text_field, name: :last_name, options: {} },
       { type: :text_area, name: :notes, options: {} },
       { type: :select, name: :state, options: states },
-      { type: :text_field, name: :organization, options: {} }
+      { type: :select, name: :organization, options: organization_names }
     ]
 
     @header_text = "Create Contact"
@@ -32,10 +35,6 @@ class ContactsController < ApplicationController
 
     state = State.find_by(abbreviation: state_abbreviation)
     organization = Organization.find_by(name: organization_name)
-
-    if organization.nil?
-      organization = Organization.find_by(name: 'Other')
-    end
 
     @contact = Contact.create(
       first_name: first_name,
@@ -59,13 +58,17 @@ class ContactsController < ApplicationController
     @model = @contact
 
     states = CSV.read(Rails.root.join('db/seed_data/states.csv')).to_h
+    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
+
     selected_state = { "#{@contact.state.name}": "#{@contact.state.abbreviation}" }
+    selected_organization = { "#{@contact.organization.name}": "#{@contact.organization.name}" }
+
     @fields = [
       { type: :text_field, name: :first_name, options: {} },
       { type: :text_field, name: :last_name, options: {} },
       { type: :text_area, name: :notes, options: {} },
       { type: :select, name: :state, options: selected_state.merge(states) },
-      { type: :text_field, name: :employer, options: {label: 'Organization'} }
+      { type: :select, name: :employer, options: selected_organization.merge(organization_names) }
     ]
 
     @header_text = "Update Contact"
@@ -82,10 +85,6 @@ class ContactsController < ApplicationController
 
     state = State.find_by(abbreviation: state_abbreviation)
     organization = Organization.find_by(name: organization_name)
-
-    if organization.nil?
-      organization = Organization.find_by(name: 'Other')
-    end
 
     contact_to_update.update(
       first_name: first_name,

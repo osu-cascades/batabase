@@ -25,7 +25,7 @@ RSpec.describe 'Detectors Flow', type: :system do
       fill_in 'Manufacturer', with: 'FAKE MANUFACTURER'
       fill_in 'Model', with: 'FAKE MODEL'
       fill_in 'Serial number', with: 'FAKE SERIAL NUMBER'
-      fill_in 'Organization', with: 'OSU'
+      select 'OSU', from: 'Organization'
 
       click_button 'Create Detector'
 
@@ -34,23 +34,6 @@ RSpec.describe 'Detectors Flow', type: :system do
       expect(page).to have_content('FAKE MODEL')
       expect(page).to have_content('FAKE SERIAL NUMBER')
       expect(page).to have_content('OSU')
-    end
-
-    it 'A newly created detector will use \'Other\' as it\'s organization if it can\'t find it' do
-      create(:organization, name: "Other")
-      visit detectors_path
-
-      find('a', text: 'Add Detector').click
-            
-      fill_in 'Firmware', with: 'FAKE FIRMWARE'
-      fill_in 'Manufacturer', with: 'FAKE MANUFACTURER'
-      fill_in 'Model', with: 'FAKE MODEL'
-      fill_in 'Serial number', with: 'FAKE SERIAL NUMBER'
-      fill_in 'Organization', with: 'FAKE ORGANIZATION THAT DOES NOT EXIST'
-
-      click_button 'Create Detector'
-
-      expect(page).to have_content('Other')
     end
 
     it 'A user can delete a detector' do
@@ -93,7 +76,7 @@ RSpec.describe 'Detectors Flow', type: :system do
         
       fill_in 'Model', with: 'DIFFERENT MODEL'
       fill_in 'Serial number', with: 'FAKE SERIAL NUMBER'
-      fill_in 'Owner', with: 'OSU'
+      select 'OSU', from: 'Owner'
 
       click_button 'Update Detector'
 

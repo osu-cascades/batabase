@@ -9,12 +9,14 @@ class DetectorsController < ApplicationController
     @detector = Detector.new
     @model = @detector
 
+    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
+
     @fields = [
       { type: :text_field, name: :firmware, options: {} },
       { type: :text_field, name: :manufacturer, options: {} },
       { type: :text_field, name: :model, options: {} },
       { type: :text_field, name: :serial_number, options: {} },
-      { type: :text_field, name: :organization, options: {} }
+      { type: :select, name: :organization, options: organization_names }
     ]
 
     @header_text = "Create Detector"
@@ -28,10 +30,6 @@ class DetectorsController < ApplicationController
     detector_owners_organization_name = params[:detector][:organization]
 
     detectors_organization = Organization.find_by(name: detector_owners_organization_name)
-
-    if detectors_organization.nil?
-      detectors_organization = Organization.find_by(name: "Other")
-    end
 
     @detector = Detector.create(
       firmware: detector_firmware,
@@ -54,12 +52,15 @@ class DetectorsController < ApplicationController
     @detector = Detector.find(params[:id])
     @model = @detector
 
+    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
+    selected_organization = { "#{@detector.owner}": "#{@detector.owner}"}
+
     @fields = [
       { type: :text_field, name: :firmware, options: {} },
       { type: :text_field, name: :manufacturer, options: {} },
       { type: :text_field, name: :model, options: {} },
       { type: :text_field, name: :serial_number, options: {} },
-      { type: :text_field, name: :owner, options: {} }
+      { type: :select, name: :owner, options: selected_organization.merge(organization_names) }
     ]
 
     @header_text = "Update Detector"
@@ -75,10 +76,6 @@ class DetectorsController < ApplicationController
     detector_to_update = Detector.find(params[:id])
 
     owning_organization = Organization.find_by(name: detector_owners_organization_name)
-
-    if owning_organization.nil?
-      owning_organization = Organization.find_by(name: "Other")
-    end
 
     detector_to_update.update(
       firmware: detector_firmware,

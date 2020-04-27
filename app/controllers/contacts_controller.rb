@@ -109,9 +109,10 @@ class ContactsController < ApplicationController
     return
   end
 
+  private
+
   def invalid_foreign_key(exception)
     redirect_to contacts_path, alert: "DELETE CANCELED: #{exception}"
     return
   end
-
 end

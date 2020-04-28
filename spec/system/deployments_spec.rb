@@ -15,5 +15,12 @@ RSpec.describe 'Deployments Flow', type: :system do
       expect(page).to have_css('table.deployments_grid')
     end
 
+    it 'A user can visit the page to add new deployments' do
+      visit deployments_path
+      find('a', text: 'Add Deployment').click
+      
+      expect(page).to have_content('Create Deployment')
+    end
+
   end
 end

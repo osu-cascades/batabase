@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
   
   resources :contacts
-  resources :deployments, only: [:index]
+  resources :deployments
 end

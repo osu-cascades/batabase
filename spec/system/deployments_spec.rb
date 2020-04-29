@@ -192,5 +192,47 @@ RSpec.describe 'Deployments Flow', type: :system do
       find('a', text: 'DELETE').click
       expect(page).not_to have_content('FAKE COMMENTS')
     end
+
+    it 'A user can update an existing deployment' do
+      fake_organization = create(:organization, name: 'OSU')
+      fake_contact = create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
+      fake_detector = create(:detector, serial_number: "12345")
+      fake_distance = create(:distance_range, label: "5m")
+      fake_clutter_perecent = create(:clutter_percent, label: "10%")
+      fake_clutter_type = create(:clutter_type, name: "FAKE TYPE")
+      fake_local_habitat = create(:local_habitat, label: "mixed conifer")
+      fake_detection_target = create(:detection_target, label: "FAKE TARGET")
+      fake_target_descriptor = create(:target_descriptor, label: "FAKE DESCRIPTOR")
+      fake_sample_unit = create(:sample_unit, code: "12345")
+      fake_detector_location = create(
+        :detector_location,
+        quad_id: "NE",
+        quad_no: 1,
+        detection_target_id: fake_detection_target.id,
+        target_descriptor_id: fake_target_descriptor.id,
+        local_habitat_id: fake_local_habitat.id,
+        sample_unit_id: fake_sample_unit.id
+      )
+
+      create(
+        :deployment,
+        detector_location_id: fake_detector_location.id,
+        clutter_type_id: fake_clutter_type.id,
+        detector_id: fake_detector.id,
+        primary_contact_id: fake_contact.id,
+        recovery_contact_id: fake_contact.id,
+        comments: 'FAKE COMMENTS'
+      )
+
+      visit deployments_path
+
+      expect(page).to have_content('FAKE COMMENTS')
+      find('a', text: 'UPDATE').click
+
+      fill_in 'Comments', with: 'CHANGING THE FAKE COMMENTS'
+
+      click_button 'Update Deployment'
+      expect(page).to have_content('CHANGING THE FAKE COMMENTS')
+    end
   end
 end

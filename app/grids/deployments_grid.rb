@@ -119,4 +119,8 @@ class DeploymentsGrid
   column(:delete, html: true, header: 'Delete', mandatory: true) do |deployment|
     link_to "DELETE", deployment, method: "delete", data: { confirm: "Are you sure?", disable_with: "Deleting...." }
   end
+
+  column(:delete, html: true, header: 'Update', mandatory: true) do |deployment|
+    link_to "UPDATE", edit_deployment_path(deployment)
+  end
 end

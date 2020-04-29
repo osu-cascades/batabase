@@ -184,4 +184,9 @@ class DeploymentsController < ApplicationController
     redirect_to deployments_path, notice: 'Deployment Successfully Added'
     return
   end
+
+  def destroy
+    result = Deployment.destroy(params[:id])
+    redirect_to deployments_path, notice: 'Deployment Successfully Deleted'
+  end
 end

@@ -68,6 +68,7 @@ class DeploymentsGrid
   column(:compression, mandatory: true)
   column(:recording_start, mandatory: true)
   column(:recording_stop, mandatory: true)
+  
   column(:detector_location_quad_id, header: 'Quad ID') do |deployment|
     deployment.detector_location.quad_id
   end
@@ -114,4 +115,8 @@ class DeploymentsGrid
     deployment.clutter_percent.label
   end
   column(:distance_range, header: 'Distance Range') { |dep| dep.distance_range.label }
+
+  column(:delete, html: true, header: 'Delete', mandatory: true) do |deployment|
+    link_to "DELETE", deployment, method: "delete", data: { confirm: "Are you sure?", disable_with: "Deleting...." }
+  end
 end

@@ -11,7 +11,7 @@ class DeploymentsController < ApplicationController
     @model = @deployment
 
     contact_names = Contact.all.map { |c| ["#{c.last_name}, #{c.first_name}", c.id ] }.to_h
-    organization_names = Organization.all.map{ |org| [org.name, org.id] }.to_h
+    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
     detector_serial_numbers = Detector.all.map{ |d| [d.serial_number, d.id] }.to_h
     distance_ranges = DistanceRange.all.map{ |dr| [dr.label, dr.id ] }.to_h
     clutter_percents = ClutterPercent.all.map{ |cp| [cp.label, cp.id] }.to_h
@@ -96,11 +96,11 @@ class DeploymentsController < ApplicationController
     primary_contact_id = params[:deployment][:primary_contact]
     recovery_contact_id = params[:deployment][:recovery_contact]
     location_identifier = params[:deployment]["Location ID"]
-    latitude = params[:deployment][:latitude]
-    longitude = params[:deployment][:longitude]
-    site_name = params[:deployment][:site_name]
-    direction_to_site = params[:deployment][:directions_to_site]
-    land_ownership_organization_id = params[:deployment]["Land Ownership"]
+    latitude = params[:deployment]["Latitude"]
+    longitude = params[:deployment]["Longitude"]
+    site_name = params[:deployment]["Site Name"]
+    directions_to_site = params[:deployment]["Directions to Site"]
+    land_ownership = params[:deployment]["Land Ownership"]
     detector_id = params[:deployment]["Detector Serial Number"]
     distance_range_id = params[:deployment]["Distance to Clutter"]
     clutter_percent_id = params[:deployment]["Clutter Category"]
@@ -112,6 +112,34 @@ class DeploymentsController < ApplicationController
 
     detector_location = DetectorLocation.find_by(location_identifier: location_identifier)
     
+    if detector_location.nil?
+      sample_unit_code = location_identifier.split('_')
+
+      sample_unit = SampleUnit.find_by(code: sample_unit_code[0])
+
+      quad_number = location_identifier.split('').pop
+      quad_id = location_identifier[-3, 2].upcase
+
+      detector_location = DetectorLocation.create(
+        quad_id: quad_id,
+        quad_no: quad_number,
+        location_name: site_name,
+        latitude: latitude,
+        longitude: longitude,
+        driving_directions: directions_to_site,
+        land_ownership: land_ownership,
+        sample_unit_id: sample_unit.id,
+        local_habitat_id: local_habitat_id,
+        detection_target_id: detection_target_id,
+        target_descriptor_id: target_descriptor_id
+      )
+
+      if detector_location.errors.any?
+        redirect_to deployments_path, alert: detector_location.errors.messages
+        return
+      end
+    end
+
     result = Deployment.create!(
       detector_location_id: detector_location.id,
       clutter_type_id: clutter_type_id,
@@ -121,7 +149,7 @@ class DeploymentsController < ApplicationController
       deployment_date: deployment_date_string,
       recovery_date: recovery_date_string,
       primary_contact_id: primary_contact_id,
-      recovery_contact_id: recovery_contact_id
+      recovery_contact_id: recovery_contact_id,
       microphone_height_off_ground: microphone_height_off_ground,
       microphone_orientation: microphone_orientation,
       sampling_frequency: sampling_frequency,

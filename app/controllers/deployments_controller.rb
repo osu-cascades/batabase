@@ -20,7 +20,6 @@ class DeploymentsController < ApplicationController
     detection_targets = DetectionTarget.all.map{ |d| [d.label, d.id ] }.to_h
     target_descriptors = TargetDescriptor.all.map{ |t| [t.label, t.id] }.to_h
 
-
     @fields = [
       { type: :text_area, name: :notes, options: {} },
       { type: :text_field, name: :microphone_height_off_ground, options: {} },
@@ -96,21 +95,65 @@ class DeploymentsController < ApplicationController
     recording_stop_string = params[:deployment][:recording_stop]
     primary_contact_id = params[:deployment][:primary_contact]
     recovery_contact_id = params[:deployment][:recovery_contact]
-    location_identifier = params[:deployment][:location_id]
+    location_identifier = params[:deployment]["Location ID"]
     latitude = params[:deployment][:latitude]
     longitude = params[:deployment][:longitude]
     site_name = params[:deployment][:site_name]
     direction_to_site = params[:deployment][:directions_to_site]
-    land_ownership = params[:deployment][:land_ownership]
-    detector_serial_number = params[:deployment][:detector_serial_number]
-    distanct_to_clutter = params[:deployment][:distanct_to_clutter]
-    clutter_category = params[:deployment][:clutter_category]
-    clutter_type = params[:deployment][:clutter_type]
-    habitat = params[:deployment][:habitat]
-    target = params[:deployment][:target]
-    descriptor = params[:deployment][:descriptor]
+    land_ownership_organization_id = params[:deployment]["Land Ownership"]
+    detector_id = params[:deployment]["Detector Serial Number"]
+    distance_range_id = params[:deployment]["Distance to Clutter"]
+    clutter_percent_id = params[:deployment]["Clutter Category"]
+    clutter_type_id = params[:deployment]["Clutter Type"]
+    local_habitat_id = params[:deployment]["Habitat"]
+    detection_target_id = params[:deployment]["Target"]
+    target_descriptor_id = params[:deployment]["Descriptor"]
     comments = params[:deployment][:comments]
 
-    byebug
+    detector_location = DetectorLocation.find_by(location_identifier: location_identifier)
+    
+    result = Deployment.create!(
+      detector_location_id: detector_location.id,
+      clutter_type_id: clutter_type_id,
+      clutter_percent_id: clutter_percent_id,
+      distance_range_id: distance_range_id,
+      detector_id: detector_id,
+      deployment_date: deployment_date_string,
+      recovery_date: recovery_date_string,
+      primary_contact_id: primary_contact_id,
+      recovery_contact_id: recovery_contact_id
+      microphone_height_off_ground: microphone_height_off_ground,
+      microphone_orientation: microphone_orientation,
+      sampling_frequency: sampling_frequency,
+      pre_trigger: pre_trigger,
+      recording_length: recording_length,
+      hp_filter: hp_filter,
+      auto_record: auto_record,
+      trigger_sensitivity: trigger_sensitivity,
+      input_gain: input_gain,
+      trigger_level: trigger_level,
+      interval: interval,
+
+      gain: gain,
+      sixteen_thousand_high_filter: sixteen_thousand_high_filter,
+      sample_rate: sample_rate,
+      min_duration: min_duration,
+      max_duration: max_duration,
+      min_trigger_frequency: min_trigger_frequency,
+      trigger_window: trigger_window,
+      max_length: max_length,
+      compression: compression,
+      recording_start: recording_start_string,
+      recording_stop: recording_stop_string,
+      comments: comments
+    )
+
+    if result.errors.any?
+      redirect_to deployments_path, alert: result.errors.messages
+    end
+
+
+    redirect_to deployments_path, notice: 'Deployment Successfully Added'
+    return
   end
 end

@@ -24,21 +24,31 @@ RSpec.describe 'Deployments Flow', type: :system do
 
     it 'A user can add a new deployment' do
       fake_organization = create(:organization, name: 'OSU')
-      create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
-      create(:detector, serial_number: "12345")
-      create(:distance_range, label: "5m")
-      create(:clutter_percent, label: "10%")
-      create(:clutter_type, name: "FAKE TYPE")
-      create(:local_habitat, label: "mixed conifer")
-      create(:detection_target, label: "FAKE TARGET")
-      create(:target_descriptor, label: "FAKE DESCRIPTOR")
-      create(:sample_unit)
+      fake_contact = create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
+      fake_detector = create(:detector, serial_number: "12345")
+      fake_distance = create(:distance_range, label: "5m")
+      fake_clutter_perecent = create(:clutter_percent, label: "10%")
+      fake_clutter_type = create(:clutter_type, name: "FAKE TYPE")
+      fake_local_habitat = create(:local_habitat, label: "mixed conifer")
+      fake_detection_target = create(:detection_target, label: "FAKE TARGET")
+      fake_target_descriptor = create(:target_descriptor, label: "FAKE DESCRIPTOR")
+      fake_sample_unit = create(:sample_unit, code: "12345")
+      fake_detector_location = create(
+        :detector_location,
+        quad_id: "NE",
+        quad_no: 1,
+        detection_target_id: fake_detection_target.id,
+        target_descriptor_id: fake_target_descriptor.id,
+        local_habitat_id: fake_local_habitat.id,
+        sample_unit_id: fake_sample_unit.id
+      )
+
 
       visit deployments_path
       find('a', text: 'Add Deployment').click
 
       fill_in 'Notes', with: 'FAKE NOTES......'
-      fill_in 'Microphone height off ground', with: '9999'
+      fill_in 'Microphone height off ground', with: 3.5
       select 'N', from: 'Microphone orientation'
       fill_in 'Sampling frequency', with: '123'
       select 'OFF', from: 'Pre trigger'
@@ -47,18 +57,21 @@ RSpec.describe 'Deployments Flow', type: :system do
       select 'YES', from: 'Auto record'
       select 'MED', from: 'Trigger sensitivity'
       fill_in 'Input gain', with: 'FAKE INPUT GAIN'
-      fill_in 'Trigger level', with: '999999'
+      fill_in 'Trigger level', with: 'FAKE LEVEL'
       fill_in 'Interval', with: 'FAKE INTERVAL'
       fill_in 'Gain', with: 'FAKE GAIN'
       select 'ON', from: 'Sixteen thousand high filter'
-      fill_in 'Sample rate', with: '99999'
-      fill_in 'Min duration', with: '9999'
-      fill_in 'Max duration', with: 'none'
-      fill_in 'Min trigger frequency', with: '99999'
-      fill_in 'Trigger window', with: '99999'
-      fill_in 'Max length', with: '99999'
+      fill_in 'Sample rate', with: 9000
+      fill_in 'Min duration', with: 'FAKE MIN'
+      fill_in 'Max duration', with: 'FAKE MAX'
+      fill_in 'Min trigger frequency', with: 1
+      fill_in 'Trigger window', with: 5
+      fill_in 'Max length', with: '00:99'
       fill_in 'Compression', with: 'A little bit'
-      #skipping the datepickers for now
+      fill_in 'Deployment date', with: '01/01/01, 12:00AM'
+      fill_in 'Recovery date', with: '01/01/01, 12:00AM'
+      fill_in 'Recording start', with: '01/01/01, 12:00AM'
+      fill_in 'Recording stop', with: '01/01/01, 12:00AM'
       select 'FAKE LAST, FAKE FIRST', from: 'Primary contact'
       select 'FAKE LAST, FAKE FIRST', from: 'Recovery contact'
       fill_in 'Location id', with: '12345_NE1'
@@ -79,6 +92,5 @@ RSpec.describe 'Deployments Flow', type: :system do
       expect(page).to have_css('table.deployments_grid')
       expect(page).to have_content('SOME FAKE COMMENTS')
     end
-
   end
 end

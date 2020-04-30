@@ -217,6 +217,7 @@ RSpec.describe 'Deployments Flow', type: :system do
       create(
         :deployment,
         detector_location_id: fake_detector_location.id,
+        distance_range_id: fake_distance.id,
         clutter_type_id: fake_clutter_type.id,
         detector_id: fake_detector.id,
         primary_contact_id: fake_contact.id,

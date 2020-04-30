@@ -379,7 +379,6 @@ class DeploymentsController < ApplicationController
       input_gain: input_gain,
       trigger_level: trigger_level,
       interval: interval,
-
       gain: gain,
       sixteen_thousand_high_filter: sixteen_thousand_high_filter,
       sample_rate: sample_rate,
@@ -393,7 +392,6 @@ class DeploymentsController < ApplicationController
       recording_stop: recording_stop_string,
       comments: comments
     )
-
 
     redirect_to deployments_path, notice: 'Deployment Successfully Updated'
     return    

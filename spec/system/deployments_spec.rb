@@ -5,6 +5,8 @@ require 'rails_helper'
 RSpec.describe 'Deployments Flow', type: :system do
   let(:user) { FactoryBot.create(:user) }
 
+  # TODO: move creates to the top to limit transactions required for the test
+
   context 'Deployments' do
     before :each do
       sign_in user

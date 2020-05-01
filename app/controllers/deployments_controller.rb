@@ -10,31 +10,31 @@ class DeploymentsController < ApplicationController
 
     @model = @deployment
 
-    contact_names = Contact.all.map { |c| ["#{c.last_name}, #{c.first_name}", c.id ] }.to_h
-    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
-    detector_serial_numbers = Detector.all.map{ |d| [d.serial_number, d.id] }.to_h
-    distance_ranges = DistanceRange.all.map{ |dr| [dr.label, dr.id ] }.to_h
-    clutter_percents = ClutterPercent.all.map{ |cp| [cp.label, cp.id] }.to_h
-    clutter_types = ClutterType.all.map{ |c| [c.name, c.id] }.to_h
-    habitats = LocalHabitat.all.map{ |lh| [lh.label, lh.id] }.to_h
-    detection_targets = DetectionTarget.all.map{ |d| [d.label, d.id ] }.to_h
-    target_descriptors = TargetDescriptor.all.map{ |t| [t.label, t.id] }.to_h
+    contact_names = Contact.all.map { |c| ["#{c.last_name}, #{c.first_name}", c.id] }.to_h
+    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
+    detector_serial_numbers = Detector.all.map { |d| [d.serial_number, d.id] }.to_h
+    distance_ranges = DistanceRange.all.map { |dr| [dr.label, dr.id] }.to_h
+    clutter_percents = ClutterPercent.all.map { |cp| [cp.label, cp.id] }.to_h
+    clutter_types = ClutterType.all.map { |c| [c.name, c.id] }.to_h
+    habitats = LocalHabitat.all.map { |lh| [lh.label, lh.id] }.to_h
+    detection_targets = DetectionTarget.all.map { |d| [d.label, d.id] }.to_h
+    target_descriptors = TargetDescriptor.all.map { |t| [t.label, t.id] }.to_h
 
     @fields = [
       { type: :text_area, name: :notes, options: {} },
       { type: :text_field, name: :microphone_height_off_ground, options: {} },
       { type: :select, name: :microphone_orientation, options: { UNKNOWN: '', N: 'N', W: 'W', E: 'E', S: 'S', NW: 'NW', NE: 'NE', SW: 'SW', SE: 'SE', Vertical: 'Vertical' } },
       { type: :text_field, name: :sampling_frequency, options: {} },
-      { type: :select, name: :pre_trigger, options: { OFF: "OFF", ON: "ON" } },
+      { type: :select, name: :pre_trigger, options: { OFF: 'OFF', ON: 'ON' } },
       { type: :text_field, name: :recording_length, options: {} },
-      { type: :select, name: :hp_filter, options: { NO: "NO", YES: "YES" } },
-      { type: :select, name: :auto_record, options: { YES: "YES", NO: "NO",  } },
-      { type: :select, name: :trigger_sensitivity, options: {  LOW: "LOW", MED: "MED", HIGH: "HIGH" } },
+      { type: :select, name: :hp_filter, options: { NO: 'NO', YES: 'YES' } },
+      { type: :select, name: :auto_record, options: { YES: 'YES', NO: 'NO' } },
+      { type: :select, name: :trigger_sensitivity, options: { LOW: 'LOW', MED: 'MED', HIGH: 'HIGH' } },
       { type: :text_field, name: :input_gain, options: {} },
       { type: :text_field, name: :trigger_level, options: {} },
       { type: :text_field, name: :interval, options: {} },
       { type: :text_field, name: :gain, options: {} },
-      { type: :select, name: :sixteen_thousand_high_filter, options: { OFF: "OFF", ON: "ON" } },
+      { type: :select, name: :sixteen_thousand_high_filter, options: { OFF: 'OFF', ON: 'ON' } },
       { type: :text_field, name: :sample_rate, options: {} },
       { type: :text_field, name: :min_duration, options: {} },
       { type: :text_field, name: :max_duration, options: {} },
@@ -48,23 +48,23 @@ class DeploymentsController < ApplicationController
       { type: :datetime_field, name: :recording_stop, options: {} },
       { type: :select, name: :primary_contact, options: contact_names },
       { type: :select, name: :recovery_contact, options: contact_names },
-      { type: :text_field, name: "Location ID", options: {} },
-      { type: :text_field, name: "Latitude", options: {} },
-      { type: :text_field, name: "Longitude", options: {} },
-      { type: :text_field, name: "Site Name", options: {} },
-      { type: :text_area, name: "Directions to Site", options: {} },
-      { type: :select, name: "Land Ownership", options: organization_names },
-      { type: :select, name: "Detector Serial Number", options: detector_serial_numbers },
-      { type: :select, name: "Distance to Clutter", options: distance_ranges },
-      { type: :select, name: "Clutter Category", options: clutter_percents },
-      { type: :select, name: "Clutter Type", options: clutter_types },
-      { type: :select, name: "Habitat", options: habitats },
-      { type: :select, name: "Target", options: detection_targets },
-      { type: :select, name: "Descriptor", options: target_descriptors },
+      { type: :text_field, name: 'Location ID', options: {} },
+      { type: :text_field, name: 'Latitude', options: {} },
+      { type: :text_field, name: 'Longitude', options: {} },
+      { type: :text_field, name: 'Site Name', options: {} },
+      { type: :text_area, name: 'Directions to Site', options: {} },
+      { type: :select, name: 'Land Ownership', options: organization_names },
+      { type: :select, name: 'Detector Serial Number', options: detector_serial_numbers },
+      { type: :select, name: 'Distance to Clutter', options: distance_ranges },
+      { type: :select, name: 'Clutter Category', options: clutter_percents },
+      { type: :select, name: 'Clutter Type', options: clutter_types },
+      { type: :select, name: 'Habitat', options: habitats },
+      { type: :select, name: 'Target', options: detection_targets },
+      { type: :select, name: 'Descriptor', options: target_descriptors },
       { type: :text_area, name: :comments, options: {} }
-    ] 
+    ]
 
-    @header_text = "Create Deployment"
+    @header_text = 'Create Deployment'
   end
 
   def create
@@ -95,19 +95,19 @@ class DeploymentsController < ApplicationController
     recording_stop_string = params[:deployment][:recording_stop]
     primary_contact_id = params[:deployment][:primary_contact]
     recovery_contact_id = params[:deployment][:recovery_contact]
-    location_identifier = params[:deployment]["Location ID"]
-    latitude = params[:deployment]["Latitude"]
-    longitude = params[:deployment]["Longitude"]
-    site_name = params[:deployment]["Site Name"]
-    directions_to_site = params[:deployment]["Directions to Site"]
-    land_ownership = params[:deployment]["Land Ownership"]
-    detector_id = params[:deployment]["Detector Serial Number"]
-    distance_range_id = params[:deployment]["Distance to Clutter"]
-    clutter_percent_id = params[:deployment]["Clutter Category"]
-    clutter_type_id = params[:deployment]["Clutter Type"]
-    local_habitat_id = params[:deployment]["Habitat"]
-    detection_target_id = params[:deployment]["Target"]
-    target_descriptor_id = params[:deployment]["Descriptor"]
+    location_identifier = params[:deployment]['Location ID']
+    latitude = params[:deployment]['Latitude']
+    longitude = params[:deployment]['Longitude']
+    site_name = params[:deployment]['Site Name']
+    directions_to_site = params[:deployment]['Directions to Site']
+    land_ownership = params[:deployment]['Land Ownership']
+    detector_id = params[:deployment]['Detector Serial Number']
+    distance_range_id = params[:deployment]['Distance to Clutter']
+    clutter_percent_id = params[:deployment]['Clutter Category']
+    clutter_type_id = params[:deployment]['Clutter Type']
+    local_habitat_id = params[:deployment]['Habitat']
+    detection_target_id = params[:deployment]['Target']
+    target_descriptor_id = params[:deployment]['Descriptor']
     comments = params[:deployment][:comments]
 
     detector_location = DetectorLocation.find_by(location_identifier: location_identifier)
@@ -176,28 +176,25 @@ class DeploymentsController < ApplicationController
       comments: comments
     )
 
-    if result.errors.any?
-      redirect_to deployments_path, alert: result.errors.messages
-    end
-
+    redirect_to deployments_path, alert: result.errors.messages if result.errors.any?
 
     redirect_to deployments_path, notice: 'Deployment Successfully Added'
-    return
+    nil
   end
 
   def edit
     deployment = Deployment.find(params[:id])
     @model = deployment
 
-    @fields = contact_names = Contact.all.map { |c| ["#{c.last_name}, #{c.first_name}", c.id ] }.to_h
-    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
-    detector_serial_numbers = Detector.all.map{ |d| [d.serial_number, d.id] }.to_h
-    distance_ranges = DistanceRange.all.map{ |dr| [dr.label, dr.id ] }.to_h
-    clutter_percents = ClutterPercent.all.map{ |cp| [cp.label, cp.id] }.to_h
-    clutter_types = ClutterType.all.map{ |c| [c.name, c.id] }.to_h
-    habitats = LocalHabitat.all.map{ |lh| [lh.label, lh.id] }.to_h
-    detection_targets = DetectionTarget.all.map{ |d| [d.label, d.id ] }.to_h
-    target_descriptors = TargetDescriptor.all.map{ |t| [t.label, t.id] }.to_h
+    @fields = contact_names = Contact.all.map { |c| ["#{c.last_name}, #{c.first_name}", c.id] }.to_h
+    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
+    detector_serial_numbers = Detector.all.map { |d| [d.serial_number, d.id] }.to_h
+    distance_ranges = DistanceRange.all.map { |dr| [dr.label, dr.id] }.to_h
+    clutter_percents = ClutterPercent.all.map { |cp| [cp.label, cp.id] }.to_h
+    clutter_types = ClutterType.all.map { |c| [c.name, c.id] }.to_h
+    habitats = LocalHabitat.all.map { |lh| [lh.label, lh.id] }.to_h
+    detection_targets = DetectionTarget.all.map { |d| [d.label, d.id] }.to_h
+    target_descriptors = TargetDescriptor.all.map { |t| [t.label, t.id] }.to_h
 
     selected_primary_contact = { "#{deployment.primary_contact.last_name}, #{deployment.primary_contact.first_name}": deployment.primary_contact.id }
     selected_recovery_contact = { "#{deployment.recovery_contact.last_name}, #{deployment.recovery_contact.first_name}": deployment.primary_contact.id }
@@ -206,7 +203,7 @@ class DeploymentsController < ApplicationController
     longitude = deployment.detector_location.longitude
     location_name = deployment.detector_location.location_name
     driving_directions = deployment.detector_location.driving_directions
-    selected_land_ownership = { "#{deployment.detector_location.land_ownership}": "#{deployment.detector_location.land_ownership}" }
+    selected_land_ownership = { "#{deployment.detector_location.land_ownership}": deployment.detector_location.land_ownership.to_s }
     selected_serial_number = { "#{deployment.detector.serial_number}": deployment.detector.id }
     selected_distance_range = { "#{deployment.distance_range.label}": deployment.distance_range.id }
     selected_clutter_percent = { "#{deployment.clutter_percent.label}": deployment.clutter_percent.id }
@@ -220,16 +217,16 @@ class DeploymentsController < ApplicationController
       { type: :text_field, name: :microphone_height_off_ground, options: {} },
       { type: :select, name: :microphone_orientation, options: { UNKNOWN: '', N: 'N', W: 'W', E: 'E', S: 'S', NW: 'NW', NE: 'NE', SW: 'SW', SE: 'SE', Vertical: 'Vertical' } },
       { type: :text_field, name: :sampling_frequency, options: {} },
-      { type: :select, name: :pre_trigger, options: { OFF: "OFF", ON: "ON" } },
+      { type: :select, name: :pre_trigger, options: { OFF: 'OFF', ON: 'ON' } },
       { type: :text_field, name: :recording_length, options: {} },
-      { type: :select, name: :hp_filter, options: { NO: "NO", YES: "YES" } },
-      { type: :select, name: :auto_record, options: { YES: "YES", NO: "NO",  } },
-      { type: :select, name: :trigger_sensitivity, options: {  LOW: "LOW", MED: "MED", HIGH: "HIGH" } },
+      { type: :select, name: :hp_filter, options: { NO: 'NO', YES: 'YES' } },
+      { type: :select, name: :auto_record, options: { YES: 'YES', NO: 'NO' } },
+      { type: :select, name: :trigger_sensitivity, options: { LOW: 'LOW', MED: 'MED', HIGH: 'HIGH' } },
       { type: :text_field, name: :input_gain, options: {} },
       { type: :text_field, name: :trigger_level, options: {} },
       { type: :text_field, name: :interval, options: {} },
       { type: :text_field, name: :gain, options: {} },
-      { type: :select, name: :sixteen_thousand_high_filter, options: { OFF: "OFF", ON: "ON" } },
+      { type: :select, name: :sixteen_thousand_high_filter, options: { OFF: 'OFF', ON: 'ON' } },
       { type: :text_field, name: :sample_rate, options: {} },
       { type: :text_field, name: :min_duration, options: {} },
       { type: :text_field, name: :max_duration, options: {} },
@@ -243,22 +240,22 @@ class DeploymentsController < ApplicationController
       { type: :datetime_field, name: :recording_stop, options: {} },
       { type: :select, name: :primary_contact, options: selected_primary_contact.merge(contact_names) },
       { type: :select, name: :recovery_contact, options: selected_recovery_contact.merge(contact_names) },
-      { type: :text_field, name: "Location ID", options: { value: location_identifier } },
-      { type: :text_field, name: "Latitude", options: { value: latitude } },
-      { type: :text_field, name: "Longitude", options: { value: longitude } },
-      { type: :text_field, name: "Site Name", options: { value: location_name } },
-      { type: :text_area, name: "Directions to Site", options: { value: driving_directions } },
-      { type: :select, name: "Land Ownership", options: selected_land_ownership.merge(organization_names) },
-      { type: :select, name: "Detector Serial Number", options: selected_serial_number.merge(detector_serial_numbers) },
-      { type: :select, name: "Distance to Clutter", options: selected_distance_range.merge(distance_ranges) },
-      { type: :select, name: "Clutter Category", options: selected_clutter_percent.merge(clutter_percents) },
-      { type: :select, name: "Clutter Type", options: selected_clutter_type.merge(clutter_types) },
-      { type: :select, name: "Habitat", options: selected_local_habitat.merge(habitats) },
-      { type: :select, name: "Target", options: selected_detection_target.merge(detection_targets) },
-      { type: :select, name: "Descriptor", options: selected_target_descriptor.merge(target_descriptors) },
+      { type: :text_field, name: 'Location ID', options: { value: location_identifier } },
+      { type: :text_field, name: 'Latitude', options: { value: latitude } },
+      { type: :text_field, name: 'Longitude', options: { value: longitude } },
+      { type: :text_field, name: 'Site Name', options: { value: location_name } },
+      { type: :text_area, name: 'Directions to Site', options: { value: driving_directions } },
+      { type: :select, name: 'Land Ownership', options: selected_land_ownership.merge(organization_names) },
+      { type: :select, name: 'Detector Serial Number', options: selected_serial_number.merge(detector_serial_numbers) },
+      { type: :select, name: 'Distance to Clutter', options: selected_distance_range.merge(distance_ranges) },
+      { type: :select, name: 'Clutter Category', options: selected_clutter_percent.merge(clutter_percents) },
+      { type: :select, name: 'Clutter Type', options: selected_clutter_type.merge(clutter_types) },
+      { type: :select, name: 'Habitat', options: selected_local_habitat.merge(habitats) },
+      { type: :select, name: 'Target', options: selected_detection_target.merge(detection_targets) },
+      { type: :select, name: 'Descriptor', options: selected_target_descriptor.merge(target_descriptors) },
       { type: :text_area, name: :comments, options: {} }
     ]
-    
+
     @header_text = 'Update Deployment'
   end
 
@@ -290,25 +287,25 @@ class DeploymentsController < ApplicationController
     recording_stop_string = params[:deployment][:recording_stop]
     primary_contact_id = params[:deployment][:primary_contact]
     recovery_contact_id = params[:deployment][:recovery_contact]
-    location_identifier = params[:deployment]["Location ID"]
-    latitude = params[:deployment]["Latitude"]
-    longitude = params[:deployment]["Longitude"]
-    site_name = params[:deployment]["Site Name"]
-    directions_to_site = params[:deployment]["Directions to Site"]
-    land_ownership = params[:deployment]["Land Ownership"]
-    detector_id = params[:deployment]["Detector Serial Number"]
-    distance_range_id = params[:deployment]["Distance to Clutter"]
-    clutter_percent_id = params[:deployment]["Clutter Category"]
-    clutter_type_id = params[:deployment]["Clutter Type"]
-    local_habitat_id = params[:deployment]["Habitat"]
-    detection_target_id = params[:deployment]["Target"]
-    target_descriptor_id = params[:deployment]["Descriptor"]
+    location_identifier = params[:deployment]['Location ID']
+    latitude = params[:deployment]['Latitude']
+    longitude = params[:deployment]['Longitude']
+    site_name = params[:deployment]['Site Name']
+    directions_to_site = params[:deployment]['Directions to Site']
+    land_ownership = params[:deployment]['Land Ownership']
+    detector_id = params[:deployment]['Detector Serial Number']
+    distance_range_id = params[:deployment]['Distance to Clutter']
+    clutter_percent_id = params[:deployment]['Clutter Category']
+    clutter_type_id = params[:deployment]['Clutter Type']
+    local_habitat_id = params[:deployment]['Habitat']
+    detection_target_id = params[:deployment]['Target']
+    target_descriptor_id = params[:deployment]['Descriptor']
     comments = params[:deployment][:comments]
 
     deployment_to_update = Deployment.find(params[:id])
 
     detector_location = DetectorLocation.find_by(location_identifier: location_identifier)
-    
+
     if detector_location.nil?
       sample_unit_code = location_identifier.split('_')
 
@@ -394,7 +391,7 @@ class DeploymentsController < ApplicationController
     )
 
     redirect_to deployments_path, notice: 'Deployment Successfully Updated'
-    return    
+    nil
   end
 
   def destroy

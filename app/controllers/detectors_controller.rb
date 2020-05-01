@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DetectorsController < ApplicationController
   rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
 
@@ -9,7 +11,7 @@ class DetectorsController < ApplicationController
     @detector = Detector.new
     @model = @detector
 
-    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
+    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
 
     @fields = [
       { type: :text_field, name: :firmware, options: {} },
@@ -19,7 +21,7 @@ class DetectorsController < ApplicationController
       { type: :select, name: :organization, options: organization_names }
     ]
 
-    @header_text = "Create Detector"
+    @header_text = 'Create Detector'
   end
 
   def create
@@ -43,17 +45,17 @@ class DetectorsController < ApplicationController
       redirect_to detectors_path, alert: @detector.errors.messages
       return
     end
-    
+
     redirect_to detectors_path, notice: 'Detector Successfuly Added'
-    return
+    nil
   end
 
   def edit
     @detector = Detector.find(params[:id])
     @model = @detector
 
-    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
-    selected_organization = { "#{@detector.owner}": "#{@detector.owner}"}
+    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
+    selected_organization = { "#{@detector.owner}": @detector.owner.to_s }
 
     @fields = [
       { type: :text_field, name: :firmware, options: {} },
@@ -63,7 +65,7 @@ class DetectorsController < ApplicationController
       { type: :select, name: :owner, options: selected_organization.merge(organization_names) }
     ]
 
-    @header_text = "Update Detector"
+    @header_text = 'Update Detector'
   end
 
   def update
@@ -91,19 +93,19 @@ class DetectorsController < ApplicationController
     end
 
     redirect_to detectors_path, notice: 'Detector Successfully Updated'
-    return
+    nil
   end
 
   def destroy
     @detector = Detector.destroy(params[:id])
     redirect_to detectors_path
-    return
+    nil
   end
 
   private
 
   def invalid_foreign_key(exception)
     redirect_to detectors_path, alert: "DELETE CANCELED:  #{exception}"
-    return
+    nil
   end
 end

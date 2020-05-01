@@ -68,6 +68,7 @@ class DeploymentsController < ApplicationController
   end
 
   def create
+    # TODO: check what we are doing with notes here
     notes = params[:deployment][:notes]
     microphone_height_off_ground = params[:deployment][:microphone_height_off_ground]
     microphone_orientation = params[:deployment][:microphone_orientation]
@@ -260,6 +261,7 @@ class DeploymentsController < ApplicationController
   end
 
   def update
+    # TODO: check what we are doing with notes here
     notes = params[:deployment][:notes]
     microphone_height_off_ground = params[:deployment][:microphone_height_off_ground]
     microphone_orientation = params[:deployment][:microphone_orientation]
@@ -306,13 +308,13 @@ class DeploymentsController < ApplicationController
 
     detector_location = DetectorLocation.find_by(location_identifier: location_identifier)
 
+    sample_unit_code = location_identifier.split('_')
+    sample_unit = SampleUnit.find_by(code: sample_unit_code.first)
+
+    quad_number = location_identifier.split('').pop
+    quad_id = location_identifier[-3, 2].upcase
+
     if detector_location.nil?
-      sample_unit_code = location_identifier.split('_')
-
-      sample_unit = SampleUnit.find_by(code: sample_unit_code[0])
-
-      quad_number = location_identifier.split('').pop
-      quad_id = location_identifier[-3, 2].upcase
 
       detector_location = DetectorLocation.create(
         quad_id: quad_id,
@@ -333,13 +335,6 @@ class DeploymentsController < ApplicationController
         return
       end
     else
-      sample_unit_code = location_identifier.split('_')
-
-      sample_unit = SampleUnit.find_by(code: sample_unit_code[0])
-
-      quad_number = location_identifier.split('').pop
-      quad_id = location_identifier[-3, 2].upcase
-
       detector_location.update(
         quad_id: quad_id,
         quad_no: quad_number,
@@ -395,6 +390,7 @@ class DeploymentsController < ApplicationController
   end
 
   def destroy
+    # TODO: do something with result if result errors
     result = Deployment.destroy(params[:id])
     redirect_to deployments_path, notice: 'Deployment Successfully Deleted'
   end

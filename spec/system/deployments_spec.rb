@@ -24,16 +24,16 @@ RSpec.describe 'Deployments Flow', type: :system do
 
     it 'A user can add a new deployment' do
       fake_organization = create(:organization, name: 'OSU')
-      fake_contact = create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
-      fake_detector = create(:detector, serial_number: '12345')
-      fake_distance = create(:distance_range, label: '5m')
-      fake_clutter_perecent = create(:clutter_percent, label: '10%')
-      fake_clutter_type = create(:clutter_type, name: 'FAKE TYPE')
+      create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
+      create(:detector, serial_number: '12345')
+      create(:distance_range, label: '5m')
+      create(:clutter_percent, label: '10%')
+      create(:clutter_type, name: 'FAKE TYPE')
       fake_local_habitat = create(:local_habitat, label: 'mixed conifer')
       fake_detection_target = create(:detection_target, label: 'FAKE TARGET')
       fake_target_descriptor = create(:target_descriptor, label: 'FAKE DESCRIPTOR')
       fake_sample_unit = create(:sample_unit, code: '12345')
-      fake_detector_location = create(
+      create(
         :detector_location,
         quad_id: 'NE',
         quad_no: 1,
@@ -92,17 +92,17 @@ RSpec.describe 'Deployments Flow', type: :system do
       expect(page).to have_content('SOME FAKE COMMENTS')
     end
 
-    it 'A user can create a deployment even if the detector location doesn\'t exist yet' do
+    it "A user can create a deployment even if the detector location doesn't exist yet" do
       fake_organization = create(:organization, name: 'OSU')
-      fake_contact = create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
-      fake_detector = create(:detector, serial_number: '12345')
-      fake_distance = create(:distance_range, label: '5m')
-      fake_clutter_perecent = create(:clutter_percent, label: '10%')
-      fake_clutter_type = create(:clutter_type, name: 'FAKE TYPE')
-      fake_local_habitat = create(:local_habitat, label: 'mixed conifer')
-      fake_detection_target = create(:detection_target, label: 'FAKE TARGET')
-      fake_target_descriptor = create(:target_descriptor, label: 'FAKE DESCRIPTOR')
-      fake_sample_unit = create(:sample_unit, code: '12345')
+      create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
+      create(:detector, serial_number: '12345')
+      create(:distance_range, label: '5m')
+      create(:clutter_percent, label: '10%')
+      create(:clutter_type, name: 'FAKE TYPE')
+      create(:local_habitat, label: 'mixed conifer')
+      create(:detection_target, label: 'FAKE TARGET')
+      create(:target_descriptor, label: 'FAKE DESCRIPTOR')
+      create(:sample_unit, code: '12345')
 
       visit deployments_path
       find('a', text: 'Add Deployment').click
@@ -157,8 +157,8 @@ RSpec.describe 'Deployments Flow', type: :system do
       fake_organization = create(:organization, name: 'OSU')
       fake_contact = create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
       fake_detector = create(:detector, serial_number: '12345')
-      fake_distance = create(:distance_range, label: '5m')
-      fake_clutter_perecent = create(:clutter_percent, label: '10%')
+      create(:distance_range, label: '5m')
+      create(:clutter_percent, label: '10%')
       fake_clutter_type = create(:clutter_type, name: 'FAKE TYPE')
       fake_local_habitat = create(:local_habitat, label: 'mixed conifer')
       fake_detection_target = create(:detection_target, label: 'FAKE TARGET')
@@ -197,7 +197,7 @@ RSpec.describe 'Deployments Flow', type: :system do
       fake_contact = create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
       fake_detector = create(:detector, serial_number: '12345')
       fake_distance = create(:distance_range, label: '5m')
-      fake_clutter_perecent = create(:clutter_percent, label: '10%')
+      create(:clutter_percent, label: '10%')
       fake_clutter_type = create(:clutter_type, name: 'FAKE TYPE')
       fake_local_habitat = create(:local_habitat, label: 'mixed conifer')
       fake_detection_target = create(:detection_target, label: 'FAKE TARGET')

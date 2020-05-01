@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'csv'
 
 class ContactsController < ApplicationController
@@ -12,9 +13,9 @@ class ContactsController < ApplicationController
     @contact = Contact.new
     @model = @contact
 
-    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
+    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
     states = CSV.read(Rails.root.join('db/seed_data/states.csv')).to_h
-    
+
     @fields = [
       { type: :text_field, name: :first_name, options: {} },
       { type: :text_field, name: :last_name, options: {} },
@@ -23,7 +24,7 @@ class ContactsController < ApplicationController
       { type: :select, name: :organization, options: organization_names }
     ]
 
-    @header_text = "Create Contact"
+    @header_text = 'Create Contact'
   end
 
   def create
@@ -50,7 +51,7 @@ class ContactsController < ApplicationController
     end
 
     redirect_to contacts_path, notice: 'Contact Successfully Added'
-    return
+    nil
   end
 
   def edit
@@ -58,10 +59,10 @@ class ContactsController < ApplicationController
     @model = @contact
 
     states = CSV.read(Rails.root.join('db/seed_data/states.csv')).to_h
-    organization_names = Organization.all.map{ |org| [org.name, org.name] }.to_h
+    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
 
-    selected_state = { "#{@contact.state.name}": "#{@contact.state.abbreviation}" }
-    selected_organization = { "#{@contact.organization.name}": "#{@contact.organization.name}" }
+    selected_state = { "#{@contact.state.name}": @contact.state.abbreviation.to_s }
+    selected_organization = { "#{@contact.organization.name}": @contact.organization.name.to_s }
 
     @fields = [
       { type: :text_field, name: :first_name, options: {} },
@@ -71,7 +72,7 @@ class ContactsController < ApplicationController
       { type: :select, name: :employer, options: selected_organization.merge(organization_names) }
     ]
 
-    @header_text = "Update Contact"
+    @header_text = 'Update Contact'
   end
 
   def update
@@ -100,19 +101,19 @@ class ContactsController < ApplicationController
     end
 
     redirect_to contacts_path, notice: 'Contact Successfully Updated'
-    return
+    nil
   end
 
   def destroy
     @contact = Contact.destroy(params[:id])
     redirect_to contacts_path, notice: 'Contact Successfully Deleted'
-    return
+    nil
   end
 
   private
 
   def invalid_foreign_key(exception)
     redirect_to contacts_path, alert: "DELETE CANCELED: #{exception}"
-    return
+    nil
   end
 end

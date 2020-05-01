@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     post :commit
   end
 
-  
   resources :contacts
   resources :deployments
 end

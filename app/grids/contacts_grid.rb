@@ -26,10 +26,10 @@ class ContactsGrid
   end
 
   column(:delete, html: true, header: 'Delete') do |contact|
-    link_to "DELETE", contact, method: "delete", data: { confirm: "Are you sure?", disable_with: "Deleting...." }
+    link_to 'DELETE', contact, method: 'delete', data: { confirm: 'Are you sure?', disable_with: 'Deleting....' }
   end
 
-  column(:update, html: true, header: 'Update') do |contact| 
-    link_to "UPDATE", edit_contact_path(contact)
+  column(:update, html: true, header: 'Update') do |contact|
+    link_to 'UPDATE', edit_contact_path(contact)
   end
 end

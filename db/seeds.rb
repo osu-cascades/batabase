@@ -172,3 +172,5 @@ columns = [
 values = CSV.read(Rails.root.join('db/seed_data/deployments.csv'))
 
 Deployment.import columns, values
+
+User.create!(email: 'test@test.test', password: 'password', confirmed_at: Time.now)

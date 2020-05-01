@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
   resources :uploads do
-    get :commit
+    post :commit
   end
 
   resources :detectors, only: [:index]

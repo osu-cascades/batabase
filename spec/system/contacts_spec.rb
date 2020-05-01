@@ -76,7 +76,7 @@ RSpec.describe 'Contacts Flow', type: :system do
       find('a', text: 'UPDATE').click
 
       expect(page).to have_content('Update Contact')
-      
+
       fill_in 'First name', with: 'DIFFERENT FIRST NAME'
 
       click_button 'Update Contact'

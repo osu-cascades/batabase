@@ -27,7 +27,13 @@ class DetectorsGrid
   column(:manufacturer)
   column(:model)
   column(:serial_number)
-  column(:organization, header: 'Organization') do |detector|
-    detector.organization.name
+  column(:organization, header: 'Organization', &:owner)
+
+  column(:delete, html: true, header: 'Delete') do |detector|
+    link_to 'DELETE', detector, method: 'delete', data: { confirm: 'Are you sure?', disable_with: 'Deleting....' }
+  end
+
+  column(:update, html: true, header: 'Update') do |detector|
+    link_to 'UPDATE', edit_detector_path(detector)
   end
 end

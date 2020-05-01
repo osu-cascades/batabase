@@ -14,6 +14,6 @@ class Contact < ApplicationRecord
   has_many :softwares
 
   def employer
-    self.organization.name
+    organization.name
   end
 end

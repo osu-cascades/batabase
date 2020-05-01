@@ -16,11 +16,11 @@ RSpec.describe 'Detectors Flow', type: :system do
     end
 
     it 'A user can add a new detector' do
-      create(:organization, name: "OSU")
+      create(:organization, name: 'OSU')
 
       visit detectors_path
       find('a', text: 'Add Detector').click
-            
+
       fill_in 'Firmware', with: 'FAKE FIRMWARE'
       fill_in 'Manufacturer', with: 'FAKE MANUFACTURER'
       fill_in 'Model', with: 'FAKE MODEL'
@@ -37,35 +37,33 @@ RSpec.describe 'Detectors Flow', type: :system do
     end
 
     it 'A user can delete a detector' do
-        fake_organization = create(:organization, name: 'Other')
+      fake_organization = create(:organization, name: 'Other')
 
-        create(:detector, 
-          firmware: 'FAKE FIRMWARE', 
-          manufacturer: 'FAKE MANUFACTURER', 
-          model: 'FAKE MODEL', 
-          serial_number: 'FAKE SERIAL NUMBER',
-          organization_id: fake_organization.id
-        )
+      create(:detector,
+             firmware: 'FAKE FIRMWARE',
+             manufacturer: 'FAKE MANUFACTURER',
+             model: 'FAKE MODEL',
+             serial_number: 'FAKE SERIAL NUMBER',
+             organization_id: fake_organization.id)
 
-        visit detectors_path
-        expect(page).to have_content('FAKE SERIAL NUMBER')
+      visit detectors_path
+      expect(page).to have_content('FAKE SERIAL NUMBER')
 
-        find('a', text: 'DELETE').click
+      find('a', text: 'DELETE').click
 
-        expect(page).not_to have_content('FAKE SERIAL NUMBER')
+      expect(page).not_to have_content('FAKE SERIAL NUMBER')
     end
 
     it 'A user can update the fields of a detector' do
       fake_organization = create(:organization, name: 'Other')
-      second_fake_organization = create(:organization, name: 'OSU')
+      create(:organization, name: 'OSU')
 
-      create(:detector, 
-        firmware: 'FAKE FIRMWARE', 
-        manufacturer: 'FAKE MANUFACTURER', 
-        model: 'FAKE MODEL', 
-        serial_number: 'FAKE SERIAL NUMBER',
-        organization_id: fake_organization.id
-      )
+      create(:detector,
+             firmware: 'FAKE FIRMWARE',
+             manufacturer: 'FAKE MANUFACTURER',
+             model: 'FAKE MODEL',
+             serial_number: 'FAKE SERIAL NUMBER',
+             organization_id: fake_organization.id)
 
       visit detectors_path
 
@@ -73,7 +71,7 @@ RSpec.describe 'Detectors Flow', type: :system do
 
       fill_in 'Firmware', with: 'DIFFERENT FIRMWARE'
       fill_in 'Manufacturer', with: 'DIFFERENT MANUFACTURER'
-        
+
       fill_in 'Model', with: 'DIFFERENT MODEL'
       fill_in 'Serial number', with: 'FAKE SERIAL NUMBER'
       select 'OSU', from: 'Owner'
@@ -89,21 +87,19 @@ RSpec.describe 'Detectors Flow', type: :system do
         first_fake_organization = create(:organization, name: 'OSU')
         second_fake_organization = create(:organization, name: 'Other')
 
-        create(:detector, 
-          firmware: 'FIRST FAKE FIRMWARE', 
-          manufacturer: 'FAKE MANUFACTURER', 
-          model: 'FAKE MODEL', 
-          serial_number: 'FAKE SERIAL NUMBER',
-          organization_id: first_fake_organization.id
-        )
+        create(:detector,
+               firmware: 'FIRST FAKE FIRMWARE',
+               manufacturer: 'FAKE MANUFACTURER',
+               model: 'FAKE MODEL',
+               serial_number: 'FAKE SERIAL NUMBER',
+               organization_id: first_fake_organization.id)
 
-        create(:detector, 
-          firmware: 'SECOND FAKE FIRMWARE', 
-          manufacturer: 'FAKE MANUFACTURER', 
-          model: 'FAKE MODEL', 
-          serial_number: 'FAKE SERIAL NUMBER',
-          organization_id: second_fake_organization.id
-        )
+        create(:detector,
+               firmware: 'SECOND FAKE FIRMWARE',
+               manufacturer: 'FAKE MANUFACTURER',
+               model: 'FAKE MODEL',
+               serial_number: 'FAKE SERIAL NUMBER',
+               organization_id: second_fake_organization.id)
 
         visit detectors_path
 
@@ -113,5 +109,5 @@ RSpec.describe 'Detectors Flow', type: :system do
         expect(page).not_to have_content('SECOND FAKE FIRMWARE')
       end
     end
-  end    
+  end
 end

@@ -2,6 +2,14 @@
   <%= datagrid_form_for @deployments_grid, url: deployments_path %>
   <%= datagrid_table(@deployments_grid) %>
 </div>
+<div class="d-flex justify-content-center mt-2 mb-2">
+  <%=
+    link_to "Add Deployment",
+    new_deployment_path,
+    class: 'btn btn-success align-self-center px-3',
+    method: :get
+  %>
+</div>
 <script>
   form_width = document.querySelector('form').offsetWidth
   table_width = document.querySelector('table').offsetWidth

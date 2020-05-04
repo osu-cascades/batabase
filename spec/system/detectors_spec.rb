@@ -49,12 +49,12 @@ RSpec.describe 'Detectors Flow', type: :system do
       visit detectors_path
       expect(page).to have_content('FAKE SERIAL NUMBER')
 
-      find('a', text: 'DELETE').click
+      click_on 'Delete'
 
       expect(page).not_to have_content('FAKE SERIAL NUMBER')
     end
 
-    it 'A user can update the fields of a detector' do
+    it 'A user can edit/update the fields of a detector' do
       fake_organization = create(:organization, name: 'Other')
       create(:organization, name: 'OSU')
 
@@ -67,7 +67,7 @@ RSpec.describe 'Detectors Flow', type: :system do
 
       visit detectors_path
 
-      find('a', text: 'UPDATE').click
+      click_on 'Edit'
 
       fill_in 'Firmware', with: 'DIFFERENT FIRMWARE'
       fill_in 'Manufacturer', with: 'DIFFERENT MANUFACTURER'

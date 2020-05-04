@@ -11,15 +11,18 @@ RSpec.describe 'Detectors Flow', type: :system do
     end
 
     it 'A user can view all the detectors' do
-      visit detectors_path
+      visit home_index_path
+      click_button 'Detectors'
+      click_on 'View Detectors'
       expect(page).to have_css('table.detectors_grid')
     end
 
     it 'A user can add a new detector' do
       create(:organization, name: 'OSU')
 
-      visit detectors_path
-      find('a', text: 'Add Detector').click
+      visit home_index_path
+      click_button 'Detectors'
+      click_on 'Add Detector'
 
       fill_in 'Firmware', with: 'FAKE FIRMWARE'
       fill_in 'Manufacturer', with: 'FAKE MANUFACTURER'

@@ -55,7 +55,8 @@ RSpec.describe 'Contacts Flow', type: :system do
 
       expect(page).to have_content('FAKE FIRST')
 
-      find('a', text: 'DELETE').click
+      click_on 'Delete'
+
       expect(page).not_to have_content('FAKE FIRST')
     end
 
@@ -73,7 +74,7 @@ RSpec.describe 'Contacts Flow', type: :system do
 
       visit contacts_path
 
-      find('a', text: 'UPDATE').click
+      click_on 'Edit'
 
       expect(page).to have_content('Update Contact')
 

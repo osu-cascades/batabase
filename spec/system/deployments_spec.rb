@@ -194,7 +194,7 @@ RSpec.describe 'Deployments Flow', type: :system do
       expect(page).not_to have_content('FAKE COMMENTS')
     end
 
-    it 'A user can update an existing deployment' do
+    it 'A user can edit/update an existing deployment' do
       fake_organization = create(:organization, name: 'OSU')
       fake_contact = create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
       fake_detector = create(:detector, serial_number: '12345')

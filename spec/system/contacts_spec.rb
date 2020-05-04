@@ -60,7 +60,7 @@ RSpec.describe 'Contacts Flow', type: :system do
       expect(page).not_to have_content('FAKE FIRST')
     end
 
-    it 'A user can update an existing contact' do
+    it 'A user can edit/update an existing contact' do
       fake_state = create(:state, name: 'Oregon', abbreviation: 'OR')
       fake_organization = create(:organization, name: 'OSU')
       create(

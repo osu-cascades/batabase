@@ -190,7 +190,7 @@ RSpec.describe 'Deployments Flow', type: :system do
 
       expect(page).to have_content('FAKE COMMENTS')
 
-      find('a', text: 'DELETE').click
+      click_on 'Delete'
       expect(page).not_to have_content('FAKE COMMENTS')
     end
 
@@ -229,7 +229,8 @@ RSpec.describe 'Deployments Flow', type: :system do
       visit deployments_path
 
       expect(page).to have_content('FAKE COMMENTS')
-      find('a', text: 'UPDATE').click
+      
+      click_on 'Edit'
 
       fill_in 'Comments', with: 'CHANGING THE FAKE COMMENTS'
 

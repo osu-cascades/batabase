@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="dropdown mr-1">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonContacts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Contacts
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -22,12 +22,12 @@
         </div>
       </div>
       <div class="dropdown mr-1">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonDeployments" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Deployments
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to "View Deployments", deployments_path, class: "dropdown-item" %>
-          <%= link_to "Add Contact", new_deployment_path, class: "dropdown-item" %>
+          <%= link_to "Add Deployment", new_deployment_path, class: "dropdown-item" %>
         </div>
       </div>
       <%= link_to "Edit Profile", edit_user_registration_path, class: "navbar-dark text-light" %> -

@@ -11,13 +11,18 @@ RSpec.describe 'Contacts Flow', type: :system do
     end
 
     it 'A user can view all the contacts' do
-      visit contacts_path
+      visit home_index_path
+      click_button 'Contacts'
+      click_on 'View Contacts'
+
       expect(page).to have_css('table.contacts_grid')
     end
 
     it 'A user can visit a page to add contacts' do
-      visit contacts_path
-      find('a', text: 'Add Contact').click
+      visit home_index_path
+      click_button 'Contacts'
+      click_on 'Add Contact'
+
       expect(page).to have_content('Create Contact')
     end
 
@@ -25,9 +30,9 @@ RSpec.describe 'Contacts Flow', type: :system do
       create(:organization, name: 'OSU')
       create(:state, name: 'Oregon', abbreviation: 'OR')
 
-      visit contacts_path
-
-      find('a', text: 'Add Contact').click
+      visit home_index_path
+      click_button 'Contacts'
+      click_on 'Add Contact'
 
       fill_in 'First name', with: 'FAKE FIRST NAME'
       fill_in 'Last name', with: 'FAKE LAST NAME'

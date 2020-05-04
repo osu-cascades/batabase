@@ -98,7 +98,7 @@ class DetectorsController < ApplicationController
 
   def destroy
     @detector = Detector.destroy(params[:id])
-    redirect_to detectors_path
+    redirect_to detectors_path, notice: 'Detector Successfully Deleted'
     nil
   end
 

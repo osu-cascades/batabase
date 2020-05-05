@@ -14,7 +14,16 @@ RSpec.describe 'Detectors Flow', type: :system do
       visit home_index_path
       click_button 'Detectors'
       click_on 'View Detectors'
+
       expect(page).to have_css('table.detectors_grid')
+    end
+
+    it 'A user can visit the page to add a detector' do
+      visit home_index_path
+      click_button 'Detectors'
+      click_on 'Add Detector'
+
+      expect(page).to have_content('Create Detector')
     end
 
     it 'A user can add a new detector' do

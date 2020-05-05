@@ -2,11 +2,4 @@
   <%= datagrid_form_for @contacts_grid, url: contacts_path %>
   <%= datagrid_table(@contacts_grid) %>
 </div>
-<div class="d-flex justify-content-center mt-2 mb-2">
-  <%=
-    link_to "Add Contact",
-    new_contact_path,
-    class: 'btn btn-success align-self-center px-3',
-    method: :get
-  %>
-</div>
+

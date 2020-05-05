@@ -1,18 +1,44 @@
-<%= content_tag :div, class: "navbar navbar-dark bg-dark align-items-baseline justify-content-between", role: "global-header" do %>
+<%= content_tag :div, class: "navbar navbar-dark bg-dark align-items-center justify-content-between", role: "global-header" do %>
   <%= link_to "Batabase", home_index_path, class: "navbar-brand navbar-dark text-light" %>
   <% if @signed_in %>
+    <%= link_to "Uploads", uploads_path, class: "btn btn-outline-light mr-auto" %>
+    <div class="d-flex flex-row pr-5">
+      <div class="dropdown mr-1">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonDetectors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Detectors
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "View Detectors", detectors_path, class: "dropdown-item" %>
+          <%= link_to "Add Detector", new_detector_path, class: "dropdown-item" %>
+        </div>
+      </div>
+      <div class="dropdown mr-1">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonContacts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Contacts
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "View Contacts", contacts_path, class: "dropdown-item" %>
+          <%= link_to "Add Contact", new_contact_path, class: "dropdown-item" %>
+        </div>
+      </div>
+      <div class="dropdown mr-1">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonDeployments" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Deployments
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "View Deployments", deployments_path, class: "dropdown-item" %>
+          <%= link_to "Add Deployment", new_deployment_path, class: "dropdown-item" %>
+        </div>
+      </div>
+    </div>
     <div>
-      <%= link_to "Uploads", uploads_path, class: "navbar-dark text-light" %> |
-      <%= link_to "Detectors", detectors_path, class: "navbar-dark text-light" %> -
-      <%= link_to "Contacts", contacts_path, class: "navbar-dark text-light" %> -
-      <%= link_to "Deployments", deployments_path, class: "navbar-dark text-light" %> |
-      <%= link_to "Edit Profile", edit_user_registration_path, class: "navbar-dark text-light" %> -
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-dark text-light" %>
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-info mr-1" %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
     </div>
   <% else %>
     <div>
-      <%= link_to "Sign Up", new_user_registration_path, class: "navbar-dark text-light" %> |
-      <%= link_to "Sign In", new_user_session_path, class: "navbar-dark text-light" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-info mr-1" %>
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-success" %>
     </div>
   <% end %>
 <% end %>

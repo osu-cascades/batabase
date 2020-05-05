@@ -25,11 +25,11 @@ class ContactsGrid
     contact.organization.name
   end
 
-  column(:delete, html: true, header: 'Delete') do |contact|
-    link_to 'DELETE', contact, method: 'delete', data: { confirm: 'Are you sure?', disable_with: 'Deleting....' }
+  column(:edit, html: true, header: '') do |contact|
+    link_to 'Edit', edit_contact_path(contact), class: 'btn btn-primary'
   end
 
-  column(:update, html: true, header: 'Update') do |contact|
-    link_to 'UPDATE', edit_contact_path(contact)
+  column(:delete, html: true, header: '') do |contact|
+    link_to 'Delete', contact, method: 'delete', class: 'btn btn-danger', data: { confirm: 'Are you sure?', disable_with: 'Deleting....' }
   end
 end

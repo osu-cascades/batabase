@@ -116,11 +116,11 @@ class DeploymentsGrid
   end
   column(:distance_range, header: 'Distance Range') { |dep| dep.distance_range.label }
 
-  column(:delete, html: true, header: 'Delete', mandatory: true) do |deployment|
-    link_to 'DELETE', deployment, method: 'delete', data: { confirm: 'Are you sure?', disable_with: 'Deleting....' }
+  column(:edit, html: true, header: '', mandatory: true) do |deployment|
+    link_to 'Edit', edit_deployment_path(deployment), class: 'btn btn-primary'
   end
 
-  column(:delete, html: true, header: 'Update', mandatory: true) do |deployment|
-    link_to 'UPDATE', edit_deployment_path(deployment)
+  column(:delete, html: true, header: '', mandatory: true) do |deployment|
+    link_to 'Delete', deployment, method: 'delete', class: 'btn btn-danger', data: { confirm: 'Are you sure?', disable_with: 'Deleting....' }
   end
 end

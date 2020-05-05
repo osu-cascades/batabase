@@ -11,15 +11,27 @@ RSpec.describe 'Detectors Flow', type: :system do
     end
 
     it 'A user can view all the detectors' do
-      visit detectors_path
+      visit home_index_path
+      click_button 'Detectors'
+      click_on 'View Detectors'
+
       expect(page).to have_css('table.detectors_grid')
+    end
+
+    it 'A user can visit the page to add a detector' do
+      visit home_index_path
+      click_button 'Detectors'
+      click_on 'Add Detector'
+
+      expect(page).to have_content('Create Detector')
     end
 
     it 'A user can add a new detector' do
       create(:organization, name: 'OSU')
 
-      visit detectors_path
-      find('a', text: 'Add Detector').click
+      visit home_index_path
+      click_button 'Detectors'
+      click_on 'Add Detector'
 
       fill_in 'Firmware', with: 'FAKE FIRMWARE'
       fill_in 'Manufacturer', with: 'FAKE MANUFACTURER'
@@ -49,12 +61,12 @@ RSpec.describe 'Detectors Flow', type: :system do
       visit detectors_path
       expect(page).to have_content('FAKE SERIAL NUMBER')
 
-      find('a', text: 'DELETE').click
+      click_on 'Delete'
 
       expect(page).not_to have_content('FAKE SERIAL NUMBER')
     end
 
-    it 'A user can update the fields of a detector' do
+    it 'A user can edit/update the fields of a detector' do
       fake_organization = create(:organization, name: 'Other')
       create(:organization, name: 'OSU')
 
@@ -67,7 +79,7 @@ RSpec.describe 'Detectors Flow', type: :system do
 
       visit detectors_path
 
-      find('a', text: 'UPDATE').click
+      click_on 'Edit'
 
       fill_in 'Firmware', with: 'DIFFERENT FIRMWARE'
       fill_in 'Manufacturer', with: 'DIFFERENT MANUFACTURER'

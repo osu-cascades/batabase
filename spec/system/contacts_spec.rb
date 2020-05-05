@@ -11,13 +11,18 @@ RSpec.describe 'Contacts Flow', type: :system do
     end
 
     it 'A user can view all the contacts' do
-      visit contacts_path
+      visit home_index_path
+      click_button 'Contacts'
+      click_on 'View Contacts'
+
       expect(page).to have_css('table.contacts_grid')
     end
 
     it 'A user can visit a page to add contacts' do
-      visit contacts_path
-      find('a', text: 'Add Contact').click
+      visit home_index_path
+      click_button 'Contacts'
+      click_on 'Add Contact'
+
       expect(page).to have_content('Create Contact')
     end
 
@@ -25,9 +30,9 @@ RSpec.describe 'Contacts Flow', type: :system do
       create(:organization, name: 'OSU')
       create(:state, name: 'Oregon', abbreviation: 'OR')
 
-      visit contacts_path
-
-      find('a', text: 'Add Contact').click
+      visit home_index_path
+      click_button 'Contacts'
+      click_on 'Add Contact'
 
       fill_in 'First name', with: 'FAKE FIRST NAME'
       fill_in 'Last name', with: 'FAKE LAST NAME'
@@ -55,11 +60,12 @@ RSpec.describe 'Contacts Flow', type: :system do
 
       expect(page).to have_content('FAKE FIRST')
 
-      find('a', text: 'DELETE').click
+      click_on 'Delete'
+
       expect(page).not_to have_content('FAKE FIRST')
     end
 
-    it 'A user can update an existing contact' do
+    it 'A user can edit/update an existing contact' do
       fake_state = create(:state, name: 'Oregon', abbreviation: 'OR')
       fake_organization = create(:organization, name: 'OSU')
       create(
@@ -73,7 +79,7 @@ RSpec.describe 'Contacts Flow', type: :system do
 
       visit contacts_path
 
-      find('a', text: 'UPDATE').click
+      click_on 'Edit'
 
       expect(page).to have_content('Update Contact')
 

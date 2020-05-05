@@ -13,13 +13,17 @@ RSpec.describe 'Deployments Flow', type: :system do
     end
 
     it 'A user can visit the page to view all the deployments' do
-      visit deployments_path
+      visit home_index_path
+      click_button 'Deployments'
+      click_on 'View Deployments'
+
       expect(page).to have_css('table.deployments_grid')
     end
 
     it 'A user can visit the page to add new deployments' do
-      visit deployments_path
-      find('a', text: 'Add Deployment').click
+      visit home_index_path
+      click_button 'Deployments'
+      click_on 'Add Deployment'
 
       expect(page).to have_content('Create Deployment')
     end
@@ -45,8 +49,9 @@ RSpec.describe 'Deployments Flow', type: :system do
         sample_unit_id: fake_sample_unit.id
       )
 
-      visit deployments_path
-      find('a', text: 'Add Deployment').click
+      visit home_index_path
+      click_button 'Deployments'
+      click_on 'Add Deployment'
 
       fill_in 'Notes', with: 'FAKE NOTES......'
       fill_in 'Microphone height off ground', with: 3.5
@@ -106,8 +111,9 @@ RSpec.describe 'Deployments Flow', type: :system do
       create(:target_descriptor, label: 'FAKE DESCRIPTOR')
       create(:sample_unit, code: '12345')
 
-      visit deployments_path
-      find('a', text: 'Add Deployment').click
+      visit home_index_path
+      click_button 'Deployments'
+      click_on 'Add Deployment'
 
       fill_in 'Notes', with: 'FAKE NOTES......'
       fill_in 'Microphone height off ground', with: 3.5
@@ -190,11 +196,11 @@ RSpec.describe 'Deployments Flow', type: :system do
 
       expect(page).to have_content('FAKE COMMENTS')
 
-      find('a', text: 'DELETE').click
+      click_on 'Delete'
       expect(page).not_to have_content('FAKE COMMENTS')
     end
 
-    it 'A user can update an existing deployment' do
+    it 'A user can edit/update an existing deployment' do
       fake_organization = create(:organization, name: 'OSU')
       fake_contact = create(:contact, first_name: 'FAKE FIRST', last_name: 'FAKE LAST', organization_id: fake_organization.id)
       fake_detector = create(:detector, serial_number: '12345')
@@ -229,7 +235,8 @@ RSpec.describe 'Deployments Flow', type: :system do
       visit deployments_path
 
       expect(page).to have_content('FAKE COMMENTS')
-      find('a', text: 'UPDATE').click
+
+      click_on 'Edit'
 
       fill_in 'Comments', with: 'CHANGING THE FAKE COMMENTS'
 

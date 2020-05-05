@@ -29,11 +29,11 @@ class DetectorsGrid
   column(:serial_number)
   column(:organization, header: 'Organization', &:owner)
 
-  column(:delete, html: true, header: 'Delete') do |detector|
-    link_to 'DELETE', detector, method: 'delete', data: { confirm: 'Are you sure?', disable_with: 'Deleting....' }
+  column(:edit, html: true, header: '') do |detector|
+    link_to 'Edit', edit_detector_path(detector), class: "btn btn-primary"
   end
 
-  column(:update, html: true, header: 'Update') do |detector|
-    link_to 'UPDATE', edit_detector_path(detector)
+  column(:delete, html: true, header: '') do |detector|
+    link_to 'Delete', detector, method: 'delete', class: "btn btn-danger", data: { confirm: 'Are you sure?', disable_with: 'Deleting....' }
   end
 end

@@ -235,7 +235,7 @@ RSpec.describe 'Deployments Flow', type: :system do
       visit deployments_path
 
       expect(page).to have_content('FAKE COMMENTS')
-      
+
       click_on 'Edit'
 
       fill_in 'Comments', with: 'CHANGING THE FAKE COMMENTS'

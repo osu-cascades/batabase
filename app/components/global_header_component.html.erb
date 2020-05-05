@@ -31,12 +31,14 @@
         </div>
       </div>
     </div>
-    <%= link_to "Edit Profile", edit_user_registration_path, class: "navbar-dark text-light" %> -
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-dark text-light" %>
+    <div>
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-info mr-1" %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+    </div>
   <% else %>
     <div>
-      <%= link_to "Sign Up", new_user_registration_path, class: "navbar-dark text-light" %> |
-      <%= link_to "Sign In", new_user_session_path, class: "navbar-dark text-light" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-info mr-1" %>
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-success" %>
     </div>
   <% end %>
 <% end %>

@@ -1,0 +1,77 @@
+ANPA,Pallid bat,Antrozous pallidus
+CHME,Mexican long-tongued bat,Choeronycteris mexicana
+CORA,Rafinesque's big-eared bat,Corynorhinus rafinesquii
+COTO,Townsend's big-eared bat,Corynorhinus townsendii
+EPFU,Big brown bat,Eptesicus fuscus
+EUMA,Spotted bat,Euderma maculatum
+EUFL,Florida bonneted bat,Eumops floridanus
+EUPE,Greater mastiff bat,Eumops perotis
+EUUN,Underwood's mastiff bat,Eumops underwoodi
+IDPH,Allen's big-eared bat,Idionycteris phyllotis
+LANO,Silver-haired bat,Lasionycteris noctivagans
+LABL,Western red bat,Lasiurus blossevillii
+LABO,Eastern red bat,Lasiurus borealis
+LACI,Hoary bat,Lasiurus cinereus
+LAEG,Southern yellow bat,Lasiurus ega
+LAIN,Northern yellow bat,Lasiurus intermedius
+LASE,Seminole bat,Lasiurus seminolus
+LAXA,Western yellow bat,Lasiurus xanthinus
+LENI,Greater long-nosed bat,Leptonycteris nivalis
+LEYE,Lesser long-nosed bat,Leptonycteris yerbabuenae
+MACA,California leaf-nosed bat,Macrotus californicus
+MOMO,Pallas' mastiff bat,Molossus molossus
+MOME,Ghost-faced bat,Mormoops megalophylla
+MYAU,Southeastern bat,Myotis austroriparius
+MYCA,California bat,Myotis californicus
+MYCI,Western small-footed myotis,Myotis ciliolabrum
+MYEV,Western long-eared bat,Myotis evotis
+MYGR,Gray bat,Myotis grisescens
+MYKE,Keen's bat,Myotis keenii
+MYLE,Eastern small-footed bat,Myotis leibii
+MYLU,Little brown bat,Myotis lucifugus
+MYSE,Northern long-eared bat,Myotis septentrionalis
+MYSO,Indiana bat,Myotis sodalis
+MYTH,Fringed bat,Myotis thysanodes
+MYVE,Cave bat,Myotis velifer
+MYVO,Long-legged bat,Myotis volans
+MYYU,Yuma bat,Myotis yumanensis
+NYHU,Evening bat,Nycticeius humeralis
+NYFE,Pocketed free-tailed bat,Nyctinomops femorosaccus
+NYMA,Big free-tailed bat,Nyctinomops macrotis
+PAHE,Canyon bat,Parastrellus hesperus
+PESU,Tricolored bat,Perimyotis subflavus
+TABR,Brazilian free-tailed bat,Tadarida brasiliensis
+NoID,No species detected,No species detected
+25kHz,User-defined1,Species with minimum frequency of ~25khz
+40kHz,User-defined2,Species with minimum frequency of 35-40khz
+ANPA/EPFU,User-defined3,"Antrozous pallidus, Eptesicus fuscus"
+ARJA,Jamaican fruit-eating bat,Artibeus jamaicensis
+BRCA,Antillean fruit-eating bat,Brachyphylla cavernarum
+DIEC,Hairy-legged vampire bat,Diphylla ecaudata
+EPFU/LANO,User-defined5,"Eptesicus fuscus, Lasionycteris noctivagans"
+HighF,User-defined6,Species with minimum frequency higher than ~30kHz
+LABL/PAHE,User-defined7,"Lasiurus blossevilii, Parastrellus hesperus"
+LABO/LASE,User-defined8,"Lasiurus borealis, Lasiurus seminolus"
+LABO/PESU,User-defined9,"Lasiurus borealis, Perimyotis subflavus"
+LAMI,Minor red bat,Lasiurus minor
+LEMY,User-defined10,"Myotis evotis, Myotis keenii, Myotis septentrionalis"
+LowF,User-defined11,Species with minimum frequency lower than ~30kHz
+MYAUR,Southwestern myotis,Myotis auriculus
+MYCA/MYYU,User-defined12,"Myotis californicus, Myotis yumanensis"
+MYOC,Arizona myotis,Myotis occultus
+Myotis30,User-defined13,Myotis species with minimum frequency higher than ~30kHz
+NOLE,Great bulldog bat,Noctilio leporinus
+STRU,Red fruit bat,Stenoderma rufum
+TABR/LANO,,"Tadarida brasiliensis, Lasionycteris noctivagans"
+TABR/LACI,,"Tadarida brasiliensis, Lasiurus cinereus"
+LACI/LANO,,"Lasiurus cinereus, Lasionycteris noctivagans"
+Myotis40,,Myotis species with minimum frequency at ~40-49kHz
+Myotis50,,Myotis species with minimum frequency at ~=50kHz
+30kHz,,Species with minimum frequency of ~30kHz
+LAEG/LAIN,,Lasiurus ega/Lasiurus intermedius
+LAsp,,Lasiurus species
+PAHE/PESU,,Parastrellus hesperus/Perimyotis subflavus
+TABR/NYFE,,"Tadarida brasiliensis, Nyctinomops femorosaccus"
+EUPE/NYMA,,Eumops perotis/Nyctinomops macrotis
+LABO/NYHU,,Lasiurus borealis/Nycticeius humeralis
+MYLU/MYSO,,Myotis lucifugus/Myotis sodalis

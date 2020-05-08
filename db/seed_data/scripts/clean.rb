@@ -1,24 +1,18 @@
 # frozen_string_literal: true
 
+require 'byebug'
 require 'csv'
 
-deployments = CSV.read('../deployments.csv')
+data = CSV.read('../species_species_groups.csv')
 
-deployments.each_with_index do |line, index|
-  line_split_on_comma = line[12].split(',')
-  reduced_data = line_split_on_comma[4..12]
+data.each_with_index do |line, index|
+  next if index.zero?
 
-  line.pop
-
-  reduced_data.each do |current|
-    line << current.split(':')[1].slice(1..-1)
-  end
-
-  deployments[index] = line
+  data[index] = [line.last.to_i - 19, line.first.to_i - 302]
 end
 
-File.open('../deployments.csv', 'w') do |file|
-  deployments.each do |line|
+File.open('../species_species_groups.csv', 'w') do |file|
+  data.each do |line|
     file.puts(CSV.generate_line(line))
   end
 end

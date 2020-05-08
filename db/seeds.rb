@@ -114,6 +114,24 @@ values = CSV.read(Rails.root.join('db/seed_data/sample_unit_counties.csv'))
 
 SampleUnitCounty.import columns, values
 
+# Import species data from csv
+columns = [:code, :common_name, :scientific_name]
+values = CSV.read(Rails.root.join('db/seed_data/species.csv'))
+
+Species.import columns, values
+
+# Import species group data from csv
+columns = [:label, :summary]
+values = CSV.read(Rails.root.join('db/seed_data/species_groups.csv'))
+
+SpeciesGroup.import columns, values
+
+# Import species and species group relational data from csv
+columns = [:species_group_id, :species_id]
+values = CSV.read(Rails.root.join('db/seed_data/species_species_groups.csv'))
+
+SpeciesSpeciesGroup.import columns, values
+
 # Import detector location data from csv
 columns = [
   :quad_id,

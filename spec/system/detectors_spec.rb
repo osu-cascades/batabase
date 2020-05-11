@@ -107,7 +107,7 @@ RSpec.describe 'Detectors Flow', type: :system do
       
       visit home_index_path
       click_button 'Detectors'
-      click_on 'Export to Excel'
+      click_on 'Export Detectors to Excel'
       expect(page.response_headers["Content-Disposition"]).to be("attachment; filename=detectors.xlsx")
     end
 

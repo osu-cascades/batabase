@@ -94,7 +94,7 @@ RSpec.describe 'Detectors Flow', type: :system do
       expect(Detector.count).to be(1)
     end
 
-    it 'A user can download all the detectors into an excel file' do
+    it 'A user can download all the Detector records into an excel file' do
       fake_organization = create(:organization, name: 'Other')
       create(:organization, name: 'OSU')
 

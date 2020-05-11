@@ -20,6 +20,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to "View Contacts", contacts_path, class: "dropdown-item" %>
           <%= link_to "Add Contact", new_contact_path, class: "dropdown-item" %>
+          <%= link_to "Export Contacts to Excel", export_contacts_path(format: :xlsx), class: "dropdown-item"%>
         </div>
       </div>
       <div class="dropdown mr-1">

@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     post :commit
   end
 
-  resources :contacts
+  resources :contacts do
+    collection do
+      get 'export'
+    end
+  end
+  
   resources :deployments
 end

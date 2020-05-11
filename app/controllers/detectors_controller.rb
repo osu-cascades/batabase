@@ -102,6 +102,11 @@ class DetectorsController < ApplicationController
     nil
   end
 
+  def export
+    @detectors = Detector.all
+    byebug
+  end
+
   private
 
   def invalid_foreign_key(exception)

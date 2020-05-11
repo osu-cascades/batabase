@@ -1,0 +1,10 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Detectors") do |sheet|
+  # Create the header row
+  sheet.add_row ["Firmware", "Manufacturer", "Model", "Serial Number", "Organization"]
+  # Create entries for each item
+  @detectors.each do |detector|
+    sheet.add_row [detector.firmware, detector.manufacturer, detector.model, detector.serial_number, detector.organization.name]
+  end
+end

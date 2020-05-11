@@ -104,7 +104,14 @@ class DetectorsController < ApplicationController
 
   def export
     @detectors = Detector.all
-    byebug
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename=detectors.xlsx"
+      }
+      format.html { render :index }
+    end
   end
 
   private

@@ -401,7 +401,7 @@ class DeploymentsController < ApplicationController
       format.xlsx {
         response.headers[
           'Content-Disposition'
-        ] = "attachment; filename=deployment.xlsx"
+        ] = "attachment; filename=deployments.xlsx"
       }
       format.html { render :index }
     end

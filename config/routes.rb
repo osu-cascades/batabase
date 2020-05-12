@@ -23,5 +23,9 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :deployments
+  resources :deployments do
+    collection do
+      get 'export'
+    end
+  end
 end

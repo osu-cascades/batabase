@@ -30,6 +30,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to "View Deployments", deployments_path, class: "dropdown-item" %>
           <%= link_to "Add Deployment", new_deployment_path, class: "dropdown-item" %>
+          <%= link_to "Export Deployments to Excel", export_deployments_path(format: :xlsx), class: "dropdown-item"%>
         </div>
       </div>
     </div>

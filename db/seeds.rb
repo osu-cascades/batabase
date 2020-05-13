@@ -191,4 +191,48 @@ values = CSV.read(Rails.root.join('db/seed_data/deployments.csv'))
 
 Deployment.import columns, values
 
+# Import sonobat outputs data from csv
+columns = [
+  :deployment_id,
+  :night,
+  :filename,
+  :hi_f,
+  :lo_f,
+  :spp_accp,
+  :prob,
+  :maj,
+  :accp,
+  :spp,
+  :tilde_prob,
+  :fc_mean,
+  :fc_std_dev,
+  :dur_mean,
+  :dur_std_dev,
+  :calls_per_sec,
+  :mean_hi_freq,
+  :mean_lo_freq,
+  :mean_uppr_slp,
+  :mean_lwr_slp,
+  :mean_total_slp,
+  :mean_preceding_intvl,
+  :first,
+  :second,
+  :third,
+  :fourth,
+  :parent_dir,
+  :next_dir_up,
+  :file_length,
+  :version,
+  :filter,
+  :accp_quality,
+  :accp_qual_for_tally,
+  :max_calls_considered,
+  :manual_idspp1,
+  :manual_idspp2,
+  :notes
+]
+values = CSV.read(Rails.root.join('db/seed_data/sonobat_outputs.csv'))
+
+SonobatOutput.import columns, values
+
 User.create!(email: 'test@test.test', password: 'password', confirmed_at: Time.now)

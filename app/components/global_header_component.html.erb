@@ -10,6 +10,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to "View Detectors", detectors_path, class: "dropdown-item" %>
           <%= link_to "Add Detector", new_detector_path, class: "dropdown-item" %>
+          <%= link_to "Export Detectors to Excel", export_detectors_path(format: :xlsx), class: "dropdown-item"%>
         </div>
       </div>
       <div class="dropdown mr-1">
@@ -19,6 +20,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to "View Contacts", contacts_path, class: "dropdown-item" %>
           <%= link_to "Add Contact", new_contact_path, class: "dropdown-item" %>
+          <%= link_to "Export Contacts to Excel", export_contacts_path(format: :xlsx), class: "dropdown-item"%>
         </div>
       </div>
       <div class="dropdown mr-1">
@@ -28,6 +30,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to "View Deployments", deployments_path, class: "dropdown-item" %>
           <%= link_to "Add Deployment", new_deployment_path, class: "dropdown-item" %>
+          <%= link_to "Export Deployments to Excel", export_deployments_path(format: :xlsx), class: "dropdown-item"%>
         </div>
       </div>
     </div>

@@ -6,12 +6,26 @@ Rails.application.routes.draw do
   root to: redirect(path: '/home', status: 302)
 
   resources :home, only: [:index]
-  resources :detectors
+  
+  resources :detectors do
+    collection do
+      get 'export'
+    end
+  end
 
   resources :uploads do
     post :commit
   end
 
-  resources :contacts
-  resources :deployments
+  resources :contacts do
+    collection do
+      get 'export'
+    end
+  end
+  
+  resources :deployments do
+    collection do
+      get 'export'
+    end
+  end
 end

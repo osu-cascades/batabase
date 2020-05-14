@@ -1,0 +1,15 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  heading = style.add_style(b: true)
+
+  wb.add_worksheet(name: "Contacts") do |sheet|
+    # Create the header row
+    sheet.add_row ["First Name", "Last Name", "Notes", "State", "Organization"], style: heading
+    # Create entries for each item
+    @contacts.each do |contact|
+      sheet.add_row [contact.first_name, contact.last_name, contact.notes, contact.state.abbreviation, contact.organization.name]
+    end
+  end
+end
+

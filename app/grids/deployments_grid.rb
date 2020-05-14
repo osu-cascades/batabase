@@ -62,6 +62,7 @@ class DeploymentsGrid
   column(:sixteen_thousand_high_filter, mandatory: true)
   column(:sample_rate, mandatory: true)
   column(:min_duration, mandatory: true)
+  column(:max_duration, mandatory: true)
   column(:min_trigger_frequency, mandatory: true)
   column(:trigger_window, mandatory: true)
   column(:max_length, mandatory: true)

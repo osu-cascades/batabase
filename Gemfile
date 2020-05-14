@@ -34,6 +34,10 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# gems to allow the exporting of database records as Excel files
+gem 'caxlsx'
+gem 'caxlsx_rails'
+
 # Gems required for bootstrap
 gem 'bootstrap'
 gem 'jquery-rails'

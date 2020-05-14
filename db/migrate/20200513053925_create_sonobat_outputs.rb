@@ -40,7 +40,7 @@ class CreateSonobatOutputs < ActiveRecord::Migration[6.0]
       t.string :manual_idspp2
       t.string :notes
 
-      t.belongs_to :deployment
+      t.belongs_to :deployment, foreign_key: true
     end
   end
 end

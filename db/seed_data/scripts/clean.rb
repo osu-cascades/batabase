@@ -5,8 +5,8 @@ require 'csv'
 
 data = CSV.read('../sonobat_outputs.csv')
 
-data.each_with_index do |line, index|
-  data[index][0] = line.first.to_i - 44
+data.each_with_index do |_line, index|
+  data[index][0] = Random.rand(1...219)
 end
 
 File.open('../sonobat_outputs.csv', 'w') do |file|

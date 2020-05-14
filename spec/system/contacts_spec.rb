@@ -90,5 +90,24 @@ RSpec.describe 'Contacts Flow', type: :system do
       expect(page).not_to have_content('Update Contact')
       expect(page).to have_content('DIFFERENT FIRST NAME')
     end
+
+    it 'A user can export all of the Contact records to an excel file' do
+      fake_state = create(:state, name: 'Oregon', abbreviation: 'OR')
+      fake_organization = create(:organization, name: 'OSU')
+      create(
+        :contact,
+        first_name: 'FAKE FIRST',
+        last_name: 'FAKE LAST',
+        notes: 'SOME FAKE NOTES',
+        state_id: fake_state.id,
+        organization_id: fake_organization.id
+      )
+
+      visit home_index_path
+      click_button 'Contacts'
+      click_on 'Export Contacts to Excel'
+
+      expect(page.response_headers["Content-Disposition"]).to be("attachment; filename=contacts.xlsx")
+    end
   end
 end

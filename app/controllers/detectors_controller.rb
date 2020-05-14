@@ -102,6 +102,18 @@ class DetectorsController < ApplicationController
     nil
   end
 
+  def export
+    @detectors = Detector.all
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename=detectors.xlsx"
+      }
+      format.html { render :index }
+    end
+  end
+
   private
 
   def invalid_foreign_key(exception)

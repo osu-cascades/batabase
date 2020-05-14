@@ -394,4 +394,16 @@ class DeploymentsController < ApplicationController
     result = Deployment.destroy(params[:id])
     redirect_to deployments_path, notice: 'Deployment Successfully Deleted'
   end
+
+  def export
+    @deployments = Deployment.all
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename=deployments.xlsx"
+      }
+      format.html { render :index }
+    end
+  end
 end

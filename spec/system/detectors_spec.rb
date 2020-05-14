@@ -94,6 +94,23 @@ RSpec.describe 'Detectors Flow', type: :system do
       expect(Detector.count).to be(1)
     end
 
+    it 'A user can download all the Detector records into an excel file' do
+      fake_organization = create(:organization, name: 'Other')
+      create(:organization, name: 'OSU')
+
+      create(:detector,
+             firmware: 'FAKE FIRMWARE',
+             manufacturer: 'FAKE MANUFACTURER',
+             model: 'FAKE MODEL',
+             serial_number: 'FAKE SERIAL NUMBER',
+             organization_id: fake_organization.id)
+      
+      visit home_index_path
+      click_button 'Detectors'
+      click_on 'Export Detectors to Excel'
+      expect(page.response_headers["Content-Disposition"]).to be("attachment; filename=detectors.xlsx")
+    end
+
     context 'Queries' do
       it 'A user can query for a detector by it\'s organization' do
         first_fake_organization = create(:organization, name: 'OSU')

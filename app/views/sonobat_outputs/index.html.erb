@@ -1,0 +1,7 @@
+<div class="d-flex flex-row">
+  <%= datagrid_form_for @sonobat_outputs_grid, url: sonobat_outputs_path %>
+  <div>
+    <%= datagrid_table(@sonobat_outputs_grid) %>
+    <%= paginate @sonobat_outputs_grid.assets %>
+  </div>
+</div>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: redirect(path: '/home', status: 302)
 
   resources :home, only: [:index]
-  
+
   resources :detectors do
     collection do
       get 'export'
@@ -22,8 +22,14 @@ Rails.application.routes.draw do
       get 'export'
     end
   end
-  
+
   resources :deployments do
+    collection do
+      get 'export'
+    end
+  end
+
+  resources :sonobat_outputs do
     collection do
       get 'export'
     end

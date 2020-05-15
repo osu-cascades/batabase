@@ -1,0 +1,90 @@
+# frozen_string_literal: true
+
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  heading = style.add_style(b: true)
+
+  wb.add_worksheet(name: 'Sonobat Outputs') do |sheet|
+    # Create the header row
+    sheet.add_row [
+      'Night',
+      'Filename',
+      'HiF',
+      'LoF',
+      'SppAccp',
+      'Prob',
+      '.Maj',
+      '.Accp',
+      '~Spp',
+      '~Prob',
+      'Fc mean',
+      'Fc StdDev',
+      'Dur mean',
+      'Dur StdDev',
+      'calls/sec',
+      'mean HiFreq',
+      'mean LoFreq',
+      'mean UpprSlp',
+      'mean LwrSlp',
+      'mean TotalSlp',
+      'mean PrecedingIntvl',
+      '1st',
+      '2nd',
+      '3rd',
+      '4th',
+      'ParentDir',
+      'NextDirUp',
+      'FileLength(sec)',
+      'Version',
+      'Filter',
+      'AccpQuality',
+      'AccpQualForTally',
+      'Max.CallsConsidered',
+      'ManualIDSpp1',
+      'ManualIDSpp2',
+      'Notes'
+    ], style: heading
+    # Create entries for each item
+    @sonobat_outputs.each do |d|
+      sheet.add_row [
+        d.night,
+        d.filename,
+        d.hi_f,
+        d.lo_f,
+        d.spp_accp,
+        d.prob,
+        d.maj,
+        d.accp,
+        d.spp,
+        d.tilde_prob,
+        d.fc_mean,
+        d.fc_std_dev,
+        d.dur_mean,
+        d.dur_std_dev,
+        d.calls_per_sec,
+        d.mean_hi_freq,
+        d.mean_lo_freq,
+        d.mean_uppr_slp,
+        d.mean_lwr_slp,
+        d.mean_total_slp,
+        d.mean_preceding_intvl,
+        d.first,
+        d.second,
+        d.third,
+        d.fourth,
+        d.parent_dir,
+        d.next_dir_up,
+        d.file_length,
+        d.version,
+        d.filter,
+        d.accp_quality,
+        d.accp_qual_for_tally,
+        d.max_calls_considered,
+        d.manual_idspp1,
+        d.manual_idspp2,
+        d.notes
+      ]
+    end
+  end
+end

@@ -12,4 +12,6 @@ class Deployment < ApplicationRecord
   belongs_to :clutter_percent
   belongs_to :primary_contact, class_name: 'Contact'
   belongs_to :recovery_contact, class_name: 'Contact'
+
+  has_many :sonobat_outputs
 end

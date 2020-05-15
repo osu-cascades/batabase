@@ -113,11 +113,11 @@ class ContactsController < ApplicationController
   def export
     @contacts = Contact.all
     respond_to do |format|
-      format.xlsx {
+      format.xlsx do
         response.headers[
           'Content-Disposition'
-        ] = "attachment; filename=contacts.xlsx"
-      }
+        ] = 'attachment; filename=contacts.xlsx'
+      end
       format.html { render :index }
     end
   end

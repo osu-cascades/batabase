@@ -33,6 +33,16 @@
           <%= link_to "Export Deployments to Excel", export_deployments_path(format: :xlsx), class: "dropdown-item"%>
         </div>
       </div>
+      <div class="dropdown mr-1">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonDeployments" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sonobat Outputs
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "View Sonobat Outputs", sonobat_outputs_path, class: "dropdown-item" %>
+          <%= link_to "Add Sonobat Output", new_sonobat_output_path, class: "dropdown-item" %>
+          <%= link_to "Export Sonobat Outputs to Excel", export_sonobat_outputs_path(format: :xlsx), class: "dropdown-item"%>
+        </div>
+      </div>
     </div>
     <div>
       <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-info mr-1" %>

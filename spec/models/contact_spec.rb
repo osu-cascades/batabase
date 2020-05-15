@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
   let(:contact) { FactoryBot.build_stubbed(:contact) }
-  let(:contact_with_organization) { FactoryBot.build_stubbed(:contact, :has_organization) }
   let(:contact_with_software) { FactoryBot.build_stubbed(:contact, :has_software) }
 
   describe 'Contact Validation' do
@@ -78,7 +77,7 @@ RSpec.describe Contact, type: :model do
   describe 'Contact Functionality' do
     context 'Organization Interactions' do
       it 'A contact can fetch the organization associated with it' do
-        expect(contact_with_organization.organization.class).to be(Organization)
+        expect(contact.organization.class).to be(Organization)
       end
     end
 

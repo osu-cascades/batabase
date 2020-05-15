@@ -398,11 +398,11 @@ class DeploymentsController < ApplicationController
   def export
     @deployments = Deployment.all
     respond_to do |format|
-      format.xlsx {
+      format.xlsx do
         response.headers[
           'Content-Disposition'
-        ] = "attachment; filename=deployments.xlsx"
-      }
+        ] = 'attachment; filename=deployments.xlsx'
+      end
       format.html { render :index }
     end
   end

@@ -2,6 +2,8 @@
 
 FactoryBot.define do
   factory :local_habitat do
+    label { 'urban' }
+
     trait :mixed_conifer do
       label { 'mixed conifer' }
     end

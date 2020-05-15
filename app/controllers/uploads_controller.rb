@@ -21,7 +21,7 @@ class UploadsController < ApplicationController
     upload_type = params[:upload][:upload_type]
     upload_data = params[:upload][:data]
 
-    if upload_data.content_type != 'text/csv'
+    unless upload_data.content_type.starts_with? 'text/'
       render(:new)
       return
     end

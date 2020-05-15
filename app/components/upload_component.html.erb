@@ -3,6 +3,9 @@
     <%= @upload.filename %>
   </td>
   <td>
+    <%= @upload.upload_type %>
+  </td>
+  <td>
     <%=
       link_to "View Upload",
       upload_path(@upload),

@@ -4,16 +4,6 @@
     <%= link_to "Uploads", uploads_path, class: "btn btn-outline-light mr-auto" %>
     <div class="d-flex flex-row pr-5">
       <div class="dropdown mr-1">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonDetectors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Detectors
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to "View Detectors", detectors_path, class: "dropdown-item" %>
-          <%= link_to "Add Detector", new_detector_path, class: "dropdown-item" %>
-          <%= link_to "Export Detectors to Excel", export_detectors_path(format: :xlsx), class: "dropdown-item"%>
-        </div>
-      </div>
-      <div class="dropdown mr-1">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonContacts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Contacts
         </button>
@@ -21,6 +11,16 @@
           <%= link_to "View Contacts", contacts_path, class: "dropdown-item" %>
           <%= link_to "Add Contact", new_contact_path, class: "dropdown-item" %>
           <%= link_to "Export Contacts to Excel", export_contacts_path(format: :xlsx), class: "dropdown-item"%>
+        </div>
+      </div>
+      <div class="dropdown mr-1">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonDetectors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Detectors
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "View Detectors", detectors_path, class: "dropdown-item" %>
+          <%= link_to "Add Detector", new_detector_path, class: "dropdown-item" %>
+          <%= link_to "Export Detectors to Excel", export_detectors_path(format: :xlsx), class: "dropdown-item"%>
         </div>
       </div>
       <div class="dropdown mr-1">

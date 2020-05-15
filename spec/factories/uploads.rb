@@ -4,13 +4,10 @@ FactoryBot.define do
   factory :upload do
     data { 'FAKE DATA' }
     sequence(:filename) { |i| "FAKE_FILENAME_#{i}.csv" }
-
-    trait :meta do
-      upload_type { 'meta' }
-    end
+    upload_type { 'Site Metadata' }
 
     trait :sono do
-      upload_type { 'sono' }
+      upload_type { 'Sonobat Output' }
     end
   end
 end

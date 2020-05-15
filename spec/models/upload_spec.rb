@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Upload, type: :model do
-  let(:upload) { FactoryBot.build_stubbed(:upload, :meta) }
+  let(:upload) { FactoryBot.build_stubbed(:upload) }
 
   describe 'Upload Validation' do
     context 'An upload is valid if' do
@@ -13,28 +13,12 @@ RSpec.describe Upload, type: :model do
         expect(upload).to be_valid
       end
 
-      it 'It has a filename ending in csv' do
-        upload.filename = 'FAKE_FILENAME.csv'
-
-        expect(upload).to be_valid
-      end
-
-      it "It's csv file name ending is not case sensative" do
-        upload.filename = 'FAKE_FILENAME.cSV'
+      it 'It has a type of Site Metadata or Sonobat Output' do
+        upload.upload_type = 'Site Metadata'
 
         expect(upload).to be_valid
 
-        upload.filename = 'FAKE_FILENAME.CSV'
-
-        expect(upload).to be_valid
-      end
-
-      it 'It has a type of meta or sono' do
-        upload.upload_type = 'meta'
-
-        expect(upload).to be_valid
-
-        upload.upload_type = 'sono'
+        upload.upload_type = 'Sonobat Output'
 
         expect(upload).to be_valid
       end
@@ -53,23 +37,13 @@ RSpec.describe Upload, type: :model do
         expect(upload).to_not be_valid
       end
 
-      it 'It has a filename not ending in csv' do
-        upload.filename = 'FAKE_FILENAME.suv'
-
-        expect(upload).to_not be_valid
-
-        upload.filename = 'FAKE_FILENAME.vsc'
-
-        expect(upload).to_not be_valid
-      end
-
       it 'It contains no type' do
         upload.upload_type = ''
 
         expect(upload).to_not be_valid
       end
 
-      it "It has a type that isn't meta or sono" do
+      it "It has a type that isn't Site Metadata or Sonobat Output" do
         upload.upload_type = 'FAKE TYPE'
 
         expect(upload).to_not be_valid

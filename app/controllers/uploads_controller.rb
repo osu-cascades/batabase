@@ -54,7 +54,7 @@ class UploadsController < ApplicationController
     # This will be where the work happens for turning
     # the CSV into tables in db
 
-    workflow = CommitUpload.new(CSV.parse(upload.data, headers: true))
+    workflow = CommitUpload.new(CSV.parse(upload.data, headers: true), upload.upload_type)
     workflow.run
 
     redirect_to uploads_path

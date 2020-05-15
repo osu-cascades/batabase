@@ -1,17 +1,22 @@
 # frozen_string_literal: true
 
 class CommitUpload
-  attr_accessor :data
+  attr_reader :data, :upload_type
 
-  def initialize(data = nil)
+  def initialize(data = nil, upload_type = nil)
     @data = data
+    @upload_type = upload_type
   end
 
   def run
-    create_detectors
-    create_contacts
-    create_detector_locations
-    create_deployments
+    if upload_type == 'Site Metadata'
+      create_detectors
+      create_contacts
+      create_detector_locations
+      create_deployments
+    else
+      create_sonobat_output
+    end
   end
 
   private
@@ -413,5 +418,69 @@ class CommitUpload
       end
 
     result
+  end
+
+  def create_sonobat_output
+    location_identifiers = data['ParentDir'].map { |i| i.split('_')[1..-1].join('_') }
+    detector_locations = location_identifiers.uniq.to_h { |i| [i, DetectorLocation.find_by(location_identifier: i)] }
+
+    deployments = {}
+    detector_locations.map { |key, value| deployments[key] = value.deployments }
+
+    sonobat_outputs = []
+
+    data.each_with_index do |line, index|
+      # TODO: handle multiple records and clean the data during seeding so this works
+      # current_deployment =
+      #   if deployments[location_identifiers[index]].one?
+      #     deployments[location_identifiers[index]]
+      #   else
+      #     deployments[location_identifiers[index]]
+      #   end
+
+      sonobat_outputs.push(
+        {
+          night: line['MonitoringNight'],
+          filename: line['Filename'],
+          hi_f: line['HiF'],
+          lo_f: line['LoF'],
+          spp_accp: line['SppAccp'],
+          prob: line['Prob'],
+          maj: line['#Maj'],
+          accp: line['#Accp'],
+          spp: line['~Spp'],
+          tilde_prob: line['~Prob'],
+          fc_mean: line['Fc mean'],
+          fc_std_dev: line['Fc StdDev'],
+          dur_mean: line['Dur mean'],
+          dur_std_dev: line['Dur StdDev'],
+          calls_per_sec: line['calls/sec'],
+          mean_hi_freq: line['mean HiFreq'],
+          mean_lo_freq: line['mean LoFreq'],
+          mean_uppr_slp: line['mean UpprSlp'],
+          mean_lwr_slp: line['mean LwrSlp'],
+          mean_total_slp: line['mean TotalSlp'],
+          mean_preceding_intvl: line['mean PrecedingIntvl'],
+          first: line['1st'],
+          second: line['2nd'],
+          third: line['3rd'],
+          fourth: line['4th'],
+          parent_dir: line['ParentDir'],
+          next_dir_up: line['NextDirUp'],
+          file_length: line['FileLength(sec)'],
+          version: line['Version'],
+          filter: line['Filter'],
+          accp_quality: line['AccpQuality'],
+          accp_qual_for_tally: line['AccpQualForTally'],
+          max_calls_considered: line['Max#CallsConsidered'],
+          manual_idspp1: line['Species Manual ID'],
+          manual_idspp2: line['User|ManualIDSpp2'],
+          notes: line['User|Comments'],
+          deployment_id: deployments[location_identifiers[index]]
+        }
+      )
+    end
+
+    SonobatOutput.insert_all!(sonobat_outputs)
   end
 end

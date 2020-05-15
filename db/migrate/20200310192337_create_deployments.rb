@@ -25,8 +25,8 @@ class CreateDeployments < ActiveRecord::Migration[6.0]
       t.string :max_length, default: '00:05'
       t.string :compression, default: 'none'
 
-      t.datetime :deployment_date
-      t.datetime :recovery_date
+      t.date :deployment_date
+      t.date :recovery_date
       t.datetime :recording_start
       t.datetime :recording_stop
 

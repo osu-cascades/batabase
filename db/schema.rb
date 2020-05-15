@@ -250,7 +250,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_053925) do
 
   create_table "uploads", force: :cascade do |t|
     t.string "filename"
-    t.string "data"
+    t.text "data"
     t.string "upload_type"
   end
 

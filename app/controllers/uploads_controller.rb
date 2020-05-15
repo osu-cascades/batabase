@@ -21,13 +21,16 @@ class UploadsController < ApplicationController
     upload_type = params[:upload][:upload_type]
     upload_data = params[:upload][:data]
 
-    unless upload_data.content_type.starts_with? 'text/'
-      render(:new)
-      return
+    data = ''
+
+    if upload_data.content_type == 'text/csv'
+      CSV.read(upload_data.path).each { |line| data += CSV.generate_line(line) }
+    else
+      CSV.read(upload_data.path, col_sep: "\t").each { |line| data += CSV.generate_line(line) }
     end
 
     @upload = Upload.create(
-      data: File.read(upload_data.path),
+      data: data,
       filename: upload_data.original_filename,
       upload_type: upload_type
     )

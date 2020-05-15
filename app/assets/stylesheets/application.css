@@ -4,8 +4,17 @@
   *= require datagrid
 */
 
+.fixed-header {
+  flex: 1;
+  overflow: auto;
+}
+
 .fill-viewport {
-  flex-flow: column;
+  height: 100%;
+}
+
+.main-container {
   display: flex;
+  flex-direction: column;
   height: 100%;
 }

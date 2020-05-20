@@ -8,6 +8,7 @@ RSpec.describe 'Contacts Flow', type: :system do
   context 'Contacts' do
     before :each do
       sign_in user
+      create(:contact)
     end
 
     it 'A user can view all the contacts' do
@@ -15,7 +16,7 @@ RSpec.describe 'Contacts Flow', type: :system do
       click_button 'Contacts'
       click_on 'View Contacts'
 
-      expect(page).to have_css('table.contacts_grid')
+      expect(page).to have_content('FAKE FIRST NAME')
     end
 
     it 'A user can visit a page to add contacts' do
@@ -27,9 +28,6 @@ RSpec.describe 'Contacts Flow', type: :system do
     end
 
     it 'A user can add a new contact' do
-      create(:organization, name: 'OSU')
-      create(:state, name: 'Oregon', abbreviation: 'OR')
-
       visit home_index_path
       click_button 'Contacts'
       click_on 'Add Contact'
@@ -37,25 +35,14 @@ RSpec.describe 'Contacts Flow', type: :system do
       fill_in 'First name', with: 'FAKE FIRST NAME'
       fill_in 'Last name', with: 'FAKE LAST NAME'
       fill_in 'Notes', with: 'SOME FAKE NOTES THAT GO TO GREAT LENGTH.'
-      select 'Oregon', from: 'State'
-      select 'OSU', from: 'Organization'
+      select 'FAKE NAME', from: 'State'
+      select 'FAKE NAME', from: 'Organization'
 
       click_button 'Create Contact'
-      expect(page).to have_content('FAKE FIRST NAME')
+      expect(page).to have_content('SOME FAKE NOTES THAT GO TO GREAT LENGTH.')
     end
 
     it 'A user can delete an existing contact' do
-      fake_state = create(:state, name: 'Oregon', abbreviation: 'OR')
-      fake_organization = create(:organization, name: 'OSU')
-      create(
-        :contact,
-        first_name: 'FAKE FIRST',
-        last_name: 'FAKE LAST',
-        notes: 'SOME FAKE NOTES',
-        state_id: fake_state.id,
-        organization_id: fake_organization.id
-      )
-
       visit contacts_path
 
       expect(page).to have_content('FAKE FIRST')
@@ -66,17 +53,6 @@ RSpec.describe 'Contacts Flow', type: :system do
     end
 
     it 'A user can edit/update an existing contact' do
-      fake_state = create(:state, name: 'Oregon', abbreviation: 'OR')
-      fake_organization = create(:organization, name: 'OSU')
-      create(
-        :contact,
-        first_name: 'FAKE FIRST',
-        last_name: 'FAKE LAST',
-        notes: 'SOME FAKE NOTES',
-        state_id: fake_state.id,
-        organization_id: fake_organization.id
-      )
-
       visit contacts_path
 
       click_on 'Edit'
@@ -92,22 +68,11 @@ RSpec.describe 'Contacts Flow', type: :system do
     end
 
     it 'A user can export all of the Contact records to an excel file' do
-      fake_state = create(:state, name: 'Oregon', abbreviation: 'OR')
-      fake_organization = create(:organization, name: 'OSU')
-      create(
-        :contact,
-        first_name: 'FAKE FIRST',
-        last_name: 'FAKE LAST',
-        notes: 'SOME FAKE NOTES',
-        state_id: fake_state.id,
-        organization_id: fake_organization.id
-      )
-
       visit home_index_path
       click_button 'Contacts'
       click_on 'Export Contacts to Excel'
 
-      expect(page.response_headers["Content-Disposition"]).to be("attachment; filename=contacts.xlsx")
+      expect(page.response_headers['Content-Disposition']).to be('attachment; filename=contacts.xlsx')
     end
   end
 end

@@ -3,10 +3,13 @@
 require 'csv'
 
 class ContactsController < ApplicationController
+  include ContactsHelper
+
   rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
 
   def index
-    @contacts_grid = ContactsGrid.new(params[:contacts_grid])
+    @search = ransack_params
+    @contacts = ransack_result
   end
 
   def new
@@ -14,7 +17,7 @@ class ContactsController < ApplicationController
     @model = @contact
 
     organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
-    states = CSV.read(Rails.root.join('db/seed_data/states.csv')).to_h
+    states = State.all.map { |state| [state.name, state.abbreviation] }.to_h
 
     @fields = [
       { type: :text_field, name: :first_name, options: {} },
@@ -127,5 +130,13 @@ class ContactsController < ApplicationController
   def invalid_foreign_key(exception)
     redirect_to contacts_path, alert: "DELETE CANCELED: #{exception}"
     nil
+  end
+
+  def ransack_params
+    Contact.includes(:organization).ransack(params[:q])
+  end
+
+  def ransack_result
+    @search.result.page(params[:page])
   end
 end

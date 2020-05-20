@@ -60,6 +60,9 @@ gem 'humanize'
 # Used for paginating table outputs
 gem 'kaminari'
 
+# Used for sorting and querying 
+gem 'ransack', github: 'activerecord-hackery/ransack'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

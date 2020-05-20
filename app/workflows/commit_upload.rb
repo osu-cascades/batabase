@@ -22,30 +22,20 @@ class CommitUpload
   private
 
   def create_detectors
-    organization_names = {
-      'Oregon State University-Cascades' => 'OSU',
-      'National Park Service' => 'NPS',
-      'Oregon Department of Fish and Wildlife' => 'ODFW',
-      'Bureau of Land Management' => 'BLM',
-      'United States Forest Service' => 'USFS'
-    }
-
-    organization_names.default = 'Other'
+    organization_names = Detector::ORGANIZATION_NAMES
 
     data.each do |row|
       current_serial_number = row['Detector Serial No.']
-
       next if current_serial_number.nil?
 
       existing_detector = Detector.find_by(serial_number: current_serial_number)
-
       next unless existing_detector.nil?
 
       current_firmware = 'Unknown' # can be backfilled later when uploading audio metadata
 
       current_detector_model = row['Detector Model'].split
 
-      current_actual_model = current_detector_model.pop
+      current_model = current_detector_model.pop
       current_manufacturer = current_detector_model.join(' ')
 
       current_organization_name = row['Deployment Agency']
@@ -57,7 +47,7 @@ class CommitUpload
       Detector.create!(
         firmware: current_firmware,
         serial_number: current_serial_number,
-        model: current_actual_model,
+        model: current_model,
         manufacturer: current_manufacturer,
         organization_id: current_organization.id
       )
@@ -112,42 +102,8 @@ class CommitUpload
   end
 
   def create_detector_locations
-    local_habitat_names = {
-      'mixedconifer' => 'mixed conifer',
-      'dryconifer' => 'dry conifer',
-      'alpineforest' => 'alpine forest',
-      'mesicforest' => 'mesic forest',
-      'urban' => 'urban',
-      'agriculture' => 'agriculture',
-      'grassland' => 'grassland',
-      'shrub-steppe' => 'shrub-steppe'
-    }
-
-    target_descriptor_names = {
-      'river' => 'river',
-      'stream' => 'stream',
-      'spring' => 'spring',
-      'lake' => 'lake',
-      'pond' => 'pond',
-      'wetland' => 'wetland',
-      'stocktank/trough' => 'stocktank/trough',
-      'largecanyonbottom' => 'large canyon bottom',
-      'largecanyontop' => 'large canyon top',
-      'smallarroyodrygulchbottom' => 'small arroyo dry gulch bottom',
-      'smallarroyodrygulchtop' => 'small arroyo dry gulch top',
-      'ridgetop' => 'ridge top',
-      'cliffbottom' => 'cliff bottom',
-      'clifftop' => 'cliff top',
-      'large' => 'large',
-      'medium' => 'medium',
-      'small' => 'small',
-      'oldyoungforest' => 'old young forest',
-      'forestopenland' => 'forest open land',
-      'smallgap' => 'small gap',
-      'trail' => 'trail',
-      'roadway' => 'roadway',
-      'other' => 'other'
-    }
+    local_habitat_names = DetectorLocation::LOCAL_HABITAT_NAMES
+    target_descriptor_names = DetectorLocation::TARGET_DESCRIPTOR_NAMES
 
     data.each do |row|
       next if row['Location ID (Sample Unit + Unique Identifier (e.x "NE1")'].nil?
@@ -252,7 +208,7 @@ class CommitUpload
         end
       end
 
-      current_distance_range_label = convert_distance_to_clutter_to_distance_range(row['Distance to Clutter (m)'].to_i)
+      current_distance_range_label = Deployment.distance_to_distance_range(row['Distance to Clutter (m)'].to_i)
       current_distance_range = DistanceRange.find_by(label: current_distance_range_label)
 
       current_clutter_category = row['Clutter Category']
@@ -270,13 +226,13 @@ class CommitUpload
 
       next if current_deployment_date_string.nil?
 
-      current_deployment_date = convert_string_date_to_datetime(row['Deployment Date'])
+      current_deployment_date = field_to_datetime(row['Deployment Date'])
 
       current_recovery_date_string = row['Recovery Date']
 
       next if current_recovery_date_string.nil?
 
-      current_recovery_date = convert_string_date_to_datetime(row['Recovery Date'])
+      current_recovery_date = field_to_datetime(row['Recovery Date'])
 
       current_primary_contact_name = row['Deployment Contact'].split
       current_primary_contact = Contact.find_by(first_name: current_primary_contact_name[0])
@@ -353,71 +309,23 @@ class CommitUpload
   end
 
   # Just a helper to convert the fields to correct type
-  def convert_string_date_to_datetime(string_date)
-    date_list = string_date.split(' ')
+  def field_to_datetime(string_date)
+    date_time = string_date.split(' ')
 
-    date_vals = date_list[0].split('/')
+    date = date_time.first.split('/')
 
-    time_vals = date_list[1].split(':')
+    time = date_time.last.split(':')
 
     datetime = DateTime.new(
-      date_vals[2].to_i,
-      date_vals[0].to_i,
-      date_vals[1].to_i,
-      time_vals[0].to_i,
-      time_vals[1].to_i,
+      date[2].to_i,
+      date[0].to_i,
+      date[1].to_i,
+      time[0].to_i,
+      time[1].to_i,
       0
     )
 
     datetime
-  end
-
-  def convert_distance_to_clutter_to_distance_range(distance)
-    result =
-      case distance
-      when 0..4
-        '< 5m'
-      when 5
-        '5m'
-      when 6..9
-        '5-10m'
-      when 10
-        '10m'
-      when 11..14
-        '10-15m'
-      when 15
-        '15m'
-      when 16..19
-        '15-20m'
-      when 20
-        '20m'
-      when 21..29
-        '20-30m'
-      when 30..40
-        '30-40m'
-      when 41..49
-        '40-50m'
-      when 50
-        '50m'
-      when 51 - 60
-        '50-60m'
-      when 61..70
-        '60-70m'
-      when 75
-        '75m'
-      when 71..80
-        '70-80m'
-      when 81..90
-        '80-90m'
-      when 100
-        '100m'
-      when distance > 100
-        '> 100m'
-      else
-        'Unknown'
-      end
-
-    result
   end
 
   def create_sonobat_output
@@ -425,7 +333,7 @@ class CommitUpload
     detector_locations = location_identifiers.uniq.to_h { |i| [i, DetectorLocation.find_by(location_identifier: i)] }
 
     deployments = {}
-    detector_locations.map { |key, value| deployments[key] = value.deployments }
+    detector_locations.each_pair { |key, value| deployments[key] = value.deployments }
 
     sonobat_outputs = []
 

@@ -11,10 +11,21 @@
             <%= tag.legend 'Sonobat Output' %>
             <%= tag.ul do %>
               <% @fields.each do |field| %>
+                <% next if field.class == Array %>
+                <% current = (field.to_s + '_cont').to_sym %>
                 <%= tag.li do %>
                   <%= f.label (field.to_s + '_cont').to_sym %>
                   <%= f.text_field (field.to_s + '_cont').to_sym %>
                 <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <%= tag.fieldset do %>
+            <%= tag.legend "Deployment's Location Identifier and Agency" %>
+            <%= tag.ul do %>
+              <%= tag.li do %>
+                <%= f.label "Deployment ID" %>
+                <%= f.number_field :deployment_id_cont %>
               <% end %>
             <% end %>
           <% end %>

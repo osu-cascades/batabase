@@ -1,8 +1,84 @@
 # frozen_string_literal: true
 
 class SonobatOutputsController < ApplicationController
-  FIELDS = [:night, :filename, :hi_f, :lo_f, :spp_accp, :prob, :maj, :accp, :spp, :tilde_prob, :fc_mean, :fc_std_dev, :dur_mean, :dur_std_dev, :calls_per_sec, :mean_hi_freq, :mean_lo_freq, :mean_uppr_slp, :mean_lwr_slp, :mean_total_slp, :mean_preceding_intvl, :first, :second, :third, :fourth, :parent_dir, :next_dir_up, :file_length, :version, :filter, :accp_quality, :accp_qual_for_tally, :max_calls_considered, :manual_idspp1, :manual_idspp2, :notes].freeze
-  HEADERS = [:night, :filename, :hi_f, :lo_f, :spp_accp, :prob, :maj, :accp, :spp, :tilde_prob, :fc_mean, :fc_std_dev, :dur_mean, :dur_std_dev, :calls_per_sec, :mean_hi_freq, :mean_lo_freq, :mean_uppr_slp, :mean_lwr_slp, :mean_total_slp, :mean_preceding_intvl, :first, :second, :third, :fourth, :parent_dir, :next_dir_up, :file_length, :version, :filter, :accp_quality, :accp_qual_for_tally, :max_calls_considered, :manual_idspp1, :manual_idspp2, :notes].freeze
+  FIELDS = [
+    [:deployment_id],
+    :night,
+    :filename,
+    :hi_f,
+    :lo_f,
+    :spp_accp,
+    :prob,
+    :maj,
+    :accp,
+    :spp,
+    :tilde_prob,
+    :fc_mean,
+    :fc_std_dev,
+    :dur_mean,
+    :dur_std_dev,
+    :calls_per_sec,
+    :mean_hi_freq,
+    :mean_lo_freq,
+    :mean_uppr_slp,
+    :mean_lwr_slp,
+    :mean_total_slp,
+    :mean_preceding_intvl,
+    :first,
+    :second,
+    :third,
+    :fourth,
+    :parent_dir,
+    :next_dir_up,
+    :file_length,
+    :version,
+    :filter,
+    :accp_quality,
+    :accp_qual_for_tally,
+    :max_calls_considered,
+    :manual_idspp1,
+    :manual_idspp2,
+    :notes
+  ].freeze
+  HEADERS = [
+    'Deployment ID',
+    :night,
+    :filename,
+    :hi_f,
+    :lo_f,
+    :spp_accp,
+    :prob,
+    :maj,
+    :accp,
+    :spp,
+    :tilde_prob,
+    :fc_mean,
+    :fc_std_dev,
+    :dur_mean,
+    :dur_std_dev,
+    :calls_per_sec,
+    :mean_hi_freq,
+    :mean_lo_freq,
+    :mean_uppr_slp,
+    :mean_lwr_slp,
+    :mean_total_slp,
+    :mean_preceding_intvl,
+    :first,
+    :second,
+    :third,
+    :fourth,
+    :parent_dir,
+    :next_dir_up,
+    :file_length,
+    :version,
+    :filter,
+    :accp_quality,
+    :accp_qual_for_tally,
+    :max_calls_considered,
+    :manual_idspp1,
+    :manual_idspp2,
+    :notes
+  ].freeze
 
   rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
 
@@ -115,7 +191,7 @@ class SonobatOutputsController < ApplicationController
   end
 
   def ransack_params
-    SonobatOutput.ransack(params[:q])
+    SonobatOutput.includes(:deployment).ransack(params[:q])
   end
 
   def ransack_result

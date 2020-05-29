@@ -1,8 +1,65 @@
 # frozen_string_literal: true
 
 class DeploymentsController < ApplicationController
-  FIELDS = [:comments, :microphone_height_off_ground, :microphone_orientation, :sampling_frequency, :pre_trigger, :recording_length, :hp_filter, :auto_record, :trigger_sensitivity, :input_gain, :trigger_level, :interval, :gain, :sixteen_thousand_high_filter, :sample_rate, :min_duration, :max_duration, :min_trigger_frequency, :trigger_window, :max_length, :compression, :deployment_date, :recovery_date, :recording_start, :recording_stop].freeze
-  HEADERS = [:comments, :microphone_height_off_ground, :microphone_orientation, :sampling_frequency, :pre_trigger, :recording_length, :hp_filter, :auto_record, :trigger_sensitivity, :input_gain, :trigger_level, :interval, :gain, :sixteen_thousand_high_filter, :sample_rate, :min_duration, :max_duration, :min_trigger_frequency, :trigger_window, :max_length, :compression, :deployment_date, :recovery_date, :recording_start, :recording_stop].freeze
+  FIELDS = [
+    [:detector_location, :location_identifier],
+    [:detector_location, :land_ownership],
+    :comments,
+    :microphone_height_off_ground,
+    :microphone_orientation,
+    :sampling_frequency,
+    :pre_trigger,
+    :recording_length,
+    :hp_filter,
+    :auto_record,
+    :trigger_sensitivity,
+    :input_gain,
+    :trigger_level,
+    :interval,
+    :gain,
+    :sixteen_thousand_high_filter,
+    :sample_rate,
+    :min_duration,
+    :max_duration,
+    :min_trigger_frequency,
+    :trigger_window,
+    :max_length,
+    :compression,
+    :deployment_date,
+    :recovery_date,
+    :recording_start,
+    :recording_stop
+  ].freeze
+
+  HEADERS = [
+    'Location Identifier',
+    'Agency',
+    :comments,
+    :microphone_height_off_ground,
+    :microphone_orientation,
+    :sampling_frequency,
+    :pre_trigger,
+    :recording_length,
+    :hp_filter,
+    :auto_record,
+    :trigger_sensitivity,
+    :input_gain,
+    :trigger_level,
+    :interval,
+    :gain,
+    :sixteen_thousand_high_filter,
+    :sample_rate,
+    :min_duration,
+    :max_duration,
+    :min_trigger_frequency,
+    :trigger_window,
+    :max_length,
+    :compression,
+    :deployment_date,
+    :recovery_date,
+    :recording_start,
+    :recording_stop
+  ].freeze
 
   rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
 
@@ -114,7 +171,7 @@ class DeploymentsController < ApplicationController
   end
 
   def ransack_params
-    Deployment.ransack(params[:q])
+    Deployment.includes(:detector_location).ransack(params[:q])
   end
 
   def ransack_result

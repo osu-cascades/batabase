@@ -2,9 +2,12 @@
 
 class SonobatOutputsController < ApplicationController
   FIELDS = [
-    [:deployment_id],
+    [:deployment, :detector_location, :location_identifier],
     :night,
     :filename,
+    :manual_idspp1,
+    :manual_idspp2,
+    :notes,
     :hi_f,
     :lo_f,
     :spp_accp,
@@ -35,15 +38,15 @@ class SonobatOutputsController < ApplicationController
     :filter,
     :accp_quality,
     :accp_qual_for_tally,
-    :max_calls_considered,
-    :manual_idspp1,
-    :manual_idspp2,
-    :notes
+    :max_calls_considered
   ].freeze
   HEADERS = [
-    'Deployment ID',
+    'Location Identifier',
     :night,
     :filename,
+    :manual_idspp1,
+    :manual_idspp2,
+    :notes,
     :hi_f,
     :lo_f,
     :spp_accp,
@@ -74,10 +77,7 @@ class SonobatOutputsController < ApplicationController
     :filter,
     :accp_quality,
     :accp_qual_for_tally,
-    :max_calls_considered,
-    :manual_idspp1,
-    :manual_idspp2,
-    :notes
+    :max_calls_considered
   ].freeze
 
   rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key

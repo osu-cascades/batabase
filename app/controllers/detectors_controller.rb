@@ -1,123 +1,93 @@
 # frozen_string_literal: true
 
 class DetectorsController < ApplicationController
+  FIELDS = [:firmware, :manufacturer, :model, :serial_number, [:organization, :name]].freeze
+  HEADERS = [:firmware, :manufacturer, :model, :serial_number, 'Organization'].freeze
+
   rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
 
   def index
-    @detectors_grid = DetectorsGrid.new(params[:detectors_grid])
+    @fields = FIELDS
+    @headers = HEADERS
+    @helpers = helpers
+    @search = ransack_params
+    @detectors = ransack_result
   end
 
   def new
     @detector = Detector.new
     @model = @detector
-
-    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
-
-    @fields = [
-      { type: :text_field, name: :firmware, options: {} },
-      { type: :text_field, name: :manufacturer, options: {} },
-      { type: :text_field, name: :model, options: {} },
-      { type: :text_field, name: :serial_number, options: {} },
-      { type: :select, name: :organization, options: organization_names }
-    ]
-
+    @fields = fetch_form_fields
     @header_text = 'Create Detector'
   end
 
   def create
-    detector_firmware = params[:detector][:firmware]
-    detector_manufacturer = params[:detector][:manufacturer]
-    detector_model = params[:detector][:model]
-    detector_serial_number = params[:detector][:serial_number]
-    detector_owners_organization_name = params[:detector][:organization]
-
-    detectors_organization = Organization.find_by(name: detector_owners_organization_name)
-
-    @detector = Detector.create(
-      firmware: detector_firmware,
-      manufacturer: detector_manufacturer,
-      model: detector_model,
-      serial_number: detector_serial_number,
-      organization_id: detectors_organization.id
-    )
+    # TODO: permit these
+    @detector = Detector.create(params[:detector].to_unsafe_h)
 
     if @detector.errors.any?
       redirect_to detectors_path, alert: @detector.errors.messages
-      return
+    else
+      redirect_to detectors_path, notice: 'Detector Successfully Added'
     end
-
-    redirect_to detectors_path, notice: 'Detector Successfuly Added'
-    nil
   end
 
   def edit
     @detector = Detector.find(params[:id])
     @model = @detector
-
-    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
-    selected_organization = { "#{@detector.owner}": @detector.owner.to_s }
-
-    @fields = [
-      { type: :text_field, name: :firmware, options: {} },
-      { type: :text_field, name: :manufacturer, options: {} },
-      { type: :text_field, name: :model, options: {} },
-      { type: :text_field, name: :serial_number, options: {} },
-      { type: :select, name: :owner, options: selected_organization.merge(organization_names) }
-    ]
-
+    @fields = fetch_form_fields(@detector.organization_id)
     @header_text = 'Update Detector'
   end
 
   def update
-    detector_firmware = params[:detector][:firmware]
-    detector_manufacturer = params[:detector][:manufacturer]
-    detector_model = params[:detector][:model]
-    detector_serial_number = params[:detector][:serial_number]
-    detector_owners_organization_name = params[:detector][:owner]
+    # TODO: permit these
+    update_success = Detector.find(params[:id]).update(params[:detector].to_unsafe_h)
 
-    detector_to_update = Detector.find(params[:id])
-
-    owning_organization = Organization.find_by(name: detector_owners_organization_name)
-
-    detector_to_update.update(
-      firmware: detector_firmware,
-      manufacturer: detector_manufacturer,
-      model: detector_model,
-      serial_number: detector_serial_number,
-      organization_id: owning_organization.id
-    )
-
-    if detector_to_update.errors.any?
-      redirect_to detectors_path, alert: detector_to_update.errors.messages
-      return
+    if !update_success
+      redirect_to detectors_path, alert: 'Detector Failed to Update'
+    else
+      redirect_to detectors_path, notice: 'Detector Successfully Updated'
     end
-
-    redirect_to detectors_path, notice: 'Detector Successfully Updated'
-    nil
   end
 
   def destroy
     @detector = Detector.destroy(params[:id])
     redirect_to detectors_path, notice: 'Detector Successfully Deleted'
-    nil
   end
 
   def export
     @detectors = Detector.all
     respond_to do |format|
-      format.xlsx {
+      format.xlsx do
         response.headers[
           'Content-Disposition'
-        ] = "attachment; filename=detectors.xlsx"
-      }
+        ] = 'attachment; filename=detectors.xlsx'
+      end
       format.html { render :index }
     end
   end
 
   private
 
+  def fetch_form_fields(organization = 1)
+    [
+      { type: :text_field, name: :firmware, options: {} },
+      { type: :text_field, name: :manufacturer, options: {} },
+      { type: :text_field, name: :model, options: {} },
+      { type: :text_field, name: :serial_number, options: {} },
+      { type: :select, name: :organization_id, options: helpers.options_from_collection_for_select(Organization.all, 'id', 'name', organization) }
+    ]
+  end
+
   def invalid_foreign_key(exception)
     redirect_to detectors_path, alert: "DELETE CANCELED:  #{exception}"
-    nil
+  end
+
+  def ransack_params
+    Detector.includes(:organization).ransack(params[:q])
+  end
+
+  def ransack_result
+    @search.result.page(params[:page])
   end
 end

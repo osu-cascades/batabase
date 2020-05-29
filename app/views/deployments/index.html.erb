@@ -1,4 +1,29 @@
-<div class="d-flex flex-row fixed-header">
-  <%= datagrid_form_for @deployments_grid, url: deployments_path %>
-  <%= datagrid_table(@deployments_grid) %>
+<div class="d-flex fixed-header p-3">
+  <%# TODO: turn this into a generic component %>
+  <div class="col-auto">
+    <div class="card bg-light">
+      <div class="card-header">
+        <%= tag.h1 'Search Sonobat Outputs' %>
+      </div>
+      <div class="card-body">
+        <%= search_form_for @search do |f| %>
+          <%= tag.fieldset do %>
+            <%= tag.legend 'Sonobat Output' %>
+            <%= tag.ul do %>
+              <% @fields.each do |field| %>
+                <%= tag.li do %>
+                  <%= f.label (field.to_s + '_cont').to_sym %>
+                  <%= f.text_field (field.to_s + '_cont').to_sym %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <%= f.submit class: 'btn btn-dark' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-column align-items-center">
+    <%= render(TableComponent.new(@fields, @headers, @helpers, @deployments, @search)) %>
+  </div>
 </div>

@@ -7,6 +7,7 @@ RSpec.describe 'Sonobat Output Flows', type: :system do
 
   before :each do
     sign_in user
+    create(:sonobat_output)
   end
 
   context 'Index' do
@@ -15,7 +16,7 @@ RSpec.describe 'Sonobat Output Flows', type: :system do
       click_button 'Sonobat Outputs'
       click_on 'View Sonobat Outputs'
 
-      expect(page).to have_css('table.sonobat_outputs_grid')
+      expect(page).to have_content('FAKE CALLS PER SEC')
     end
   end
 
@@ -29,6 +30,8 @@ RSpec.describe 'Sonobat Output Flows', type: :system do
     end
 
     it 'A user can add a new sonobat output' do
+      SonobatOutput.destroy_all
+
       fake_deployment = create(:deployment)
 
       visit home_index_path
@@ -50,7 +53,6 @@ RSpec.describe 'Sonobat Output Flows', type: :system do
     end
 
     it 'A user can delete an existing sonobat output' do
-      create(:sonobat_output)
       visit sonobat_outputs_path
 
       expect(page).to have_content('FAKE SPP ACCP')
@@ -61,7 +63,6 @@ RSpec.describe 'Sonobat Output Flows', type: :system do
     end
 
     it 'A user can edit/update an existing sonobat output' do
-      create(:sonobat_output)
       visit sonobat_outputs_path
 
       click_on 'Edit'
@@ -77,8 +78,6 @@ RSpec.describe 'Sonobat Output Flows', type: :system do
     end
 
     it 'A user can export all Sonobat Output records to an excel file' do
-      create(:sonobat_output)
-
       visit home_index_path
       click_button 'Sonobat Outputs'
       click_on 'Export Sonobat Outputs to Excel'

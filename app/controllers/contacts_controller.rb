@@ -3,11 +3,15 @@
 require 'csv'
 
 class ContactsController < ApplicationController
-  include ContactsHelper
+  FIELDS = [:first_name, :last_name, :notes, [:organization, :name]].freeze
+  HEADERS = [:first_name, :last_name, :notes, 'Organization'].freeze
 
   rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
 
   def index
+    @fields = FIELDS
+    @headers = HEADERS
+    @helpers = helpers
     @search = ransack_params
     @contacts = ransack_result
   end
@@ -15,102 +19,42 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @model = @contact
-
-    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
-    states = State.all.map { |state| [state.name, state.abbreviation] }.to_h
-
-    @fields = [
-      { type: :text_field, name: :first_name, options: {} },
-      { type: :text_field, name: :last_name, options: {} },
-      { type: :text_area, name: :notes, options: {} },
-      { type: :select, name: :state, options: states },
-      { type: :select, name: :organization, options: organization_names }
-    ]
-
+    @fields = fetch_form_fields
     @header_text = 'Create Contact'
   end
 
   def create
-    first_name = params[:contact][:first_name]
-    last_name = params[:contact][:last_name]
-    notes = params[:contact][:notes]
-    state_abbreviation = params[:contact][:state]
-    organization_name = params[:contact][:organization]
-
-    state = State.find_by(abbreviation: state_abbreviation)
-    organization = Organization.find_by(name: organization_name)
-
-    @contact = Contact.create(
-      first_name: first_name,
-      last_name: last_name,
-      notes: notes,
-      state_id: state.id,
-      organization_id: organization.id
-    )
+    # TODO: permit these
+    @contact = Contact.create(params[:contact].to_unsafe_h)
 
     if @contact.errors.any?
       redirect_to contacts_path, alert: @contact.errors.messages
-      return
+    else
+      redirect_to contacts_path, notice: 'Contact Successfully Added'
     end
-
-    redirect_to contacts_path, notice: 'Contact Successfully Added'
-    nil
   end
 
   def edit
     @contact = Contact.find(params[:id])
     @model = @contact
-
-    states = CSV.read(Rails.root.join('db/seed_data/states.csv')).to_h
-    organization_names = Organization.all.map { |org| [org.name, org.name] }.to_h
-
-    selected_state = { "#{@contact.state.name}": @contact.state.abbreviation.to_s }
-    selected_organization = { "#{@contact.organization.name}": @contact.organization.name.to_s }
-
-    @fields = [
-      { type: :text_field, name: :first_name, options: {} },
-      { type: :text_field, name: :last_name, options: {} },
-      { type: :text_area, name: :notes, options: {} },
-      { type: :select, name: :state, options: selected_state.merge(states) },
-      { type: :select, name: :employer, options: selected_organization.merge(organization_names) }
-    ]
-
+    @fields = fetch_form_fields(@contact.organization_id, @contact.state_id)
     @header_text = 'Update Contact'
   end
 
   def update
-    first_name = params[:contact][:first_name]
-    last_name = params[:contact][:last_name]
-    notes = params[:contact][:notes]
-    state_abbreviation = params[:contact][:state]
-    organization_name = params[:contact][:employer]
+    # TODO: permit these
+    update_success = Contact.find(params[:id]).update(params[:contact].to_unsafe_h)
 
-    contact_to_update = Contact.find(params[:id])
-
-    state = State.find_by(abbreviation: state_abbreviation)
-    organization = Organization.find_by(name: organization_name)
-
-    contact_to_update.update(
-      first_name: first_name,
-      last_name: last_name,
-      notes: notes,
-      state_id: state.id,
-      organization_id: organization.id
-    )
-
-    if contact_to_update.errors.any?
-      redirect_to contacts_path, alert: contact_to_update.errors.messages
-      return
+    if !update_success
+      redirect_to contacts_path, alert: 'Contact Failed to Update'
+    else
+      redirect_to contacts_path, notice: 'Contact Successfully Updated'
     end
-
-    redirect_to contacts_path, notice: 'Contact Successfully Updated'
-    nil
   end
 
   def destroy
     @contact = Contact.destroy(params[:id])
     redirect_to contacts_path, notice: 'Contact Successfully Deleted'
-    nil
   end
 
   def export
@@ -127,9 +71,18 @@ class ContactsController < ApplicationController
 
   private
 
+  def fetch_form_fields(organization = 1, state = 1)
+    [
+      { type: :text_field, name: :first_name, options: {} },
+      { type: :text_field, name: :last_name, options: {} },
+      { type: :text_area, name: :notes, options: {} },
+      { type: :select, name: :state_id, options: helpers.options_from_collection_for_select(State.all, 'id', 'name', state) },
+      { type: :select, name: :organization_id, options: helpers.options_from_collection_for_select(Organization.all, 'id', 'name', organization) }
+    ]
+  end
+
   def invalid_foreign_key(exception)
     redirect_to contacts_path, alert: "DELETE CANCELED: #{exception}"
-    nil
   end
 
   def ransack_params

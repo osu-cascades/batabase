@@ -1,5 +1,5 @@
 <%= tag.table class: ['table', 'table-bordered'] do %>
   <%= tag.thead display_sort_column_headers(@search), escape_attributes: false %>
-  <%= tag.tbody display_search_results(@contacts), escape_attributes: false %>
+  <%= tag.tbody display_search_results(@object), escape_attributes: false %>
 <% end %>
-<%= paginate @contacts %>
+<%= paginate @object %>

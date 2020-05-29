@@ -1,35 +1,40 @@
-<div class="d-flex flex-column align-items-center fixed-header p-3">
-  <div class="card bg-light mb-3">
-    <div class="card-header">
-      <%= tag.h1 'Search Contacts' %>
-    </div>
-    <div class="card-body">
-      <%= search_form_for @search do |f| %>
-        <%= tag.fieldset do %>
-          <%= tag.legend 'Contact' %>
-          <%= tag.ul do %>
-            <%= tag.li do %>
-              <%= f.label :first_name_or_last_name_cont %>
-              <%= f.text_field :first_name_or_last_name_cont %>
-            <% end %>
-            <%= tag.li do %>
-              <%= f.label :notes_cont %>
-              <%= f.text_field :notes_cont %>
-            <% end %>
-          <% end %>
-        <% end %>
-        <%= tag.fieldset do %>
-          <%= tag.legend "Contact's Organization" %>
-          <%= tag.ul do %>
-            <%= tag.li do %>
-              <%= f.label :organization_name_cont %>
-              <%= f.text_field :organization_name_cont %>
+<div class="d-flex fixed-header p-3">
+  <%# TODO: turn this into a generic component %>
+  <div class="col-auto">
+    <div class="card bg-light">
+      <div class="card-header">
+        <%= tag.h1 'Search Contacts' %>
+      </div>
+      <div class="card-body">
+        <%= search_form_for @search do |f| %>
+          <%= tag.fieldset do %>
+            <%= tag.legend 'Contact' %>
+            <%= tag.ul do %>
+              <%= tag.li do %>
+                <%= f.label :first_name_or_last_name_cont %>
+                <%= f.text_field :first_name_or_last_name_cont %>
+              <% end %>
+              <%= tag.li do %>
+                <%= f.label :notes_cont %>
+                <%= f.text_field :notes_cont %>
+              <% end %>
             <% end %>
           <% end %>
+          <%= tag.fieldset do %>
+            <%= tag.legend "Contact's Organization" %>
+            <%= tag.ul do %>
+              <%= tag.li do %>
+                <%= f.label :organization_name_cont %>
+                <%= f.text_field :organization_name_cont %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <%= f.submit class: 'btn btn-dark' %>
         <% end %>
-        <%= f.submit class: 'btn btn-dark' %>
-      <% end %>
+      </div>
     </div>
   </div>
-  <%= render 'results' %>
+  <div class="d-flex flex-column align-items-center">
+    <%= render(TableComponent.new(@fields, @headers, @helpers, @contacts, @search)) %>
+  </div>
 </div>

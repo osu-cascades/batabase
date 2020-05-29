@@ -75,6 +75,14 @@ RSpec.describe Contact, type: :model do
   end
 
   describe 'Contact Functionality' do
+    it 'Can return the full name of a contact' do
+      expect(contact.full_name).to eq(contact.first_name + ' ' + contact.last_name)
+    end
+
+    it 'Can return the formal full name of a contact' do
+      expect(contact.formal_full_name).to eq(contact.last_name + ', ' + contact.first_name)
+    end
+
     context 'Organization Interactions' do
       it 'A contact can fetch the organization associated with it' do
         expect(contact.organization.class).to be(Organization)

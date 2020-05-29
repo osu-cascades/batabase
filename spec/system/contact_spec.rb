@@ -19,7 +19,7 @@ RSpec.describe 'Contacts Flow', type: :system do
       expect(page).to have_content('FAKE FIRST NAME')
     end
 
-    it 'A user can visit a page to add contacts' do
+    it 'A user can visit the page to add contacts' do
       visit home_index_path
       click_button 'Contacts'
       click_on 'Add Contact'
@@ -28,28 +28,32 @@ RSpec.describe 'Contacts Flow', type: :system do
     end
 
     it 'A user can add a new contact' do
+      Contact.destroy_all
+
       visit home_index_path
       click_button 'Contacts'
       click_on 'Add Contact'
 
-      fill_in 'First name', with: 'FAKE FIRST NAME'
-      fill_in 'Last name', with: 'FAKE LAST NAME'
-      fill_in 'Notes', with: 'SOME FAKE NOTES THAT GO TO GREAT LENGTH.'
+      FactoryBot.attributes_for(:contact).each_pair do |key, value|
+        fill_in key.to_s.capitalize.split('_').join(' '), with: value
+      end
+
       select 'FAKE NAME', from: 'State'
       select 'FAKE NAME', from: 'Organization'
 
       click_button 'Create Contact'
-      expect(page).to have_content('SOME FAKE NOTES THAT GO TO GREAT LENGTH.')
+
+      expect(page).to have_content('FAKE FIRST NAME')
     end
 
     it 'A user can delete an existing contact' do
       visit contacts_path
 
-      expect(page).to have_content('FAKE FIRST')
+      expect(page).to have_content('FAKE FIRST NAME')
 
       click_on 'Delete'
 
-      expect(page).not_to have_content('FAKE FIRST')
+      expect(page).not_to have_content('FAKE FIRST NAME')
     end
 
     it 'A user can edit/update an existing contact' do
@@ -59,15 +63,15 @@ RSpec.describe 'Contacts Flow', type: :system do
 
       expect(page).to have_content('Update Contact')
 
-      fill_in 'First name', with: 'DIFFERENT FIRST NAME'
+      fill_in 'First name', with: 'DIFFERENT FAKE FIRST NAME'
 
       click_button 'Update Contact'
 
       expect(page).not_to have_content('Update Contact')
-      expect(page).to have_content('DIFFERENT FIRST NAME')
+      expect(page).to have_content('DIFFERENT FAKE FIRST NAME')
     end
 
-    it 'A user can export all of the Contact records to an excel file' do
+    it 'A user can export all Contact records to an excel file' do
       visit home_index_path
       click_button 'Contacts'
       click_on 'Export Contacts to Excel'

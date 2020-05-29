@@ -3,12 +3,12 @@
   <div class="col-auto">
     <div class="card bg-light">
       <div class="card-header">
-        <%= tag.h1 'Search Sonobat Outputs' %>
+        <%= tag.h1 'Search Deployments' %>
       </div>
       <div class="card-body">
         <%= search_form_for @search do |f| %>
           <%= tag.fieldset do %>
-            <%= tag.legend 'Sonobat Output' %>
+            <%= tag.legend 'Deployment' %>
             <%= tag.ul do %>
               <% @fields.each do |field| %>
                 <%= tag.li do %>

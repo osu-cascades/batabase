@@ -59,5 +59,72 @@ Then in a view you can simply render the component as seen in `app/views/contact
 ```Ruby
 <%= render(CreateUpdateFormComponent.new(@model, @fields, @header_text)) %>
 ```
+### Ransack
+In order to allow the various tables to be queried from the front end, we used a rails gem called [Ransack](https://github.com/activerecord-hackery/ransack). Ransack is very extensible and allows the creation of powerful forms which allow table querying.
+
+For example here is the index view for Contacts at `app/views/contacts/index.html.erb` where there is a `search_form_for` helper:
+```Ruby
+<div class="d-flex fixed-header p-3">
+  <div class="col-auto">
+    <div class="card bg-light">
+      <div class="card-header">
+        <%= tag.h1 'Search Contacts' %>
+      </div>
+      <div class="card-body">
+        <%= search_form_for @search do |f| %>
+          <%= tag.fieldset do %>
+            <%= tag.legend 'Contact' %>
+            <%= tag.ul do %>
+              <%= tag.li do %>
+                <%= f.label :first_name_or_last_name_cont %>
+                <%= f.text_field :first_name_or_last_name_cont %>
+              <% end %>
+              <%= tag.li do %>
+                <%= f.label :notes_cont %>
+                <%= f.text_field :notes_cont %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <%= tag.fieldset do %>
+            <%= tag.legend "Contact's Organization" %>
+            <%= tag.ul do %>
+              <%= tag.li do %>
+                <%= f.label :organization_name_cont %>
+                <%= f.text_field :organization_name_cont %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <%= f.submit class: 'btn btn-dark' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-column align-items-center">
+    <%= render(TableComponent.new(@fields, @headers, @helpers, @contacts, @search)) %>
+  </div>
+</div>
+```
+
+Then in the controller for Contacts there are the methods that generate the params and results for the query:
+```Ruby
+def ransack_params
+  Contact.includes(:organization).ransack(params[:q])
+end
+
+def ransack_result
+  @search.result.page(params[:page])
+end
+```
+Which get called when the hitting the index controller action:
+```Ruby
+def index
+  @fields = FIELDS
+  @headers = HEADERS
+  @helpers = helpers
+  @search = ransack_params
+  @contacts = ransack_result
+end
+```
+Then the results can be passed into our table component to be rendered in the index view.
 
 &copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs. All rights reserved.

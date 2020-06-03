@@ -36,7 +36,7 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (for
 
 ## Data model
 
-Can be found ![here](erd.pdf)
+Can be found [here](erd.pdf)
 
 ## Libaries and Structure
 

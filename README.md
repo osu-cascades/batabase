@@ -44,7 +44,7 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 
 To construct some of the various views withint the application, we used GitHub's [ViewComponent](https://github.com/github/view_component) framework. Using the ViewComponent framework allows the creation of generic view components similar to the way React components work.
 
-For example here is the class for our generic form component used for updates and creation of new tables which lives at `app/components/create_update_form_component.rb`:
+For example here is the class for our generic form component used for updates and creation of new tables which lives at `app/components/form_component.rb`:
 
 ```Ruby
 class FormComponent < ApplicationComponent
@@ -56,7 +56,7 @@ class FormComponent < ApplicationComponent
 end
 ```
 
-And it's corresponding view template at `app/components/create_update_form_component.html.rb`:
+And it's corresponding view template at `app/components/form_component.html.rb`:
 
 ```Ruby
 <div class="container my-3">

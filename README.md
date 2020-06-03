@@ -6,7 +6,7 @@ Database of bat population data for the Northwestern Bat Hub.
 
 ### Requirements
 
-Below are requirements and their versions running this project locally. It is up to you to setup any required tools that you may need.
+Below are requirements and their versions running this project locally.
 
 - Postgresql: `10+`
 - Ruby: `2.6.5`
@@ -18,7 +18,7 @@ Below are requirements and their versions running this project locally. It is up
 - Set local ruby version either via rvm `rvm use ruby-2.6.5` or rbenv `rbenv local 2.6.5`
   - [rvm installation instructions](https://rvm.io/rvm/install)
   - [rbenv installation instructions](https://github.com/rbenv/rbenv#installation)
-- Install gems: `bundle install` (If this fails ensure you have bundler installed. Bundler 2+ suggested)
+- Install gems: `bundle install`
   - Install failed?
     - Ensure that you have postgresql installed and it is running
     - Check that you have `libpq-dev` installed. Try `sudo apt install libpq-dev` if on Debain/Ubuntu or use your respective package manager
@@ -32,11 +32,11 @@ Below are requirements and their versions running this project locally. It is up
 ### Test Coverage
 
 Batabase uses the [simplecov](https://github.com/colszowka/simplecov) gem to supply code coverage metrics.
-To view code coverage run the test suite by running `rspec` or `rspec -f d` (this one is personally preferred) and open `coverage/index.html` in a browser.
+To view code coverage run the test suite by running `rspec` or `rspec -f d` (for a detailed view) and open `coverage/index.html` in a browser.
 
 ## Data model
 
-![erd](erd.png?raw=true)
+Can be found ![here](erd.pdf)
 
 ## Libaries and Structure
 

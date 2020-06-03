@@ -8,7 +8,7 @@ Database of bat population data for the Northwestern Bat Hub.
 
 Below are requirements and their versions running this project locally. It is up to you to setup any required tools that you may need.
 
-- Postgresql: `10`
+- Postgresql: `10+`
 - Ruby: `2.6.5`
 - Repo: `git@github.com:osu-cascades/batabase.git`
 - Bundler: `2+`
@@ -16,8 +16,17 @@ Below are requirements and their versions running this project locally. It is up
 ### First Time Setup
 
 - Set local ruby version either via rvm `rvm use ruby-2.6.5` or rbenv `rbenv local 2.6.5`
+  - [rvm installation instructions](https://rvm.io/rvm/install)
+  - [rbenv installation instructions](https://github.com/rbenv/rbenv#installation)
 - Install gems: `bundle install` (If this fails ensure you have bundler installed. Bundler 2+ suggested)
-- Build the database: `rake db:create db:migrate db:seed` (If this fails ensure that you have a postgres database created for your \$USER account)
+  - Install failed?
+    - Ensure that you have postgresql installed and it is running
+    - Check that you have `libpq-dev` installed. Try `sudo apt install libpq-dev` if on Debain/Ubuntu or use your respective package manager
+- Build the database (Drop is included to ensure this command works later even after building): `rake db:drop db:create db:migrate db:seed`
+  - Rake task failed?
+    - Ensure that you have a user in postgresql that matches your local user
+      - Connect to running postgresql instance as default role: `sudo -u postgres psql`
+      - Create a user with your user name: `CREATE USER <YOUR USERNAME HERE> WITH SUPERUSER CREATEDB CREATEROLE LOGIN;`
 - Run the server: `rails s`
 
 ### Test Coverage
@@ -30,12 +39,15 @@ To view code coverage run the test suite by running `rspec` or `rspec -f d` (thi
 ![erd](erd.png?raw=true)
 
 ## Libaries and Structure
+
 ### GitHub Components
+
 To construct some of the various views withint the application, we used GitHub's [ViewComponent](https://github.com/github/view_component) framework. Using the ViewComponent framework allows the creation of generic view components similar to the way React components work.
 
 For example here is the class for our generic form component used for updates and creation of new tables which lives at `app/components/create_update_form_component.rb`:
+
 ```Ruby
-class CreateUpdateFormComponent < ApplicationComponent
+class FormComponent < ApplicationComponent
   def initialize(model, fields, header_text)
     @model = model
     @fields = fields
@@ -43,7 +55,9 @@ class CreateUpdateFormComponent < ApplicationComponent
   end
 end
 ```
+
 And it's corresponding view template at `app/components/create_update_form_component.html.rb`:
+
 ```Ruby
 <div class="container my-3">
   <h3><%= @header_text %></h3>
@@ -55,14 +69,19 @@ And it's corresponding view template at `app/components/create_update_form_compo
   <% end %>
 </div>
 ```
+
 Then in a view you can simply render the component as seen in `app/views/contacts/edit.html.erb`:
+
 ```Ruby
-<%= render(CreateUpdateFormComponent.new(@model, @fields, @header_text)) %>
+<%= render(FormComponent.new(@model, @fields, @header_text)) %>
 ```
+
 ### Ransack
+
 In order to allow the various tables to be queried from the front end, we used a rails gem called [Ransack](https://github.com/activerecord-hackery/ransack). Ransack is very extensible and allows the creation of powerful forms which allow table querying.
 
 For example here is the index view for Contacts at `app/views/contacts/index.html.erb` where there is a `search_form_for` helper:
+
 ```Ruby
 <div class="d-flex fixed-header p-3">
   <div class="col-auto">
@@ -106,6 +125,7 @@ For example here is the index view for Contacts at `app/views/contacts/index.htm
 ```
 
 Then in the controller for Contacts there are the methods that generate the params and results for the query:
+
 ```Ruby
 def ransack_params
   Contact.includes(:organization).ransack(params[:q])
@@ -115,7 +135,9 @@ def ransack_result
   @search.result.page(params[:page])
 end
 ```
+
 Which get called when the hitting the index controller action:
+
 ```Ruby
 def index
   @fields = FIELDS
@@ -125,6 +147,8 @@ def index
   @contacts = ransack_result
 end
 ```
+
+Notice the fields and header constants. These values are declared inside the controller.
 Then the results can be passed into our table component to be rendered in the index view.
 
 &copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs. All rights reserved.

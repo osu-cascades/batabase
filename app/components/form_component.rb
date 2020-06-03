@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateUpdateFormComponent < ApplicationComponent
+class FormComponent < ApplicationComponent
   def initialize(model, fields, header_text)
     @model = model
     @fields = fields

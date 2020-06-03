@@ -34,7 +34,7 @@ Below are requirements and their versions running this project locally.
 Batabase uses the [simplecov](https://github.com/colszowka/simplecov) gem to supply code coverage metrics.
 To view code coverage run the test suite by running `rspec` or `rspec -f d` (for a detailed view) and open `coverage/index.html` in a browser.
 
-## Data model
+## Entity Relationship Diagram
 
 Can be found [here](erd.pdf)
 

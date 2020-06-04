@@ -148,6 +148,17 @@ def index
 end
 ```
 
+## Continuous Integration (CI)
+
+For this project we are using TravisCI for our our CI and deployments. All PRs and pushes are run against the Rspec tests to document which pushes and/or PR changes resulted in the test suite failing. PRs indicate whether or not the current build for the PR is passing the test suite.
+
+Some branches when pushed deploy directly to heroku once the test suite builds and passes on TravisCI.
+
+These branches and their herokue deployment are:
+
+- staging -> batabase-staging
+- master -> batabase
+
 Notice the fields and header constants. These values are declared inside the controller.
 Then the results can be passed into our table component to be rendered in the index view.
 

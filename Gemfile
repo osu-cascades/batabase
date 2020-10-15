@@ -57,7 +57,7 @@ gem 'humanize'
 # Used for paginating table outputs
 gem 'kaminari'
 
-# Used for sorting and querying 
+# Used for sorting and querying
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
 group :development, :test do
@@ -71,6 +71,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'dotenv'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'

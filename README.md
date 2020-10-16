@@ -42,7 +42,7 @@ Can be found [here](erd.pdf)
 
 ### GitHub Components
 
-To construct some of the various views withint the application, we used GitHub's [ViewComponent](https://github.com/github/view_component) framework. Using the ViewComponent framework allows the creation of generic view components similar to the way React components work.
+To construct some of the various views within the application, we used GitHub's [ViewComponent](https://github.com/github/view_component) framework. Using the ViewComponent framework allows the creation of generic view components similar to the way React components work.
 
 For example here is the class for our generic form component used for updates and creation of new tables which lives at `app/components/form_component.rb`:
 
@@ -162,4 +162,4 @@ These branches and their herokue deployment are:
 Notice the fields and header constants. These values are declared inside the controller.
 Then the results can be passed into our table component to be rendered in the index view.
 
-&copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs. All rights reserved.
+&copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs, Shayla Lane. All rights reserved.

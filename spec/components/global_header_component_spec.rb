@@ -14,7 +14,7 @@ RSpec.describe GlobalHeaderComponent, type: :component do
   ]
 
   signed_out = [
-    'Sign Up',
+    # 'Sign Up',
     'Sign In'
   ]
 

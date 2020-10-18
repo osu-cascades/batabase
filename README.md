@@ -162,4 +162,4 @@ These branches and their herokue deployment are:
 Notice the fields and header constants. These values are declared inside the controller.
 Then the results can be passed into our table component to be rendered in the index view.
 
-&copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs, Shayla Lane. All rights reserved.
+&copy; 2019 Dylan Drudge, Bryce Graves, Mack Hatfield, Nathan Struhs, Shayla Lane, Kimber Rabago. All rights reserved.

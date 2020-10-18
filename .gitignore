@@ -28,3 +28,7 @@
 
 # Ignore vscode config files
 .vscode*
+
+.ruby-version
+.ruby-gemset
+.env

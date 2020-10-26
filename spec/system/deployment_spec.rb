@@ -117,5 +117,21 @@ RSpec.describe 'Deployments Flow', type: :system do
       click_on 'Export Deployments to Excel'
       expect(page.response_headers['Content-Disposition']).to be('attachment; filename=deployments.xlsx')
     end
+
+    # ## TODO: Write a test for exporting searched deployments ##
+
+    # it 'A user can exported a searched set of Deployment records' do
+    #   visit home_index_path
+    #   click_button 'Deployments'
+    #   click_on 'View Deployments'
+    #   fill_in 'Comment Contains', with: 'FAKE COMMENTS'
+    #   click_button 'Search'
+    #   expect(page).to have_content('FAKE COMMENTS')
+    #   click_button 'Deployments'
+    #   click_on 'Export Deployments to Excel'
+
+    #   # expect to export searched deployments
+      
+    # end
   end
 end

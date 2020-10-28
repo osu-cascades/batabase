@@ -1,4 +1,3 @@
-
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -9,7 +8,7 @@ default: &default
 development:
   <<: *default
   url: <%= ENV['DATABASE_URL_DEV'] %>
- 
+
 test:
   <<: *default
   url: <%= ENV['DATABASE_URL_TEST'] %>

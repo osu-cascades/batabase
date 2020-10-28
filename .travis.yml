@@ -8,6 +8,7 @@ addons:
 before_install:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   - cp config/database.yml.travis config/database.yml
+  - nvm install node
 
 services:
   - postgresql

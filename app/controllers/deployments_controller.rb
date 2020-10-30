@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DeploymentsController < ApplicationController
+  # Only contains what UI shows
   FIELDS = [
     [:detector_location, :location_identifier],
     [:detector_location, :land_ownership],

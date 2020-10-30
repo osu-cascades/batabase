@@ -8,7 +8,6 @@
       <div class="card-body">
         <%= search_form_for @search do |f| %>
           <%= tag.fieldset do %>
-            <%= tag.legend 'Sonobat Output' %>
             <%= tag.ul do %>
               <% @fields.each do |field| %>
                 <% next if field.class == Array %>

@@ -269,7 +269,7 @@ class CommitUpload
         current_recording_start = row['Start Time (SM4BAT)']
         current_recording_stop = row['End Time (SM4BAT)']
       end
-
+      
       Deployment.create!(
         detector_location_id: current_detector_location.id,
         clutter_type_id: current_clutter_type.id,

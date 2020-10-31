@@ -68,10 +68,12 @@ group :development, :test do
 
   # Lets get some pride up in these tests
   gem 'rspec-pride'
+
+  # Used for setting environment variables in .env files
+  gem 'dotenv-rails'
 end
 
 group :development do
-  gem 'dotenv-rails'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'

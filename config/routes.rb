@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :location_mappings
   devise_for :user
 
   root to: redirect(path: '/home', status: 302)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_053925) do
+ActiveRecord::Schema.define(version: 2020_05_08_175021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,47 +178,6 @@ ActiveRecord::Schema.define(version: 2020_05_13_053925) do
     t.index ["contact_id"], name: "index_softwares_on_contact_id"
   end
 
-  create_table "sonobat_outputs", force: :cascade do |t|
-    t.datetime "night"
-    t.string "filename"
-    t.boolean "hi_f"
-    t.boolean "lo_f"
-    t.string "spp_accp"
-    t.float "prob"
-    t.float "maj"
-    t.float "accp"
-    t.string "spp"
-    t.string "tilde_prob"
-    t.float "fc_mean"
-    t.float "fc_std_dev"
-    t.float "dur_mean"
-    t.float "dur_std_dev"
-    t.string "calls_per_sec"
-    t.float "mean_hi_freq"
-    t.float "mean_lo_freq"
-    t.float "mean_uppr_slp"
-    t.float "mean_lwr_slp"
-    t.float "mean_total_slp"
-    t.float "mean_preceding_intvl"
-    t.string "first"
-    t.string "second"
-    t.string "third"
-    t.string "fourth"
-    t.string "parent_dir"
-    t.string "next_dir_up"
-    t.float "file_length"
-    t.float "version"
-    t.string "filter"
-    t.float "accp_quality"
-    t.float "accp_qual_for_tally"
-    t.float "max_calls_considered"
-    t.string "manual_idspp1"
-    t.string "manual_idspp2"
-    t.string "notes"
-    t.bigint "deployment_id"
-    t.index ["deployment_id"], name: "index_sonobat_outputs_on_deployment_id"
-  end
-
   create_table "species", force: :cascade do |t|
     t.string "code"
     t.string "common_name"
@@ -302,6 +261,5 @@ ActiveRecord::Schema.define(version: 2020_05_13_053925) do
   add_foreign_key "sample_units", "broad_habitat_forms"
   add_foreign_key "sample_units", "broad_habitats"
   add_foreign_key "softwares", "contacts"
-  add_foreign_key "sonobat_outputs", "deployments"
   add_foreign_key "target_descriptors", "detection_targets"
 end

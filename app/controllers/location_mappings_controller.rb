@@ -69,6 +69,6 @@ class LocationMappingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def location_mapping_params
-      params.require(:location_mapping).permit(:name, :score)
+      params.require(:location_mapping).permit(:name)
     end
 end

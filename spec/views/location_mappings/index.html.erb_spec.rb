@@ -4,12 +4,10 @@ RSpec.describe "location_mappings/index", type: :view do
   before(:each) do
     assign(:location_mappings, [
       LocationMapping.create!(
-        name: "",
-        score: ""
+        name: ""
       ),
       LocationMapping.create!(
-        name: "",
-        score: ""
+        name: ""
       )
     ])
   end

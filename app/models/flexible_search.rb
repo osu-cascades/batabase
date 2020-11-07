@@ -1,0 +1,2 @@
+class FlexibleSearch < ApplicationRecord
+end

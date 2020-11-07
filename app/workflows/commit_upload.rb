@@ -346,6 +346,9 @@ class CommitUpload
       #     deployments[location_identifiers[index]]
       #   end
 
+      detector_location_code = extract_detector_location_code_from(line['Filename'])
+      detector_id = detector_locations.filter({ |d_l| d_l.location_code == detector_location_code})
+
       sonobat_outputs.push(
         {
           night: line['MonitoringNight'],
@@ -384,7 +387,7 @@ class CommitUpload
           manual_idspp1: line['Species Manual ID'],
           manual_idspp2: line['User|ManualIDSpp2'],
           notes: line['User|Comments'],
-          deployment_id: deployments[location_identifiers[index]]
+          deployment_id: detector_location_id
         }
       )
     end

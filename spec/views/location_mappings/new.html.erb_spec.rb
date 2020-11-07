@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe "location_mappings/new", type: :view do
   before(:each) do
     assign(:location_mapping, LocationMapping.new(
-      name: "",
-      score: ""
+      name: ""
     ))
   end
 
@@ -15,7 +14,6 @@ RSpec.describe "location_mappings/new", type: :view do
 
       assert_select "input[name=?]", "location_mapping[name]"
 
-      assert_select "input[name=?]", "location_mapping[score]"
     end
   end
 end

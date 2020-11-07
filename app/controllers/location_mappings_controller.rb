@@ -1,10 +1,18 @@
 class LocationMappingsController < ApplicationController
   before_action :set_location_mapping, only: [:show, :edit, :update, :destroy]
 
+  FIELDS = [
+    [:detector_location, :location_identifier],
+    [:detector_location, :land_ownership]
+  ].freeze
+
   # GET /location_mappings
   # GET /location_mappings.json
   def index
     @location_mappings = LocationMapping.all
+    @fields = FIELDS
+    @search = ransack_params
+    @search_result = ransack_result
   end
 
   # GET /location_mappings/1
@@ -70,5 +78,13 @@ class LocationMappingsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def location_mapping_params
       params.require(:location_mapping).permit(:name)
+    end
+
+    def ransack_params
+      LocationMapping.includes(:detector_location).ransack(params[:q])
+    end
+  
+    def ransack_result
+      @search.result.page(params[:page])
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_053925) do
+ActiveRecord::Schema.define(version: 2020_11_07_221640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,12 +128,24 @@ ActiveRecord::Schema.define(version: 2020_05_13_053925) do
     t.string "label"
   end
 
+  create_table "flexible_searches", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "geodetic_systems", force: :cascade do |t|
     t.string "label"
   end
 
   create_table "local_habitats", force: :cascade do |t|
     t.string "label"
+  end
+
+  create_table "location_mappings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "organizations", force: :cascade do |t|

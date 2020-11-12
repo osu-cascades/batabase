@@ -345,9 +345,14 @@ class CommitUpload
       #   else
       #     deployments[location_identifiers[index]]
       #   end
-
+      #call method that takes a filename for input
+      #outputs the extracted detector_location_id
+      #stores in the variable name detector_location_code
       detector_location_code = extract_detector_location_code_from(line['Filename'])
-      detector_id = detector_locations.filter({ |d_l| d_l.location_code == detector_location_code})
+      #assign detector location id to
+      #taking in all detector locations and comparing and comparing 
+      #all detector locations to the extracted  detector location code
+      detector_location_id = detector_locations.filter({ |detector_location| detector_location.location_code == detector_location_code})
 
       sonobat_outputs.push(
         {

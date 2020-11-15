@@ -328,10 +328,10 @@ class CommitUpload
     datetime
   end
 
-  def extract_detector_location_code_from(line filename)
-    filename.each do |n|
-      return n[/[0-9]{6}+_[A-Z]{2}/]
-  end
+  # def extract_detector_location_code_from(line filename)
+  #   filename.each do |n|
+  #     return n[/[0-9]{6}+_[A-Z]{2}/]
+  # end
 
   def create_sonobat_output
     location_identifiers = data['ParentDir'].map { |i| i.split('_')[1..-1].join('_') }
@@ -353,11 +353,10 @@ class CommitUpload
       #call method that takes a filename for input
       #outputs the extracted detector_location_id
       #stores in the variable name detector_location_code
-      detector_location_code = extract_detector_location_code_from(line['Filename'])
       #taking in all detector locations and comparing
       #to the extracted  detector location code
       #and assigning to detector location id
-      detector_location_id = detector_locations.filter({ |detector_locations| detector_locations.location_code == detector_location_code})
+      # detector_location_id = detector_locations.filter({ |detector_locations| detector_locations.location_code == detector_location_code})
 
 
 
@@ -399,7 +398,7 @@ class CommitUpload
           manual_idspp1: line['Species Manual ID'],
           manual_idspp2: line['User|ManualIDSpp2'],
           notes: line['User|Comments'],
-          deployment_id: detector_location_id
+          deployment_id: deployments[location_identifiers[index]]
         }
       )
     end

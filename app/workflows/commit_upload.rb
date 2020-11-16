@@ -328,11 +328,6 @@ class CommitUpload
     datetime
   end
 
-  # def extract_detector_location_code_from(line filename)
-  #   filename.each do |n|
-  #     return n[/[0-9]{6}+_[A-Z]{2}/]
-  # end
-
   def create_sonobat_output
     location_identifiers = data['ParentDir'].map { |i| i.split('_')[1..-1].join('_') }
     detector_locations = location_identifiers.uniq.to_h { |i| [i, DetectorLocation.find_by(location_identifier: i)] }
@@ -351,15 +346,6 @@ class CommitUpload
       #   else
       #     deployments[location_identifiers[index]]
       #   end
-      #call method that takes a filename for input
-      #outputs the extracted detector_location_id
-      #stores in the variable name detector_location_code
-      #taking in all detector locations and comparing
-      #to the extracted  detector location code
-      #and assigning to detector location id
-      # detector_location_id = detector_locations.filter({ |detector_locations| detector_locations.location_code == detector_location_code})
-
-
 
       sonobat_outputs.push(
         {

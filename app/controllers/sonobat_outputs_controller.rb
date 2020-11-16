@@ -2,7 +2,9 @@
 
 class SonobatOutputsController < ApplicationController
   FIELDS = [
-    [:deployment, :detector_location, :location_identifier],
+    # [:filename, "split", "join"]
+    # [:filename, "upcase"],
+    [:filename, ['match', '^[^_]+_([^_]+_[^-]+)[^_]+'], 'captures', 'first'],
     :night,
     :filename,
     :manual_idspp1,
@@ -82,6 +84,7 @@ class SonobatOutputsController < ApplicationController
 
   rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
 
+  #where the data is assigned 
   def index
     @fields = FIELDS
     @headers = HEADERS

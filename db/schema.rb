@@ -191,6 +191,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_221640) do
   end
 
   create_table "sonobat_outputs", force: :cascade do |t|
+    t.string "detector_location"
     t.datetime "night"
     t.string "filename"
     t.boolean "hi_f"

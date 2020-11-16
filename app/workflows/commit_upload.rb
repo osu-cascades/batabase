@@ -336,6 +336,7 @@ class CommitUpload
   def create_sonobat_output
     location_identifiers = data['ParentDir'].map { |i| i.split('_')[1..-1].join('_') }
     detector_locations = location_identifiers.uniq.to_h { |i| [i, DetectorLocation.find_by(location_identifier: i)] }
+    location = data['Filename'].map { |i| i[/[0-9]{6}+_[A-Z]{2}/]}
 
     deployments = {}
     detector_locations.each_pair { |key, value| deployments[key] = value.deployments }
@@ -399,6 +400,7 @@ class CommitUpload
           manual_idspp2: line['User|ManualIDSpp2'],
           notes: line['User|Comments'],
           deployment_id: deployments[location_identifiers[index]]
+          # deployment_id: line['Filename'][/[0-9]{6}+_[A-Z]{2}/]
         }
       )
     end

@@ -3,6 +3,7 @@
 class CreateSonobatOutputs < ActiveRecord::Migration[6.0]
   def change
     create_table :sonobat_outputs do |t|
+      t.string :detector_location
       t.datetime :night
       t.string :filename
       t.boolean :hi_f

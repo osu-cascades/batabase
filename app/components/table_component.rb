@@ -44,10 +44,7 @@ class TableComponent < ApplicationComponent
   def extract_values(fields, object)
     return object if object.nil?
     return object.public_send(fields) if fields.class != Array
-    # return object.public_send(fields.first) if fields.one?
     return handle_public_send(object, fields) if fields.one?
-
-    # extract_values(fields[1..-1], object.public_send(fields.first))
     extract_values(fields[1..-1], handle_public_send(object, fields))
 
   end

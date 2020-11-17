@@ -2,8 +2,6 @@
 
 class SonobatOutputsController < ApplicationController
   FIELDS = [
-    # [:filename, "split", "join"]
-    # [:filename, "upcase"],
     [:filename, ['match', '^[^_]+_([^_]+_[^-]+)[^_]+'], 'captures', 'first'],
     :night,
     :filename,

@@ -6,13 +6,19 @@ class LocationMappingsController < ApplicationController
     [:detector_location, :land_ownership]
   ].freeze
 
+  HEADERS = [
+    'Location Identifier',
+    'Agency'
+  ].freeze
+
   # GET /location_mappings
   # GET /location_mappings.json
   def index
-    @location_mappings = LocationMapping.all
     @fields = FIELDS
+    @headers = HEADERS
+    @helpers = helpers
     @search = ransack_params
-    @search_result = ransack_result
+    @location_mappings = ransack_result
   end
 
   # GET /location_mappings/1

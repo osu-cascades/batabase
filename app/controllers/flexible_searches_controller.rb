@@ -1,10 +1,14 @@
 class FlexibleSearchesController < ApplicationController
   before_action :set_flexible_search, only: [:show, :edit, :update, :destroy]
+  FIELDS = [:state].freeze
+  HEADERS = ['State'].freeze
 
   # GET /flexible_searches
   # GET /flexible_searches.json
   def index
     @flexible_searches = FlexibleSearch.all
+    @fields = FIELDS
+    @headers = HEADERS
   end
 
   # GET /flexible_searches/1
@@ -71,4 +75,20 @@ class FlexibleSearchesController < ApplicationController
     def flexible_search_params
       params.require(:flexible_search).permit(:name)
     end
+
+    def fetch_form_fields(organization = 1, state = 1)
+      [
+        { type: :select, name: :state_id, options: helpers.options_from_collection_for_select(State.all, 'id', 'name', state) },
+      ]
+    end
+
+  FIELDS = [
+    :state
+  ].freeze
+
+  HEADERS = [
+    :state,
+  ].freeze
+
 end
+

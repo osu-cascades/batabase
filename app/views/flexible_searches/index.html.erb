@@ -1,27 +1,60 @@
-<p id="notice"><%= notice %></p>
+<div class="d-flex fixed-header p-3">
 
-<h1>Flexible Searches</h1>
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Flexible Searches</h1>
 
-  <tbody>
-    <% @flexible_searches.each do |flexible_search| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= flexible_search.name %></td>
-        <td><%= link_to 'Show', flexible_search %></td>
-        <td><%= link_to 'Edit', edit_flexible_search_path(flexible_search) %></td>
-        <td><%= link_to 'Destroy', flexible_search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @flexible_searches.each do |flexible_search| %>
+        <tr>
+          <td><%= flexible_search.name %></td>
+          <td><%= link_to 'Show', flexible_search %></td>
+          <td><%= link_to 'Edit', edit_flexible_search_path(flexible_search) %></td>
+          <td><%= link_to 'Destroy', flexible_search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Flexible Search', new_flexible_search_path %>
+  <br>
+
+  <%= link_to 'New Flexible Search', new_flexible_search_path %>
+
+  <%= form_with(model: @get, local: true) do |form| %>
+
+  <div class="field">
+  <%= form.label :state %>
+  <%= form.text_field :state %>
+
+  </div>
+
+  <div class="actions">
+  <%= form.submit %>
+  </div>
+
+  <% end %>
+
+  <%= form_with(url: "/search", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
+
+  <%= form_with model: @state, class: "nifty_form" do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_area :body, size: "60x12" %>
+    <%= f.submit "Create" %>
+  <% end %>
+
+
+
+</div>

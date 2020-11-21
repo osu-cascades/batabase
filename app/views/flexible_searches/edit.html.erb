@@ -1,6 +1,8 @@
 <h1>Editing Flexible Search</h1>
 
 <%= render 'form', flexible_search: @flexible_search %>
+<%= render(FormComponent.new(@model, @fields, @header_text)) %>
+
 
 <%= link_to 'Show', @flexible_search %> |
 <%= link_to 'Back', flexible_searches_path %>

@@ -39,4 +39,9 @@
     <%= submit_tag("Search") %>
   <% end %>
 
+  <%= form_tag contacts_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
 </div>

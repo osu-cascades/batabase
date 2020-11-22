@@ -13,7 +13,8 @@ class ContactsController < ApplicationController
     @headers = HEADERS
     @helpers = helpers
     @search = ransack_params
-    @contacts = ransack_result
+    # @contacts = ransack_result
+    @contacts = Contact.search(params[:search])
   end
 
   def new
@@ -92,4 +93,5 @@ class ContactsController < ApplicationController
   def ransack_result
     @search.result.page(params[:page])
   end
+
 end

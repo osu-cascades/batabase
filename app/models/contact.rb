@@ -24,4 +24,13 @@ class Contact < ApplicationRecord
   def formal_full_name
     "#{last_name}, #{first_name}"
   end
+
+  def self.search(search)
+    if search
+      where(["name LIKE ?", "%#{search}%"])
+    else
+      all
+    end
+  end
+
 end

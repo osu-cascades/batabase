@@ -5,5 +5,13 @@
   <%= @flexible_search.name %>
 </p>
 
+<ul>
+<% @states.each do |state| %>
+    <li> 
+        <%= state.name %>
+    </li>
+<% end %>
+</ul>
+
 <%= link_to 'Edit', edit_flexible_search_path(@flexible_search) %> |
 <%= link_to 'Back', flexible_searches_path %>

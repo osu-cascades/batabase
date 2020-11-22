@@ -30,31 +30,13 @@
 
   <%= form_with(model: @get, local: true) do |form| %>
 
-  <div class="field">
-  <%= form.label :state %>
-  <%= form.text_field :state %>
-
-  </div>
-
-  <div class="actions">
-  <%= form.submit %>
-  </div>
-
   <% end %>
 
+
   <%= form_with(url: "/search", method: "get") do %>
-    <%= label_tag(:q, "Search for:") %>
+    <%= label_tag(:q, "State:") %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Search") %>
   <% end %>
-
-
-  <%= form_with model: @state, class: "nifty_form" do |f| %>
-    <%= f.text_field :title %>
-    <%= f.text_area :body, size: "60x12" %>
-    <%= f.submit "Create" %>
-  <% end %>
-
-
 
 </div>

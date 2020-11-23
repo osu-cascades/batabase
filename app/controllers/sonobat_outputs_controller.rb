@@ -143,6 +143,10 @@ class SonobatOutputsController < ApplicationController
     end
   end
 
+  def show
+    @sonobat_outputs = SonobatOutput.where(["manual_idspp1 LIKE ?", "%#{search}%"])
+  end
+
   private
 
   def fetch_form_fields(deployment = 1)
@@ -197,10 +201,6 @@ class SonobatOutputsController < ApplicationController
 
   def ransack_result
     @search.result.page(params[:page])
-  end
-
-  def show
-    @sonobat_outputs = SonobatOutput.where(["manual_idspp1 LIKE ?", "%#{search}%"])
   end
 
 end

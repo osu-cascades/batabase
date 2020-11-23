@@ -38,5 +38,11 @@ Rails.application.routes.draw do
   end
 
   get '/sonobat_outputs', to: 'sonobat_outputs#show', as: 'sbshow'
+
+  resources :sonobat_outputs  do
+    collection do
+      get :search
+    end
+  end
   
 end

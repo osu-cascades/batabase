@@ -33,13 +33,13 @@
   <% end %>
 
 
-  <%= form_with(url: "/search", method: "get") do %>
-    <%= label_tag(:q, "State:") %>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Search") %>
-  <% end %>
+  <%#= form_with(url: "/search", method: "get") do %>
+    <%#= label_tag(:q, "State:") %>
+    <%#= text_field_tag(:q) %>
+    <%#= submit_tag("Search") %>
+  <%# end %>
 
-  <%= form_tag deployments_path, :method => 'get' do %>
+  <%= form_tag sonobat_outputs_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search" %>
   <% end %>

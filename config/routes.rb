@@ -36,5 +36,7 @@ Rails.application.routes.draw do
       get 'export'
     end
   end
+
+  get '/sonobat_outputs', to: 'sonobat_outputs#show', as: 'sbshow'
   
 end

@@ -198,4 +198,9 @@ class SonobatOutputsController < ApplicationController
   def ransack_result
     @search.result.page(params[:page])
   end
+
+  def show
+    @sonobat_outputs = SonobatOutput.where(["manual_idspp1 LIKE ?", "%#{search}%"])
+  end
+
 end

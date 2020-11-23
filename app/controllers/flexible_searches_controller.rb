@@ -18,7 +18,12 @@ class FlexibleSearchesController < ApplicationController
 
   # GET /flexible_searches/new
   def new
-    @flexible_search = FlexibleSearch.new
+    # NOOP
+  end
+
+  def results
+    manual_idspp1 = params[:manual_idspp1]
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
   end
 
   # GET /flexible_searches/1/edit

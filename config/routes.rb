@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :flexible_searches
   resources :location_mappings
   devise_for :user
 
@@ -36,13 +35,10 @@ Rails.application.routes.draw do
       get 'export'
     end
   end
+  resources :sonobat_outputs
 
-  get '/sonobat_outputs', to: 'sonobat_outputs#show', as: 'sbshow'
+  get '/flexible_searches', to: 'flexible_searches#new', as: 'flexible_search'
+  get '/flexible_searches/results', to: 'flexible_searches#results', as: 'flexible_search_results'
 
-  resources :sonobat_outputs  do
-    collection do
-      get :search
-    end
-  end
-  
+
 end

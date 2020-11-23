@@ -1,5 +1,7 @@
 <h1>New Flexible Search</h1>
 
-<%= render 'form', flexible_search: @flexible_search %>
-
-<%= link_to 'Back', flexible_searches_path %>
+<form action="<%= flexible_search_results_path %>" method="GET">
+  <label for="idspp1">Manual idspp1</label><br>
+  <input type="text" name="manual_idspp1"><br>
+  <input type="submit" value="Search">
+</form>

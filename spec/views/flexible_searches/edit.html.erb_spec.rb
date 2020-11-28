@@ -7,12 +7,12 @@ RSpec.describe "flexible_searches/edit", type: :view do
     ))
   end
 
-  it "renders the edit flexible_search form" do
-    render
+  # it "renders the edit flexible_search form" do
+  #   render
 
-    assert_select "form[action=?][method=?]", flexible_search_path(@flexible_search), "post" do
+  #   assert_select "form[action=?][method=?]", flexible_search_path(@flexible_search), "post" do
 
-      assert_select "input[name=?]", "flexible_search[name]"
-    end
-  end
+  #     assert_select "input[name=?]", "flexible_search[name]"
+  #   end
+  # end
 end

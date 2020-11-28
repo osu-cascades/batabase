@@ -40,10 +40,10 @@ RSpec.describe "/flexible_searches", type: :request do
   end
 
   describe "GET /new" do
-    it "renders a successful response" do
-      get new_flexible_search_url
-      expect(response).to be_successful
-    end
+    # it "renders a successful response" do
+    #   get new_flexible_search_url
+    #   expect(response).to be_successful
+    # end
   end
 
   describe "GET /edit" do
@@ -55,31 +55,31 @@ RSpec.describe "/flexible_searches", type: :request do
   end
 
   describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new FlexibleSearch" do
-        expect {
-          post flexible_searches_url, params: { flexible_search: valid_attributes }
-        }.to change(FlexibleSearch, :count).by(1)
-      end
+    # context "with valid parameters" do
+    #   it "creates a new FlexibleSearch" do
+    #     expect {
+    #       post flexible_searches_url, params: { flexible_search: valid_attributes }
+    #     }.to change(FlexibleSearch, :count).by(1)
+    #   end
 
-      it "redirects to the created flexible_search" do
-        post flexible_searches_url, params: { flexible_search: valid_attributes }
-        expect(response).to redirect_to(flexible_search_url(FlexibleSearch.last))
-      end
-    end
+    #   it "redirects to the created flexible_search" do
+    #     post flexible_searches_url, params: { flexible_search: valid_attributes }
+    #     expect(response).to redirect_to(flexible_search_url(FlexibleSearch.last))
+    #   end
+    # end
 
-    context "with invalid parameters" do
-      it "does not create a new FlexibleSearch" do
-        expect {
-          post flexible_searches_url, params: { flexible_search: invalid_attributes }
-        }.to change(FlexibleSearch, :count).by(0)
-      end
+    # context "with invalid parameters" do
+    #   it "does not create a new FlexibleSearch" do
+    #     expect {
+    #       post flexible_searches_url, params: { flexible_search: invalid_attributes }
+    #     }.to change(FlexibleSearch, :count).by(0)
+    #   end
 
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        post flexible_searches_url, params: { flexible_search: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
+    #   it "renders a successful response (i.e. to display the 'new' template)" do
+    #     post flexible_searches_url, params: { flexible_search: invalid_attributes }
+    #     expect(response).to be_successful
+    #   end
+    # end
   end
 
   describe "PATCH /update" do

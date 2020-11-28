@@ -16,4 +16,4 @@ RSpec.describe "flexible_searches/index", type: :view do
 #     render
 #     assert_select "tr>td", text: "Name".to_s, count: 2
 #   end
-# end
+end

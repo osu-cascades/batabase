@@ -1,7 +1,21 @@
 RESULTS HERE
 
-<ul>
-<% @sonobat_outputs.each do |so| %>
-  <li><%= so.id %>: <%= so.manual_idspp1 %></li>
-<% end %>
-</ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Manual Species ID 1</th>
+      <th scope="col">Manual Species ID 2</th>
+      <th scope="col">Night</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sonobat_outputs.each do |so| %>
+      <tr>
+        <td><%= so.id %>: <%= so.manual_idspp1 %></td>
+        <td><%= so.id %>: <%= so.manual_idspp2 %></td>
+        <td><%= so.id %>: <%= so.night %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

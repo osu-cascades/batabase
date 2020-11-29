@@ -40,5 +40,4 @@ Rails.application.routes.draw do
   get '/flexible_searches', to: 'flexible_searches#new', as: 'flexible_search'
   get '/flexible_searches/results', to: 'flexible_searches#results', as: 'flexible_search_results'
 
-
 end

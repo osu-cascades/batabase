@@ -81,7 +81,7 @@ class FlexibleSearchesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def flexible_search_params
       params.require(:flexible_search).permit(:name, :state, :sample_unit, 
-      :location_id, :agency, :night, :manualidspp1, :manualidspp2)
+      :location_id, :agency, :night, :manual_idspp1, :manual_idspp2)
     end
 
 end

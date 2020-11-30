@@ -7,8 +7,8 @@ class CreateFlexibleSearches < ActiveRecord::Migration[6.0]
       t.string :location_id
       t.string :agency
       t.datetime :night
-      t.string :manualidspp1
-      t.string :manualidspp2
+      t.string :manual_idspp1
+      t.string :manual_idspp2
 
       t.timestamps
     end

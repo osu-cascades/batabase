@@ -1,17 +1,18 @@
-<p id="notice"><%= notice %></p>
+<h1>Search Results</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @flexible_search.name %>
-</p>
+<% if @flexible_search.search_sonobat_outputs.empty? %>
+
+  <p> No Records Found </p>
+
+<% else %>
 
 <ul>
-<% @sonobat_outputs.each do |sb| %>
-    <li> 
-        <%= sb.manual_idspp1 %>
-    </li>
+<% @flexible_search.search_sonobat_outputs.each do |c| %>
+  <br>
+  <li> 
+      <%= sb.manual_idspp1 %>
+  </li>
 <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_flexible_search_path(@flexible_search) %> |
-<%= link_to 'Back', flexible_searches_path %>
+<%= link_to 'Back', flexible_search_path %>

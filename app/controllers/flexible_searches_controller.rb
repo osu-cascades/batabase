@@ -7,13 +7,14 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches.json
   def index
     @flexible_searches = FlexibleSearch.all
-    @fields = FIELDS
-    @headers = HEADERS
+    # @fields = FIELDS
+    # @headers = HEADERS
   end
 
   # GET /flexible_searches/1
   # GET /flexible_searches/1.json
   def show
+    @flexible_search = FlexibleSearch.find(params[:id])
   end
 
   # GET /flexible_searches/new
@@ -79,22 +80,9 @@ class FlexibleSearchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flexible_search_params
-      params.require(:flexible_search).permit(:name)
+      params.require(:flexible_search).permit(:name, :state, :sample_unit, 
+      :location_id, :agency, :night, :manualidspp1, :manualidspp2)
     end
-
-    def fetch_form_fields(organization = 1, state = 1)
-      [
-        { type: :select, name: :state_id, options: helpers.options_from_collection_for_select(State.all, 'id', 'name', state) },
-      ]
-    end
-
-  FIELDS = [
-    :state
-  ].freeze
-
-  HEADERS = [
-    :state,
-  ].freeze
 
 end
 

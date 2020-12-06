@@ -26,8 +26,17 @@ class FlexibleSearchesController < ApplicationController
     manual_idspp1 = params[:manual_idspp1]
     manual_idspp2 = params[:manual_idspp2]
     night = params[:night]
-    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1).or(SonobatOutput.where(manual_idspp2: manual_idspp2)).or(SonobatOutput.where(night: night))
-    
+    #or functionality
+    # @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1).or(SonobatOutput.where(manual_idspp2: manual_idspp2)).or(SonobatOutput.where(night: night))
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
+    puts '******LENGTH AFTER FIRST FILTER***********'
+    puts @sonobat_outputs.size
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
+    puts '**********LENGTH AFTER SECOND FILTER**********'
+    puts @sonobat_outputs.size
+    @sonobat_outputs = @sonobat_outputs.where(night: night)
+    puts '*********LENGTH AFTER THIRD FILTER***********'
+    puts @sonobat_outputs.size
   end
 
   # GET /flexible_searches/1/edit
@@ -85,6 +94,5 @@ class FlexibleSearchesController < ApplicationController
       params.require(:flexible_search).permit(:name, :state, :sample_unit, 
       :location_id, :agency, :night, :manual_idspp1, :manual_idspp2)
     end
-
 end
 

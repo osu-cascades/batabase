@@ -25,7 +25,9 @@ class FlexibleSearchesController < ApplicationController
   def results
     manual_idspp1 = params[:manual_idspp1]
     manual_idspp2 = params[:manual_idspp2]
-    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
+    night = params[:night]
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1).or(SonobatOutput.where(manual_idspp2: manual_idspp2)).or(SonobatOutput.where(night: night))
+    
   end
 
   # GET /flexible_searches/1/edit

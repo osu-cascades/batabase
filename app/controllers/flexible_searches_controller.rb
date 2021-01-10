@@ -29,9 +29,10 @@ class FlexibleSearchesController < ApplicationController
     #OR functionality
     @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1).or(SonobatOutput.where(manual_idspp2: manual_idspp2)).or(SonobatOutput.where(night: night))
     #AND functionality
-    # @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
-    # @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
-    # @sonobat_outputs = @sonobat_outputs.where(night: night)
+
+    #@sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
+    #@sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
+    #@sonobat_outputs = @sonobat_outputs.where(night: night)
   end
 
   # GET /flexible_searches/1/edit

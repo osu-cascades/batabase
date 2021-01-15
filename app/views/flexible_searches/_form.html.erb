@@ -1,7 +1,7 @@
 <%= form_with(model: flexible_search, local: true) do |form| %>
   <% if flexible_search.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(flexible_search.errors.count, "error") %> prohibited this flexible_search from being saved:</h2>
+      <h2><%= pluralize(flexible_search.errors.count, "error") %> prohibited this location_mapping from being saved:</h2>
 
       <ul>
         <% flexible_search.errors.full_messages.each do |message| %>
@@ -19,6 +19,4 @@
   <div class="actions">
     <%= form.submit %>
   </div>
-
-    
 <% end %>

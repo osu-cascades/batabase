@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :location_mappings
+  resources :flexible_searches  
   devise_for :user
 
   root to: redirect(path: '/home', status: 302)
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   end
   resources :sonobat_outputs
 
-  get '/flexible_searches', to: 'flexible_searches#new', as: 'flexible_search'
+  get '/flexible_searches', to: 'flexible_searches#index', as: 'flexible_search_old'
   get '/flexible_searches/results', to: 'flexible_searches#results', as: 'flexible_search_results'
 
 end

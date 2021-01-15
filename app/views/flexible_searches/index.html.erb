@@ -1,47 +1,5 @@
-<div class="d-flex fixed-header p-3">
+<h1>New Location Mapping</h1>
 
-  <p id="notice"><%= notice %></p>
+<%= render 'form', flexible_search: @flexible_search %>
 
-  <h1>Flexible Searches</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @flexible_searches.each do |flexible_search| %>
-        <tr>
-          <td><%= flexible_search.name %></td>
-          <td><%= link_to 'Show', flexible_search %></td>
-          <td><%= link_to 'Edit', edit_flexible_search_path(flexible_search) %></td>
-          <td><%= link_to 'Destroy', flexible_search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to 'New Flexible Search', new_flexible_search_path %>
-
-  <%= form_with(model: @get, local: true) do |form| %>
-
-  <% end %>
-
-
-  <%#= form_with(url: "/contacts", method: "get") do %>
-    <%#= label_tag(:q, "State:") %>
-    <%#= text_field_tag(:q) %>
-    <%#= submit_tag("Search") %>
-  <%# end %>
-
-  <%= form_tag sbshow_url, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search" %>
-  <% end %>
-
-</div>
+<%= link_to 'Back', flexible_searches_path %>

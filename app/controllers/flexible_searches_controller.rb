@@ -6,7 +6,7 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches
   # GET /flexible_searches.json
   def index
-    @flexible_searches = FlexibleSearch.all
+    @flexible_search = FlexibleSearch.new
     # @fields = FIELDS
     # @headers = HEADERS
   end
@@ -19,7 +19,7 @@ class FlexibleSearchesController < ApplicationController
 
   # GET /flexible_searches/new
   def new
-    # NOOP
+    #NOOP
   end
 
   def results

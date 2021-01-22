@@ -23,14 +23,32 @@
     <%= form.radio_button :narrow, 'Narrow' %> Narrow <br />
     <%= form.radio_button :narrow, 'Broaden' %> Broaden <br />
   </div>
-  
+
   <h3>Tables</h3>
+
   <div class="checkboxes">
-    <%= form.collection_check_boxes(:table_ids, Table.all, :id, :name) %>
+    <b>Deployment</b><br /> 
+    <% columns = Deployment.column_names() %>
+    <% columns.each do |c| %>
+      <%= c %>
+      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+      <br>
+    <% end %>
+    <br>
   </div>
 
+  
+  <%
+=begin%>
+ <div class="checkboxes">
+    <%= form.collection_check_boxes(:table_ids, Table.all, :id, :name) %>
+  </div> 
+<%
+=end%>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+  <br>
+
 <% end %>

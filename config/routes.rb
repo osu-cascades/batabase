@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :search_fields
   resources :tables
   resources :flexible_searches  
   devise_for :user

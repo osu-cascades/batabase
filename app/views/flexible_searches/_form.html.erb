@@ -30,8 +30,7 @@
     <b>Deployment</b><br /> 
     <% columns = Deployment.column_names() %>
     <% columns.each do |c| %>
-      <%= c %>
-      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+      <%= form.collection_check_boxes(: %>
       <br>
     <% end %>
     <br>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_154100) do
+ActiveRecord::Schema.define(version: 2021_01_22_173403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,6 +177,14 @@ ActiveRecord::Schema.define(version: 2021_01_18_154100) do
     t.index ["broad_habitat_id"], name: "index_sample_units_on_broad_habitat_id"
   end
 
+  create_table "search_fields", force: :cascade do |t|
+    t.string "name"
+    t.bigint "flexible_search_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flexible_search_id"], name: "index_search_fields_on_flexible_search_id"
+  end
+
   create_table "softwares", force: :cascade do |t|
     t.string "name", default: "Sonobat 4"
     t.string "version"
@@ -329,6 +337,7 @@ ActiveRecord::Schema.define(version: 2021_01_18_154100) do
   add_foreign_key "sample_unit_states", "states"
   add_foreign_key "sample_units", "broad_habitat_forms"
   add_foreign_key "sample_units", "broad_habitats"
+  add_foreign_key "search_fields", "flexible_searches"
   add_foreign_key "softwares", "contacts"
   add_foreign_key "sonobat_outputs", "deployments"
   add_foreign_key "specifications", "flexible_searches"

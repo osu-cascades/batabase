@@ -1,0 +1,2 @@
+module SearchFieldsHelper
+end

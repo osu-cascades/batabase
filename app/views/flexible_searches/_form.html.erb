@@ -45,6 +45,24 @@
       <% end %>
       <br>
     </span>
+    <span>
+      <b>Detectors</b><br /> 
+      <% columns = Detector.column_names() %>
+      <% columns.each do |c| %>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> <%= c %> </label><br>
+      <% end %>
+      <br>
+    </span>
+    <span>
+      <b>Contacts</b><br /> 
+      <% columns = Contact.column_names() %>
+      <% columns.each do |c| %>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> <%= c %> </label><br>
+      <% end %>
+      <br>
+    </span>
     
   </div>
 

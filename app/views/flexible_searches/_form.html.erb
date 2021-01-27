@@ -67,13 +67,11 @@
   </div>
 
   
-  <%
-=begin%>
+  <%begin%>
  <div class="checkboxes">
     <%= form.collection_check_boxes(:table_ids, Table.all, :id, :name) %>
   </div> 
-<%
-=end%>
+<%end%>
 
   <div class="actions">
     <%= form.submit %>

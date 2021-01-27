@@ -2,11 +2,6 @@ class FlexibleSearchesController < ApplicationController
   before_action :set_flexible_search, only: [:show, :edit, :update, :destroy]
   
   narrow = true
-  TABLES = ['Sonobat Output', 'Deployment', 'Software', 'Contact', 'Detector', 
-  'Organization', 'State', 'Clutter Type', 'Clutter Percent', 'Sample Unit', 
-  'Local Habitat', 'Detector Location', 'Broad Habitat', 'Geodetic System',
-  'Species', 'Species Group', 'Upload', 'User', 'County', 'Sample Unit State',
-  'Distance Range']
 
   # GET /flexible_searches
   # GET /flexible_searches.json

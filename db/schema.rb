@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_173403) do
+ActiveRecord::Schema.define(version: 2021_01_27_213914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 2021_01_22_173403) do
     t.bigint "flexible_search_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "table"
     t.index ["flexible_search_id"], name: "index_search_fields_on_flexible_search_id"
   end
 

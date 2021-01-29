@@ -3,7 +3,7 @@ class FlexibleSearch < ApplicationRecord
     has_many :specifications, dependent: :destroy
     has_many :tables, through: :specifications
 
-    def broad_or_narrow(flexible_search)
+    def search()
         #assign parameters in a for each
         manual_idspp1 = params[:manual_idspp1]
         manual_idspp2 = params[:manual_idspp2]

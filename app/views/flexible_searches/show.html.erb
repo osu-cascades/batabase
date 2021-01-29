@@ -1,10 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @flexible_search.name %>
+  <h1><%= @flexible_search.name %></h1>
 </p>
 
+<form action="<%= flexible_search_results_path %>" method="GET">
+  <label for="idspp1">Manual idspp1</label><br>
+  <input type="text" name="manual_idspp1"><br>
+  <br>
+  <br>
+  <label for="idspp2">Manual idspp2</label><br>
+  <input type="text" name="manual_idspp2"><br>
+  <br>
+  <br>
+  <label for="night">Night</label><br>
+  <input type="text" name="night"><br>
+  <input type="submit" value="Search">
+
+</form>
 
 
 <%= link_to 'Edit', edit_flexible_search_path(@flexible_search) %> |

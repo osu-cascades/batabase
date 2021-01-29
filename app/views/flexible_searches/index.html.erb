@@ -1,5 +1,15 @@
 <h1>New Custom Search</h1>
 
-<%= render 'form', flexible_search: @flexible_search %>
+<% @flexible_searches.each do |flexible_search| %>
+    <section class="flexible_search">
+        <div class="summary">
+            <h2><%= link_to flexible_search.name, flexible_search %></h2>
+            <p></p>
+        </div>
+    </section>
+<% end %>
 
+<section class="admin">
+    <%= link_to "Add New Custom Search", new_flexible_search_path %>
+</section>
 <%= link_to 'Back', flexible_searches_path %>

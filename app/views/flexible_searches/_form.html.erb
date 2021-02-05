@@ -29,6 +29,98 @@
   <div class="checkboxes" style="float:left; display:flex;">
     <span>
       <b>Deployment</b><br /> 
+        <input type="checkbox" id="comments" name="deployment" value="comment" class="check">
+        <label for="comments"> <%= "Comments" %> </label><br>
+
+        <input type="checkbox" id="microphone_height_off_ground" name="deployment" value="microphone_height_off_ground" class="check">
+        <label for="microphone_height_off_ground"> <%= "Microphone Height" %> </label><br>
+
+        <input type="checkbox" id="microphone_orientation" name="deployment" value="microphone_orientation">
+        <label for="microphone_orientation"> <%= "Microphone Orientation" %> </label><br>
+
+        <input type="checkbox" id="sampling_frequency" name="deployment" value="sampling_frequency">
+        <label for="sampling_frequency"> <%= "Sampling Frequency" %> </label><br>
+
+        <input type="checkbox" id="pre_trigger" name="deployment" value="pre_trigger">
+        <label for="pre_trigger"> <%= "Pre-Trigger" %> </label><br>
+
+        <input type="checkbox" id="recording_length" name="deployment" value="recording_length">
+        <label for="recording_length"> <%= "Recording Length" %> </label><br>
+
+        <input type="checkbox" id="hp_filter" name="deployment" value="hp_filter">
+        <label for="hp_filter"> <%= "HP Filter" %> </label><br>
+
+        <input type="checkbox" id="auto_record" name="deployment" value="auto_record">
+        <label for="auto_record"> <%= "Auto Record" %> </label><br>
+
+        <input type="checkbox" id="trigger_sensitivity" name="deployment" value="trigger_sensitivity">
+        <label for="trigger_sensitivity"> <%= "Trigger Sensitivity" %> </label><br>
+
+        <input type="checkbox" id="input_gain" name="deployment" value="input_gain">
+        <label for="input_gain"> <%= "Input Gain" %> </label><br>    
+
+        <input type="checkbox" id="trigger_level" name="deployment" value="trigger_level">
+        <label for="trigger_level"> <%= "Trigger Level" %> </label><br>  
+
+        <input type="checkbox" id="interval" name="deployment" value="interval">
+        <label for="interval"> <%= "Interval" %> </label><br> 
+
+        <input type="checkbox" id="gain" name="deployment" value="gain">
+        <label for="gain"> <%= "Gain" %> </label><br>  
+
+        <input type="checkbox" id="sixteen_thousand_high_filter" name="deployment" value="sixteen_thousand_high_filter">
+        <label for="sixteen_thousand_high_filter"> <%= "16,000 High Filter" %> </label><br>   
+
+        <input type="checkbox" id="sample_rate" name="deployment" value="sample_rate">
+        <label for="sample_rate"> <%= "Sample Rate" %> </label><br> 
+
+        <input type="checkbox" id="min_duration" name="deployment" value="min_duration">
+        <label for="min_duration"> <%= "Min Duration" %> </label><br> 
+
+        <input type="checkbox" id="max_duration" name="deployment" value="max_duration">
+        <label for="max_duration"> <%= "Max Duration" %> </label><br> 
+
+        <input type="checkbox" id="min_trigger_frequency" name="deployment" value="min_trigger_frequency">
+        <label for="min_trigger_frequency"> <%= "Min Trigger Frequency" %> </label><br> 
+
+        <input type="checkbox" id="trigger_window" name="deployment" value="trigger_window">
+        <label for="trigger_window"> <%= "Trigger Window" %> </label><br> 
+
+        <input type="checkbox" id="max_length" name="deployment" value="max_length">
+        <label for="max_length"> <%= "Max Length" %> </label><br> 
+
+        <input type="checkbox" id="compression" name="deployment" value="compression">
+        <label for="compression"> <%= "Compression" %> </label><br> 
+
+        <input type="checkbox" id="deployment_date" name="deployment" value="deployment_date">
+        <label for="deployment_date"> <%= "Deployment Date" %> </label><br> 
+
+        <input type="checkbox" id="recovery_date" name="deployment" value="recovery_date">
+        <label for="recovery_date"> <%= "Recovery Date" %> </label><br> 
+
+        <input type="checkbox" id="rrecording_start" name="deployment" value="recording_start">
+        <label for="recording_start"> <%= "Recording Start" %> </label><br> 
+
+        <input type="checkbox" id="recording_stop" name="deployment" value="recording_stop">
+        <label for="recording_stop"> <%= "Recording Stop" %> </label><br> 
+
+        <a href="#" onclick="getValue(); return false;">Make Form</a>
+
+        <script>
+          function getValue() {
+            var checks = getElementsByClassName('check');
+            var str = '';
+            for( i = 0; i < 2; i++) {
+              if( deployment[i].checked == true) {
+                str += checks[i].value + " ";
+              }
+            }
+            alert(str);
+          }
+        <br>
+    </span>
+    <span>
+      <b>Deployment</b><br /> 
       <% columns = Deployment.column_names() %>
       <% columns.each do |c| %>
         <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">

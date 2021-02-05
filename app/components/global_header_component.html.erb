@@ -45,7 +45,17 @@
       </div>
     </div>
     <div>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Drop Down Search
+      </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to "View Searches", flexible_searches_path, class: "dropdown-item" %>
+            <%= link_to "Add Search", new_flexible_search_path, class: "dropdown-item" %>
+          </div>
+      <div>
+    </div>
       <%= link_to "Custom Search", flexible_searches_path, class: "btn btn-outline-light mr-auto" %>
+      
       <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-info mr-1" %>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
     </div>

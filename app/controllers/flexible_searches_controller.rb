@@ -38,6 +38,13 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches/1/edit
   def edit
     @flexible_search = FlexibleSearch.find(params[:id])
+
+    @a, @b = false
+      if @flexible_search.narrow == 'Narrow'
+        @a = true
+      elsif @flexible_search.narrow == 'Broaden'
+        @b = true
+      end
   end
 
   # POST /flexible_searches

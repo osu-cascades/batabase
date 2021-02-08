@@ -1,6 +1,6 @@
 
 
-<%= form_with(model: flexible_search, local: true) do |form| %>
+<%= form_with(model: @flexible_search, local: true) do |form| %>
   <% if flexible_search.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(flexible_search.errors.count, "error") %> prohibited this query group from being saved:</h2>
@@ -20,8 +20,8 @@
 
   <div class="field">
     <b>Do you want to narrow or broaden your search results?</b><br />
-    <%= form.radio_button :narrow, 'Narrow' %> Narrow <br />
-    <%= form.radio_button :narrow, 'Broaden' %> Broaden <br />
+    <%= form.radio_button :narrow, 'Narrow', :checked => @a %> Narrow <br />
+    <%= form.radio_button :narrow, 'Broaden', :checked => @b %> Broaden <br />
   </div>
 
   <h3>Tables</h3>
@@ -104,7 +104,9 @@
         <input type="checkbox" id="recording_stop" name="deployment" value="recording_stop">
         <label for="recording_stop"> <%= "Recording Stop" %> </label><br> 
 
-        <a href="#" onclick="getValue(); return false;">Make Form</a>
+        <%
+=begin%>
+ <a href="#" onclick="getValue(); return false;">Make Form</a>
 
         <script>
           function getValue() {
@@ -118,7 +120,9 @@
             alert(str);
           }
         <br>
-      </script>
+      </script> 
+<%
+=end%>
     </span>
     <span>
       <b>Deployment</b><br /> 
@@ -162,7 +166,7 @@
   
   <%begin%>
  <div class="checkboxes">
-    <%= form.collection_check_boxes(:table_ids, Table.all, :id, :name) %>
+    <%= form.collection_check_boxes(:search_field_ids, SearchField.all, :id, :name) %>
   </div> 
 <%end%>
 

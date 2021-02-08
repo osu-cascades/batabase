@@ -1,7 +1,11 @@
-<h1>Editing Flexible Search</h1>
+<h1>Editing <%= @flexible_search.name %> </h1>
 
 <%= render 'form', flexible_search: @flexible_search %>
-<%= render(FormComponent.new(@model, @fields, @header_text)) %>
+<%
+=begin%>
+ <%= render(FormComponent.new(@model, @fields, @header_text)) %> 
+<%
+=end%>
 
 
 <%= link_to 'Show', @flexible_search %> |

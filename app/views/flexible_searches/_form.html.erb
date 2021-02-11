@@ -20,14 +20,25 @@
 
   <div class="field">
     <b>Do you want to narrow or broaden your search results?</b><br />
-    <%= form.radio_button :narrow, 'Narrow'<br />
-    <%= form.radio_button :narrow, 'Broaden'<br />
+    <%= form.radio_button :narrow, 'Narrow' %>Narrow<br />
+    <%= form.radio_button :narrow, 'Broaden' %>Broaden<br />
   </div>
 
-  <div class="field">
+  <div class="checkboxes">
     <h4>Deployment</h4>
-      <%= check_box_tag(:search_field) %>
-      <%= label_tag(:search_field, "comment") %>
+    <%
+=begin%>
+ <%= form.check_box :search_field %>comments 
+<%
+=end%>
+ <%= form.check_box :search_field, {}, "comments", nil %>comments
+
+      <%
+=begin%>
+ <%= form.check_box_tag(:search_field) %>
+      <%= form.label_tag(:search_field, "comment") %> 
+<%
+=end%>
   </div>
 
   <h3>Tables</h3>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_214134) do
+ActiveRecord::Schema.define(version: 2021_02_11_225515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_214134) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "search_field"
     t.string "narrow"
+    t.string "fields", default: [], array: true
   end
 
   create_table "geodetic_systems", force: :cascade do |t|

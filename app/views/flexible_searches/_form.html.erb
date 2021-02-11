@@ -20,8 +20,14 @@
 
   <div class="field">
     <b>Do you want to narrow or broaden your search results?</b><br />
-    <%= form.radio_button :narrow, 'Narrow', :checked => @a %> Narrow <br />
-    <%= form.radio_button :narrow, 'Broaden', :checked => @b %> Broaden <br />
+    <%= form.radio_button :narrow, 'Narrow'<br />
+    <%= form.radio_button :narrow, 'Broaden'<br />
+  </div>
+
+  <div class="field">
+    <h4>Deployment</h4>
+      <%= check_box_tag(:search_field) %>
+      <%= label_tag(:search_field, "comment") %>
   </div>
 
   <h3>Tables</h3>
@@ -29,6 +35,7 @@
   <div class="checkboxes" style="float:left; display:flex;">
     <span>
       <b>Deployment</b><br /> 
+
         <input type="checkbox" id="comments" name="deployment" value="comment" class="check">
         <label for="comments"> <%= "Comments" %> </label><br>
 
@@ -103,6 +110,7 @@
 
         <input type="checkbox" id="recording_stop" name="deployment" value="recording_stop">
         <label for="recording_stop"> <%= "Recording Stop" %> </label><br> 
+      </span>
 
         <%
 =begin%>
@@ -123,16 +131,6 @@
       </script> 
 <%
 =end%>
-    </span>
-    <span>
-      <b>Deployment</b><br /> 
-      <% columns = Deployment.column_names() %>
-      <% columns.each do |c| %>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1"> <%= c %> </label><br>
-      <% end %>
-      <br>
-    </span>
     <span>
       <b>SonobatOutput</b><br /> 
       <% columns = SonobatOutput.column_names() %>
@@ -164,11 +162,15 @@
   </div>
 
   
-  <%begin%>
+  <%
+=begin%>
+ <%begin%>
  <div class="checkboxes">
     <%= form.collection_check_boxes(:search_field_ids, SearchField.all, :id, :name) %>
   </div> 
-<%end%>
+<%end%> 
+<%
+=end%>
 
   <div class="actions">
     <%= form.submit %>

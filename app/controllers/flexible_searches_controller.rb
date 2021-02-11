@@ -38,19 +38,14 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches/1/edit
   def edit
     @flexible_search = FlexibleSearch.find(params[:id])
-
-    @a, @b = false
-      if @flexible_search.narrow == 'Narrow'
-        @a = true
-      elsif @flexible_search.narrow == 'Broaden'
-        @b = true
-      end
   end
 
   # POST /flexible_searches
   # POST /flexible_searches.json
   def create
+    flexible_search_params = params.require(:flexible_search).permit(:name, :narrow, :search_field)
     @flexible_search = FlexibleSearch.new(flexible_search_params)
+    @flexible_search.save
 
     respond_to do |format|
       if @flexible_search.save

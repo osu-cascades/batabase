@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_171326) do
+ActiveRecord::Schema.define(version: 2021_02_11_214134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,7 +132,8 @@ ActiveRecord::Schema.define(version: 2021_01_29_171326) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "narrow"
+    t.string "search_field"
+    t.string "narrow"
   end
 
   create_table "geodetic_systems", force: :cascade do |t|
@@ -176,15 +177,6 @@ ActiveRecord::Schema.define(version: 2021_01_29_171326) do
     t.bigint "broad_habitat_form_id"
     t.index ["broad_habitat_form_id"], name: "index_sample_units_on_broad_habitat_form_id"
     t.index ["broad_habitat_id"], name: "index_sample_units_on_broad_habitat_id"
-  end
-
-  create_table "search_fields", force: :cascade do |t|
-    t.string "name"
-    t.bigint "flexible_search_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "table"
-    t.index ["flexible_search_id"], name: "index_search_fields_on_flexible_search_id"
   end
 
   create_table "softwares", force: :cascade do |t|
@@ -260,24 +252,9 @@ ActiveRecord::Schema.define(version: 2021_01_29_171326) do
     t.index ["species_id"], name: "index_species_species_groups_on_species_id"
   end
 
-  create_table "specifications", force: :cascade do |t|
-    t.bigint "table_id", null: false
-    t.bigint "flexible_search_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["flexible_search_id"], name: "index_specifications_on_flexible_search_id"
-    t.index ["table_id"], name: "index_specifications_on_table_id"
-  end
-
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "abbreviation"
-  end
-
-  create_table "tables", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "target_descriptors", force: :cascade do |t|
@@ -339,10 +316,7 @@ ActiveRecord::Schema.define(version: 2021_01_29_171326) do
   add_foreign_key "sample_unit_states", "states"
   add_foreign_key "sample_units", "broad_habitat_forms"
   add_foreign_key "sample_units", "broad_habitats"
-  add_foreign_key "search_fields", "flexible_searches"
   add_foreign_key "softwares", "contacts"
   add_foreign_key "sonobat_outputs", "deployments"
-  add_foreign_key "specifications", "flexible_searches"
-  add_foreign_key "specifications", "tables"
   add_foreign_key "target_descriptors", "detection_targets"
 end

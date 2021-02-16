@@ -1,7 +1,5 @@
 class FlexibleSearchesController < ApplicationController
   before_action :set_flexible_search, only: [:show, :edit, :update, :destroy]
-  
-  narrow = true
 
   # GET /flexible_searches
   # GET /flexible_searches.json
@@ -15,6 +13,17 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches/1.json
   def show
     @flexible_search = FlexibleSearch.find(params[:id])
+    @temp = "search_params = { "
+    @flexible_search.searchables.each do |s|
+      @temp << "\""
+      @temp << s
+      @temp << "\", "
+      puts "& & & & TABLE & & & &"
+      puts belongs_to(s)
+    end
+    puts "****************************"
+    puts @temp
+    puts "****************************"
   end
 
   # GET /flexible_searches/new
@@ -24,7 +33,6 @@ class FlexibleSearchesController < ApplicationController
 
   def results
     @flexible_search = FlexibleSearch.find(params[:id])
-    @flexible_search.search_field = 'search_params = { '
 
     manual_idspp1 = params[:manual_idspp1]
     manual_idspp2 = params[:manual_idspp2]
@@ -85,6 +93,19 @@ class FlexibleSearchesController < ApplicationController
   end
 
   private
+    def belongs_to(strng)
+      if Deployment.column_names().include? strng
+          return "deployment"
+      elsif SonobatOutput.column_names().include? strng
+          return "sonobat_output"
+      end
+    end
+
+    def set_search_fields
+      
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_flexible_search
       @flexible_search = FlexibleSearch.find(params[:id])

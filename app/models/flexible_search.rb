@@ -3,6 +3,18 @@ class FlexibleSearch < ApplicationRecord
     has_many :specifications, dependent: :destroy
     has_many :tables, through: :specifications
 
+    def belongs_to(strng)
+        if Deployment.column_names().include? strng
+            return "deployment"
+        elsif SonobatOutput.column_names().include? strng
+            return "sonobat_output"
+        end
+    end
+
+    def search_field
+
+    end
+
     def search()
         #assign parameters in a for each
         manual_idspp1 = params[:manual_idspp1]

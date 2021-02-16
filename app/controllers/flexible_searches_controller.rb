@@ -23,6 +23,9 @@ class FlexibleSearchesController < ApplicationController
   end
 
   def results
+    @flexible_search = FlexibleSearch.find(params[:id])
+    @flexible_search.search_field = 'search_params = { '
+
     manual_idspp1 = params[:manual_idspp1]
     manual_idspp2 = params[:manual_idspp2]
     night = params[:night]
@@ -43,7 +46,6 @@ class FlexibleSearchesController < ApplicationController
   # POST /flexible_searches
   # POST /flexible_searches.json
   def create
-    flexible_search_params = params.require(:flexible_search).permit(:name, :narrow, :search_field)
     @flexible_search = FlexibleSearch.new(flexible_search_params)
     @flexible_search.save
 
@@ -90,8 +92,8 @@ class FlexibleSearchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flexible_search_params
-      params.require(:flexible_search).permit(:name, :state, :sample_unit, 
-      :location_id, :agency, :night, :manual_idspp1, :manual_idspp2)
+      params.require(:flexible_search).permit(:name, :narrow, :search_field, :search_items, :state, :sample_unit, 
+      :location_id, :agency, :night, :manual_idspp1, :manual_idspp2, searchables: [])
     end
 end
 

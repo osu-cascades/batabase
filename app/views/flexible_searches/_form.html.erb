@@ -26,10 +26,9 @@
 
   <div class="checkboxes">
     <h4>Deployment</h4>
-    <%= form.check_box :search_field, {}, "comments", nil %>Comments<br>
-    <%= form.check_box :search_field, {}, "microphone_height", nil %>Microphone Height<br>
-    <%= form.check_box :search_field, {}, "microphone_orientation", nil %>Microphone Orientation<br>
-
+    <%= form.check_box :searchables, {multiple: true}, "comments", nil %>Comments<br>
+    <%= form.check_box :searchables, {multiple: true}, "microphone_height", nil %>Microphone Height<br>
+    <%= form.check_box :searchables, {multiple: true}, "microphone_orientation", nil %>Microphone Orientation<br>
   </div>
 
   <h3>Tables</h3>
@@ -164,13 +163,12 @@
   </div>
 
   
-  <%
+
+ <%
 =begin%>
- <%begin%>
  <div class="checkboxes">
-    <%= form.collection_check_boxes(:search_field_ids, SearchField.all, :id, :name) %>
-  </div> 
-<%end%> 
+    <%= form.collection_check_boxes(:search_items, SearchField.all, :id, :name) %>
+</div>  
 <%
 =end%>
 

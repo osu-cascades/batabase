@@ -5,16 +5,25 @@
 </p>
 
 <form action="<%= flexible_search_results_path %>" method="GET">
-  <label for="idspp1"><%= @flexible_search.search_field %></label><br>
-  <input type="text" name="manual_idspp1"><br>
-  <br>
-  <br>
-  <label for="idspp2">Manual idspp2</label><br>
-  <input type="text" name="manual_idspp2"><br>
-  <br>
-  <br>
-  <label for="night">Night</label><br>
-  <input type="text" name="night"><br>
+  <% @flexible_search.searchables.each do |s| %>
+    <%= s %>
+    <label for=s></label></br>
+    <input type="text" name=s><br>
+    <br>
+  <% end %>
+
+  <%
+=begin%>
+ <form action="<%= flexible_search_results_path %>" method="GET">
+  <%= @flexible_search.search_items.each do |si|%>
+    <label for=si><%= si %></label><br>
+    <input type="text" name=si><br>
+    <br>
+  <% end %> 
+<%
+=end%>
+
+  
   <input type="submit" value="Search">
 
 </form>

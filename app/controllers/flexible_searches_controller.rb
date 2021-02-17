@@ -13,13 +13,38 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches/1.json
   def show
     @flexible_search = FlexibleSearch.find(params[:id])
+    @deployment_start = false
+    @so_start = false
     @temp = "search_params = { "
     @flexible_search.searchables.each do |s|
-      @temp << "\""
-      @temp << s
-      @temp << "\", "
-      puts "& & & & TABLE & & & &"
-      puts belongs_to(s)
+
+      if belongs_to(s) == "deployment" and @deployment_start == false
+        puts "& & & & TABLE & & & &"
+        puts belongs_to(s)
+        @temp << belongs_to(s)
+        @temp << " => ["
+        @deployment_start = true
+      end
+      puts" D E P L O Y M E N T   S T A R T"
+      puts @deployment_start
+      if @deployment_start == true and @so_start == false
+        puts @deployment_start
+        @temp << "\""
+        @temp << s
+        @temp << "\", "
+      end
+      if belongs_to(s) == "sonobat_output"
+        @temp << " ], sonobat_output => [ "
+        @so_start = true
+        @temp << "\""
+        @temp << s
+        @temp << "\", "
+      end
+      if @deployment_start
+
+      end
+
+
     end
     puts "****************************"
     puts @temp
@@ -102,7 +127,7 @@ class FlexibleSearchesController < ApplicationController
     end
 
     def set_search_fields
-      
+
     end
 
 

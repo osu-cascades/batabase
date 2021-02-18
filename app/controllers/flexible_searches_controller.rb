@@ -25,27 +25,27 @@ class FlexibleSearchesController < ApplicationController
         @temp << " => ["
         @deployment_start = true
       end
-      puts" D E P L O Y M E N T   S T A R T"
-      puts @deployment_start
       if @deployment_start == true and @so_start == false
         puts @deployment_start
         @temp << "\""
         @temp << s
         @temp << "\", "
       end
-      if belongs_to(s) == "sonobat_output"
+      if belongs_to(s) == "sonobat_output" and @so_start == false
+        @temp = @temp [0...-2]
         @temp << " ], sonobat_output => [ "
         @so_start = true
+      end
+      if belongs_to(s) == "sonobat_output" and @so_start == true
         @temp << "\""
         @temp << s
         @temp << "\", "
       end
-      if @deployment_start
-
-      end
-
-
     end
+    @temp = @temp[0...-2]
+    @temp << " ]}"
+
+
     puts "****************************"
     puts @temp
     puts "****************************"

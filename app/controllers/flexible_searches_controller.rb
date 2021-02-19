@@ -19,8 +19,6 @@ class FlexibleSearchesController < ApplicationController
     @flexible_search.searchables.each do |s|
 
       if belongs_to(s) == "deployment" and @deployment_start == false
-        puts "& & & & TABLE & & & &"
-        puts belongs_to(s)
         @temp << belongs_to(s)
         @temp << " => ["
         @deployment_start = true
@@ -44,7 +42,6 @@ class FlexibleSearchesController < ApplicationController
     end
     @temp = @temp[0...-2]
     @temp << " ]}"
-
 
     puts "****************************"
     puts @temp
@@ -110,6 +107,7 @@ class FlexibleSearchesController < ApplicationController
   # DELETE /flexible_searches/1
   # DELETE /flexible_searches/1.json
   def destroy
+    # @flexible_search = FlexibleSearch.find(params[:id])
     @flexible_search.destroy
     respond_to do |format|
       format.html { redirect_to flexible_searches_url, notice: 'Flexible search was successfully destroyed.' }

@@ -134,7 +134,6 @@ ActiveRecord::Schema.define(version: 2021_02_14_040248) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "search_field"
     t.string "narrow"
-    t.string "search_items"
     t.text "searchables", default: [], array: true
   end
 

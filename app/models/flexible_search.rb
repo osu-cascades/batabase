@@ -1,4 +1,35 @@
 class FlexibleSearch < ApplicationRecord
+    before_save do
+        self[:search_field] = "search_fields = { "
+        @deployment_start = false
+        @so_start = false
+        self.searchables.each do |s|
+    
+        if belongs_to(s) == "deployment" and @deployment_start == false
+            puts self[:search_field]
+            self[:search_field] << belongs_to(s)
+            self[:search_field] << " => ["
+            @deployment_start = true
+        end
+        if @deployment_start == true and @so_start == false
+            self[:search_field] << "\""
+            self[:search_field] << s
+            self[:search_field] << "\", "
+        end
+        if belongs_to(s) == "sonobat_output" and @so_start == false
+            self[:search_field] = self[:search_field] [0...-2]
+            self[:search_field] << " ], sonobat_output => [ "
+            @so_start = true
+        end
+        if belongs_to(s) == "sonobat_output" and @so_start == true
+            self[:search_field] << "\""
+            self[:search_field] << s
+            self[:search_field] << "\", "
+        end
+    end
+    self[:search_field] = self[:search_field][0...-2]
+    self[:search_field] << " ]}"
+    end
 
     def belongs_to(strng)
         if Deployment.column_names().include? strng

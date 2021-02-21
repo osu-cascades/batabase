@@ -24,7 +24,6 @@ class FlexibleSearchesController < ApplicationController
         @deployment_start = true
       end
       if @deployment_start == true and @so_start == false
-        puts @deployment_start
         @temp << "\""
         @temp << s
         @temp << "\", "

@@ -12,9 +12,9 @@ class FlexibleSearch < ApplicationRecord
             @deployment_start = true
         end
         if @deployment_start == true and @so_start == false
-            self[:search_field] << "\""
+            self[:search_field] << "'"
             self[:search_field] << s
-            self[:search_field] << "\", "
+            self[:search_field] << "', "
         end
         if belongs_to(s) == "sonobat_output" and @so_start == false
             self[:search_field] = self[:search_field] [0...-2]
@@ -22,9 +22,9 @@ class FlexibleSearch < ApplicationRecord
             @so_start = true
         end
         if belongs_to(s) == "sonobat_output" and @so_start == true
-            self[:search_field] << "\""
+            self[:search_field] << "'"
             self[:search_field] << s
-            self[:search_field] << "\", "
+            self[:search_field] << "', "
         end
     end
     self[:search_field] = self[:search_field][0...-2]

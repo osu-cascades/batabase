@@ -13,38 +13,38 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches/1.json
   def show
     @flexible_search = FlexibleSearch.find(params[:id])
-    @deployment_start = false
-    @so_start = false
-    @temp = "search_params = { "
-    @flexible_search.searchables.each do |s|
+    # @deployment_start = false
+    # @so_start = false
+    # @temp = "search_params = { "
+    # @flexible_search.searchables.each do |s|
 
-      if belongs_to(s) == "deployment" and @deployment_start == false
-        @temp << belongs_to(s)
-        @temp << " => ["
-        @deployment_start = true
-      end
-      if @deployment_start == true and @so_start == false
-        @temp << "\""
-        @temp << s
-        @temp << "\", "
-      end
-      if belongs_to(s) == "sonobat_output" and @so_start == false
-        @temp = @temp [0...-2]
-        @temp << " ], sonobat_output => [ "
-        @so_start = true
-      end
-      if belongs_to(s) == "sonobat_output" and @so_start == true
-        @temp << "\""
-        @temp << s
-        @temp << "\", "
-      end
-    end
-    @temp = @temp[0...-2]
-    @temp << " ]}"
+    #   if belongs_to(s) == "deployment" and @deployment_start == false
+    #     @temp << belongs_to(s)
+    #     @temp << " => ["
+    #     @deployment_start = true
+    #   end
+    #   if @deployment_start == true and @so_start == false
+    #     @temp << "\""
+    #     @temp << s
+    #     @temp << "\", "
+    #   end
+    #   if belongs_to(s) == "sonobat_output" and @so_start == false
+    #     @temp = @temp [0...-2]
+    #     @temp << " ], sonobat_output => [ "
+    #     @so_start = true
+    #   end
+    #   if belongs_to(s) == "sonobat_output" and @so_start == true
+    #     @temp << "\""
+    #     @temp << s
+    #     @temp << "\", "
+    #   end
+    # end
+    # @temp = @temp[0...-2]
+    # @temp << " ]}"
 
-    puts "****************************"
-    puts @temp
-    puts "****************************"
+    # puts "****************************"
+    # puts @temp
+    # puts "****************************"
   end
 
   # GET /flexible_searches/new
@@ -115,18 +115,13 @@ class FlexibleSearchesController < ApplicationController
   end
 
   private
-    def belongs_to(strng)
-      if Deployment.column_names().include? strng
-          return "deployment"
-      elsif SonobatOutput.column_names().include? strng
-          return "sonobat_output"
-      end
-    end
-
-    def set_search_fields
-
-    end
-
+    # def belongs_to(strng)
+    #   if Deployment.column_names().include? strng
+    #       return "deployment"
+    #   elsif SonobatOutput.column_names().include? strng
+    #       return "sonobat_output"
+    #   end
+    # end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_flexible_search

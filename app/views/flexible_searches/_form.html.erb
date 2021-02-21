@@ -30,8 +30,8 @@
 <%
 =end%>
 
-  <span>
-    <div class="checkboxes">
+  <div class="checkboxes" style="float:left; display:flex;">
+    <span>
       <h4>Deployment</h4>
       <%= form.check_box :searchables, {multiple: true}, "comments", nil %>Comments<br>
       <%= form.check_box :searchables, {multiple: true}, "microphone_height_off_ground", nil %>Microphone Height<br>
@@ -60,47 +60,15 @@
       <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br> 
 <%
 =end%>
-    </div>
-  </span>
+    </span>
+  </div>
   <span>
-    <div class="checkboxes">
       <h4>Sonobat Output</h4>
       <%= form.check_box :searchables, {multiple: true}, "detector_location", nil %>Detector Location<br>
       <%= form.check_box :searchables, {multiple: true}, "night", nil %>Night<br>
       <%= form.check_box :searchables, {multiple: true}, "filename", nil %>Filename<br>
-    </div>
   </span>
 
-    <span>
-      <b>SonobatOutput</b><br /> 
-      <% columns = SonobatOutput.column_names() %>
-      <% columns.each do |c| %>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1"> <%= c %> </label><br>
-      <% end %>
-      <br>
-    </span>
-    <span>
-      <b>Deployment</b><br /> 
-      <% columns = Deployment.column_names() %>
-      <% columns.each do |c| %>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1"> <%= c %> </label><br>
-      <% end %>
-      <br>
-    </span>
-    <span>
-      <b>Contacts</b><br /> 
-      <% columns = Contact.column_names() %>
-      <% columns.each do |c| %>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1"> <%= c %> </label><br>
-      <% end %>
-      <br>
-    </span>
-    
-
-  
 
  <%
 =begin%>

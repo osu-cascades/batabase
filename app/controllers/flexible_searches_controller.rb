@@ -13,7 +13,16 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches/1.json
   def show
     @flexible_search = FlexibleSearch.find(params[:id])
-    # @deployment_start = false
+    @header = @flexible_search.searchables
+    @fields = []
+    @header.each do |h|
+      @fields << h.intern
+    end
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
+    @sonobat_outputs = @sonobat_outputs.where(night: night)
+
+      # @deployment_start = false
     # @so_start = false
     # @temp = "search_params = { "
     # @flexible_search.searchables.each do |s|

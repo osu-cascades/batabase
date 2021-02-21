@@ -28,6 +28,15 @@
 
 </form>
 
+<%
+=begin%>
+ <div class="d-flex flex-column align-items-center">
+  <%= render(TableComponent.new(@fields, @header, @helpers, @flexible_search, @search)) %>
+</div>   
+<%
+=end%>
+
+
 
 
 

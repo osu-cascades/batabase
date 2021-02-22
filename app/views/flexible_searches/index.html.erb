@@ -2,8 +2,14 @@
 
 <% @flexible_searches.each do |flexible_search| %>
     <section class="flexible_search">
-        <div class="summary">
-            <h2><%= link_to flexible_search.name, flexible_search %></h2>
+        <div class="summary" style="float:left; display:flex; padding:2px; padding-right:10px;">
+            <h2 style="margin-right:10px;"><%= link_to flexible_search.name, flexible_search %></h2>
+            <span style="margin-right: 10px;">
+                <%= button_to 'Edit', edit_flexible_search_path(flexible_search), class: 'btn btn-primary' %>
+            </span>
+            <span style="margin-right: 10px;">
+                <%= button_to "Delete", flexible_search, class: 'btn btn-danger', method: :delete, data: { confirm: "Are you sure you want to delete this custom search?" } %>
+            </span>
             <p></p>
         </div>
     </section>

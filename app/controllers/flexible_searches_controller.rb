@@ -18,10 +18,17 @@ class FlexibleSearchesController < ApplicationController
     @header.each do |h|
       @fields << h.intern
     end
-    # Stuff we were setting in results to produce table before
+    Deployment.column_names().each do |c|
+      puts c
+    end
+    # manual_idspp1 = params[:manual_idspp1]
+    # manual_idspp2 = params[:manual_idspp2]
+    # night = params[:night]
+      # Stuff we were setting in results to produce table before
     # @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
     # @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
     # @sonobat_outputs = @sonobat_outputs.where(night: night)
+
 
       # @deployment_start = false
     # @so_start = false

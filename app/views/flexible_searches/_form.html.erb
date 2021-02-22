@@ -1,5 +1,3 @@
-
-
 <%= form_with(model: @flexible_search, local: true) do |form| %>
   <% if flexible_search.errors.any? %>
     <div id="error_explanation">
@@ -33,41 +31,105 @@
   <div class="checkboxes" style="float:left; display:flex;">
     <span>
       <h4>Deployment</h4>
+      <%= form.check_box :searchables, {multiple: true}, "location_id", nil %>Location Identifier<br>
+      <%= form.check_box :searchables, {multiple: true}, "agency", nil %>Agency<br>
+      <%= form.check_box :searchables, {multiple: true}, "primary_contact", nil %>Primary Contact<br>
+      <%= form.check_box :searchables, {multiple: true}, "recovery_contact", nil %>Recovery Contact<br>
+      <%= form.check_box :searchables, {multiple: true}, "latitude", nil %>Latitude<br>
+      <%= form.check_box :searchables, {multiple: true}, "longitude", nil %>Longitude<br>
+      <%= form.check_box :searchables, {multiple: true}, "elevation", nil %>Elevation<br>
+      <%= form.check_box :searchables, {multiple: true}, "driving_directions", nil %>Driving Directions<br>
       <%= form.check_box :searchables, {multiple: true}, "comments", nil %>Comments<br>
+      <%= form.check_box :searchables, {multiple: true}, "deployment_date", nil %>Deployment Date<br> 
+      <%= form.check_box :searchables, {multiple: true}, "gain", nil %>Gain<br> 
+      <%= form.check_box :searchables, {multiple: true}, "hp_filter", nil %>HP Filter<br>
+      <%= form.check_box :searchables, {multiple: true}, "input_gain", nil %>Input Gain<br>
+      <%= form.check_box :searchables, {multiple: true}, "interval", nil %>Interval<br>
+      <%= form.check_box :searchables, {multiple: true}, "max_duration", nil %>Max Duration<br>
+      <%= form.check_box :searchables, {multiple: true}, "max_length ", nil %>Max Length<br>
       <%= form.check_box :searchables, {multiple: true}, "microphone_height_off_ground", nil %>Microphone Height<br>
       <%= form.check_box :searchables, {multiple: true}, "microphone_orientation", nil %>Microphone Orientation<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
+      <%= form.check_box :searchables, {multiple: true}, "min_duration ", nil %>Min Duration<br>
       <%= form.check_box :searchables, {multiple: true}, "pre_trigger", nil %>Pre-Trigger<br>
       <%= form.check_box :searchables, {multiple: true}, "recording_length", nil %>Recording Length<br>
-      <%= form.check_box :searchables, {multiple: true}, "hp_filter", nil %>HP Filter<br>
+      <%= form.check_box :searchables, {multiple: true}, "recording_start", nil %>Recording Start<br>
+      <%= form.check_box :searchables, {multiple: true}, "recording_stop", nil %>Recording Stop<br>
+      <%= form.check_box :searchables, {multiple: true}, "recovery_date", nil %>Recovery Date<br>
+      <%= form.check_box :searchables, {multiple: true}, "sample_rate", nil %>Sample Rate<br>
+      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
+      <%= form.check_box :searchables, {multiple: true}, "sixteen_thousand_high_filter", nil %>Sixteen Thousand High Filter<br>
+      <%= form.check_box :searchables, {multiple: true}, "trigger_level", nil %>Trigger Level<br>
+      <%= form.check_box :searchables, {multiple: true}, "trigger_sensitivity", nil %>Trigger Sensitivity<br>
+      <%= form.check_box :searchables, {multiple: true}, "trigger_window", nil %>Trigger Window<br>
+    </span>
+  <span>
+      <h4>Sonobat Output</h4>
+      <%= form.check_box :searchables, {multiple: true}, "accp", nil %>ACCP<br>
+      <%= form.check_box :searchables, {multiple: true}, "accp_qual_for_tally", nil %>ACCP Qual For Tally<br>
+      <%= form.check_box :searchables, {multiple: true}, "accp_quality", nil %>ACCP Quality<br>
+      <%= form.check_box :searchables, {multiple: true}, "calls_per_sec", nil %>Calls Per Sec<br>
+      <%= form.check_box :searchables, {multiple: true}, "detector_location", nil %>Detector Location<br>
+      <%= form.check_box :searchables, {multiple: true}, "dur_mean", nil %>Duration Mean<br>
+      <%= form.check_box :searchables, {multiple: true}, "fc_mean", nil %>FC Mean<br>
+      <%= form.check_box :searchables, {multiple: true}, "fc_std_dev", nil %>FC Standard Deviation<br>
+      <%= form.check_box :searchables, {multiple: true}, "file_length", nil %>File Length<br>
+      <%= form.check_box :searchables, {multiple: true}, "filename", nil %>Filename<br>
+      <%= form.check_box :searchables, {multiple: true}, "filter", nil %>Filter<br>
+      <%= form.check_box :searchables, {multiple: true}, "first", nil %>First<br>
+      <%= form.check_box :searchables, {multiple: true}, "fourth", nil %>Fourth<br>
+      <%= form.check_box :searchables, {multiple: true}, "hi_f", nil %>High Frequency<br>
+      <%= form.check_box :searchables, {multiple: true}, "lo_f", nil %>Low Frequency<br>
+      <%= form.check_box :searchables, {multiple: true}, "maj", nil %>Maj<br>
+      <%= form.check_box :searchables, {multiple: true}, "manual_idspp1", nil %>Manual Species ID 1<br>
+      <%= form.check_box :searchables, {multiple: true}, "manual_idspp2", nil %>Manual Species ID 2<br>
+      <%= form.check_box :searchables, {multiple: true}, "max_calls_considered", nil %>Max Calls Considered<br>
+      <%= form.check_box :searchables, {multiple: true}, "mean_hi_freq", nil %>Mean High Frequency<br>
+      <%= form.check_box :searchables, {multiple: true}, "mean_lo_freq", nil %>Mean Low Frequency<br>
+      <%= form.check_box :searchables, {multiple: true}, "mean_lwr_slp", nil %>Mean Lower slp<br>
+      <%= form.check_box :searchables, {multiple: true}, "mean_preceding_intvl ", nil %>Mean Preceding Interval(?)<br>
+      <%= form.check_box :searchables, {multiple: true}, "mean_total_slp", nil %>Mean Total slp<br>
+      <%= form.check_box :searchables, {multiple: true}, "mean_uppr_slp", nil %>Mean Upper slp <br>
+      <%= form.check_box :searchables, {multiple: true}, "next_dir_up", nil %>Next dir Up<br>
+      <%= form.check_box :searchables, {multiple: true}, "mean_lo_freq", nil %>Mean Low Frequency<br>
+      <%= form.check_box :searchables, {multiple: true}, "mean_lo_freq", nil %>Mean Low Frequency<br>
+      <%= form.check_box :searchables, {multiple: true}, "night", nil %>Night<br>
+      <%= form.check_box :searchables, {multiple: true}, "notes", nil %>Sonobat Output Notes<br>
+      <%= form.check_box :searchables, {multiple: true}, "parent_dir", nil %>Parent Dir<br>
+      <%= form.check_box :searchables, {multiple: true}, "prob", nil %>Probability<br>
+      <%= form.check_box :searchables, {multiple: true}, "second", nil %>Second<br>
+      <%= form.check_box :searchables, {multiple: true}, "spp", nil %>SPP<br>
+      <%= form.check_box :searchables, {multiple: true}, "spp_accp", nil %>SPP ACCP<br>
+      <%= form.check_box :searchables, {multiple: true}, "third", nil %>Third<br>
+      <%= form.check_box :searchables, {multiple: true}, "tilde_prob", nil %>Tilde Prob<br>
+      <%= form.check_box :searchables, {multiple: true}, "version", nil %>Version<br>
+  </span>
+  <span>
+    <h4> Detectors </h4>
+    <%= form.check_box :searchables, {multiple: true}, "firmware", nil %>Firmware<br>
+    <%= form.check_box :searchables, {multiple: true}, "manufacturer", nil %>Manufacturer<br>
+    <%= form.check_box :searchables, {multiple: true}, "model", nil %>Model<br>
+    <%= form.check_box :searchables, {multiple: true}, "serial_number", nil %>Serial Number<br>
+    <%= form.check_box :searchables, {multiple: true}, "organization_id", nil %>Organization<br>
+    </span>
+    <%
+=begin%>
+ Not sure if we should use organization_id or organization name 
+<%
+=end%>
+    <span>
+      <h4> Contacts </h4>
+      <%= form.check_box :searchables, {multiple: true}, "last_name", nil %>Last Name<br>
+      <%= form.check_box :searchables, {multiple: true}, "first_name", nil %>First Name<br>
+      <%= form.check_box :searchables, {multiple: true}, "notes", nil %>Contact Notes<br>
+      <%= form.check_box :searchables, {multiple: true}, "serial_number", nil %>Serial Number<br>
+      <%= form.check_box :searchables, {multiple: true}, "state_id", nil %>Contact State<br>
       <%
 =begin%>
- <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br>
-      <%= form.check_box :searchables, {multiple: true}, "sampling_frequency", nil %>Sampling Frequency<br> 
+ Not sure if we should use state_id or organization state name 
 <%
 =end%>
     </span>
   </div>
-  <span>
-      <h4>Sonobat Output</h4>
-      <%= form.check_box :searchables, {multiple: true}, "detector_location", nil %>Detector Location<br>
-      <%= form.check_box :searchables, {multiple: true}, "night", nil %>Night<br>
-      <%= form.check_box :searchables, {multiple: true}, "filename", nil %>Filename<br>
-  </span>
 
 
  <%

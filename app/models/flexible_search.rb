@@ -5,9 +5,9 @@ class FlexibleSearch < ApplicationRecord
         @so_start = false
         self.searchables.each do |s|
     
-        if belongs_to(s) == "deployment" and @deployment_start == false
+        if parent_table(s) == "deployment" and @deployment_start == false
             puts self[:search_field]
-            self[:search_field] << belongs_to(s)
+            self[:search_field] << parent_table(s)
             self[:search_field] << " => ["
             @deployment_start = true
         end
@@ -16,12 +16,12 @@ class FlexibleSearch < ApplicationRecord
             self[:search_field] << s
             self[:search_field] << "', "
         end
-        if belongs_to(s) == "sonobat_output" and @so_start == false
+        if parent_table(s) == "sonobat_output" and @so_start == false
             self[:search_field] = self[:search_field] [0...-2]
             self[:search_field] << " ], sonobat_output => [ "
             @so_start = true
         end
-        if belongs_to(s) == "sonobat_output" and @so_start == true
+        if parent_table(s) == "sonobat_output" and @so_start == true
             self[:search_field] << "'"
             self[:search_field] << s
             self[:search_field] << "', "
@@ -31,7 +31,7 @@ class FlexibleSearch < ApplicationRecord
     self[:search_field] << " ]}"
     end
 
-    def belongs_to(strng)
+    def parent_table(strng)
         if Deployment.column_names().include? strng
             return "deployment"
         elsif SonobatOutput.column_names().include? strng

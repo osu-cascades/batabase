@@ -28,6 +28,17 @@
         <% end %>
       </tr>
     </thead>
+    <tbody>
+      <ul>
+      <% @flexible_search.searchables.each do |s| %>
+        <% @sonobat_outputs.each do |so| %>
+          <tr>
+            <td><%= so.manual_idspp1  %></td>
+          </tr>
+        <% end %> 
+      <% end %>
+      </ul>
+    </tbody>
   </div>
   <%
 =begin%>

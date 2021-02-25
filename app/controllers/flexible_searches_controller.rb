@@ -18,9 +18,15 @@ class FlexibleSearchesController < ApplicationController
     @header.each do |h|
       @fields << h.intern
     end
-    Deployment.column_names().each do |c|
-      puts c
-    end
+    @sonobat_outputs = SonobatOutput.all
+    # @flexible_search.searchables.each do |s|
+    #   puts s.class
+    #   @sonobat_outputs = SonobatOutput.where(s: temp)
+    # end
+    manual_idspp1 = params[:manual_idspp1]
+    puts manual_idspp1
+    puts manual_idspp1.class
+
     # manual_idspp1 = params[:manual_idspp1]
     # manual_idspp2 = params[:manual_idspp2]
     # night = params[:night]
@@ -131,15 +137,15 @@ class FlexibleSearchesController < ApplicationController
     end
   end
 
-  private
-    # def belongs_to(strng)
-    #   if Deployment.column_names().include? strng
-    #       return "deployment"
-    #   elsif SonobatOutput.column_names().include? strng
-    #       return "sonobat_output"
-    #   end
-    # end
+  def parent_t(strng)
+    if Deployment.column_names().include? strng
+        return "deployment"
+    elsif SonobatOutput.column_names().include? strng
+        return "sonobat_output"
+    end
+  end
 
+  private
     # Use callbacks to share common setup or constraints between actions.
     def set_flexible_search
       @flexible_search = FlexibleSearch.find(params[:id])

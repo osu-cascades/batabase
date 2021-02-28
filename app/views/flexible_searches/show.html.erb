@@ -30,12 +30,12 @@
     </thead>
     <tbody>
       <ul>
-      <% @flexible_search.searchables.each do |s| %>
         <% @sonobat_outputs.each do |so| %>
           <tr>
-            <td><%= so.manual_idspp1  %></td>
+          <% @flexible_search.searchables.each do |s| %>
+              <td><%= so.send(s)  %></td> 
+          <% end %> 
           </tr>
-        <% end %> 
       <% end %>
       </ul>
     </tbody>

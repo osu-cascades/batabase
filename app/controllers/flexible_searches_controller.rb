@@ -20,12 +20,15 @@ class FlexibleSearchesController < ApplicationController
     end
     @sonobat_outputs = SonobatOutput.all
     # @flexible_search.searchables.each do |s|
-    #   puts s.class
-    #   @sonobat_outputs = SonobatOutput.where(s: temp)
+    #   #var name      actual data
+    #   @temp = params[:s]
+    #   puts " % % % % % T E M P % % % % % "
+    #   puts @temp.class
+    #   #only return SO records where the so.s matches @temp
+    #   @sonobat_outputs = SonobatOutput.where(s.intern: @temp)
     # end
-    manual_idspp1 = params[:manual_idspp1]
-    puts manual_idspp1
-    puts manual_idspp1.class
+    # manual_idspp1 = params[:manual_idspp1]
+    # puts manual_idspp1
 
     # manual_idspp1 = params[:manual_idspp1]
     # manual_idspp2 = params[:manual_idspp2]
@@ -34,40 +37,6 @@ class FlexibleSearchesController < ApplicationController
     # @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
     # @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
     # @sonobat_outputs = @sonobat_outputs.where(night: night)
-
-
-      # @deployment_start = false
-    # @so_start = false
-    # @temp = "search_params = { "
-    # @flexible_search.searchables.each do |s|
-
-    #   if belongs_to(s) == "deployment" and @deployment_start == false
-    #     @temp << belongs_to(s)
-    #     @temp << " => ["
-    #     @deployment_start = true
-    #   end
-    #   if @deployment_start == true and @so_start == false
-    #     @temp << "\""
-    #     @temp << s
-    #     @temp << "\", "
-    #   end
-    #   if belongs_to(s) == "sonobat_output" and @so_start == false
-    #     @temp = @temp [0...-2]
-    #     @temp << " ], sonobat_output => [ "
-    #     @so_start = true
-    #   end
-    #   if belongs_to(s) == "sonobat_output" and @so_start == true
-    #     @temp << "\""
-    #     @temp << s
-    #     @temp << "\", "
-    #   end
-    # end
-    # @temp = @temp[0...-2]
-    # @temp << " ]}"
-
-    # puts "****************************"
-    # puts @temp
-    # puts "****************************"
   end
 
   # GET /flexible_searches/new
@@ -153,7 +122,7 @@ class FlexibleSearchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flexible_search_params
-      params.require(:flexible_search).permit(:name, :narrow, :search_field, :search_items, :state, :sample_unit, 
+      params.require(:flexible_search).permit(:name, :comments, :recording_length, :detector_location, :narrow, :search_field, :search_items, :state, :sample_unit, 
       :location_id, :agency, :night, :manual_idspp1, :manual_idspp2, searchables: [])
     end
 end

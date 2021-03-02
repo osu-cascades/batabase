@@ -18,8 +18,16 @@
       method: :delete, data: { confirm: "Are you sure you want to delete this custom search?" } %>
       <%= button_to 'Back', flexible_searches_path, class: 'btn btn-primary' %>
     </span>
-
   </form>
+
+  <%
+=begin%>
+ <% puts eval(@flexible_search.search_field).class %> 
+<%
+=end%>
+
+<% puts  %>
+
   <table class="table">
     <thead>
       <tr>

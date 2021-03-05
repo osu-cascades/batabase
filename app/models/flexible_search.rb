@@ -34,9 +34,9 @@ class FlexibleSearch < ApplicationRecord
         self[:search_field] << " ]}"
     end
 
-    before_save do
-        self[:fields_hash] = eval(self[:search_field])
-    end
+    # before_save do
+    #     self[:fields_hash] = eval(self[:search_field])
+    # end
 
     def parent_table(strng)
         if Deployment.column_names().include? strng

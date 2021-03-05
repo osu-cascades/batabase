@@ -22,6 +22,36 @@
   </tbody>
 </table>
 
+<%
+=begin%>
+ <%= search_form_for @search do |f| %>
+  <div class="field">
+   
+<%
+=end%>
+
+<%= search_form_for @search do |f| %>
+  <h3> Contacts </h3>
+  <% columns = Contact.column_names() %>
+  <% columns.each do |c| %>
+    <% if c != 'id' %>
+      <%= check_box_tag('q[cs_name_cont_any][]', c) %>
+      <%= c %>
+      <br>
+    <% end %>
+
+  <% end %>
+  <%
+=begin%>
+ <div class="field">
+    <%= f.label :name_cont, "Name Contains" %>
+    <%= f.text_field :name_cont %>
+  </div> 
+<%
+=end%>
+  <%= f.submit "Search" %>
+<% end %>
+
 <br>
 
 <%= link_to 'New Location Mapping', new_location_mapping_path %>

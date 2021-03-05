@@ -67,6 +67,7 @@ class FlexibleSearchesController < ApplicationController
   # POST /flexible_searches
   # POST /flexible_searches.json
   def create
+    byebug
     @flexible_search = FlexibleSearch.new(flexible_search_params)
     @flexible_search.save
 

@@ -1,18 +1,22 @@
 class LocationMappingsController < ApplicationController
   before_action :set_location_mapping, only: [:show, :edit, :update, :destroy]
 
-  FIELDS = [
-    [:detector_location, :location_identifier],
-    [:detector_location, :land_ownership]
-  ].freeze
+  # FIELDS = [
+  #   [:detector_location, :location_identifier],
+  #   [:detector_location, :land_ownership]
+  # ].freeze
 
   # GET /location_mappings
   # GET /location_mappings.json
   def index
     @location_mappings = LocationMapping.all
-    @fields = FIELDS
-    @search = ransack_params
-    @search_result = ransack_result
+    # @fields = FIELDS
+
+    @search = Contact.search(params[:q])
+    @contacts = @search.result
+
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
   end
 
   # GET /location_mappings/1

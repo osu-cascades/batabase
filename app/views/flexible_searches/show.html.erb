@@ -20,15 +20,11 @@
     </span>
   </form>
 
+
+
   <%
 =begin%>
- <% puts eval(@flexible_search.search_field).class %> 
-<%
-=end%>
-
-<% puts  %>
-
-  <table class="table">
+ <table class="table">
     <thead>
       <tr>
         <% @flexible_search.searchables.each do |fs| %>
@@ -47,26 +43,22 @@
       <% end %>
       </ul>
     </tbody>
-  </div>
-  <%
-=begin%>
- <tbody>
-    <% @sonobat_outputs.each do |so| %>
-      <tr>
-        <td><%= so.manual_idspp1 %></td>
-        <td><%= so.manual_idspp2 %></td>
-        <td><%= so.night %></td>
-        <td><%= so.deployment.primary_contact.state.name %></td>
-        <td><%= so.deployment.detector_location.sample_unit.code %></td>
-        <td><%= so.deployment.detector_location.location_identifier %></td>
-
-      </tr>
-    <% end %>
-
-  </tbody> 
+  </div> 
 <%
 =end%>
-</table>
+@sonobat_outputs = SonobatOutput.all
+<% @flexible_search.searchables.each do |s| %>
+  <% s << "_cont" %>
+  <% @acc = s.intern() %>
+  <% puts "*********************" %>
+  <% puts @acc.class %>
+  <% puts "*********************" %>
+<% end %>
+<%= search_form_for @q do |f| %>
+  <%= f.label :filename_cont %>
+  <%= f.search_field :filename_cont %>
+  <%= f.submit %>
+<% end %>
 
 
 

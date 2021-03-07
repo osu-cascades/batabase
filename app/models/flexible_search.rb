@@ -34,9 +34,6 @@ class FlexibleSearch < ApplicationRecord
         self[:search_field] << " ]}"
     end
 
-    # before_save do
-    #     self[:fields_hash] = eval(self[:search_field])
-    # end
 
     def parent_table(strng)
         if Deployment.column_names().include? strng
@@ -45,6 +42,10 @@ class FlexibleSearch < ApplicationRecord
             return "sonobat_output"
         end
     end
+
+    # def self.ransackable_attributes(auth_object = nil)
+    #     self[:searchables]
+    # end
 
 
     # def search()

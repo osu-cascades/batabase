@@ -9,9 +9,10 @@ class LocationMappingsController < ApplicationController
   # GET /location_mappings
   # GET /location_mappings.json
   def index
+    @q = Contact.ransack(params[:q])
+    @contacts = @q.result
     @location_mappings = LocationMapping.all
     # @fields = FIELDS
-
     @search = Contact.search(params[:q])
     @contacts = @search.result
 
@@ -84,9 +85,9 @@ class LocationMappingsController < ApplicationController
       params.require(:location_mapping).permit(:name)
     end
 
-    def ransack_params
-      LocationMapping.includes(:detector_location).ransack(params[:q])
-    end
+    # def ransack_params
+    #   LocationMapping.includes(:detector_location).ransack(params[:q])
+    # end
   
     def ransack_result
       @search.result.page(params[:page])

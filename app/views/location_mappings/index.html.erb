@@ -29,8 +29,33 @@
    
 <%
 =end%>
+<%= search_form_for @q do |f| %>
+  <%= f.label :first_name_cont %>
+  <%= f.search_field :first_name_cont %>
+  <%= f.submit %>
+<% end %>
 
-<%= search_form_for @search do |f| %>
+<table>
+  <thead>
+    <tr>
+      <th> First Name </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |c| %>
+      <td><%= c.first_name + " " + c.last_name%></td>
+      <%
+=begin%>
+ <br> 
+<%
+=end%>
+    <% end %>
+  </tbody>
+</table>
+<%
+=begin%>
+ <%= search_form_for @search do |f| %>
   <h3> Contacts </h3>
   <% columns = Contact.column_names() %>
   <% columns.each do |c| %>
@@ -40,7 +65,9 @@
       <br>
     <% end %>
 
-  <% end %>
+  <% end %> 
+<%
+=end%>
   <%
 =begin%>
  <div class="field">
@@ -49,9 +76,17 @@
   </div> 
 <%
 =end%>
-  <%= f.submit "Search" %>
-<% end %>
+  <%
+=begin%>
+ <%= f.submit "Search" %> 
+<%
+=end%>
+<%
+=begin%>
+ <% end %>
 
-<br>
+<br> 
+<%
+=end%>
 
 <%= link_to 'New Location Mapping', new_location_mapping_path %>

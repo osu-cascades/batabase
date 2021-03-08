@@ -20,40 +20,67 @@
     </span>
   </form>
 
-  <%
-=begin%>
- <% puts eval(@flexible_search.search_field).class %> 
-<%
-=end%>
+<style>
+.header_field {
+  float: left;
+  margin: 5px;
+  padding: 10px;
+}
+.column {
+  float: left;
+  margin-top: 5%;
+  position: relative;
+  margin-left: 60px;
+}
 
-<% puts  %>
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-  <table class="table">
-    <thead>
-      <tr>
-        <% @flexible_search.searchables.each do |fs| %>
-          <th scope="col"><%= fs %></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @flexible_search.searchables.each do |s| %>
-        <% if Deployment.column_names().include? s %>
-          <tr>
-          <% @deployments.each do |d| %>
-            <td><%= d.send(s) %></td>
-          <% end %>
-          </tr>
-        <% elsif SonobatOutput.column_names().include? s %>
-          <tr>
-          <% @sonobat_outputs.each do |so| %>
-            <td><%= so.send(s) %></td>
-          <% end %>
-          </tr>
-        <% end %>
+.headers{
+  margin-left: 20px;
+  position: fixed;
+}
+
+.table {
+  position: relative;
+}
+</style>
+<div class="table">
+  <div class="headers">
+      <% @flexible_search.searchables.each do |fs| %>
+        <div class="header_field">
+          <%= fs %>
+        </div>
       <% end %>
-    </tbody>
   </div>
+    <div class="row">
+      <% @flexible_search.searchables.each do |s| %>
+        <div class="column">
+          <% if Deployment.column_names().include? s %>
+            <% @deployments.each do |d| %>
+              <%= d.send(s) %> <br>
+            <% end %>
+          <% elsif SonobatOutput.column_names().include? s %>
+            <% @sonobat_outputs.each do |so| %>
+              <%= so.send(s) %> <br>
+            <% end %>
+          <% elsif Contact.column_names().include? s %>
+            <% @contacts.each do |c| %>
+              <%= c.send(s) %> <br>
+            <% end %>
+          <% elsif Detector.column_names().include? s %>
+            <% @detectors.each do |d| %>
+              <%= d.send(s) %> <br>
+            <% end %>
+          <% end %>
+          <br>
+        </div>
+      <% end %>
+    </div>
+</div>
   <%
 =begin%>
  <tbody>

@@ -18,17 +18,69 @@
       method: :delete, data: { confirm: "Are you sure you want to delete this custom search?" } %>
       <%= button_to 'Back', flexible_searches_path, class: 'btn btn-primary' %>
     </span>
-
   </form>
-  <table class="table">
-    <thead>
-      <tr>
-        <% @flexible_search.searchables.each do |fs| %>
-          <th scope="col"><%= fs %></th>
-        <% end %>
-      </tr>
-    </thead>
+
+<style>
+.header_field {
+  float: left;
+  margin: 5px;
+  padding: 10px;
+}
+.column {
+  float: left;
+  margin-top: 5%;
+  position: relative;
+  margin-left: 60px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.headers{
+  margin-left: 20px;
+  position: fixed;
+}
+
+.table {
+  position: relative;
+}
+</style>
+<div class="table">
+  <div class="headers">
+      <% @flexible_search.searchables.each do |fs| %>
+        <div class="header_field">
+          <%= fs %>
+        </div>
+      <% end %>
   </div>
+    <div class="row">
+      <% @flexible_search.searchables.each do |s| %>
+        <div class="column">
+          <% if Deployment.column_names().include? s %>
+            <% @deployments.each do |d| %>
+              <%= d.send(s) %> <br>
+            <% end %>
+          <% elsif SonobatOutput.column_names().include? s %>
+            <% @sonobat_outputs.each do |so| %>
+              <%= so.send(s) %> <br>
+            <% end %>
+          <% elsif Contact.column_names().include? s %>
+            <% @contacts.each do |c| %>
+              <%= c.send(s) %> <br>
+            <% end %>
+          <% elsif Detector.column_names().include? s %>
+            <% @detectors.each do |d| %>
+              <%= d.send(s) %> <br>
+            <% end %>
+          <% end %>
+          <br>
+        </div>
+      <% end %>
+    </div>
+</div>
   <%
 =begin%>
  <tbody>

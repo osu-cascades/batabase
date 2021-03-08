@@ -37,15 +37,21 @@
       </tr>
     </thead>
     <tbody>
-      <ul>
-        <% @sonobat_outputs.each do |so| %>
+      <% @flexible_search.searchables.each do |s| %>
+        <% if Deployment.column_names().include? s %>
           <tr>
-          <% @flexible_search.searchables.each do |s| %>
-              <td><%= so.send(s)  %></td> 
-          <% end %> 
+          <% @deployments.each do |d| %>
+            <td><%= d.send(s) %></td>
+          <% end %>
           </tr>
+        <% elsif SonobatOutput.column_names().include? s %>
+          <tr>
+          <% @sonobat_outputs.each do |so| %>
+            <td><%= so.send(s) %></td>
+          <% end %>
+          </tr>
+        <% end %>
       <% end %>
-      </ul>
     </tbody>
   </div>
   <%

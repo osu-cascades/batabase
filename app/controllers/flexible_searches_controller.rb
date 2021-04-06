@@ -1,10 +1,10 @@
 class FlexibleSearchesController < ApplicationController
   before_action :set_flexible_search, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_search
   # GET /flexible_searches
   # GET /flexible_searches.json
   def index
-    @flexible_searches = FlexibleSearch.all
+    @flexible_searches = @search.result
     # @fields = FIELDS
     # @headers = HEADERS
   end
@@ -64,7 +64,7 @@ class FlexibleSearchesController < ApplicationController
 
   # GET /flexible_searches/1/edit
   def edit
-    @flexible_search = FlexibleSearch.find(params[:id])
+    @flexible_search = FlexibleSearch.search(params[:id])
   end
 
   # POST /flexible_searches
@@ -121,6 +121,10 @@ class FlexibleSearchesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_flexible_search
       @flexible_search = FlexibleSearch.find(params[:id])
+    end
+
+    def set_search
+      @search = FlexibleSearch.ransack(params[:q])
     end
 
     # Only allow a list of trusted parameters through.

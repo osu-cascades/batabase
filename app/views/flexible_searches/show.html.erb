@@ -4,21 +4,23 @@
   <h1><%= @flexible_search.name %></h1>
 </p>
 <div style="float:left; display:flex;">
-  <form action="<%= flexible_search_results_path %>" method="GET">
-    <% @flexible_search.searchables.each do |s| %>
-      <%= s %>
-      <label for=s></label></br>
-      <input type="text" name=s><br>
-      <br>
-    <% end %>
+  <%= search_form_for @search do |f| %>
+    <div class="fields">
+      <% @flexible_search.searchables.each do |s| %>
+        <%= s %>
+        <%= f.label :name_cont, " contains" %>
+        <%= f.text_field :name_cont %>
+        <br>
+      <% end %>
+    </div>
     <span>
-      <input type="submit" value="Search"><br>
+      <div class="actions"><%= f.submit "Search" %></div>
       <%= button_to 'Edit', edit_flexible_search_path(@flexible_search), class: 'btn btn-primary' %> <br>
       <%= button_to "Delete", @flexible_search, class: 'btn btn-danger', 
       method: :delete, data: { confirm: "Are you sure you want to delete this custom search?" } %>
       <%= button_to 'Back', flexible_searches_path, class: 'btn btn-primary' %>
     </span>
-  </form>
+  <% end %>
 
 <style>
 .header_field {

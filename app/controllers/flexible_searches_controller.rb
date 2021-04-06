@@ -64,7 +64,7 @@ class FlexibleSearchesController < ApplicationController
 
   # GET /flexible_searches/1/edit
   def edit
-    @flexible_search = FlexibleSearch.search(params[:id])
+    @flexible_search = FlexibleSearch.find(params[:id])
   end
 
   # POST /flexible_searches

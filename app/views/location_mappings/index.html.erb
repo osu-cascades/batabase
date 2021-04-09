@@ -24,16 +24,9 @@
 
 <%= search_form_for @search do |f| %>
   <%= f.condition_fields do |c| %>
-    <div class="field">
-      <%= c.attribute_fields do |a| %>
-        <%= a.attribute_select associations: [:deployment] %>
-      <% end %>
-      <%= c.predicate_select %>
-      <%= c.value_fields do |v| %>
-        <%= v.text_field :value %>
-      <% end %>
-    </div>
+    <%= render "condition_fields", f: c %>
   <% end %>
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 

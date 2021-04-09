@@ -9,12 +9,12 @@ class LocationMappingsController < ApplicationController
   # GET /location_mappings
   # GET /location_mappings.json
   def index
-    @q = Contact.ransack(params[:q])
-    @contacts = @q.result
+    @q = SonobatOutput.ransack(params[:q])
+    @sonobat_outputs = @q.result
     @location_mappings = LocationMapping.all
     # @fields = FIELDS
-    @search = Contact.search(params[:q])
-    @contacts = @search.result
+    @search = SonobatOutput.search(params[:q])
+    @sonobat_outputs = @search.result
 
     @search.build_condition if @search.conditions.empty?
     @search.build_sort if @search.sorts.empty?

@@ -37,24 +37,25 @@
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
-<%
+
+ <%
 =begin%>
- <table id="contacts">
+ <table id="sonobat_outputs">
   <tr>
-    <th>Contact First Name</th>
-    <th>Contact Last Name</th>
-    <th>Contact State</th>
+    <th>sonobat_output First Name</th>
+    <th>sonobat_output Last Name</th>
+    <th>sonobat_output State</th>
   <tr>
-<%= @contacts.each do |contact| %>
+<%= @sonobat_outputs.each do |sonobat_output| %>
   <tr>
-    <td><%= link_to(contact.first_name, contact) %></td>
-    <td><%= contact.last_name %></td>
-    <td><%= contact.state.name %></td>
+    <td><%= link_to(sonobat_output.manual_idspp2, sonobat_output) %></td>
+    <td><%= sonobat_output.manual_idspp2 %></td>
   </tr>
 <% end %>
-</table> 
+</table>  
 <%
 =end%>
+
 
 <%
 =begin%>

@@ -9,22 +9,15 @@ class LocationMappingsController < ApplicationController
   # GET /location_mappings
   # GET /location_mappings.json
   def index
-    @location_mappings = LocationMapping.all
-
     @q = Contact.ransack(params[:q])
     @contacts = @q.result
-    #create a search object using ransack
-    @search_contacts = Contact.search(params[:q])
-    #get found contacts
-    @contacts = @search_contacts.result
+    @location_mappings = LocationMapping.all
+    # @fields = FIELDS
+    @search = Contact.search(params[:q])
+    @contacts = @search.result
 
-    @r = Deployment.ransack(params[:r])
-    @deployments = @r.result
-    @search_deployments = Deployment.search(params[:r])
-    @deployments = @search_deployments.result
-
-    # @search.build_condition if @search.conditions.empty?
-    # @search.build_sort if @search.sorts.empty?
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
   end
 
   # GET /location_mappings/1

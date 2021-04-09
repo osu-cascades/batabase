@@ -22,13 +22,39 @@
   </tbody>
 </table>
 
-<%= search_form_for @q do |f| %>
-  <%= f.label :first_name_cont %>
-  <%= f.search_field :first_name_cont %>
-  <%= f.submit %>
+<%= search_form_for @search do |f| %>
+  <%= f.condition_fields do |c| %>
+    <div class="field">
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select associations: [:deployment] %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
-<table>
+<table id="contacts">
+  <tr>
+    <th>Contact First Name</th>
+    <th>Contact Last Name</th>
+    <th>Contact State</th>
+  <tr>
+<%= @contacts.each do |contact| %>
+  <tr>
+    <td><%= link_to(contact.first_name, contact) %></td>
+    <td><%= contact.last_name %></td>
+    <td><%= contact.state.name %></td>
+  </tr>
+<% end %>
+</table>
+
+<%
+=begin%>
+ <table>
   <thead>
     <tr>
       <th> First Name </th>
@@ -40,7 +66,9 @@
       <td><%= c.first_name + " " + c.last_name%></td>
     <% end %>
   </tbody>
-</table>
+</table> 
+<%
+=end%>
 
 
 <%= link_to 'New Location Mapping', new_location_mapping_path %>

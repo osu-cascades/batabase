@@ -22,6 +22,25 @@
   </tbody>
 </table>
 
-<br>
+<%= search_form_for @q do |f| %>
+  <%= f.label :first_name_cont %>
+  <%= f.search_field :first_name_cont %>
+  <%= f.submit %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th> First Name </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |c| %>
+      <td><%= c.first_name + " " + c.last_name%></td>
+    <% end %>
+  </tbody>
+</table>
+
 
 <%= link_to 'New Location Mapping', new_location_mapping_path %>

@@ -37,7 +37,9 @@
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
-<table id="contacts">
+<%
+=begin%>
+ <table id="contacts">
   <tr>
     <th>Contact First Name</th>
     <th>Contact Last Name</th>
@@ -50,7 +52,9 @@
     <td><%= contact.state.name %></td>
   </tr>
 <% end %>
-</table>
+</table> 
+<%
+=end%>
 
 <%
 =begin%>

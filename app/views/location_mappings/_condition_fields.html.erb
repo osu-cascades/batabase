@@ -1,9 +1,9 @@
 <div class="field">
     <%= f.attribute_fields do |a| %>
         <%= a.attribute_select associations: [:deployment] %>
-        <% end %>
-        <%= f.predicate_select %>
-        <%= f.value_fields do |v| %>
+    <% end %>
+    <%= f.predicate_select %>
+    <%= f.value_fields do |v| %>
         <%= v.text_field :value %>
     <% end %>
     <%= link_to "remove", '#', class: "remove_fields" %>

@@ -34,6 +34,7 @@ class LocationMappingsController < ApplicationController
 
   # GET /location_mappings/1/edit
   def edit
+    @location_mapping = LocationMapping.find(params[:id])
   end
 
   # POST /location_mappings

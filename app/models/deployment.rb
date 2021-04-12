@@ -15,7 +15,7 @@ class Deployment < ApplicationRecord
 
   has_many :sonobat_outputs
 
-  accepts_nested_attributes_for :detectors
+  accepts_nested_attributes_for :detector
 
   def self.distance_to_distance_range(distance)
     case distance

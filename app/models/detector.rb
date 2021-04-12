@@ -20,7 +20,7 @@ class Detector < ApplicationRecord
 
   belongs_to :organization
 
-  accepts_nested_attributes_for :organizations
+  accepts_nested_attributes_for :organization
 
   def code
     organization.name + '-' + serial_number

@@ -2,6 +2,6 @@
 
 class SonobatOutput < ApplicationRecord
   belongs_to :deployment
-  accepts_nested_attributes_for :deployments
+  accepts_nested_attributes_for :deployment
   
 end

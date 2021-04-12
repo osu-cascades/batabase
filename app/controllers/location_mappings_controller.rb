@@ -9,7 +9,9 @@ class LocationMappingsController < ApplicationController
   # GET /location_mappings
   # GET /location_mappings.json
   def index
-    @q = SonobatOutput.ransack(params[:q])
+    # @fields = []
+    
+    @q = LocationMapping.ransack(params[:q])
     @sonobat_outputs = @q.result
     @location_mappings = LocationMapping.all
     # @fields = FIELDS

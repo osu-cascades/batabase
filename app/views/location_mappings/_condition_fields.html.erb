@@ -1,6 +1,6 @@
 <div class="field">
     <%= f.attribute_fields do |a| %>
-        <%= a.attribute_select associations: [:deployment] %>
+        <%= a.attribute_select associations: [:deployment, :detector] %>
     <% end %>
     <%= f.predicate_select %>
     <%= f.value_fields do |v| %>

@@ -20,13 +20,8 @@ class FlexibleSearchesController < ApplicationController
     end
     @sonobat_outputs = SonobatOutput.all
     @deployments = Deployment.all
-<<<<<<< HEAD
     @detectors = Detector.all
     @contacts = Contact.all
-=======
-    @contacts = Contact.all
-    @detectors = Detector.all
->>>>>>> e7bda9acba106633824b8f572db1e4753dd0ed90
     # @flexible_search.searchables.each do |s|
     #   #var name      actual data
     #   @temp = params[:s]

@@ -1,6 +1,4 @@
 class FlexibleSearch < ApplicationRecord
-    serialize :fields_hash
-
     before_save do
         self[:search_field] = "{ "
         @deployment_start = false

@@ -15,11 +15,12 @@
     </div>
     <span>
       <div class="actions"><%= f.submit "Search" %></div>
-      <%= button_to 'Edit', edit_flexible_search_path(@flexible_search), class: 'btn btn-primary' %> <br>
+      <%= button_to 'Edit', edit_flexi_search_path(@flexible_search), class: 'btn btn-primary' %> <br>
       <%= button_to "Delete", @flexible_search, class: 'btn btn-danger', 
       method: :delete, data: { confirm: "Are you sure you want to delete this custom search?" } %>
       <%= button_to 'Back', flexible_searches_path, class: 'btn btn-primary' %>
     </span>
+  </form>
   <% end %>
 
 <style>
@@ -35,6 +36,7 @@
   margin-left: 60px;
 }
 
+=======
 .row {
   content: "";
   display: table;

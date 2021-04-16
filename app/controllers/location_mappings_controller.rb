@@ -1,18 +1,25 @@
 class LocationMappingsController < ApplicationController
   before_action :set_location_mapping, only: [:show, :edit, :update, :destroy]
 
-  FIELDS = [
-    [:detector_location, :location_identifier],
-    [:detector_location, :land_ownership]
-  ].freeze
+  # FIELDS = [
+  #   [:detector_location, :location_identifier],
+  #   [:detector_location, :land_ownership]
+  # ].freeze
 
   # GET /location_mappings
   # GET /location_mappings.json
   def index
+    # @fields = []
+    
+    @q = LocationMapping.ransack(params[:q])
+    @sonobat_outputs = @q.result
     @location_mappings = LocationMapping.all
-    @fields = FIELDS
-    @search = ransack_params
-    @search_result = ransack_result
+    # @fields = FIELDS
+    @search = SonobatOutput.search(params[:q])
+    @sonobat_outputs = @search.result
+
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
   end
 
   # GET /location_mappings/1
@@ -27,6 +34,7 @@ class LocationMappingsController < ApplicationController
 
   # GET /location_mappings/1/edit
   def edit
+    @location_mapping = LocationMapping.find(params[:id])
   end
 
   # POST /location_mappings
@@ -80,9 +88,9 @@ class LocationMappingsController < ApplicationController
       params.require(:location_mapping).permit(:name)
     end
 
-    def ransack_params
-      LocationMapping.includes(:detector_location).ransack(params[:q])
-    end
+    # def ransack_params
+    #   LocationMapping.includes(:detector_location).ransack(params[:q])
+    # end
   
     def ransack_result
       @search.result.page(params[:page])

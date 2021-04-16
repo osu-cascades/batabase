@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :flexible_searches  
+  resources :location_mappings
   devise_for :user
 
   root to: redirect(path: '/home', status: 302)
@@ -39,5 +40,6 @@ Rails.application.routes.draw do
 
   get '/flexible_searches', to: 'flexible_searches#index', as: 'flexible_search_old'
   get '/flexible_searches/results', to: 'flexible_searches#results', as: 'flexible_search_results'
+  get "events/:id/edit" => "events#edit", as: "edit_flexi_search"
 
 end

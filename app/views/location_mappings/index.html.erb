@@ -17,33 +17,7 @@
     </section> 
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @location_mappings.each do |location_mapping| %>
-      <tr>
-        <td><%= location_mapping.name %></td>
-        <td><%= link_to 'Show', location_mapping %></td>
-        <td><%= link_to 'Edit', edit_location_mapping_path(location_mapping) %></td>
-        <td><%= link_to 'Destroy', location_mapping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= search_form_for @search do |f| %>
-  <%= f.condition_fields do |c| %>
-    <%= render "condition_fields", f: c %>
-  <% end %>
-  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
-  <div class="actions"><%= f.submit "Search" %></div>
-<% end %>
 
 
  <%

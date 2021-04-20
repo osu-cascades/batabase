@@ -23,6 +23,13 @@ class LocationMappingsController < ApplicationController
   # GET /location_mappings/1
   # GET /location_mappings/1.json
   def show
+    @q = LocationMapping.ransack(params[:q])
+    @location_mappingss = @q.result
+    @search = SonobatOutput.search(params[:q])
+    @location_mappings = @search.result
+
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
   end
 
   # GET /location_mappings/new
@@ -32,6 +39,7 @@ class LocationMappingsController < ApplicationController
 
   # GET /location_mappings/1/edit
   def edit
+    @location_mapping = LocationMapping.find(params[:id])
   end
 
   # POST /location_mappings

@@ -4,22 +4,26 @@
   <h1><%= @flexible_search.name %></h1>
 </p>
 <div style="float:left; display:flex;">
-  <form action="<%= flexible_search_results_path %>" method="GET">
-    <% @flexible_search.searchables.each do |s| %>
-      <%= s %>
-      <label for=s></label></br>
-      <input type="text" name=s><br>
-      <br>
-    <% end %>
+  <%= search_form_for @search do |f| %>
+    <div class="fields">
+      <% @flexible_search.searchables.each do |s| %>
+        <%= s %>
+        <%= f.label :name_cont, " contains" %>
+        <%= f.text_field :name_cont %>
+        <br>
+      <% end %>
+    </div>
     <span>
-      <input type="submit" value="Search"><br>
-      <%= button_to 'Edit', edit_flexible_search_path(@flexible_search), class: 'btn btn-primary' %> <br>
+      <div class="actions"><%= f.submit "Search" %></div>
+      <%= button_to 'Edit', edit_flexi_search_path(@flexible_search), class: 'btn btn-primary' %> <br>
       <%= button_to "Delete", @flexible_search, class: 'btn btn-danger', 
       method: :delete, data: { confirm: "Are you sure you want to delete this custom search?" } %>
       <%= button_to 'Back', flexible_searches_path, class: 'btn btn-primary' %>
     </span>
   </form>
+  <% end %>
 
+<<<<<<< HEAD
 
 
   <%
@@ -44,6 +48,86 @@
       </ul>
     </tbody>
   </div> 
+=======
+<style>
+.header_field {
+  float: left;
+  margin: 5px;
+  padding: 10px;
+}
+.column {
+  float: left;
+  margin-top: 5%;
+  position: relative;
+  margin-left: 60px;
+}
+
+=======
+.row {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.headers{
+  margin-left: 20px;
+  position: relative;
+}
+
+.table {
+  position: relative;
+}
+</style>
+<div class="table">
+  <div class="headers">
+      <% @flexible_search.searchables.each do |fs| %>
+        <div class="header_field">
+          <%= fs %>
+        </div>
+      <% end %>
+  </div>
+    <div class="row">
+      <% @flexible_search.searchables.each do |s| %>
+        <div class="column">
+          <% if Deployment.column_names().include? s %>
+            <% @deployments.each do |d| %>
+              <%= d.send(s) %> <br>
+            <% end %>
+          <% elsif SonobatOutput.column_names().include? s %>
+            <% @sonobat_outputs.each do |so| %>
+              <%= so.send(s) %> <br>
+            <% end %>
+          <% elsif Contact.column_names().include? s %>
+            <% @contacts.each do |c| %>
+              <%= c.send(s) %> <br>
+            <% end %>
+          <% elsif Detector.column_names().include? s %>
+            <% @detectors.each do |d| %>
+              <%= d.send(s) %> <br>
+            <% end %>
+          <% end %>
+          <br>
+        </div>
+      <% end %>
+    </div>
+</div>
+  <%
+=begin%>
+ <tbody>
+    <% @sonobat_outputs.each do |so| %>
+      <tr>
+        <td><%= so.manual_idspp1 %></td>
+        <td><%= so.manual_idspp2 %></td>
+        <td><%= so.night %></td>
+        <td><%= so.deployment.primary_contact.state.name %></td>
+        <td><%= so.deployment.detector_location.sample_unit.code %></td>
+        <td><%= so.deployment.detector_location.location_identifier %></td>
+
+      </tr>
+    <% end %>
+
+  </tbody> 
+>>>>>>> feature/flexible-searches
 <%
 =end%>
 @sonobat_outputs = SonobatOutput.all

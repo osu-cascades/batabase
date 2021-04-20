@@ -1,6 +1,4 @@
 class FlexibleSearch < ApplicationRecord
-    serialize :fields_hash
-
     before_save do
         self[:search_field] = "{ "
         @deployment_start = false
@@ -34,7 +32,10 @@ class FlexibleSearch < ApplicationRecord
         self[:search_field] << " ]}"
     end
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/flexible-searches
     def parent_table(strng)
         if Deployment.column_names().include? strng
             return "deployment"

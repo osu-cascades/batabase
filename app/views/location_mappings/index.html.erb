@@ -2,26 +2,62 @@
 
 <h1>Location Mappings</h1>
 
-<table>
+<% @location_mappings.each do |location_mapping| %>
+    <section class="location_mapping">
+        <div class="summary" style="float:left; display:flex; padding:2px; padding-right:10px;">
+            <h2 style="margin-right:10px;"><%= link_to location_mapping.name, location_mapping %></h2>
+            <span style="margin-right: 10px;">
+                <%= button_to 'Edit', edit_location_mapping_path(location_mapping), class: 'btn btn-primary' %>
+            </span>
+            <span style="margin-right: 10px;">
+                <%= button_to "Delete", location_mapping, class: 'btn btn-danger', method: :delete, data: { confirm: "Are you sure you want to delete this custom search?" } %>
+            </span>
+            <p></p>
+        </div>
+    </section> 
+<% end %>
+
+
+
+
+ <%
+=begin%>
+ <table id="sonobat_outputs">
+  <tr>
+    <th>sonobat_output First Name</th>
+    <th>sonobat_output Last Name</th>
+    <th>sonobat_output State</th>
+  <tr>
+<%= @sonobat_outputs.each do |sonobat_output| %>
+  <tr>
+    <td><%= link_to(sonobat_output.manual_idspp2, sonobat_output) %></td>
+    <td><%= sonobat_output.manual_idspp2 %></td>
+  </tr>
+<% end %>
+</table>  
+<%
+=end%>
+
+
+<%
+=begin%>
+ <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th> First Name </th>
     </tr>
   </thead>
 
   <tbody>
-    <% @location_mappings.each do |location_mapping| %>
-      <tr>
-        <td><%= location_mapping.name %></td>
-        <td><%= link_to 'Show', location_mapping %></td>
-        <td><%= link_to 'Edit', edit_location_mapping_path(location_mapping) %></td>
-        <td><%= link_to 'Destroy', location_mapping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% @contacts.each do |c| %>
+      <td><%= c.first_name + " " + c.last_name%></td>
     <% end %>
   </tbody>
-</table>
+</table> 
+<%
+=end%>
 
+<<<<<<< HEAD
 <%
 =begin%>
  <%= search_form_for @search do |f| %>
@@ -88,5 +124,7 @@
 <br> 
 <%
 =end%>
+=======
+>>>>>>> feature/flexible-searches
 
 <%= link_to 'New Location Mapping', new_location_mapping_path %>

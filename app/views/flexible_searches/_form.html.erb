@@ -31,14 +31,6 @@
   <div class="checkboxes" style="float:left; display:flex;">
     <span>
       <h4>Deployment</h4>
-      <%= form.check_box :searchables, {multiple: true}, "location_id", nil %>Location Identifier<br>
-      <%= form.check_box :searchables, {multiple: true}, "agency", nil %>Agency<br>
-      <%= form.check_box :searchables, {multiple: true}, "primary_contact", nil %>Primary Contact<br>
-      <%= form.check_box :searchables, {multiple: true}, "recovery_contact", nil %>Recovery Contact<br>
-      <%= form.check_box :searchables, {multiple: true}, "latitude", nil %>Latitude<br>
-      <%= form.check_box :searchables, {multiple: true}, "longitude", nil %>Longitude<br>
-      <%= form.check_box :searchables, {multiple: true}, "elevation", nil %>Elevation<br>
-      <%= form.check_box :searchables, {multiple: true}, "driving_directions", nil %>Driving Directions<br>
       <%= form.check_box :searchables, {multiple: true}, "comments", nil %>Comments<br>
       <%= form.check_box :searchables, {multiple: true}, "deployment_date", nil %>Deployment Date<br> 
       <%= form.check_box :searchables, {multiple: true}, "gain", nil %>Gain<br> 
@@ -61,6 +53,14 @@
       <%= form.check_box :searchables, {multiple: true}, "trigger_level", nil %>Trigger Level<br>
       <%= form.check_box :searchables, {multiple: true}, "trigger_sensitivity", nil %>Trigger Sensitivity<br>
       <%= form.check_box :searchables, {multiple: true}, "trigger_window", nil %>Trigger Window<br>
+      <%= form.check_box :searchables, {multiple: true}, "location_id", nil %>Location Identifier<br>
+      <%= form.check_box :searchables, {multiple: true}, "agency", nil %>Agency<br>
+      <%= form.check_box :searchables, {multiple: true}, "primary_contact", nil %>Primary Contact<br>
+      <%= form.check_box :searchables, {multiple: true}, "recovery_contact", nil %>Recovery Contact<br>
+      <%= form.check_box :searchables, {multiple: true}, "latitude", nil %>Latitude<br>
+      <%= form.check_box :searchables, {multiple: true}, "longitude", nil %>Longitude<br>
+      <%= form.check_box :searchables, {multiple: true}, "elevation", nil %>Elevation<br>
+      <%= form.check_box :searchables, {multiple: true}, "driving_directions", nil %>Driving Directions<br>
     </span>
   <span>
       <h4>Sonobat Output</h4>

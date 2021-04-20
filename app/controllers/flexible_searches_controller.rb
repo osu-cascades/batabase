@@ -1,10 +1,10 @@
 class FlexibleSearchesController < ApplicationController
   before_action :set_flexible_search, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_search
   # GET /flexible_searches
   # GET /flexible_searches.json
   def index
-    @flexible_searches = FlexibleSearch.all
+    @flexible_searches = @search.result
     # @fields = FIELDS
     # @headers = HEADERS
   end
@@ -13,8 +13,35 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches/1.json
   def show
     @flexible_search = FlexibleSearch.find(params[:id])
-    @q = SonobatOutput.ransack(params[:q])
-    @sonobat_outputs = @q.result
+    # @q = SonobatOutput.ransack(params[:q])
+    # @sonobat_outputs = @q.result
+    @header = @flexible_search.searchables
+    @fields = []
+    @header.each do |h|
+      @fields << h.intern
+    end
+    @sonobat_outputs = SonobatOutput.all
+    @deployments = Deployment.all
+    @contacts = Contact.all
+    @detectors = Detector.all
+    # @flexible_search.searchables.each do |s|
+    #   #var name      actual data
+    #   @temp = params[:s]
+    #   puts " % % % % % T E M P % % % % % "
+    #   puts @temp.class
+    #   #only return SO records where the so.s matches @temp
+    #   @sonobat_outputs = SonobatOutput.where(s.intern: @temp)
+    # end
+    # manual_idspp1 = params[:manual_idspp1]
+    # puts manual_idspp1
+
+    # manual_idspp1 = params[:manual_idspp1]
+    # manual_idspp2 = params[:manual_idspp2]
+    # night = params[:night]
+      # Stuff we were setting in results to produce table before
+    # @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
+    # @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
+    # @sonobat_outputs = @sonobat_outputs.where(night: night)
   end
 
   # GET /flexible_searches/new
@@ -97,6 +124,10 @@ class FlexibleSearchesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_flexible_search
       @flexible_search = FlexibleSearch.find(params[:id])
+    end
+
+    def set_search
+      @search = FlexibleSearch.ransack(params[:q])
     end
 
     # Only allow a list of trusted parameters through.

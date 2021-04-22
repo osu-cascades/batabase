@@ -1,5 +1,6 @@
 jQuery ->
     $('form').on 'click', '.remove_fields', (event) ->
+        alert('hello world')
         $(this).closest('.field').remove()
         event.preventDefault()
 

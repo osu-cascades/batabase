@@ -4,7 +4,7 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches
   # GET /flexible_searches.json
   def index
-    @flexible_searches = @search.result
+    @flexible_searches = ransack_result
     # @fields = FIELDS
     # @headers = HEADERS
   end
@@ -51,10 +51,10 @@ class FlexibleSearchesController < ApplicationController
     @flexible_search = FlexibleSearch.find(params[:id])
 
     manual_idspp1 = params[:manual_idspp1]
-    manual_idspp2 = params[:manual_idspp2]
-    night = params[:night]
+    
+    microphone_orientation = params[:microphone_orientation]
     #OR functionality
-    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1).or(SonobatOutput.where(manual_idspp2: manual_idspp2)).or(SonobatOutput.where(night: night))
+    @flexible_search = SonobatOutput.where(manual_idspp1: manual_idspp1).or(Deployment.where(microphone_orientation: microphone_orientation))
     #AND functionality
 
     #@sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
@@ -125,6 +125,10 @@ class FlexibleSearchesController < ApplicationController
 
     def set_search
       @search = FlexibleSearch.ransack(params[:q])
+    end
+
+    def ransack_result
+      @search.result.page(params[:page])
     end
 
     # Only allow a list of trusted parameters through.

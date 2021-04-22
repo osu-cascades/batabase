@@ -1,0 +1,2 @@
+class RansackQuery < ApplicationRecord
+end

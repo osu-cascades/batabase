@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_233930) do
+ActiveRecord::Schema.define(version: 2021_04_22_154520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,9 +130,16 @@ ActiveRecord::Schema.define(version: 2021_03_02_233930) do
 
   create_table "flexible_searches", force: :cascade do |t|
     t.string "name"
+    t.string "state"
+    t.string "sample_unit"
+    t.string "location_id"
+    t.string "agency"
+    t.datetime "night"
+    t.string "manual_idspp1"
+    t.string "manual_idspp2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "search_field"
+    t.string "search_field", default: ""
     t.string "narrow"
     t.text "searchables", default: [], array: true
     t.text "fields_hash"
@@ -154,6 +161,11 @@ ActiveRecord::Schema.define(version: 2021_03_02_233930) do
 
   create_table "organizations", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "ransack_queries", force: :cascade do |t|
+    t.string "name"
+    t.string "query_string"
   end
 
   create_table "sample_unit_counties", force: :cascade do |t|

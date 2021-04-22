@@ -1,0 +1,4 @@
+<%= link_to "New", new_ransack_query_path %>
+<% @ransack_queries.each do |rq| %>
+<p> <%= rq.name %> <%= rq.query_string %> </p>
+<% end %>

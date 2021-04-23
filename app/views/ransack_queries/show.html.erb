@@ -1,2 +1,6 @@
-name : <%= @ransack_query.name %> <br>
-query_string : <%= @ransack_query.query_string %>
+<h1>Custom Query</h1>
+<p><%= link_to 'Edit this Query', edit_ransack_query_path(@ransack_query) %></p>
+
+
+<h2>Name: <%= @ransack_query.name %></h2>
+<h3>Ransack query string: <%= @ransack_query.query_string %></h3>

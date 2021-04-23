@@ -27,6 +27,12 @@ class RansackQueriesController < ApplicationController
     end
 
     def update
+        @ransack_query = RansackQuery.find(params[:id])
+        if @ransack_query.update(ransack_query_params)
+            redirect_to @ransack_query
+        else
+            render :edit
+        end
     end
 
     def destroy

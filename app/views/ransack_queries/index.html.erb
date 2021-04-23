@@ -1,4 +1,9 @@
-<%= link_to "New", new_ransack_query_path %>
+<h1>Custom Queries</h1>
+
+<p><%= link_to 'New Query', new_ransack_query_path %></p>
+
+<ul>
 <% @ransack_queries.each do |rq| %>
-<p> <%= rq.name %> <%= rq.query_string %> </p>
+  <li><%= link_to rq.name, rq %> <%= rq.query_string %></li>
 <% end %>
+</ul>

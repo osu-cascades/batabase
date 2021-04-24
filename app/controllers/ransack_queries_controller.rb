@@ -10,6 +10,8 @@ class RansackQueriesController < ApplicationController
 
   def show
     @ransack_query = RansackQuery.find(params[:id])
+    @sonobat_output_ransack_object = SonobatOutput.ransack
+    @sonobat_output_ransack_object.build_condition
   end
 
   def create

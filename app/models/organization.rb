@@ -6,5 +6,5 @@ class Organization < ApplicationRecord
   has_many :detectors
   has_many :contacts
 
-  accepts_nested_attributes_for :contact
+  accepts_nested_attributes_for :contacts
 end

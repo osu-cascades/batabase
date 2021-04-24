@@ -1,0 +1,11 @@
+<h1>Custom Query: <%= @ransack_query.name %></h1>
+
+<p><%= link_to 'Rename this Query', edit_ransack_query_path(@ransack_query) %></p>
+
+<%= search_form_for @sonobat_output_ransack_object do |f| %>
+  <%= hidden_field_tag 'ransack_query_id', @ransack_query.id %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <div class="actions mt-5"><%= f.submit "Save & Run" %></div>
+<% end %>

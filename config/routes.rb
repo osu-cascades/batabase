@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   resources :flexible_searches  
   resources :location_mappings
+  resources :ransack_queries
   devise_for :user
 
   root to: redirect(path: '/home', status: 302)

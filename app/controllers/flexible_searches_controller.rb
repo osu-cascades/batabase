@@ -19,17 +19,17 @@ class FlexibleSearchesController < ApplicationController
   end
 
   def results
-
     manual_idspp1 = params[:manual_idspp1]
     manual_idspp2 = params[:manual_idspp2]
     night = params[:night]
-    
-    
-    microphone_orientation = params[:microphone_orientation]
+    state = params[:state]
+    sample_unit = params[:sample_unit]
+    location_id = params[:location_id]
+    agency = params[:agency]
+
     #OR functionality
     # @flexible_search = SonobatOutput.where(manual_idspp1: manual_idspp1).or(Deployment.where(microphone_orientation: microphone_orientation))
     #AND functionality
-
     @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
     @sonobat_outputs = @sonobat_outputs.where(night: night)

@@ -15,10 +15,9 @@ class LocationMappingsController < ApplicationController
   # GET /location_mappings/1
   # GET /location_mappings/1.json
   def show
-    @q = LocationMapping.ransack(params[:q])
-    @sonobat_outputs = @q.result
     @location_mappings = LocationMapping.all
-    # @fields = FIELDS
+    #create a search object passing a hash of
+    #all search parameters that will be passed via ransack
     @search = SonobatOutput.search(params[:q])
     @sonobat_outputs = @search.result
 

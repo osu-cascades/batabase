@@ -130,16 +130,9 @@ ActiveRecord::Schema.define(version: 2021_04_22_154520) do
 
   create_table "flexible_searches", force: :cascade do |t|
     t.string "name"
-    t.string "state"
-    t.string "sample_unit"
-    t.string "location_id"
-    t.string "agency"
-    t.datetime "night"
-    t.string "manual_idspp1"
-    t.string "manual_idspp2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "search_field", default: ""
+    t.string "search_field"
     t.string "narrow"
     t.text "searchables", default: [], array: true
     t.text "fields_hash"

@@ -1,5 +1,14 @@
 <h1>New Custom Search</h1>
 
-<%= render 'form', flexible_search: @flexible_search %>
+<form action="<%= flexible_search_results_path %>" method="GET">
+    <label for="idspp1">Manual Species ID 1</label><br>
+    <input type="text" name="manual_idspp1"><br>
 
-<%= link_to 'Back', flexible_searches_path %>
+    <label for="idspp2">Manual Species ID 2</label><br>
+    <input type="text" name="manual_idspp2"><br>
+
+    <label for="night">Night</label><br>
+    <input type="text" name="night"><br>
+
+    <input type="submit" value="Search">
+</form>

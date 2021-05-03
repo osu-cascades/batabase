@@ -39,10 +39,8 @@ Rails.application.routes.draw do
   end
   resources :sonobat_outputs
 
-  resources :sonobat_outputs
-
   get '/flexible_searches', to: 'flexible_searches#new', as: 'flexible_search'
   get '/flexible_searches/results', to: 'flexible_searches#results', as: 'flexible_search_results'
   get "events/:id/edit" => "events#edit", as: "edit_flexi_search"
-
+  get '/flexible_searches/search_1', to: 'flexible_searches#search_1', as: 'flexible_search_1'
 end

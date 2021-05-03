@@ -12,6 +12,7 @@ class FlexibleSearchesController < ApplicationController
   # GET /flexible_searches/1
   # GET /flexible_searches/1.json
   def show
+    
   end
 
   # GET /flexible_searches/new
@@ -34,6 +35,7 @@ class FlexibleSearchesController < ApplicationController
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
     @sonobat_outputs = @sonobat_outputs.where(night: night)
   end
+
 
   # GET /flexible_searches/1/edit
   def edit
@@ -80,6 +82,9 @@ class FlexibleSearchesController < ApplicationController
       format.html { redirect_to flexible_searches_url, notice: 'Flexible search was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def search_1
   end
 
   def parent_t(strng)

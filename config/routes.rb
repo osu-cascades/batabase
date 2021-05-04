@@ -44,4 +44,6 @@ Rails.application.routes.draw do
   get "events/:id/edit" => "events#edit", as: "edit_flexi_search"
   get '/flexible_searches/search_1', to: 'flexible_searches#search_1', as: 'quick_search_1'
   get '/flexible_searches/search_2', to: 'flexible_searches#search_2', as: 'quick_search_2'
+  get '/flexible_searches/alt_search_1', to: 'flexible_searches#alt_search_1', as: 'alt_search_1'
+
 end

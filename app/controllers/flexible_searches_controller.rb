@@ -85,12 +85,17 @@ class FlexibleSearchesController < ApplicationController
   end
 
   def search_1
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: "LACI")
+
   end
 
   def search_2
     @sonobat_outputs = SonobatOutput.where(manual_idspp1: "MYCA")
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: "EPFULANO")
     @sonobat_outputs = @sonobat_outputs.where(night: "2016-11-07 00:00:00 UTC")
+  end
+
+  def alt_search_1
   end
 
   def parent_t(strng)

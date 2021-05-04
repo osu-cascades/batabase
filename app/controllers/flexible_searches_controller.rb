@@ -87,6 +87,12 @@ class FlexibleSearchesController < ApplicationController
   def search_1
   end
 
+  def search_2
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: "MYCA")
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: "EPFULANO")
+    @sonobat_outputs = @sonobat_outputs.where(night: "2016-11-07 00:00:00 UTC")
+  end
+
   def parent_t(strng)
     if Deployment.column_names().include? strng
         return "deployment"

@@ -23,6 +23,28 @@ RSpec.describe "/flexible_searches", type: :request do
     skip("Add a hash of attributes invalid for your model")
   }
 
+  context 'FlexibleSearches' do
+    before :each do
+      sign_in user
+      create(:flexible_searches)
+    end
+
+    it 'A user can visit the page to view all the flexible searches' do
+      visit home_index_path
+      click_button 'Custom Search'
+
+      expect(page).to have_content('FAKE FLEXIBLE SEARCH')
+    end
+
+    it 'A user can visit the page to add new flexible search' do
+      visit home_index_path
+      click_button 'Custom Search'
+      click_on 'Add'
+
+      expect(page).to have_content('Create Flexible Search')
+    end
+
+    
   describe "GET /index" do
     it "renders a successful response" do
       FlexibleSearch.create! valid_attributes

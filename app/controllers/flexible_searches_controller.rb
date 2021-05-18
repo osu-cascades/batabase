@@ -20,27 +20,28 @@ class FlexibleSearchesController < ApplicationController
   end
 
   def results
-    manual_idspp1 = params[:manual_idspp1] unless manual_idspp1.blank?
-    manual_idspp2 = params[:manual_idspp2] unless manual_idspp2.blank?
-    night = params[:night] unless night.blank?
-    state = params[:state] unless state.blank?
-    sample_unit = params[:sample_unit] unless sample_unit.blank?
-    location_identifier = params[:location_identifier] unless location_identifier.blank?
-    agency = params[:agency] unless agency.blank?
-    spp_accp = params[:spp_accp] unless spp_accp.blank?
-    notes = params[:notes] unless notes.blank?
-    code = params[:code] unless code.blank?
-    grts = params[:grts] unless grts.blank?
-    recording_start = params[:recording_start] unless recording_start.blank?
-    recording_stop = params[:recording_stop] unless recording_stop.blank?
-    recovery_date = params[:recovery_date] unless recovery_date.blank?
+    manual_idspp1 = params[:manual_idspp1]
+    manual_idspp2 = params[:manual_idspp2]
+    night = params[:night]
+    state = params[:state]
+    sample_unit = params[:sample_unit]
+    location_identifier = params[:location_identifier]
+    agency = params[:agency]
+    spp_accp = params[:spp_accp]
+    notes = params[:notes]
+    code = params[:code]
+    grts = params[:grts]
+    recording_start = params[:recording_start]
+    recording_stop = params[:recording_stop]
+    recovery_date = params[:recovery_date]
 
     #OR functionality
     # @flexible_search = SonobatOutput.where(manual_idspp1: manual_idspp1).or(Deployment.where(microphone_orientation: microphone_orientation))
     #AND functionality
-    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
-    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
-    @sonobat_outputs = @sonobat_outputs.where(night: night)
+    @sonobat_outputs = SonobatOutput.all
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
+    @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
   end
 
 

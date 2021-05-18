@@ -86,5 +86,14 @@ RSpec.describe 'Detector Flows', type: :system do
         expect(page).not_to have_content('FAKE FIRMWARE')
       end
     end
+
+    it 'A user can filter Detector results' do
+      visit detectors_path
+      create(:detector, model: "FAKE MODEL")
+      create(:detector, model: "DIFFERENT FAKE MODEL")
+      get detectors_path, params: { q: { model_cont: "FAKE MODEL" } }
+      expect(page).to have_content('FAKE MODEL')
+      expect(page).not_to have_content('DIFFERENT FAKE MODEL')
+    end
   end
 end

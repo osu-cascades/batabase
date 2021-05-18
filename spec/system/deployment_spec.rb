@@ -133,5 +133,14 @@ RSpec.describe 'Deployments Flow', type: :system do
     #   # expect to export searched deployments
       
     # end
+
+    it 'A user can filter deployment results' do
+      visit deployments_path
+      create(:deployment, comments: "FAKE COMMENTS")
+      create(:deployment, comments: "DIFFERENT FAKE COMMENTS")
+      get deployments_path, params: { q: { comment_cont: "FAKE COMMENTS" } }
+      expect(page).to have_content('FAKE COMMENTS')
+      expect(page).not_to have_content('DIFFERENT FAKE COMMENTS')
+    end
   end
 end

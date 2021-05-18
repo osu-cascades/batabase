@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :flexible_search do
-    name { "MyString" }
+    name { "FAKE FLEXIBLE SEARCH" }
   end
 end

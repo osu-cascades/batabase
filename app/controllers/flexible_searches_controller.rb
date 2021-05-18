@@ -27,6 +27,7 @@ class FlexibleSearchesController < ApplicationController
     sample_unit = params[:sample_unit]
     location_id = params[:location_id]
     agency = params[:agency]
+    spp_accp = params[:spp_accp]
 
     #OR functionality
     # @flexible_search = SonobatOutput.where(manual_idspp1: manual_idspp1).or(Deployment.where(microphone_orientation: microphone_orientation))
@@ -122,7 +123,7 @@ class FlexibleSearchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flexible_search_params
-      params.require(:flexible_search).permit(:name, :comments, :recording_length, :detector_location, :narrow, :search_field, :search_items, :state, :sample_unit, 
+      params.require(:flexible_search).permit(:name, :spp_accp, :comments, :recording_length, :detector_location, :narrow, :search_field, :search_items, :state, :sample_unit, 
       :location_id, :agency, :night, :manual_idspp1, :manual_idspp2, searchables: [])
     end
 end

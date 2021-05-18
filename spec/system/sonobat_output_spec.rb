@@ -84,5 +84,14 @@ RSpec.describe 'Sonobat Output Flows', type: :system do
 
       expect(page.response_headers['Content-Disposition']).to be('attachment; filename=sonobat_outputs.xlsx')
     end
+
+    it 'A user can filter Sonobat Output results' do
+      visit sonobat_outputs_path
+      create(:sonobat_output, notes: "FAKE NOTES")
+      create(:sonobat_output, notes: "DIFFERENT FAKE NOTES")
+      get sonobat_outputs_path, params: { q: { comment_cont: "FAKE NOTES" } }
+      expect(page).to have_content('FAKE NOTES')
+      expect(page).not_to have_content('DIFFERENT FAKE NOTES')
+    end
   end
 end

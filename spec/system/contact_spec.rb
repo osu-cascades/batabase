@@ -79,7 +79,7 @@ RSpec.describe 'Contacts Flow', type: :system do
       expect(page.response_headers['Content-Disposition']).to be('attachment; filename=contacts.xlsx')
     end
 
-    it 'A user can filter deployment results' do
+    it 'A user can filter Contact results' do
       visit contacts_path
       create(:contact, first_name: "FAKE FIRST NAME")
       create(:contact, first_name: "DIFFERENT FAKE FIRST NAME")

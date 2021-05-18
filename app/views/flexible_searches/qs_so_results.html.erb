@@ -6,9 +6,14 @@
             <th scope="col">Manual Species ID 2</th>
             <th scope="col">Night</th>
             <th scope="col">State</th>
-            <th scope="col">Sample Unit</th>
             <th scope="col">Location ID</th>
             <th scope="col">Agency</th>
+            <th scope="col">Notes</th>
+            <th scope="col">Deployment Date</th>
+            <th scope="col">Recovery Date</th>
+            <th scope="col">Sample Unit Code</th>
+            <th scope="col">Sample Unit GRTS</th>
+            <th scope="col">Species Accepted</th>
         </tr>
     </thead>
     <tbody>
@@ -18,10 +23,14 @@
             <td><%= so.manual_idspp2 %></td>
             <td><%= so.night %></td>
             <td><%= so.deployment.primary_contact.state.name %></td>
-            <td><%= so.deployment.detector_location.sample_unit.code %></td>
             <td><%= so.deployment.detector_location.location_identifier %></td>
-            <td><%= so.detector_location.land_ownership %></td>
-
+            <td><%= so.deployment.detector_location.land_ownership %></td>
+            <td><%= so.notes %></td>
+            <td><%= so.deployment.deployment_date %></td>
+            <td><%= so.deployment.recovery_date %></td>
+            <td><%= so.deployment.detector_location.sample_unit.code %></td>
+            <td><%= so.deployment.detector_location.sample_unit.grts %></td>
+            <td><%= so.spp_accp %></td>
         </tr>
         <% end %>
 

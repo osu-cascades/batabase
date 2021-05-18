@@ -20,20 +20,20 @@ class FlexibleSearchesController < ApplicationController
   end
 
   def results
-    manual_idspp1 = params[:manual_idspp1]
-    manual_idspp2 = params[:manual_idspp2]
-    night = params[:night]
-    state = params[:state]
-    sample_unit = params[:sample_unit]
-    location_identifier = params[:location_identifier]
-    agency = params[:agency]
-    spp_accp = params[:spp_accp]
-    notes = params[:notes]
-    code = params[:code]
-    grts = params[:grts]
-    recording_start = params[:recording_start]
-    recording_stop = params[:recording_stop]
-    recovery_date = params[:recovery_date]
+    manual_idspp1 = params[:manual_idspp1] unless manual_idspp1.blank?
+    manual_idspp2 = params[:manual_idspp2] unless manual_idspp2.blank?
+    night = params[:night] unless night.blank?
+    state = params[:state] unless state.blank?
+    sample_unit = params[:sample_unit] unless sample_unit.blank?
+    location_identifier = params[:location_identifier] unless location_identifier.blank?
+    agency = params[:agency] unless agency.blank?
+    spp_accp = params[:spp_accp] unless spp_accp.blank?
+    notes = params[:notes] unless notes.blank?
+    code = params[:code] unless code.blank?
+    grts = params[:grts] unless grts.blank?
+    recording_start = params[:recording_start] unless recording_start.blank?
+    recording_stop = params[:recording_stop] unless recording_stop.blank?
+    recovery_date = params[:recovery_date] unless recovery_date.blank?
 
     #OR functionality
     # @flexible_search = SonobatOutput.where(manual_idspp1: manual_idspp1).or(Deployment.where(microphone_orientation: microphone_orientation))

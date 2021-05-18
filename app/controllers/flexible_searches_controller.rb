@@ -25,9 +25,15 @@ class FlexibleSearchesController < ApplicationController
     night = params[:night]
     state = params[:state]
     sample_unit = params[:sample_unit]
-    location_id = params[:location_id]
+    location_identifier = params[:location_identifier]
     agency = params[:agency]
     spp_accp = params[:spp_accp]
+    notes = params[:notes]
+    code = params[:code]
+    grts = params[:grts]
+    recording_start = params[:recording_start]
+    recording_stop = params[:recording_stop]
+    recovery_date = params[:recovery_date]
 
     #OR functionality
     # @flexible_search = SonobatOutput.where(manual_idspp1: manual_idspp1).or(Deployment.where(microphone_orientation: microphone_orientation))

@@ -20,6 +20,9 @@ class FlexibleSearchesController < ApplicationController
   end
 
   def qs_so_form
+  end
+
+  def qs_so_results
     manual_idspp1 = params[:manual_idspp1]
     manual_idspp2 = params[:manual_idspp2]
     night = params[:night]
@@ -42,9 +45,6 @@ class FlexibleSearchesController < ApplicationController
     @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
     @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
-  end
-
-  def qs_so_results
   end
 
 

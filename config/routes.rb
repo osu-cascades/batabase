@@ -45,5 +45,7 @@ Rails.application.routes.draw do
   get '/flexible_searches/search_1', to: 'flexible_searches#search_1', as: 'quick_search_1'
   get '/flexible_searches/search_2', to: 'flexible_searches#search_2', as: 'quick_search_2'
   get '/flexible_searches/alt_search_1', to: 'flexible_searches#alt_search_1', as: 'alt_search_1'
+  get '/flexible_searches/qs_so_results', to: 'flexible_searches#qs_so_results', as: 'qs_so_results'
+  get '/flexible_searches/qs_so_form', to: 'flexible_searches#qs_so_form', as: 'qs_so_form'
 
 end

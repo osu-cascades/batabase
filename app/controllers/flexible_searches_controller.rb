@@ -56,6 +56,51 @@ class FlexibleSearchesController < ApplicationController
     @sonobat_outputs = @sonobat_outputs.where(land_ownership: land_ownership) unless land_ownership.blank?
   end
 
+  def usgs_na_bat_form
+  end
+  
+  def usgs_na_bat_results
+    manual_idspp1 = params[:manual_idspp1]
+    manual_idspp2 = params[:manual_idspp2]
+    sample_unit = params[:sample_unit]
+    location_name = params[:location_name]
+    deployment_date = params[:deployment_date]
+    recovery_date = params[:recovery_date]
+    manufacturer = params[:manufacturer]
+    model = params[:model]
+    microphone_type = params[:microphone_type]
+    microphone_height_off_ground = params[:microphone_height_off_ground]
+    distance_range = params[:distance_range]
+    clutter_type = params[:clutter_type]
+    clutter_percent = params[:clutter_percent]
+    local_habitat = params[:local_habitat]
+    filename = params[:filename]
+    software = params[:software]
+    version = params[:version]
+    spp_accp = params[:spp_accp]
+    species_group = params[:species_group]
+
+
+    @sonobat_outputs = SonobatOutput.all
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
+    @sonobat_outputs = @sonobat_outputs.where(location_name: location_name) unless location_name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(deployment_date: deployment_date) unless deployment_date.blank?
+    @sonobat_outputs = @sonobat_outputs.where(recovery_date: recovery_date) unless recovery_date.blank?
+    @sonobat_outputs = @sonobat_outputs.where(manufacturer: manufacturer) unless manufacturer.blank?
+    @sonobat_outputs = @sonobat_outputs.where(model: model) unless model.blank?
+    @sonobat_outputs = @sonobat_outputs.where(microphone_height_off_ground: microphone_height_off_ground) unless microphone_height_off_ground.blank?
+    @sonobat_outputs = @sonobat_outputs.where(distance_range: distance_range) unless distance_range.blank?
+    @sonobat_outputs = @sonobat_outputs.where(clutter_type: clutter_type) unless clutter_type.blank?
+    @sonobat_outputs = @sonobat_outputs.where(clutter_type: clutter_type) unless clutter_type.blank?
+    @sonobat_outputs = @sonobat_outputs.where(local_habitat: local_habitat) unless local_habitat.blank?
+    @sonobat_outputs = @sonobat_outputs.where(filename: filename) unless filename.blank?
+    @sonobat_outputs = @sonobat_outputs.where(software: software) unless software.blank?
+    @sonobat_outputs = @sonobat_outputs.where(version: version) unless version.blank?
+    @sonobat_outputs = @sonobat_outputs.where(spp_accp: spp_accp) unless spp_accp.blank?
+    @sonobat_outputs = @sonobat_outputs.where(species_group: species_group) unless species_group.blank?
+  end
+
   def qs_so_form
   end
 

@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :location_mapping do
-    name { "" }
+    name { "FAKE LOCATION MAPPING" }
   end
 end

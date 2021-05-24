@@ -1,0 +1,46 @@
+<h1>ODFW Search Results</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Location Name</th>
+            <th scope="col">Night</th>
+            <th scope="col">Datum Label</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">Elevation</th>
+            <th scope="col">State Code</th>
+            <th scope="col">County Name</th>
+            <th scope="col">Location Description</th>
+            <th scope="col">Contact First Name</th>
+            <th scope="col">Contact Last Name</th>
+            <th scope="col">Organization</th>
+            <th scope="col">Local Habitat Label</th>
+            <th scope="col">Manual Species ID 1</th>
+            <th scope="col">Manual Species ID 2</th>
+            <th scope="col">Ownership</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @sonobat_outputs.each do |so| %>
+        <tr>
+            <td><%= so.deployment.detector_location.location_name %></td>
+            <td><%= so.night %></td>
+            <td>TODO</td>
+            <td><%= so.deployment.detector_location.latitude %></td>
+            <td><%= so.deployment.detector_location.longitude %></td>
+            <td><%= so.deployment.detector_location.elevation %></td>
+            <td><%= so.deployment.detector_location.sample_unit.code %></td>
+            <td></td>
+            <td><%= so.deployment.comments %></td>
+            <td><%= so.deployment.primary_contact.first_name %></td>
+            <td><%= so.deployment.primary_contact.last_name %></td>
+            <td><%= so.deployment.primary_contact.organization.name %></td>
+            <td>TODO</td>
+            <td><%= so.manual_idspp1 %></td>
+            <td><%= so.manual_idspp2 %></td>
+            <td><%= so.deployment.detector_location.land_ownership %></td>
+        </tr>
+        <% end %>
+
+    </tbody>
+</table>

@@ -19,21 +19,114 @@ class FlexibleSearchesController < ApplicationController
   def new
   end
 
-  def results
+  def odfw_form
+  end
+
+  def odfw_results
+    manual_idspp1 = params[:manual_idspp1]
+    manual_idspp2 = params[:manual_idspp2]
+    night = params[:night]
+    location_name = params[:location_name]
+    latitude = params[:latitude]
+    longitude = params[:longitude]
+    elevation = params[:elevation]
+    code = params[:code]
+    name = params[:name]
+    comments = params[:comments]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    organization = params[:organization]
+    land_ownership = params[:land_ownership]
+
+
+    @sonobat_outputs = SonobatOutput.all
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
+    @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
+    @sonobat_outputs = @sonobat_outputs.where(location_name: location_name) unless location_name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(latitude: latitude) unless latitude.blank?
+    @sonobat_outputs = @sonobat_outputs.where(longitude: longitude) unless longitude.blank?
+    @sonobat_outputs = @sonobat_outputs.where(elevation: elevation) unless elevation.blank?
+    @sonobat_outputs = @sonobat_outputs.where(code: code) unless code.blank?
+    @sonobat_outputs = @sonobat_outputs.where(name: name) unless name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(comments: comments) unless comments.blank?
+    @sonobat_outputs = @sonobat_outputs.where(first_name: first_name) unless first_name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(last_name: last_name) unless last_name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(organization: organization) unless organization.blank?
+    @sonobat_outputs = @sonobat_outputs.where(land_ownership: land_ownership) unless land_ownership.blank?
+  end
+
+  def usgs_na_bat_form
+  end
+  
+  def usgs_na_bat_results
+    manual_idspp1 = params[:manual_idspp1]
+    manual_idspp2 = params[:manual_idspp2]
+    sample_unit = params[:sample_unit]
+    location_name = params[:location_name]
+    deployment_date = params[:deployment_date]
+    recovery_date = params[:recovery_date]
+    manufacturer = params[:manufacturer]
+    model = params[:model]
+    microphone_type = params[:microphone_type]
+    microphone_height_off_ground = params[:microphone_height_off_ground]
+    distance_range = params[:distance_range]
+    clutter_type = params[:clutter_type]
+    clutter_percent = params[:clutter_percent]
+    local_habitat = params[:local_habitat]
+    filename = params[:filename]
+    software = params[:software]
+    version = params[:version]
+    spp_accp = params[:spp_accp]
+    species_group = params[:species_group]
+
+
+    @sonobat_outputs = SonobatOutput.all
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
+    @sonobat_outputs = @sonobat_outputs.where(location_name: location_name) unless location_name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(deployment_date: deployment_date) unless deployment_date.blank?
+    @sonobat_outputs = @sonobat_outputs.where(recovery_date: recovery_date) unless recovery_date.blank?
+    @sonobat_outputs = @sonobat_outputs.where(manufacturer: manufacturer) unless manufacturer.blank?
+    @sonobat_outputs = @sonobat_outputs.where(model: model) unless model.blank?
+    @sonobat_outputs = @sonobat_outputs.where(microphone_height_off_ground: microphone_height_off_ground) unless microphone_height_off_ground.blank?
+    @sonobat_outputs = @sonobat_outputs.where(distance_range: distance_range) unless distance_range.blank?
+    @sonobat_outputs = @sonobat_outputs.where(clutter_type: clutter_type) unless clutter_type.blank?
+    @sonobat_outputs = @sonobat_outputs.where(clutter_type: clutter_type) unless clutter_type.blank?
+    @sonobat_outputs = @sonobat_outputs.where(local_habitat: local_habitat) unless local_habitat.blank?
+    @sonobat_outputs = @sonobat_outputs.where(filename: filename) unless filename.blank?
+    @sonobat_outputs = @sonobat_outputs.where(software: software) unless software.blank?
+    @sonobat_outputs = @sonobat_outputs.where(version: version) unless version.blank?
+    @sonobat_outputs = @sonobat_outputs.where(spp_accp: spp_accp) unless spp_accp.blank?
+    @sonobat_outputs = @sonobat_outputs.where(species_group: species_group) unless species_group.blank?
+  end
+
+  def qs_so_form
+  end
+
+  def qs_so_results
     manual_idspp1 = params[:manual_idspp1]
     manual_idspp2 = params[:manual_idspp2]
     night = params[:night]
     state = params[:state]
     sample_unit = params[:sample_unit]
-    location_id = params[:location_id]
+    location_identifier = params[:location_identifier]
     agency = params[:agency]
+    spp_accp = params[:spp_accp]
+    notes = params[:notes]
+    code = params[:code]
+    grts = params[:grts]
+    recording_start = params[:recording_start]
+    recording_stop = params[:recording_stop]
+    recovery_date = params[:recovery_date]
 
     #OR functionality
     # @flexible_search = SonobatOutput.where(manual_idspp1: manual_idspp1).or(Deployment.where(microphone_orientation: microphone_orientation))
     #AND functionality
-    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1)
-    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2)
-    @sonobat_outputs = @sonobat_outputs.where(night: night)
+    @sonobat_outputs = SonobatOutput.all
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
+    @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
   end
 
 
@@ -122,8 +215,8 @@ class FlexibleSearchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flexible_search_params
-      params.require(:flexible_search).permit(:name, :comments, :recording_length, :detector_location, :narrow, :search_field, :search_items, :state, :sample_unit, 
-      :location_id, :agency, :night, :manual_idspp1, :manual_idspp2, searchables: [])
+      params.require(:flexible_search).permit(:name, :spp_accp, :comments, :recording_length, :detector_location, :narrow, :search_field, :search_items, :state, :sample_unit, 
+      :location_id, :agency, :night, :manual_idspp1, :manual_idspp2, :land_ownership, :organization, :first_name, :last_name, :comments, :code, :elevation, :latitude, :longitude, searchables: [])
     end
 end
 

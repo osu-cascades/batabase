@@ -1,0 +1,54 @@
+<h1>ODFW Search Results</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Sample Unit</th>
+            <th scope="col">Location Name</th>
+            <th scope="col">Deployment Date</th>
+            <th scope="col">Recovery Date</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Model</th>
+            <th scope="col">Microphone Type</th>
+            <th scope="col">Microphone Height</th>
+            <th scope="col">Distance Range</th>
+            <th scope="col">Clutter Type</th>
+            <th scope="col">Water Body Type</th>
+            <th scope="col">Clutter %</th>
+            <th scope="col">Local Habitat</th>
+            <th scope="col">File Name</th>
+            <th scope="col">Software Label</th>
+            <th scope="col">Software Version</th>
+            <th scope="col">Species Accepted</th>
+            <th scope="col">Manual Species ID 1</th>
+            <th scope="col">Manual Species ID 2</th>
+            <th scope="col">Species Group</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @sonobat_outputs.each do |so| %>
+        <tr>
+            <td><%= so.deployment.detector_location.sample_unit.code %></td>
+            <td><%= so.deployment.detector_location.location_name %></td>
+            <td><%= so.deployment.deployment_date %></td>
+            <td><%= so.deployment.recovery_date %></td>
+            <td><%= so.deployment.detector.manufacturer %></td>
+            <td><%= so.deployment.detector.model %></td>
+            <td>TODO</td>
+            <td><%= so.deployment.microphone_height_off_ground %></td>
+            <td><%= so.deployment.distance_range.label %></td>
+            <td><%= so.deployment.clutter_type %></td>
+            <td><%= so.deployment.primary_contact.last_name %></td>
+            <td><%= so.deployment.primary_contact.organization.name %></td>
+            <td><%= so.deployment.detector_location.local_habitat %></td>
+            <td><%= so.filename %></td>
+            <td><%= so.deployment.primary_contact.contact.software.name %></td>
+            <td><%= so.deployment.primary_contact.contact.software.version %></td>
+            <td><%= so.spp_accp %></td>
+            <td><%= so.manual_idspp1 %></td>
+            <td><%= so.manual_idspp2 %></td>
+            <td>TODO</td>  
+        </tr>
+        <% end %>
+
+    </tbody>
+</table>

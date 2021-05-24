@@ -43,6 +43,17 @@ class FlexibleSearchesController < ApplicationController
     @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
     @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
+    @sonobat_outputs = @sonobat_outputs.where(location_name: location_name) unless location_name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(latitude: latitude) unless latitude.blank?
+    @sonobat_outputs = @sonobat_outputs.where(longitude: longitude) unless longitude.blank?
+    @sonobat_outputs = @sonobat_outputs.where(elevation: elevation) unless elevation.blank?
+    @sonobat_outputs = @sonobat_outputs.where(code: code) unless code.blank?
+    @sonobat_outputs = @sonobat_outputs.where(name: name) unless name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(comments: comments) unless comments.blank?
+    @sonobat_outputs = @sonobat_outputs.where(first_name: first_name) unless first_name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(last_name: last_name) unless last_name.blank?
+    @sonobat_outputs = @sonobat_outputs.where(organization: organization) unless organization.blank?
+    @sonobat_outputs = @sonobat_outputs.where(land_ownership: land_ownership) unless land_ownership.blank?
   end
 
   def qs_so_form

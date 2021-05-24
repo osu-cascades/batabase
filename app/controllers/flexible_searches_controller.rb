@@ -19,6 +19,32 @@ class FlexibleSearchesController < ApplicationController
   def new
   end
 
+  def odfw_form
+  end
+
+  def odfw_results
+    manual_idspp1 = params[:manual_idspp1]
+    manual_idspp2 = params[:manual_idspp2]
+    night = params[:night]
+    location_name = params[:location_name]
+    latitude = params[:latitude]
+    longitude = params[:longitude]
+    elevation = params[:elevation]
+    code = params[:code]
+    name = params[:name]
+    comments = params[:comments]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    organization = params[:organization]
+    land_ownership = params[:land_ownership]
+
+
+    @sonobat_outputs = SonobatOutput.all
+    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
+    @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
+  end
+
   def qs_so_form
   end
 
@@ -134,7 +160,7 @@ class FlexibleSearchesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def flexible_search_params
       params.require(:flexible_search).permit(:name, :spp_accp, :comments, :recording_length, :detector_location, :narrow, :search_field, :search_items, :state, :sample_unit, 
-      :location_id, :agency, :night, :manual_idspp1, :manual_idspp2, searchables: [])
+      :location_id, :agency, :night, :manual_idspp1, :manual_idspp2, :land_ownership, :organization, :first_name, :last_name, :comments, :code, :elevation, :latitude, :longitude, searchables: [])
     end
 end
 

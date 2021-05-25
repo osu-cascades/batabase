@@ -1,2 +1,0 @@
-class LocationMapping < ApplicationRecord
-end

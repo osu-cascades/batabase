@@ -39,10 +39,12 @@ class FlexibleSearchesController < ApplicationController
     land_ownership = params[:land_ownership]
     start_date = params[:start_date]
     end_date = params[:end_date]
+    start_date = params[:start_date]
+    end_date = params[:end_date]
 
 
     @sonobat_outputs = SonobatOutput.all
-    @sonobat_outputs = @sonobat_outputs.where('created_at BETWEEN ? AND ?', @start_date.beginning_of_day, @end_date.end_of_day)
+    @sonobat_outputs = @sonobat_outputs.where(:night => start_date.to_datetime.beginning_of_day..end_date.to_datetime.end_of_day) unless (start_date.blank? or end_date.blank?)
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
     @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
@@ -82,6 +84,8 @@ class FlexibleSearchesController < ApplicationController
     version = params[:version]
     spp_accp = params[:spp_accp]
     species_group = params[:species_group]
+    start_date = params[:start_date]
+    end_date = params[:end_date]
 
 
     @sonobat_outputs = SonobatOutput.all

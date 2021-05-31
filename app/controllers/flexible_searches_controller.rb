@@ -37,10 +37,13 @@ class FlexibleSearchesController < ApplicationController
     last_name = params[:last_name]
     organization = params[:organization]
     land_ownership = params[:land_ownership]
+    start_date = params[:start_date]
+    end_date = params[:end_date]
 
 
     @sonobat_outputs = SonobatOutput.all
-    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
+    @sonobat_outputs = @sonobat_outputs.where('created_at BETWEEN ? AND ?', @start_date.beginning_of_day, @end_date.end_of_day)
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
     @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
     @sonobat_outputs = @sonobat_outputs.where(location_name: location_name) unless location_name.blank?
@@ -82,7 +85,8 @@ class FlexibleSearchesController < ApplicationController
 
 
     @sonobat_outputs = SonobatOutput.all
-    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
+    @sonobat_outputs = @sonobat_outputs.where(:night => start_date.to_datetime.beginning_of_day..end_date.to_datetime.end_of_day) unless (start_date.blank? or end_date.blank?)
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
     @sonobat_outputs = @sonobat_outputs.where(location_name: location_name) unless location_name.blank?
     @sonobat_outputs = @sonobat_outputs.where(deployment_date: deployment_date) unless deployment_date.blank?
@@ -123,10 +127,16 @@ class FlexibleSearchesController < ApplicationController
     #OR functionality
     # @flexible_search = SonobatOutput.where(manual_idspp1: manual_idspp1).or(Deployment.where(microphone_orientation: microphone_orientation))
     #AND functionality
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+
+
     @sonobat_outputs = SonobatOutput.all
-    @sonobat_outputs = SonobatOutput.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
+    @sonobat_outputs = @sonobat_outputs.where(:night => start_date.to_datetime.beginning_of_day..end_date.to_datetime.end_of_day) unless (start_date.blank? or end_date.blank?)
+    @sonobat_outputs = @sonobat_outputs.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
     @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
+    @sonobat_outputs = @sonobat_outputs.where(spp_accp: night) unless spp_accp.blank?
   end
 
 

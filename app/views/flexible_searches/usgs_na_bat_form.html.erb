@@ -1,6 +1,14 @@
 <h1>USGS NA Bat Quick Search</h1>
 <form action="<%= usgs_na_bat_results_path %>" method="GET">
 
+    <h4>Filter by Date</h4>
+    <label for="start_date">Start Date</label><br>
+    <input type="text" name="start_date"><br>
+
+    <label for="end_date">End Date</label><br>
+    <input type="text" name="end_date"><br><br>
+
+    <h4>Filter by Column</h4>
     <label for="sample_unit">Sample Unit</label><br>
     <input type="text" name="sample_unit"><br>
 

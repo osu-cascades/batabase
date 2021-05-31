@@ -1,6 +1,15 @@
 <h1>ODFW Quick Search</h1>
 <form action="<%= odfw_results_path %>" method="GET">
 
+    <h4>Filter by Date</h4>
+    <label for="start_date">Start Date</label><br>
+    <input type="text" name="start_date"><br>
+
+    <label for="end_date">End Date</label><br>
+    <input type="text" name="end_date"><br><br>
+
+    <h4>Filter by Column</h4>
+
     <label for="location_name">Location Name</label><br>
     <input type="text" name="location_name"><br>
 

@@ -136,7 +136,15 @@ class FlexibleSearchesController < ApplicationController
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp1: manual_idspp1) unless manual_idspp1.blank?
     @sonobat_outputs = @sonobat_outputs.where(manual_idspp2: manual_idspp2) unless manual_idspp2.blank?
     @sonobat_outputs = @sonobat_outputs.where(night: night) unless night.blank?
-    @sonobat_outputs = @sonobat_outputs.where(spp_accp: night) unless spp_accp.blank?
+    @sonobat_outputs = @sonobat_outputs.where(spp_accp: spp_accp) unless spp_accp.blank?
+    @sonobat_outputs = @sonobat_outputs.where(agency: agency) unless agency.blank?
+    @sonobat_outputs = @sonobat_outputs.where(state: state) unless state.blank?
+    @sonobat_outputs = @sonobat_outputs.where(notes: notes) unless notes.blank?
+    @sonobat_outputs = @sonobat_outputs.where(code: code) unless code.blank?
+    @sonobat_outputs = @sonobat_outputs.where(grts: grts) unless grts.blank?
+    @sonobat_outputs = @sonobat_outputs.where(recording_stop: recording_stop) unless recording_stop.blank?
+    @sonobat_outputs = @sonobat_outputs.where(recording_stop: recording_stop) unless recording_stop.blank?
+    @sonobat_outputs = @sonobat_outputs.where(recovery_date: recovery_date) unless recovery_date.blank?
   end
 
 

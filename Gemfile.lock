@@ -67,8 +67,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.1)
     autoprefixer-rails (10.0.1.0)
       execjs
@@ -203,7 +203,7 @@ GEM
     pg (1.2.3-x64-mingw32)
     pg (1.2.3-x86-mingw32)
     popper_js (1.16.0)
-    public_suffix (4.0.6)
+    public_suffix (5.0.0)
     puma (4.3.6)
       nio4r (~> 2.0)
     puma (4.3.6-java)
@@ -350,7 +350,6 @@ GEM
       activesupport (>= 5.0.0, < 7.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    wdm (0.1.1)
     web-console (4.0.4)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -412,7 +411,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
   view_component
-  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
   webdrivers
 
